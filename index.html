@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Base64Pro - Professional Base64 Encoder/Decoder with image conversion. Features code snippets, FAQs, and expert tools for developers." />
+  <meta name="keywords" content="Base64Pro, Base64 encoder, Base64 decoder, image to Base64, Base64 tool" />
+  <title>Base64Pro - Professional Encoder/Decoder Tool</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <style type="text/tailwindcss">
+    body {
+      @apply bg-gray-900 text-gray-100 font-sans;
+    }
+    .container {
+      @apply max-w-5xl mx-auto px-4;
+    }
+    .section-title {
+      @apply text-3xl font-bold mb-4 text-blue-600 border-b border-blue-600 pb-2;
+    }
+    .card {
+      @apply bg-gray-800 p-4 rounded mb-6 shadow-lg;
+    }
+    .btn-group {
+      @apply flex flex-wrap gap-2 mb-4;
+    }
+    .status-badge {
+      @apply inline-block px-3 py-1 bg-green-500 text-gray-900 text-sm rounded mt-2;
+    }
+    .btn {
+      @apply px-4 py-2 rounded font-medium transition-all duration-300;
+    }
+    .btn-primary {
+      @apply bg-blue-600 hover:bg-blue-700 text-white;
+    }
+    .btn-success {
+      @apply bg-green-600 hover:bg-green-700 text-white;
+    }
+    .btn-secondary {
+      @apply bg-gray-700 hover:bg-gray-600 text-white;
+    }
+    .code-snippet {
+      @apply bg-gray-700 p-4 rounded text-sm overflow-x-auto;
+    }
+    .toast {
+      @apply fixed bottom-4 right-4 px-4 py-2 rounded shadow-lg bg-green-600 text-white transform translate-y-20 opacity-0 transition-all duration-300;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- 导航栏 -->
+  <header class="bg-gray-800 py-4 mb-8 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-code text-blue-600 text-xl"></i>
+        <h1 class="text-xl font-bold">Base64<span class="text-blue-600">Pro</span></h1>
+      </div>
+      <nav class="space-x-4">
+        <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+        <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
+        <a href="#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="flex-grow container mx-auto px-4">
+    <!-- Hero 区 -->
+    <section id="hero" class="mb-8">
+      <h1 class="text-4xl font-bold mb-4 text-blue-600">
+        Base64Pro - Professional Encoding/Decoding
+      </h1>
+      <p class="mb-6 text-gray-400">
+        A developer-first tool for Base64 tasks. Includes clear Encode/Decode buttons, image conversion, and expert guides. 
+        Simplify your workflow with code snippets and error-free encoding.
+      </p>
+    </section>
+
+    <!-- 核心工具区（含显化按钮） -->
+    <section id="tools" class="mb-8">
+      <h2 class="section-title">Core Tools</h2>
+      <!-- Base64 编码/解码卡片 -->
+      <div class="card">
+        <h3 class="text-xl font-bold mb-2 text-blue-500">Base64 Encoder/Decoder</h3>
+        <textarea 
+          id="input" 
+          class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+          placeholder="Enter text, URL, or data..."
+        >SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgdGVzdCBmb3IgQmFzZTY0IGVuY29kaW5nLg==</textarea>
+        <!-- 显化按钮组 -->
+        <div class="btn-group">
+          <button id="encode-btn" class="btn btn-primary">
+            <i class="fa fa-lock mr-1"></i> Encode
+          </button>
+          <button id="decode-btn" class="btn btn-success">
+            <i class="fa fa-unlock mr-1"></i> Decode
+          </button>
+          <button id="clear-btn" class="btn btn-secondary">
+            <i class="fa fa-trash mr-1"></i> Clear
+          </button>
+        </div>
+        <textarea 
+          id="output" 
+          class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+          placeholder="Result will appear here..." readonly
+        >Hello, World! This is a test for Base64 encoding.</textarea>
+        <button id="copy-btn" class="btn btn-success mt-2">
+          <i class="fa fa-clipboard mr-1"></i> Copy Result
+        </button>
+      </div>
+
+      <!-- 图片转换卡片（已上线） -->
+      <div class="card">
+        <h3 class="text-xl font-bold mb-2 text-blue-500">Image to Base64 Converter</h3>
+        <p class="text-gray-400 mb-2">
+          <span class="status-badge">Live</span> Convert images to Base64 strings for web development
+        </p>
+        <input 
+          type="file" 
+          id="image-upload" 
+          class="block mb-4 text-gray-300"
+          accept="image/*"
+        />
+        <button id="image-convert-btn" class="btn btn-primary mb-4">
+          <i class="fa fa-image mr-1"></i> Convert Image
+        </button>
+        <textarea 
+          id="image-output" 
+          class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+          placeholder="Base64 image data will appear here..." readonly
+        ></textarea>
+      </div>
+    </section>
+
+    <!-- 代码片段区 -->
+    <section class="mb-8">
+      <h2 class="section-title">Code Snippets</h2>
+      <div class="card">
+        <p class="text-gray-300 mb-2">Python Example:</p>
+        <pre class="code-snippet">
+          <code>
+import base64
+# Encode
+text = "Hello, Base64Pro!"
+encoded = base64.b64encode(text.encode())
+print(encoded.decode())  # SGVsbG8sIEJhc2U2NFBybw==
+
+# Decode
+decoded = base64.b64decode(encoded).decode()
+print(decoded)  # Hello, Base64Pro!
+          </code>
+        </pre>
+        
+        <p class="text-gray-300 mb-2 mt-4">JavaScript Example:</p>
+        <pre class="code-snippet">
+          <code>
+// Encode
+const text = "Hello, Base64Pro!";
+const encoded = btoa(text);
+console.log(encoded);  // SGVsbG8sIEJhc2U2NFBybw==
+
+// Decode
+const decoded = atob(encoded);
+console.log(decoded);  // Hello, Base64Pro!
+          </code>
+        </pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- About 板块 -->
+  <section id="about" class="mb-8">
+    <h2 class="section-title">About Base64Pro</h2>
+    <div class="card">
+      <p class="text-gray-300">
+        Built for developers who need precision. Base64Pro focuses on clarity (with explicit Encode/Decode buttons) and reliability. 
+        Our mission is to simplify complex encoding tasks and provide expert resources.
+      </p>
+      <p class="text-gray-300 mt-4">
+        All operations are performed locally in your browser - your data never leaves your device. This ensures security and privacy for sensitive information.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ 板块 -->
+  <section id="faq" class="mb-8">
+    <h2 class="section-title">FAQs</h2>
+    <div class="card space-y-4">
+      <div>
+        <h3 class="text-xl font-bold mb-2 text-blue-400">Why explicit Encode/Decode buttons?</h3>
+        <p class="text-gray-300">
+          To avoid confusion! Clear buttons ensure you control the action, preventing accidental encoding/decoding of sensitive data.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-2 text-blue-400">How does the Image Converter work?</h3>
+        <p class="text-gray-300">
+          Simply upload any image file (JPG, PNG, GIF), and our tool will convert it to a Base64 string that you can embed directly in HTML or CSS.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-2 text-blue-400">Is my data secure?</h3>
+        <p class="text-gray-300">
+          Yes! All encoding and decoding happens entirely in your browser. No data is sent to any server, ensuring complete privacy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-800 py-4 text-center text-gray-400 text-sm mt-8 border-t border-gray-700">
+    &copy; 2024 Base64Pro. All rights reserved. 
+    <a href="#about" class="text-blue-500 hover:text-white ml-1 transition-colors">About</a> | 
+    <a href="#faq" class="text-blue-500 hover:text-white ml-1 transition-colors">FAQ</a> |
+    <a href="#" class="text-blue-500 hover:text-white ml-1 transition-colors">Privacy</a>
+  </footer>
+
+  <!-- 通知提示 -->
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <!-- 功能 JS -->
+  <script>
+    // 防抖函数 - 防止频繁点击
+    function debounce(func, wait = 500) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          func.apply(this, args);
+        }, wait);
+      };
+    }
+
+    // 编码功能（带防抖）
+    const handleEncode = debounce(() => {
+      const input = document.getElementById('input').value;
+      try {
+        const encoded = btoa(unescape(encodeURIComponent(input)));
+        document.getElementById('output').value = encoded;
+      } catch (error) {
+        document.getElementById('output').value = 'Error: Invalid input';
+      }
+    });
+
+    // 解码功能（带防抖）
+    const handleDecode = debounce(() => {
+      const input = document.getElementById('input').value;
+      try {
+        const decoded = decodeURIComponent(escape(atob(input)));
+        document.getElementById('output').value = decoded;
+      } catch (error) {
+        document.getElementById('output').value = 'Error: Invalid Base64 string';
+      }
+    });
+
+    // 图片转换功能（带防抖）
+    const handleImageConvert = debounce(() => {
+      const file = document.getElementById('image-upload').files[0];
+      if (!file) {
+        showToast('Please select an image first');
+        return;
+      }
+
+      // 检查文件大小（限制10MB）
+      if (file.size > 10 * 1024 * 1024) {
+        showToast('File too large (max 10MB)');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // 提取Base64数据（去掉前缀）
+        const base64 = e.target.result.split(',')[1];
+        document.getElementById('image-output').value = base64;
+        showToast('Image converted to Base64');
+      };
+      reader.onerror = () => {
+        showToast('Error reading file');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // 显示通知
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'hidden');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // 事件监听
+    document.getElementById('encode-btn').addEventListener('click', handleEncode);
+    document.getElementById('decode-btn').addEventListener('click', handleDecode);
+    document.getElementById('image-convert-btn').addEventListener('click', handleImageConvert);
+
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      document.getElementById('input').value = '';
+      document.getElementById('output').value = '';
+    });
+
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      const output = document.getElementById('output').value;
+      if (output) {
+        navigator.clipboard.writeText(output);
+        showToast('Copied to clipboard!');
+      } else {
+        showToast('Nothing to copy');
+      }
+    });
+
+    // 页面加载完成后显示欢迎提示
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        showToast('Welcome to Base64Pro - Professional encoding tools');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
