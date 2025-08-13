@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Base64Pro - Professional Base64 Encoder, Decoder and Image Converter. Free online tool with tutorials and developer resources." />
-  <meta name="keywords" content="Base64 encode, Base64 decode, image to Base64, Base64 tool, Base64 tutorial" />
-  <title>Base64Pro - Professional Base64 Encoder & Decoder Tool</title>
+  <meta name="description" content="Base64Pro - Professional Base64 Encoder/Decoder with image conversion. Features code snippets, tutorials, and developer tools." />
+  <meta name="keywords" content="Base64Pro, Base64 encoder, Base64 decoder, image to Base64, Base64 tool" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR5YMPT48K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QR5YMPT48K');
+  </script>
+  
+  <title>Base64Pro - Professional Encoder/Decoder Tool</title>
 
   <!-- External Resources -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
   <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .ad-slot {
-        @apply bg-gray-800/50 rounded-lg p-4 my-6 border border-gray-700 text-center text-gray-400 text-sm;
-      }
-    }
-
     body {
       @apply bg-gray-900 text-gray-100 font-sans;
     }
@@ -31,7 +32,7 @@
       @apply text-3xl font-bold mb-6 text-blue-600 border-b border-blue-600 pb-2;
     }
     .card {
-      @apply bg-gray-800 p-5 rounded-lg mb-6 shadow-lg transition-all duration-300 hover:shadow-blue-900/20;
+      @apply bg-gray-800 p-5 rounded-lg mb-6 shadow-lg;
     }
     .btn {
       @apply px-4 py-2 rounded font-medium transition-all duration-300;
@@ -46,10 +47,13 @@
       @apply bg-gray-700 hover:bg-gray-600 text-white;
     }
     .code-snippet {
-      @apply bg-gray-700 p-4 rounded-lg text-sm overflow-x-auto;
+      @apply bg-gray-700 p-4 rounded text-sm overflow-x-auto;
     }
     .toast {
       @apply fixed bottom-4 right-4 px-4 py-2 rounded shadow-lg bg-green-600 text-white transform translate-y-20 opacity-0 transition-all duration-300;
+    }
+    .ad-slot {
+      @apply bg-gray-800/50 rounded-lg p-4 my-6 border border-gray-700 text-center text-gray-400 text-sm;
     }
   </style>
 </head>
@@ -76,64 +80,42 @@
   <main class="flex-grow container mx-auto px-4 py-6">
     <!-- Hero Section -->
     <section id="home" class="mb-10">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-600">
-        Professional Base64 Encoding Tools
-      </h1>
-      <p class="text-gray-300 mb-6 max-w-3xl">
-        Base64Pro provides fast, secure, and reliable encoding and decoding tools for developers. 
-        Convert text, URLs, and images to Base64 format with our easy-to-use interface. All operations 
-        are performed locally in your browser, ensuring your data remains private.
-      </p>
+      <h1 class="section-title">Base64Pro - Professional Encoding/Decoding</h1>
       
-      <!-- Ad Slot - Header -->
+      <!-- Ad Slot -->
       <div class="ad-slot">
         <p>Advertisement will be displayed here</p>
       </div>
-    </section>
-
-    <!-- Tool Description Section -->
-    <section class="mb-10">
-      <h2 class="section-title">About Our Tools</h2>
-      <div class="card">
-        <p class="text-gray-300 mb-4">
-          Base64 encoding is a method of converting binary data into ASCII characters, making it safe 
-          for transmission over text-based protocols. Our tools support:
-        </p>
-        <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
-          <li>Text encoding and decoding</li>
-          <li>Image to Base64 conversion (JPG, PNG, GIF)</li>
-          <li>Developer-friendly code snippets</li>
-          <li>Real-time processing with no server-side data transmission</li>
-        </ul>
-        <p class="text-gray-300">
-          Whether you're working on web development, API integration, or data storage, our tools 
-          streamline your workflow with accurate results every time.
-        </p>
-      </div>
+      
+      <p class="text-gray-300 mb-6 text-lg">
+        A developer-first tool for all your Base64 needs. Easily encode and decode text, URLs, and images with our 
+        intuitive interface. All operations are performed locally in your browser, ensuring privacy and security.
+      </p>
+      <p class="text-gray-300 mb-6">
+        Base64 encoding is widely used in web development for embedding images, transferring binary data in APIs, 
+        and ensuring data integrity in text-based protocols. Our tool simplifies these tasks with professional-grade features.
+      </p>
     </section>
 
     <!-- Core Tools Section -->
     <section id="tools" class="mb-10">
-      <h2 class="section-title">Base64 Tools</h2>
+      <h2 class="section-title">Core Tools</h2>
       
-      <!-- Ad Slot - Before Tools -->
-      <div class="ad-slot">
-        <p>Advertisement will be displayed here</p>
-      </div>
-
-      <!-- Encoder/Decoder Card -->
+      <!-- Base64 Encoder/Decoder Card -->
       <div class="card">
-        <h3 class="text-xl font-bold mb-3 text-blue-500">Base64 Encoder & Decoder</h3>
-        <p class="text-gray-400 mb-4 text-sm">
-          Convert plain text to Base64 encoding or decode Base64 strings back to readable text.
+        <h3 class="text-xl font-bold mb-3 text-blue-500">Base64 Encoder/Decoder</h3>
+        <p class="text-gray-300 mb-4">
+          Convert text to Base64 encoding or decode Base64 strings back to original text. Perfect for developers working with APIs, 
+          data transmission, or embedding data in web applications.
         </p>
         <textarea 
           id="input" 
-          class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+          class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
           placeholder="Enter text, URL, or data to encode/decode..."
         >SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgdGVzdCBmb3IgQmFzZTY0IGVuY29kaW5nLg==</textarea>
         
-        <div class="flex flex-wrap gap-2 mb-3">
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-2 mb-4">
           <button id="encode-btn" class="btn btn-primary">
             <i class="fa fa-lock mr-1"></i> Encode
           </button>
@@ -151,16 +133,22 @@
           placeholder="Result will appear here..." readonly
         >Hello, World! This is a test for Base64 encoding.</textarea>
         
-        <button id="copy-btn" class="btn btn-success mt-3">
+        <button id="copy-btn" class="btn btn-success mt-2">
           <i class="fa fa-clipboard mr-1"></i> Copy Result
         </button>
+      </div>
+      
+      <!-- Ad Slot -->
+      <div class="ad-slot">
+        <p>Advertisement will be displayed here</p>
       </div>
 
       <!-- Image Converter Card -->
       <div class="card">
         <h3 class="text-xl font-bold mb-3 text-blue-500">Image to Base64 Converter</h3>
-        <p class="text-gray-400 mb-4 text-sm">
-          Convert image files to Base64 encoded strings for direct embedding in HTML, CSS, or JavaScript.
+        <p class="text-gray-300 mb-4">
+          Convert images to Base64 strings for direct embedding in HTML, CSS, or JavaScript. Supports all common image formats 
+          including JPG, PNG, GIF, and SVG.
         </p>
         <input 
           type="file" 
@@ -177,81 +165,84 @@
           placeholder="Base64 image data will appear here..." readonly
         ></textarea>
       </div>
-
-      <!-- Ad Slot - After Tools -->
+    </section>
+    
+    <!-- Tutorial Section -->
+    <section id="tutorial" class="mb-10">
+      <h2 class="section-title">Tutorial & Code Snippets</h2>
+      
+      <!-- Ad Slot -->
       <div class="ad-slot">
         <p>Advertisement will be displayed here</p>
       </div>
-    </section>
-
-    <!-- Tutorial Section -->
-    <section id="tutorial" class="mb-10">
-      <h2 class="section-title">Base64 Tutorial</h2>
+      
       <div class="card">
         <h3 class="text-xl font-bold mb-3 text-blue-500">How to Use Base64 Encoding</h3>
+        <p class="text-gray-300 mb-4">
+          Base64 encoding converts binary data into ASCII characters, making it safe for transmission in text-based protocols.
+          Follow these steps to use Base64 effectively in your projects:
+        </p>
         
-        <div class="mb-6">
-          <h4 class="text-lg font-semibold mb-2 text-blue-400">Step 1: Choose Your Operation</h4>
-          <p class="text-gray-300 mb-2">
-            Decide whether you need to encode text to Base64 or decode Base64 to text.
-          </p>
-        </div>
+        <ol class="list-decimal list-inside text-gray-300 space-y-3 mb-6">
+          <li>For text encoding: Enter your text in the input field and click "Encode"</li>
+          <li>For decoding: Paste your Base64 string and click "Decode"</li>
+          <li>For images: Upload your image file and click "Convert Image" to get the Base64 string</li>
+          <li>Use the resulting Base64 string in your HTML, CSS, or API requests as needed</li>
+        </ol>
         
-        <div class="mb-6">
-          <h4 class="text-lg font-semibold mb-2 text-blue-400">Step 2: Input Your Data</h4>
-          <p class="text-gray-300 mb-2">
-            Enter your text in the input field or upload an image for conversion.
-          </p>
-        </div>
-        
-        <div class="mb-6">
-          <h4 class="text-lg font-semibold mb-2 text-blue-400">Step 3: Process Your Data</h4>
-          <p class="text-gray-300 mb-2">
-            Click the appropriate button (Encode or Decode) to process your data.
-          </p>
-        </div>
-        
-        <div class="mb-6">
-          <h4 class="text-lg font-semibold mb-2 text-blue-400">Step 4: Copy the Result</h4>
-          <p class="text-gray-300 mb-2">
-            Use the copy button to save the result to your clipboard for immediate use.
-          </p>
-        </div>
-
-        <h3 class="text-xl font-bold mb-3 mt-6 text-blue-500">Developer Code Snippets</h3>
-        
-        <div class="mb-4">
-          <p class="text-gray-300 mb-2">Python Example:</p>
-          <pre class="code-snippet">
-            <code>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">Python Implementation</h3>
+        <pre class="code-snippet mb-6">
+          <code>
 import base64
-# Encode
-text = "Hello, Base64Pro!"
-encoded = base64.b64encode(text.encode())
-print(encoded.decode())  # SGVsbG8sIEJhc2U2NFBybw==
 
-# Decode
-decoded = base64.b64decode(encoded).decode()
-print(decoded)  # Hello, Base64Pro!
-            </code>
-          </pre>
-        </div>
+# Encode text to Base64
+def encode_base64(text):
+    encoded_bytes = base64.b64encode(text.encode('utf-8'))
+    return encoded_bytes.decode('utf-8')
+
+# Decode Base64 to text
+def decode_base64(encoded_text):
+    decoded_bytes = base64.b64decode(encoded_text)
+    return decoded_bytes.decode('utf-8')
+
+# Example usage
+original_text = "Hello, Base64Pro!"
+encoded = encode_base64(original_text)
+decoded = decode_base64(encoded)
+
+print(f"Original: {original_text}")
+print(f"Encoded: {encoded}")
+print(f"Decoded: {decoded}")
+          </code>
+        </pre>
         
-        <div>
-          <p class="text-gray-300 mb-2">JavaScript Example:</p>
-          <pre class="code-snippet">
-            <code>
-// Encode
-const text = "Hello, Base64Pro!";
-const encoded = btoa(text);
-console.log(encoded);  // SGVsbG8sIEJhc2U2NFBybw==
+        <h3 class="text-xl font-bold mb-3 text-blue-500">JavaScript Implementation</h3>
+        <pre class="code-snippet">
+          <code>
+// Encode text to Base64
+function encodeBase64(text) {
+  return btoa(unescape(encodeURIComponent(text)));
+}
 
-// Decode
-const decoded = atob(encoded);
-console.log(decoded);  // Hello, Base64Pro!
-            </code>
-          </pre>
-        </div>
+// Decode Base64 to text
+function decodeBase64(encodedText) {
+  try {
+    return decodeURIComponent(escape(atob(encodedText)));
+  } catch (error) {
+    return "Invalid Base64 string";
+  }
+}
+
+// Example usage
+const originalText = "Hello, Base64Pro!";
+const encoded = encodeBase64(originalText);
+const decoded = decodeBase64(encoded);
+
+console.log(`Original: ${originalText}`);
+console.log(`Encoded: ${encoded}`);
+console.log(`Decoded: ${decoded}`);
+          </code>
+        </pre>
       </div>
     </section>
 
@@ -259,99 +250,79 @@ console.log(decoded);  // Hello, Base64Pro!
     <section id="faq" class="mb-10">
       <h2 class="section-title">Frequently Asked Questions</h2>
       
-      <!-- Ad Slot - Before FAQ -->
-      <div class="ad-slot">
-        <p>Advertisement will be displayed here</p>
-      </div>
-      
       <div class="card space-y-6">
         <div>
           <h3 class="text-xl font-bold mb-2 text-blue-400">What is Base64 encoding used for?</h3>
           <p class="text-gray-300">
-            Base64 encoding converts binary data into ASCII characters, making it safe for 
-            transmission over text-based protocols. Common uses include embedding images in HTML/CSS, 
-            sending binary data in JSON/XML, and storing complex data in databases.
+            Base64 encoding is used to convert binary data into a text format that can be safely transmitted over text-based 
+            protocols. Common use cases include embedding images in HTML/CSS, sending binary data in APIs, storing complex data 
+            in databases, and ensuring data integrity in email attachments.
           </p>
         </div>
         
         <div>
-          <h3 class="text-xl font-bold mb-2 text-blue-400">Is Base64 encoding secure?</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400">Does Base64 encoding provide security?</h3>
           <p class="text-gray-300">
-            No, Base64 is an encoding method, not encryption. It does not provide security or 
-            privacy for your data. Always use proper encryption for sensitive information.
+            No, Base64 is an encoding scheme, not an encryption method. It does not provide security or privacy for your data. 
+            Base64 encoded data can be easily decoded by anyone with access to it. For secure data transmission, always use 
+            HTTPS and proper encryption algorithms.
           </p>
         </div>
         
         <div>
           <h3 class="text-xl font-bold mb-2 text-blue-400">Why does Base64 encoding increase file size?</h3>
           <p class="text-gray-300">
-            Base64 encoding uses 6 bits to represent each character, compared to 8 bits for binary data. 
-            This results in approximately a 33% increase in file size, which is a trade-off for safe 
-            text-based transmission.
+            Base64 encoding converts 3 bytes of binary data into 4 ASCII characters, resulting in approximately a 33% increase 
+            in file size. This tradeoff is necessary to ensure binary data can be safely transmitted through systems designed 
+            to handle text.
           </p>
         </div>
         
         <div>
-          <h3 class="text-xl font-bold mb-2 text-blue-400">How do I fix "Invalid Base64" errors?</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400">How do I handle "Invalid Base64" errors?</h3>
           <p class="text-gray-300">
-            Common causes include incorrect padding (missing '=' characters), special characters, 
-            or corrupted data. Ensure your input contains only valid Base64 characters and has proper padding.
+            Invalid Base64 errors typically occur due to: incorrect padding (missing '=' characters), special characters not 
+            part of the Base64 alphabet, or corrupted data. Check your input string for these issues, ensure proper formatting, 
+            and verify the data hasn't been truncated during transmission.
           </p>
         </div>
         
         <div>
-          <h3 class="text-xl font-bold mb-2 text-blue-400">Is my data sent to your servers?</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400">Is my data secure when using this tool?</h3>
           <p class="text-gray-300">
-            No, all processing happens locally in your browser. Your data never leaves your device, 
-            ensuring complete privacy and security.
+            Yes, all encoding and decoding operations happen entirely in your browser. No data is sent to any external servers, 
+            ensuring your information remains private and secure. We do not store or log any content processed through our tools.
           </p>
         </div>
       </div>
     </section>
-
+    
     <!-- Contact Section -->
     <section id="contact" class="mb-10">
       <h2 class="section-title">Contact Us</h2>
+      
+      <!-- Ad Slot -->
+      <div class="ad-slot">
+        <p>Advertisement will be displayed here</p>
+      </div>
+      
       <div class="card">
         <p class="text-gray-300 mb-4">
-          Have questions, suggestions, or need support? Feel free to reach out to our team:
+          Have questions, suggestions, or need support? We're here to help!
         </p>
-        <div class="flex items-center mb-4">
-          <i class="fa fa-envelope text-blue-600 mr-3 text-xl"></i>
-          <a href="mailto:support@base64pro.top" class="text-blue-400 hover:underline">support@base64pro.top</a>
-        </div>
-        <p class="text-gray-300 text-sm">
+        <p class="text-gray-300 mb-4">
+          Email us at: 
+          <a href="mailto:support@base64pro.top" class="text-blue-400 hover:underline font-medium">support@base64pro.top</a>
+        </p>
+        <p class="text-gray-300">
           We typically respond to all inquiries within 24-48 business hours.
         </p>
-      </div>
-    </section>
-
-    <!-- Legal Pages Links -->
-    <section class="mb-10">
-      <div class="card">
-        <h3 class="text-xl font-bold mb-4 text-blue-500">Legal Information</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <h4 class="font-semibold mb-2 text-blue-400">Privacy Policy</h4>
-            <p class="text-gray-300 mb-2 text-sm">
-              Learn how we handle your data and protect your privacy while using our tools.
-            </p>
-            <a href="privacy-policy.html" class="text-blue-400 hover:underline text-sm">View Privacy Policy</a>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2 text-blue-400">Terms of Service</h4>
-            <p class="text-gray-300 mb-2 text-sm">
-              Understand the terms and conditions for using our website and tools.
-            </p>
-            <a href="terms-of-service.html" class="text-blue-400 hover:underline text-sm">View Terms of Service</a>
-          </div>
-        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 py-6 border-t border-gray-700">
+  <footer class="bg-gray-800 py-6 border-t border-gray-700 mt-10">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center space-x-2 mb-4 md:mb-0">
@@ -365,8 +336,8 @@ console.log(decoded);  // Hello, Base64Pro!
           <a href="#tutorial" class="text-gray-400 hover:text-white transition-colors">Tutorial</a>
           <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
           <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
-          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
         </div>
         
         <div class="text-gray-400 text-sm">
@@ -379,9 +350,9 @@ console.log(decoded);  // Hello, Base64Pro!
   <!-- Toast Notification -->
   <div id="toast" class="toast">Copied to clipboard!</div>
 
-  <!-- Main JavaScript -->
+  <!-- Functionality Scripts -->
   <script>
-    // Debounce function to prevent rapid button clicks
+    // Debounce function to prevent frequent clicks
     function debounce(func, wait = 500) {
       let timeout;
       return function(...args) {
@@ -392,29 +363,33 @@ console.log(decoded);  // Hello, Base64Pro!
       };
     }
 
-    // Encoding functionality with debounce
+    // Encode functionality with debounce
     const handleEncode = debounce(() => {
       const input = document.getElementById('input').value;
       try {
         const encoded = btoa(unescape(encodeURIComponent(input)));
         document.getElementById('output').value = encoded;
+        showToast('Text encoded successfully!');
       } catch (error) {
-        document.getElementById('output').value = 'Error: Invalid input for encoding';
+        document.getElementById('output').value = 'Error: Invalid input';
+        showToast('Encoding failed');
       }
     });
 
-    // Decoding functionality with debounce
+    // Decode functionality with debounce
     const handleDecode = debounce(() => {
       const input = document.getElementById('input').value;
       try {
         const decoded = decodeURIComponent(escape(atob(input)));
         document.getElementById('output').value = decoded;
+        showToast('Text decoded successfully!');
       } catch (error) {
         document.getElementById('output').value = 'Error: Invalid Base64 string';
+        showToast('Decoding failed - invalid Base64');
       }
     });
 
-    // Image conversion with debounce
+    // Image conversion functionality with debounce
     const handleImageConvert = debounce(() => {
       const file = document.getElementById('image-upload').files[0];
       if (!file) {
@@ -422,7 +397,7 @@ console.log(decoded);  // Hello, Base64Pro!
         return;
       }
 
-      // Check file size (max 10MB)
+      // Check file size (limit 10MB)
       if (file.size > 10 * 1024 * 1024) {
         showToast('File too large (max 10MB)');
         return;
@@ -430,10 +405,10 @@ console.log(decoded);  // Hello, Base64Pro!
 
       const reader = new FileReader();
       reader.onload = (e) => {
-        // Extract Base64 data (remove prefix)
+        // Extract Base64 data (remove the data URL prefix)
         const base64 = e.target.result.split(',')[1];
         document.getElementById('image-output').value = base64;
-        showToast('Image converted to Base64 successfully');
+        showToast('Image converted to Base64');
       };
       reader.onerror = () => {
         showToast('Error reading file');
@@ -460,6 +435,7 @@ console.log(decoded);  // Hello, Base64Pro!
     document.getElementById('clear-btn').addEventListener('click', () => {
       document.getElementById('input').value = '';
       document.getElementById('output').value = '';
+      showToast('Fields cleared');
     });
 
     document.getElementById('copy-btn').addEventListener('click', () => {
@@ -472,7 +448,7 @@ console.log(decoded);  // Hello, Base64Pro!
       }
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
