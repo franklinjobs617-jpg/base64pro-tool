@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Base64Pro - Professional Base64 Encoder/Decoder with image conversion. Features code snippets, tutorials, and developer tools." />
-  <meta name="keywords" content="Base64Pro, Base64 encoder, Base64 decoder, image to Base64, Base64 tool" />
+  <meta name="description" content="Base64Pro - 전문적인 Base64 인코더/디코더 이미지 변환 기능 제공. 코드 예제, 튜토리얼 및 개발자 도구 포함." />
+  <meta name="keywords" content="Base64Pro, Base64 인코더, Base64 디코더, 이미지 Base64 변환, Base64 툴" />
   
   <!-- 多语言hreflang标签 -->
-  <link rel="alternate" hreflang="ko" href="https://www.base64pro.top/kr/" />
+  <link rel="alternate" hreflang="en" href="https://www.base64pro.top/" />
   <link rel="alternate" hreflang="ur" href="https://www.base64pro.top/pk/" />
   
   <!-- Google tag (gtag.js) -->
@@ -19,7 +19,7 @@
     gtag('config', 'G-QR5YMPT48K');
   </script>
   
-  <title>Base64Pro - Professional Encoder/Decoder Tool</title>
+  <title>Base64Pro - 전문적인 인코더/디코더 툴</title>
   <!-- External Resources -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -77,93 +77,93 @@
         <h1 class="text-xl font-bold">Base64<span class="text-blue-600">Pro</span></h1>
       </div>
       <div class="flex flex-wrap justify-center gap-4 items-center">
-        <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
-        <a href="#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
-        <a href="#tutorial" class="text-gray-300 hover:text-white transition-colors">Tutorial</a>
+        <a href="#home" class="text-gray-300 hover:text-white transition-colors">홈</a>
+        <a href="#tools" class="text-gray-300 hover:text-white transition-colors">도구</a>
+        <a href="#tutorial" class="text-gray-300 hover:text-white transition-colors">튜토리얼</a>
         <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
-        <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-        <!-- Language Switcher -->
+        <a href="#contact" class="text-gray-300 hover:text-white transition-colors">연락처</a>
+        <!-- 语言切换器 -->
         <div class="language-switcher">
-          <a href="/" class="active">EN</a>
-          <a href="/kr/">한국어</a>
+          <a href="/">EN</a>
+          <a href="/kr/" class="active">한국어</a>
           <a href="/pk/">اردو</a>
         </div>
       </div>
     </div>
   </header>
   
-  <!-- Main Content -->
+  <!-- 主内容区 -->
   <main class="flex-grow container mx-auto px-4 py-6">
     <section id="home" class="mb-10">
-      <h1 class="section-title">Base64Pro - Professional Encoding/Decoding</h1>
+      <h1 class="section-title">Base64Pro - 전문적인 인코딩/디코딩</h1>
       
       <!-- Ad Slot -->
       <div class="ad-slot">
-        <p>Advertisement will be displayed here</p>
+        <p>여기에 광고가 표시됩니다</p>
       </div>
       
       <p class="text-gray-300 mb-6 text-lg">
-        A developer-first tool for all your Base64 needs. Easily encode and decode text, URLs, and images with our 
-        intuitive interface. All operations are performed locally in your browser, ensuring privacy and security.
+        모든 Base64 needs에 맞는 개발자 중심의 도구입니다. 직관적인 인터페이스로 텍스트, URL 및 이미지를 쉽게 인코딩하고 디코딩할 수 있습니다. 
+        모든 작업은 브라우저에서 로컬로 수행되므로 개인 정보 보호와 보안을 보장합니다.
       </p>
       <p class="text-gray-300 mb-6">
-        Base64 encoding is widely used in web development for embedding images, transferring binary data in APIs, 
-        and ensuring data integrity in text-based protocols. Our tool simplifies these tasks with professional-grade features.
+        Base64 인코딩은 이미지 임베딩, API에서 이진 데이터 전송, 텍스트 기반 프로토콜에서 데이터 무결성 보장 등 웹 개발에서 널리 사용됩니다. 
+        우리의 도구는 전문급 기능으로 이러한 작업을 간소화합니다.
       </p>
     </section>
     
     <!-- Core Tools Section -->
     <section id="tools" class="mb-10">
-      <h2 class="section-title">Core Tools</h2>
+      <h2 class="section-title">주요 도구</h2>
       
       <!-- Base64 Encoder/Decoder Card -->
       <div class="card">
-        <h3 class="text-xl font-bold mb-3 text-blue-500">Base64 Encoder/Decoder</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">Base64 인코더/디코더</h3>
         <p class="text-gray-300 mb-4">
-          Encode text to Base64 or decode Base64 strings back to their original text. Perfect for developers working with 
-          APIs, data transmission, or embedding data in web applications.
+          텍스트를 Base64로 인코딩하거나 Base64 문자열을 원본 텍스트로 디코딩합니다. API 작업, 데이터 전송 또는 웹 애플리케이션에 데이터를 
+          임베딩하는 개발자에게 적합합니다.
         </p>
         <textarea 
           id="input" 
           class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
-          placeholder="Enter text, URL, or data to encode/decode..."
-        >Hello, World! This is a test for Base64 encoding.</textarea>
+          placeholder="인코딩/디코딩할 텍스트, URL 또는 데이터를 입력하세요..."
+        >안녕하세요, 세상! Base64 인코딩 테스트입니다.</textarea>
         
         <!-- Action Buttons -->
         <div class="flex flex-wrap gap-2 mb-4">
           <button id="encode-btn" class="btn btn-primary">
-            <i class="fa fa-lock mr-1"></i> Encode
+            <i class="fa fa-lock mr-1"></i> 인코딩
           </button>
           <button id="decode-btn" class="btn btn-success">
-            <i class="fa fa-unlock mr-1"></i> Decode
+            <i class="fa fa-unlock mr-1"></i> 디코딩
           </button>
           <button id="clear-btn" class="btn btn-secondary">
-            <i class="fa fa-trash mr-1"></i> Clear
+            <i class="fa fa-trash mr-1"></i> 지우기
           </button>
         </div>
         
         <textarea 
           id="output" 
           class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
-          placeholder="Output will appear here..." readonly
+          placeholder="결과가 여기에 표시됩니다..." readonly
         ></textarea>
         
         <button id="copy-btn" class="btn btn-success mt-2">
-          <i class="fa fa-clipboard mr-1"></i> Copy Output
+          <i class="fa fa-clipboard mr-1"></i> 결과 복사
         </button>
       </div>
       
       <!-- Ad Slot -->
       <div class="ad-slot">
-        <p>Advertisement will be displayed here</p>
+        <p>여기에 광고가 표시됩니다</p>
       </div>
       
       <!-- Image Converter Card -->
       <div class="card">
-        <h3 class="text-xl font-bold mb-3 text-blue-500">Image to Base64 Converter</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">이미지 to Base64 변환기</h3>
         <p class="text-gray-300 mb-4">
-          Convert images to Base64 strings for direct embedding in HTML, CSS, or JavaScript. Supports all major image 
-          formats including JPG, PNG, GIF, and SVG.
+          이미지를 Base64 문자열로 변환하여 HTML, CSS 또는 JavaScript에 직접 임베딩할 수 있습니다. JPG, PNG, GIF 및 SVG를 포함한 
+          모든 주요 이미지 형식을 지원합니다.
         </p>
         <input 
           type="file" 
@@ -172,39 +172,39 @@
           accept="image/*"
         />
         <button id="image-convert-btn" class="btn btn-primary mb-4">
-          <i class="fa fa-image mr-1"></i> Convert Image
+          <i class="fa fa-image mr-1"></i> 이미지 변환
         </button>
         <textarea 
           id="image-output" 
           class="w-full h-32 p-3 bg-gray-700 text-gray-100 border border-gray-600 rounded mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
-          placeholder="Base64 image data will appear here..." readonly
+          placeholder="Base64 이미지 데이터가 여기에 표시됩니다..." readonly
         ></textarea>
       </div>
     </section>
     
     <!-- Tutorial Section -->
     <section id="tutorial" class="mb-10">
-      <h2 class="section-title">Tutorials & Code Snippets</h2>
+      <h2 class="section-title">튜토리얼 및 코드 예제</h2>
       
       <div class="card">
-        <h3 class="text-xl font-bold mb-3 text-blue-500">How to Use Base64 in Web Development</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">웹 개발에서 Base64 사용 방법</h3>
         <p class="text-gray-300 mb-4">
-          Base64 encoding is essential for various web development tasks. Here are common use cases with code examples:
+          Base64 인코딩은 다양한 웹 개발 작업에 필수적입니다. 다음은 코드 예제와 함께 일반적인 사용 사례입니다:
         </p>
         
-        <h4 class="text-lg font-semibold mb-2 text-blue-400">1. Embedding Images in HTML</h4>
+        <h4 class="text-lg font-semibold mb-2 text-blue-400">1. HTML에 이미지 임베딩</h4>
         <p class="text-gray-300 mb-2">
-          You can embed Base64 encoded images directly in your HTML using the data URI scheme:
+          데이터 URI 체계를 사용하여 Base64로 인코딩된 이미지를 직접 HTML에 임베딩할 수 있습니다:
         </p>
         <div class="code-snippet text-gray-300 mb-4">
           &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA
           AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-          9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Small red dot" /&gt;
+          9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="작은 빨간 점" /&gt;
         </div>
         
-        <h4 class="text-lg font-semibold mb-2 text-blue-400">2. Sending Binary Data in JSON</h4>
+        <h4 class="text-lg font-semibold mb-2 text-blue-400">2. JSON에서 이진 데이터 전송</h4>
         <p class="text-gray-300 mb-2">
-          When working with APIs that expect JSON data, you can send binary data as a Base64 string:
+          JSON 데이터를 예상하는 API 작업 시 Base64 문자열로 이진 데이터를 전송할 수 있습니다:
         </p>
         <div class="code-snippet text-gray-300 mb-4">
           {
@@ -216,48 +216,47 @@
     
     <!-- FAQ Section -->
     <section id="faq" class="mb-10">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">자주 묻는 질문</h2>
       
       <div class="card">
-        <h3 class="text-xl font-bold mb-3 text-blue-500">What is Base64 encoding?</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">Base64 인코딩이란 무엇입니까?</h3>
         <p class="text-gray-300 mb-4">
-          Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly 
-          used to embed binary data (like images) in text-based formats such as HTML, CSS, and JSON.
+          Base64는 이진 데이터를 ASCII 문자열 형식으로 표현하는 이진-텍스트 인코딩 체계입니다. HTML, CSS 및 JSON과 같은 
+          텍스트 기반 형식에 이미지와 같은 이진 데이터를 임베딩하는 데 일반적으로 사용됩니다.
         </p>
         
-        <h3 class="text-xl font-bold mb-3 text-blue-500">Is my data secure?</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">내 데이터는 안전합니까?</h3>
         <p class="text-gray-300 mb-4">
-          Yes! All encoding and decoding operations are performed locally in your browser. We do not send your data to our 
-          servers or collect any information you process with our tools.
+          예! 모든 인코딩 및 디코딩 작업은 브라우저에서 로컬로 수행됩니다. 우리의 도구로 처리하는 정보를 서버로 보내거나 수집하지 않습니다.
         </p>
         
-        <h3 class="text-xl font-bold mb-3 text-blue-500">Can I use this tool offline?</h3>
+        <h3 class="text-xl font-bold mb-3 text-blue-500">오프라인으로 이 도구를 사용할 수 있습니까?</h3>
         <p class="text-gray-300 mb-4">
-          Yes, once the page is loaded, you can use the core encoding/decoding features without an internet connection. 
-          However, image conversion may require additional resources that are loaded on-demand.
+          예, 페이지가 로드되면 인터넷 연결 없이 핵심 인코딩/디코딩 기능을 사용할 수 있습니다. 그러나 이미지 변환은 
+          필요에 따라 로드되는 추가 리소스가 필요할 수 있습니다.
         </p>
       </div>
     </section>
     
     <!-- Contact Section -->
     <section id="contact" class="mb-10">
-      <h2 class="section-title">Contact Us</h2>
+      <h2 class="section-title">문의하기</h2>
       
       <!-- Ad Slot -->
       <div class="ad-slot">
-        <p>Advertisement will be displayed here</p>
+        <p>여기에 광고가 표시됩니다</p>
       </div>
       
       <div class="card">
         <p class="text-gray-300 mb-4">
-          Have questions, suggestions, or need support? We're here to help!
+          질문, 제안 또는 지원이 필요하십니까? 도와드릴 준비가 되었습니다!
         </p>
         <p class="text-gray-300 mb-4">
-          Email us: 
+          이메일로 문의: 
           <a href="mailto:support@base64pro.top" class="text-blue-400 hover:underline font-medium">support@base64pro.top</a>
         </p>
         <p class="text-gray-300">
-          We typically respond to all inquiries within 24-48 business hours.
+          일반적으로 영업일 24-48시간 이내에 모든 문의에 답변합니다.
         </p>
       </div>
     </section>
@@ -273,28 +272,28 @@
         </div>
         
         <div class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
-          <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-          <a href="#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a>
-          <a href="#tutorial" class="text-gray-400 hover:text-white transition-colors">Tutorial</a>
+          <a href="#home" class="text-gray-400 hover:text-white transition-colors">홈</a>
+          <a href="#tools" class="text-gray-400 hover:text-white transition-colors">도구</a>
+          <a href="#tutorial" class="text-gray-400 hover:text-white transition-colors">튜토리얼</a>
           <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
-          <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+          <a href="#contact" class="text-gray-400 hover:text-white transition-colors">연락처</a>
+          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">개인정보 보호정책</a>
+          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">서비스 약관</a>
         </div>
         
         <div class="text-gray-400 text-sm">
-          &copy; 2024 Base64Pro. All rights reserved.
+          &copy; 2024 Base64Pro. 모든 권리 보유합니다.
         </div>
       </div>
     </div>
   </footer>
   
   <!-- Toast Notification -->
-  <div id="toast" class="toast">Copied to clipboard!</div>
+  <div id="toast" class="toast">클립보드에 복사되었습니다!</div>
   
   <!-- Tool Scripts -->
   <script>
-    // Debounce function to optimize performance
+    // 성능 최적화를 위한 디바운스 함수
     function debounce(func, wait = 500) {
       let timeout;
       return function(...args) {
@@ -305,59 +304,59 @@
       };
     }
     
-    // Encode text to Base64
+    // 텍스트를 Base64로 인코딩
     const handleEncode = debounce(() => {
       const input = document.getElementById('input').value;
       try {
         const encoded = btoa(unescape(encodeURIComponent(input)));
         document.getElementById('output').value = encoded;
-        showToast('Text encoded successfully!');
+        showToast('텍스트가 성공적으로 인코딩되었습니다!');
       } catch (error) {
-        document.getElementById('output').value = 'Error: Invalid input';
-        showToast('Encoding failed');
+        document.getElementById('output').value = '오류: 유효하지 않은 입력';
+        showToast('인코딩에 실패했습니다');
       }
     });
     
-    // Decode Base64 to text
+    // Base64를 텍스트로 디코딩
     const handleDecode = debounce(() => {
       const input = document.getElementById('input').value;
       try {
         const decoded = decodeURIComponent(escape(atob(input)));
         document.getElementById('output').value = decoded;
-        showToast('Text decoded successfully!');
+        showToast('텍스트가 성공적으로 디코딩되었습니다!');
       } catch (error) {
-        document.getElementById('output').value = 'Error: Invalid Base64 string';
-        showToast('Decoding failed');
+        document.getElementById('output').value = '오류: 유효하지 않은 Base64 문자열';
+        showToast('디코딩에 실패했습니다');
       }
     });
     
-    // Clear input and output fields
+    // 입력 및 출력 필드 지우기
     const handleClear = () => {
       document.getElementById('input').value = '';
       document.getElementById('output').value = '';
       document.getElementById('image-output').value = '';
-      showToast('Fields cleared!');
+      showToast('필드가 지워졌습니다!');
     };
     
-    // Copy output to clipboard
+    // 출력을 클립보드에 복사
     const handleCopy = () => {
       const output = document.getElementById('output').value;
       if (output) {
         navigator.clipboard.writeText(output).then(() => {
-          showToast('Copied to clipboard!');
+          showToast('클립보드에 복사되었습니다!');
         }).catch(err => {
-          showToast('Failed to copy');
+          showToast('복사에 실패했습니다');
         });
       }
     };
     
-    // Convert image to Base64
+    // 이미지를 Base64로 변환
     const handleImageConvert = () => {
       const fileInput = document.getElementById('image-upload');
       const output = document.getElementById('image-output');
       
       if (!fileInput.files || fileInput.files.length === 0) {
-        showToast('Please select an image first');
+        showToast('먼저 이미지를 선택해주세요');
         return;
       }
       
@@ -366,17 +365,17 @@
       
       reader.onload = function(event) {
         output.value = event.target.result;
-        showToast('Image converted to Base64!');
+        showToast('이미지가 Base64로 변환되었습니다!');
       };
       
       reader.onerror = function() {
-        showToast('Error converting image');
+        showToast('이미지 변환 오류');
       };
       
       reader.readAsDataURL(file);
     };
     
-    // Show toast notification
+    // 토스트 알림 표시
     const showToast = (message) => {
       const toast = document.getElementById('toast');
       toast.textContent = message;
@@ -389,18 +388,18 @@
       }, 3000);
     };
     
-    // Event listeners
+    // 이벤트 리스너
     document.getElementById('encode-btn').addEventListener('click', handleEncode);
     document.getElementById('decode-btn').addEventListener('click', handleDecode);
     document.getElementById('clear-btn').addEventListener('click', handleClear);
     document.getElementById('copy-btn').addEventListener('click', handleCopy);
     document.getElementById('image-convert-btn').addEventListener('click', handleImageConvert);
     
-    // Auto-encode on input for demonstration
+    // 데모를 위한 입력시 자동 인코딩
     document.getElementById('input').addEventListener('input', debounce(() => {
-      // Auto-detect if input is Base64 and decode, otherwise encode
+      // 입력이 Base64인지 자동 감지하여 디코딩하거나 인코딩
       try {
-        // Check if input is valid Base64
+        // 입력이 유효한 Base64인지 확인
         atob(document.getElementById('input').value);
         handleDecode();
       } catch (e) {

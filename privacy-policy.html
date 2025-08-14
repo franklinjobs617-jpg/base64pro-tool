@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Base64Pro Privacy Policy - Learn how we protect your data and privacy while using our Base64 tools." />
+  <meta name="description" content="Base64Pro Privacy Policy - Learn how we protect your data and privacy when using our Base64 encoding tools." />
   <title>Privacy Policy | Base64Pro</title>
-
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR5YMPT48K"></script>
   <script>
@@ -18,7 +18,6 @@
   <!-- External Resources -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
   <style type="text/tailwindcss">
     body {
       @apply bg-gray-900 text-gray-100 font-sans;
@@ -35,9 +34,17 @@
     .ad-slot {
       @apply bg-gray-800/50 rounded-lg p-4 my-6 border border-gray-700 text-center text-gray-400 text-sm;
     }
+    .language-switcher {
+      @apply flex gap-2 mt-2 md:mt-0;
+    }
+    .language-switcher a {
+      @apply text-gray-300 hover:text-white px-2 py-1 rounded transition-colors;
+    }
+    .language-switcher a.active {
+      @apply bg-blue-600 text-white;
+    }
   </style>
 </head>
-
 <body class="min-h-screen flex flex-col">
   <!-- Header Navigation -->
   <header class="bg-gray-800 py-4 shadow-md sticky top-0 z-50">
@@ -46,16 +53,22 @@
         <i class="fa fa-code text-blue-600 text-xl"></i>
         <h1 class="text-xl font-bold">Base64<span class="text-blue-600">Pro</span></h1>
       </div>
-      <nav class="flex flex-wrap justify-center gap-4">
-        <a href="index.html#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
-        <a href="index.html#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
-        <a href="index.html#tutorial" class="text-gray-300 hover:text-white transition-colors">Tutorial</a>
-        <a href="index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
-        <a href="index.html#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-      </nav>
+      <div class="flex flex-wrap justify-center gap-4 items-center">
+        <a href="/#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+        <a href="/#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
+        <a href="/#tutorial" class="text-gray-300 hover:text-white transition-colors">Tutorial</a>
+        <a href="/#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
+        <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          <a href="/privacy-policy.html" class="active">EN</a>
+          <a href="/kr/privacy-policy.html">한국어</a>
+          <a href="/pk/privacy-policy.html">اردو</a>
+        </div>
+      </div>
     </div>
   </header>
-
+  
   <!-- Main Content -->
   <main class="flex-grow container mx-auto px-4 py-6">
     <h1 class="section-title">Privacy Policy</h1>
@@ -71,125 +84,92 @@
       </p>
       
       <p class="text-gray-300 mb-4">
-        Welcome to Base64Pro ("we", "our", or "us"). We are committed to protecting your privacy and ensuring 
-        the security of your personal information. This Privacy Policy explains how we collect, use, and disclose 
-        information when you use our website located at https://www.base64pro.top (the "Site") and our services 
-        (the "Services").
+        Welcome to Base64Pro ("we", "us", "our"). We value your privacy and are committed to protecting your personal 
+        information. This Privacy Policy explains how we collect, use, and disclose information when you use our 
+        website https://www.base64pro.top ("Site") and services ("Services").
       </p>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Information We Do Not Collect</h2>
       <p class="text-gray-300 mb-4">
-        It is important to note that our Services are designed to process data locally in your browser. We do not 
-        collect, store, or transmit any of the content you input into our Base64 encoding/decoding tools. All 
-        operations are performed entirely on your device, meaning:
+        Importantly, our service is designed to process data locally in your browser. We do not collect, store, or transmit 
+        any content you input into our Base64 encoding/decoding tools. All operations are performed entirely on your device, meaning:
       </p>
       <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
         <li>We do not collect or store any text, images, or other data you process using our tools</li>
-        <li>We do not have access to the content you encode or decode</li>
-        <li>No data you process is transmitted to our servers or any third parties</li>
+        <li>We cannot access the content you are encoding or decoding</li>
+        <li>Processed data is never sent to our servers or third parties</li>
       </ul>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Information We May Collect</h2>
       <p class="text-gray-300 mb-4">
-        While we do not collect the content you process, we may collect certain non-personal information for 
-        analytics and improving our Services:
+        While we do not collect the content you process, we may collect certain non-personal information for analytics and 
+        service improvement purposes:
       </p>
       
       <h3 class="text-xl font-semibold mb-2 text-blue-400">Usage Data</h3>
       <p class="text-gray-300 mb-4">
-        We may collect information about how you interact with our Site and Services, such as:
+        We may collect information about how you interact with our Site and Services, including:
       </p>
       <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
         <li>Pages you visit on our Site</li>
         <li>Features you use and actions you take</li>
-        <li>The amount of time you spend on our Site</li>
+        <li>Time spent on the Site</li>
         <li>Information about your device, including browser type, operating system, and screen size</li>
-        <li>Your approximate geographic location based on your IP address</li>
+        <li>Approximate location based on IP address</li>
       </ul>
       
-      <h3 class="text-xl font-semibold mb-2 text-blue-400">Analytics</h3>
+      <h3 class="text-xl font-semibold mb-2 text-blue-400">Analytics Tools</h3>
       <p class="text-gray-300 mb-4">
-        We use Google Analytics, a web analytics service provided by Google, Inc. ("Google"). Google Analytics 
-        uses cookies to help us analyze how users use our Site. The information generated by the cookie about 
-        your use of our Site will be transmitted to and stored by Google on servers in the United States.
+        We use Google Analytics, a web analytics service provided by Google, Inc. ("Google"). Google Analytics uses cookies 
+        to help us analyze how users use the Site. The information generated by the cookie about your use of the Site 
+        will be transmitted to and stored by Google on servers in the United States.
       </p>
       <p class="text-gray-300 mb-4">
-        Google will use this information on our behalf to evaluate your use of our Site, compile reports on 
-        Site activity, and provide other services relating to Site activity and internet usage. Google may 
-        also transfer this information to third parties where required to do so by law, or where such third 
-        parties process the information on Google's behalf.
-      </p>
-      
-      <h3 class="text-xl font-semibold mb-2 text-blue-400">Cookies</h3>
-      <p class="text-gray-300 mb-4">
-        Our Site may use "cookies" to enhance your experience. A cookie is a small text file that is placed on 
-        your device by a web server. We may use both session cookies (which expire when you close your browser) 
-        and persistent cookies (which remain on your device until you delete them) to help us improve our Site 
-        and your experience.
-      </p>
-      <p class="text-gray-300 mb-4">
-        You can choose to disable cookies through your browser settings, although this may affect the functionality 
-        of our Site.
+        Google will use this information on our behalf to evaluate your use of the Site, compile reports on Site activity, 
+        and provide other services relating to Site activity and internet usage. Google may also transfer this information 
+        to third parties where required to do so by law, or where such third parties process the information on Google's behalf.
       </p>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">How We Use Your Information</h2>
       <p class="text-gray-300 mb-4">
-        We use the information we collect to:
+        The non-personal information we collect is used solely for:
       </p>
       <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
-        <li>Improve and optimize our Site and Services</li>
-        <li>Understand how users interact with our Site</li>
-        <li>Develop new features and functionality</li>
-        <li>Monitor and analyze trends, usage, and activities</li>
+        <li>Improving our Site and Services</li>
+        <li>Understanding how users interact with our tools</li>
+        <li>Optimizing performance and user experience</li>
+        <li>Identifying and fixing technical issues</li>
       </ul>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Third-Party Services</h2>
       <p class="text-gray-300 mb-4">
-        Our Site may contain links to third-party websites or services that are not owned or controlled by us. 
-        We have no control over, and assume no responsibility for, the content, privacy policies, or practices 
-        of any third-party websites or services. You acknowledge and agree that we shall not be liable, directly 
-        or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or 
-        reliance on any such content, goods, or services available on or through any such websites or services.
-      </p>
-      
-      <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Advertising</h2>
-      <p class="text-gray-300 mb-4">
-        We may display advertisements on our Site. These advertisements may be served by third-party ad networks 
-        or advertisers, who may use cookies, web beacons, or other tracking technologies to collect information 
-        about your visits to our Site and other websites, in order to provide you with targeted advertisements 
-        that may be of interest to you.
-      </p>
-      <p class="text-gray-300 mb-4">
-        This Privacy Policy does not cover the collection and use of information by these third-party advertisers. 
-        We encourage you to review the privacy policies of these third parties to understand how they collect and 
-        use your information.
+        Our Site may contain links to third-party websites or services that are not owned or controlled by us. This Privacy 
+        Policy does not apply to third-party websites or services. We recommend reviewing the privacy policies of any 
+        third-party sites you visit.
       </p>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Data Security</h2>
       <p class="text-gray-300 mb-4">
-        We take reasonable measures to protect the information we collect from unauthorized access, use, or disclosure. 
-        However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot 
-        guarantee absolute security.
+        Since all content processing occurs locally in your browser, your data never leaves your device, providing a high 
+        level of security. We implement reasonable security measures to protect the non-personal information we collect 
+        from unauthorized access or disclosure.
       </p>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Changes to This Privacy Policy</h2>
       <p class="text-gray-300 mb-4">
-        We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new 
-        Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. 
-        Your continued use of the Services after any changes to this Privacy Policy constitutes your acceptance 
-        of the new Privacy Policy.
+        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy 
+        Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this 
+        Privacy Policy are effective when they are posted on this page.
       </p>
       
       <h2 class="text-2xl font-bold mb-3 mt-6 text-blue-500">Contact Us</h2>
       <p class="text-gray-300 mb-4">
         If you have any questions about this Privacy Policy, please contact us at:
-      </p>
-      <p class="text-gray-300 mb-4">
-        <a href="mailto:support@base64pro.top" class="text-blue-400 hover:underline">support@base64pro.top</a>
+        <a href="mailto:support@base64pro.top" class="text-blue-400 hover:underline font-medium">support@base64pro.top</a>
       </p>
     </div>
   </main>
-
+  
   <!-- Footer -->
   <footer class="bg-gray-800 py-6 border-t border-gray-700 mt-10">
     <div class="container mx-auto px-4">
@@ -200,13 +180,13 @@
         </div>
         
         <div class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
-          <a href="index.html#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-          <a href="index.html#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a>
-          <a href="index.html#tutorial" class="text-gray-400 hover:text-white transition-colors">Tutorial</a>
-          <a href="index.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
-          <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
-          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+          <a href="/#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
+          <a href="/#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a>
+          <a href="/#tutorial" class="text-gray-400 hover:text-white transition-colors">Tutorial</a>
+          <a href="/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+          <a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
         </div>
         
         <div class="text-gray-400 text-sm">
@@ -217,3 +197,4 @@
   </footer>
 </body>
 </html>
+    
