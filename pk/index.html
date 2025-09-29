@@ -89,27 +89,26 @@
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header Navigation -->
-  <header class="bg-gray-800 py-4 shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="flex items-center space-x-2 mb-4 md:mb-0">
-        <i class="fa fa-code text-blue-600 text-xl"></i>
-        <h1 class="text-xl font-bold">Base64<span class="text-blue-600">Pro</span></h1>
-      </div>
-      <div class="flex flex-wrap justify-center gap-4 items-center">
-        <a href="#home" class="text-gray-300 hover:text-white transition-colors">ہوم</a>
-        <a href="#tools" class="text-gray-300 hover:text-white transition-colors">ٹولز</a>
-        <a href="#tutorial" class="text-gray-300 hover:text-white transition-colors">ٹیوٹوریل</a>
-        <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
-        <a href="#contact" class="text-gray-300 hover:text-white transition-colors">رابطہ</a>
-        <!-- 语言切换器 -->
-        <div class="language-switcher">
-          <a href="/">EN</a>
-          <a href="/kr/">한국어</a>
-          <a href="/pk/" class="active">اردو</a>
+    <header class="bg-gray-800/80 backdrop-blur-sm py-4 shadow-md sticky top-0 z-50 border-b border-gray-700">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <i class="fa fa-code text-blue-500 text-xl"></i>
+          <a href="/" class="text-xl font-bold">Base64<span class="text-blue-500">Pro</span></a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 items-center">
+          <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+          <a href="/base64-config-converter" class="text-gray-300 hover:text-white transition-colors">120FPSConfig</a>
+          <a href="/blog/ultimate-120fps-config-guide" class="text-gray-300 hover:text-white transition-colors active">120FPSConfigGuide</a>
+          <a href="/#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
+          <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+          <div class="language-switcher">
+            <a href="/blog/ultimate-120fps-config-guide" class="active">EN</a>
+            <a href="#">한국어</a>
+            <a href="#">اردو</a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
   
   <!-- 主内容区 -->
   <main class="flex-grow container mx-auto px-4 py-6">
