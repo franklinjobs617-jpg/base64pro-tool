@@ -1,19 +1,28 @@
 {
   "redirects": [
     {
-      "source": "http://www.base64pro.top/:path*",
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.base64pro.top" }
+      ],
       "destination": "https://base64pro.top/:path*",
       "permanent": true
     },
     {
-      "source": "http://base64pro.top/:path*",
+      "source": "/:path*",
+      "has": [
+        { "type": "protocol", "value": "http" }
+      ],
       "destination": "https://base64pro.top/:path*",
       "permanent": true
-    },
+    }
+  ],
+  "headers": [
     {
-      "source": "https://www.base64pro.top/:path*",
-      "destination": "https://base64pro.top/:path*",
-      "permanent": true
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, max-age=0, must-revalidate" }
+      ]
     }
   ]
 }
