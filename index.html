@@ -21,13 +21,8 @@
     <title>Base64Pro - Professional Encoder/Decoder Tool</title>
 
     <!-- Preload Font Awesome 字体 -->
-    <link
-      rel="preload"
-      href="./font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+  <link rel="preload" href="./font-awesome-4.7.0/css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css"></noscript>
 
     <!-- Font Awesome -->
     <link
@@ -36,53 +31,7 @@
     />
 
     <!-- Tailwind CSS -->
-    <script src="./js/tailwindcss.js"></script>
-
-    <!-- Critical CSS (你原来的内联 Tailwind 样式) -->
-    <style type="text/tailwindcss">
-      body {
-        @apply bg-gray-900 text-gray-100 font-sans;
-      }
-      .container {
-        @apply max-w-5xl mx-auto px-4;
-      }
-      .section-title {
-        @apply text-3xl font-bold mb-6 text-blue-600 border-b border-blue-600 pb-2;
-      }
-      .card {
-        @apply bg-gray-800 p-5 rounded-lg mb-6 shadow-lg;
-      }
-      .btn {
-        @apply px-4 py-2 rounded font-medium transition-all duration-300;
-      }
-      .btn-primary {
-        @apply bg-blue-600 hover:bg-blue-700 text-white;
-      }
-      .btn-success {
-        @apply bg-green-600 hover:bg-green-700 text-white;
-      }
-      .btn-secondary {
-        @apply bg-gray-700 hover:bg-gray-600 text-white;
-      }
-      .code-snippet {
-        @apply bg-gray-700 p-4 rounded text-sm overflow-x-auto;
-      }
-      .toast {
-        @apply fixed bottom-4 right-4 px-4 py-2 rounded shadow-lg bg-green-600 text-white transform translate-y-20 opacity-0 transition-all duration-300;
-      }
-      .ad-slot {
-        @apply bg-gray-800/50 rounded-lg p-4 my-6 border border-gray-700 text-center text-gray-400 text-sm;
-      }
-      .language-switcher {
-        @apply flex gap-2 mt-2 md:mt-0;
-      }
-      .language-switcher a {
-        @apply text-gray-300 hover:text-white px-2 py-1 rounded transition-colors;
-      }
-      .language-switcher a.active {
-        @apply bg-blue-600 text-white;
-      }
-    </style>
+     <link href="./dist/output.css" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script
