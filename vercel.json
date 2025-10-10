@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "http://www.base64pro.top/:path*",
+      "destination": "https://base64pro.top/:path*",
+      "permanent": true
+    },
+    {
+      "source": "http://base64pro.top/:path*",
+      "destination": "https://base64pro.top/:path*",
+      "permanent": true
+    },
+    {
+      "source": "https://www.base64pro.top/:path*",
+      "destination": "https://base64pro.top/:path*",
+      "permanent": true
+    }
+  ]
+}
