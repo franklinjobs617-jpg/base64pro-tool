@@ -7,14 +7,6 @@
       ],
       "destination": "https://base64pro.top/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        { "type": "protocol", "value": "http" }
-      ],
-      "destination": "https://base64pro.top/:path*",
-      "permanent": true
     }
   ],
   "headers": [
