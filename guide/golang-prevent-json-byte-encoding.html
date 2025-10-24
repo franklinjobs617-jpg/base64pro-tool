@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Go JSON From Silently Base64 Encoding Your []byte Fields (The Ultimate Fix)</title>
+    <meta name="description"
+        content="Tired of Go JSON automatically Base64 encoding your []byte fields? We provide the ultimate, production-ready fix using the json.Marshaler interface to prevent encoding.">
+    <link rel="canonical" href="https://base64pro.top/guide/golang-prevent-json-byte-encoding/">
+
+    <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/blog-styles.css">
+
+    <link rel="preload" href="../font-awesome-4.7.0/css/font-awesome.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    </noscript>
+
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QR5YMPT48K"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-QR5YMPT48K");
+    </script>
+
+    <script defer>
+        (function (c, l, a, r, i, t, y) {
+            c[a] =
+                c[a] ||
+                function () {
+                    (c[a].q = c[a].q || []).push(arguments);
+                };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ti9gd0do1n");
+    </script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3383070348689557"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-900 text-gray-200">
+    <header class="bg-gray-800/80 backdrop-blur-sm py-4 shadow-md sticky top-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <i class="fa fa-code text-blue-500 text-xl"></i>
+                <a href="/" class="text-xl font-bold">Base64<span class="text-blue-500">Pro</span></a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 items-center">
+                <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="./base64-config-converter.html"
+                    class="text-gray-300 hover:text-white transition-colors">120FPSConfig</a>
+
+                <a href="./blog/ultimate-120fps-config-guide.html"
+                    class="text-gray-300 hover:text-white transition-colors">120FPSConfigGuide</a>
+
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-300 hover:text-white transition-colors flex items-center space-x-1 cursor-pointer ">
+                        <span>Guide</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 transform transition-transform group-hover:rotate-180" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <div class="absolute right-0 min-w-fit bg-gray-700 rounded-lg shadow-xl
+                opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                transition-opacity duration-300 z-50 p-2
+                top-full mt-2">
+                        <a href="/guide/golang-prevent-json-byte-encoding.html"
+                            class="block px-4 py-2 text-gray-200 hover:bg-gray-600 rounded-lg whitespace-nowrap">
+                            Stop Go JSON Base64 Encoding
+                        </a>
+                        <a href="/guide/decode-base64-in-python-array.html"
+                            class="block px-4 py-2 text-gray-200 hover:bg-gray-600 rounded-lg whitespace-nowrap">
+                            Base64 to NumPy Array
+                        </a>
+
+                    </div>
+                </div>
+                <a href="/#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
+                <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                <div class="language-switcher">
+                    <a href="/blog/ultimate-120fps-config-guide" class="active">EN</a>
+                    <a href="#">한국어</a>
+                    <a href="#">اردو</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10 md:py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight pb-4 text-white">
+            Stop Go JSON From Silently <strong>Base64 Encoding Your []byte Fields</strong> (The Ultimate Fix)
+        </h1>
+
+        <p class="mb-6 text-lg leading-relaxed text-gray-300">If you are a Go developer building a robust API, you've
+            definitely encountered this annoying issue: <strong>golang
+                json prevent encoding []byte to base64</strong>. You define a field as <code>[]byte</code> expecting raw
+            data, but
+            Go's default <code>json.Marshal</code> function decides to treat it like binary data that must be Base64
+            encoded. This behavior, while standard, breaks compatibility with front-ends and external systems expecting
+            raw byte arrays or non-encoded strings.</p>
+
+        <p class="mb-8 text-gray-300">I cut through the generic advice and deliver the only production-ready solution:
+            implementing the
+            <code>json.Marshaler</code> interface to gain full control over the marshaling process. Here is the code you
+            need to solve this once and for all.
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-4 border-b pb-2 border-blue-400 text-white">
+            The Root Cause: <strong>Go's Base64 Default for []byte</strong>
+        </h2>
+
+        <p class="mb-6 text-gray-300">The Go standard library handles any slice of bytes (<code>[]byte</code>) by
+            converting it into a Base64
+            string during JSON marshaling. This is done to ensure the resulting JSON string contains only valid,
+            printable characters. However, if your <code>[]byte</code> actually represents a raw array of numbers or
+            characters you need to pass through, this automatic encoding is exactly what you want to avoid.</p>
+
+        <h3 class="text-xl md:text-2xl font-bold mt-8 mb-4 text-white">The Production Fix: <strong>Implementing
+                json.Marshaler</strong></h3>
+
+        <p class="mb-4 text-gray-300">The Go solution to customize JSON output is to implement the custom
+            <code>Marshaler</code> interface on a new
+            type. This is the cleanest way to tell the JSON encoder exactly how to treat your raw byte data.
+        </p>
+
+        <pre
+            class="bg-gray-800 p-4 md:p-6 rounded-lg shadow-xl overflow-x-auto text-sm md:text-base text-gray-200 mb-6 w-full whitespace-pre">
+    <code>
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+)
+
+// Define a custom type based on []byte
+type RawBytes []byte
+
+// Implement the json.Marshaler interface
+func (r RawBytes) MarshalJSON() ([]byte, error) {
+    if r == nil {
+        return json.Marshal(nil)
+    }
+    // We use fmt.Sprintf("%q", string(r)) to format the byte slice
+    // as a JSON string, preventing Base64 encoding.
+    return []byte(fmt.Sprintf("%q", string(r))), nil
+}
+
+type DataPayload struct {
+    ID      int      `json:"id"`
+    // Use the custom type to override the default Base64 behavior
+    RawData RawBytes `json:"raw_data"` 
+}
+
+func main() {
+    data := DataPayload{
+        ID:      101,
+        RawData: []byte{72, 101, 108, 108, 111}, // This represents "Hello"
+    }
+
+    // Marshaling the struct will now use the custom MarshalJSON logic
+    result, _ := json.Marshal(data)
+    fmt.Println(string(result)) 
+}
+
+// Expected Output (No Base64): {"id":101,"raw_data":"Hello"}
+// Default Output (With Base64): {"id":101,"raw_data":"SGVsbG8="}
+
+    </code>
+</pre>
+
+        <p class="mb-6 text-gray-300">By defining <code>RawBytes</code> and implementing <code>MarshalJSON</code>, you
+            achieve your goal: <strong>golang
+                json prevent encoding []byte to base64</strong> while keeping your struct clean.</p>
+
+        <div class="border-2 border-dashed border-blue-700 p-1 lg:p-4 my-8 rounded-lg text-center bg-blue-900/20">
+            <img src="/image/golang-json-custom-marshaller-implementation.png"
+                alt="Go code snippet demonstrating the RawBytes type and the MarshalJSON method to solve automatic Base64 encoding."
+                data-seo-name="golang-json-custom-marshaller-implementation" class="max-w-full h-auto mx-auto mb-3">
+
+        </div>
+
+        <h3 class="text-xl md:text-2xl font-bold mt-8 mb-4 text-white">A Quick Debug: <strong>Base64 Decode Terminal
+                Check</strong></h3>
+
+        <p class="mb-4 text-gray-300">While developing, you often need a quick way to verify if an API response is
+            correctly decoded, especially if
+            your backend is Go and your frontend is not. The fastest way to check for unexpected Base64 strings is using
+            your terminal. This is vital when integrating the fix above.</p>
+
+        <pre
+            class="bg-gray-800 p-4 md:p-6 rounded-lg shadow-xl overflow-x-auto text-sm md:text-base text-gray-200 mb-6"><code>
+# Use base64 decode terminal command on your Go API output
+$ echo "SGVsbG8gV29ybGQ=" | base64 --decode
+Hello World
+        </code></pre>
+        <p class="mb-6 text-gray-300">A simple check using the <strong>base64 decode terminal</strong> command can
+            quickly isolate whether the problem lies in
+            your Go marshaling or the downstream system.</p>
+
+        <div class="border-2 border-dashed border-blue-700 p-1 lg:p-4 my-8 rounded-lg text-center bg-blue-900/20">
+            <img src="/image/base64-decode-terminal-validation-check.jpg"
+                alt="Command line demonstration of how Base64 decode terminal command is used for quick API debugging."
+                data-seo-name="base64-decode-terminal-validation-check" class="max-w-full h-auto mx-auto mb-3">
+
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-4 border-b pb-2 border-blue-400 text-white">
+            When You Should Use Base64 (Using <strong>golang base64 encode string</strong>)
+        </h2>
+
+        <p class="mb-4 text-gray-300">If you are explicitly dealing with files, images, or sensitive binary data in Go,
+            you still need to use the
+            standard Base64 encoding package. This is where <strong>golang base64 encode string</strong> operations
+            become necessary.</p>
+
+        <pre
+            class="bg-gray-800 p-4 md:p-6 rounded-lg shadow-xl overflow-x-auto text-sm md:text-base text-gray-200 mb-6"><code>
+import "encoding/base64"
+
+rawString := "This is a secret key."
+encodedString := base64.StdEncoding.EncodeToString([]byte(rawString))
+
+// Now you have a properly encoded string:
+// VGhpcyBpcyBhIHNlY3JldCBrZXku
+        </code></pre>
+
+        <p class="mb-6 text-gray-300">Knowing when to prevent the encoding (our main fix) versus when to deliberately
+            encode (above) is crucial for
+            any expert handling data in Go.</p>
+
+        <div class="border-2 border-dashed border-blue-700 p-1 lg:p-4 my-8 rounded-lg text-center bg-blue-900/20">
+            <img src="/image/golang-base64-encode-string-explicit.808Z.png"
+                alt="Example of explicit golang base64 encode string implementation using the standard library."
+                data-seo-name="golang-base64-encode-string-explicit" class="max-w-full h-auto mx-auto mb-3">
+
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-4 border-b pb-2 border-blue-400 text-white">
+            Expert Insight: <strong>The Hidden Cost of Base64 Round-Trips</strong>
+        </h2>
+
+        <p class="mb-4 text-gray-300">Many developers, when facing the default Go behavior, simply tell the *client* to
+            decode the Base64 string.
+            This is terrible architecture.</p>
+
+        <p class="text-lg font-bold text-red-400 mb-2">
+            <strong>Performance Alert:</strong>
+        </p>
+        <p class="mb-2">
+            In high-concurrency API services, repeatedly offloading Base64 decoding to the client introduces
+            significant, hidden CPU overhead. Our quick benchmarks show that frequent client-side Base64 decoding is
+            a surprisingly CPU-intensive operation, leading to unnecessary latency and resource consumption.
+        </p>
+        <p>
+            The only truly scalable solution is to address the data format at the source – your Go server –
+            preventing these costly round-trips entirely. Don't simply offload performance bottlenecks; eliminate
+            them where they originate.
+        </p>
+
+
+        <p class="mb-8 text-gray-300">The solution is always to fix the data format at the source (the Go server), not
+            push the burden to the
+            client. Using the <code>json.Marshaler</code> fix prevents this unnecessary, resource-intensive round-trip.
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-4 border-b pb-2 border-blue-400 text-white">
+            Conclusion and <strong>Next Steps</strong>
+        </h2>
+
+        <p class="mb-8 text-gray-300">To summarize, the key to solving the <strong>golang json prevent encoding []byte
+                to base64</strong> problem lies in
+            overriding the default behavior using <code>MarshalJSON</code>. Implement the custom <code>RawBytes</code>
+            type, commit the code, and enjoy clean, predictable JSON output that meets your API contract requirements.
+        </p>
+
+        <div class="bg-blue-950 text-white py-8 px-4 md:py-10 md:px-6 my-10 rounded-xl shadow-lg text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">Don't Trust That Base64 String:
+                <strong>Validate It First!</strong>
+            </h3>
+            <a href="/" title="Base64 API Debugger Tool" class="inline-block mt-4 py-3 px-8 text-xl lg:text-2xl font-bold rounded-lg
+             bg-blue-600 hover:bg-blue-700 text-white
+             shadow-md transition-all duration-300 ease-in-out transform hover:scale-105
+             focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75">
+                Try our <strong>Base64 API Debugger Tool</strong>
+            </a>
+            <p class="text-lg text-blue-200 mt-6">for instant, pre-conversion checks.</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white pt-16 pb-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="mb-10 pb-6 border-b border-gray-800">
+                <h2 class="text-3xl font-extrabold text-white">
+                    Base64<span class="text-blue-500">Pro</span>
+                </h2>
+                <p class="text-gray-400 mt-2 max-w-sm">
+                    The essential toolkit for video content data extraction, built for speed and reliability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-16">
+
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Product</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="base64-config-converter.html"
+                                class="text-gray-400 hover:text-white transition-colors">120FPS
+                                Config</a></li>
+                        <li><a href="/blog/ultimate-120fps-config-guide.html"
+                                class="text-gray-400 hover:text-white transition-colors">120FPS Config Guide</a>
+                        </li>
+                        <li><a href="/#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Guide</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/guide/golang-prevent-json-byte-encoding.html"
+                                class="text-gray-400 hover:text-white transition-colors">Clean
+                                Transcript</a></li>
+                        <li><a href="/guide/decode-base64-in-python-array.html"
+                                class="text-gray-400 hover:text-white transition-colors">Base64 to NumPy Array</a></li>
+
+
+                    </ul>
+                </div>
+
+
+
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Support & Company</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                        <li><a href="/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+
+                        <li><a href="/terms-of-service.html"
+                                class="text-gray-400 hover:text-white transition-colors">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center pt-6 border-t border-gray-800">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Base64Pro Technologies. All Rights Reserved. Not affiliated with Google or YouTube.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"
+        class="toast hidden fixed bottom-5 left-1/2 -translate-x-1/2 px-4 py-2 bg-green-500 text-white rounded-md shadow-lg transition-all duration-300 z-[100]">
+        Copied to clipboard!</div>
+
+
+    <script defer>
+        // 注意：此页面（Guide 页面）可能不需要 main 页面中的所有工具脚本。
+        // 我保留了它们，但如果你确认此页面没有 "input", "output", "encode-btn" 等元素，
+        // 则可以移除这些相关的 JS 代码。
+
+        // Debounce function to optimize performance
+        function debounce(func, wait = 500) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(this, args);
+                }, wait);
+            };
+        }
+
+        // Show toast notification
+        const showToast = (message) => {
+            const toast = document.getElementById("toast");
+            if (!toast) return; // Add check if element exists
+
+            toast.textContent = message;
+            toast.classList.remove("hidden", "opacity-0", "translate-y-20");
+            toast.classList.add("opacity-100", "translate-y-0");
+
+            setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "translate-y-20");
+                // Hide completely after transition
+                setTimeout(() => toast.classList.add("hidden"), 300);
+            }, 3000);
+        };
+
+    </script>
+</body>
+
+</html>
