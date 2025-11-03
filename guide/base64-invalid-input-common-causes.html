@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
         content="Resolve the root causes of base64 invalid input errors instantly. We break down illegal characters, padding problems, and the infamous whitespace issue that break Base64 decoding." />
@@ -72,92 +74,276 @@
     <header class="bg-gray-800/80 backdrop-blur-sm py-4 shadow-md sticky top-0 z-50 border-b border-gray-700">
         <div class="container mx-auto flex flex-wrap justify-between items-center px-4 sm:px-6 lg:px-8">
             <div class="flex items-center space-x-2">
-                <i class="fa fa-code text-blue-500 text-xl"></i>
+
+                <img src="/image/logo.png" alt="Base64Pro Logo" class="h-14 w-14" />
                 <a href="/" class="text-xl font-bold text-white">Base64<span class="text-blue-500">Pro</span></a>
             </div>
 
-            <nav class="flex flex-wrap justify-center gap-4 items-center mt-4 md:mt-0 w-full md:w-auto">
+            <!-- 汉堡菜单按钮 - 只在小屏幕显示 -->
+            <button id="mobile-menu-button"
+                class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-2">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- 桌面端导航 - 只在桌面端显示 -->
+            <nav class="hidden md:flex flex-wrap justify-center gap-4 items-center mt-4 md:mt-0 w-full md:w-auto">
                 <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
                 <a href="/base64-config-converter.html"
                     class="text-gray-300 hover:text-white transition-colors whitespace-nowrap">120FPSConfig</a>
                 <a href="/blog/ultimate-120fps-config-guide.html"
                     class="text-gray-300 hover:text-white transition-colors whitespace-nowrap hidden sm:inline-block">120FPSConfigGuide</a>
 
-                <div class="relative group">
-                    <a href="#"
+                <!-- Guide 下拉菜单 (桌面端) - 点击展开 -->
+                <div id="pc-guide-container" class="relative">
+                    <button id="pc-guide-button"
                         class="text-gray-300 hover:text-white transition-colors flex items-center space-x-1 cursor-pointer ">
                         <span>Guide</span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 transform transition-transform group-hover:rotate-180" viewBox="0 0 20 20"
-                            fill="currentColor">
+                        <svg id="pc-guide-arrow" xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 transform transition-transform" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd" />
                         </svg>
-                    </a>
+                    </button>
 
-                    <div class="absolute right-0 min-w-[200px] 
-                            bg-white rounded-lg shadow-xl 
-                            opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                            transition-opacity duration-300 z-50 p-2 
-                            top-full 
-                            md:left-0 md:right-auto md:min-w-fit">
+                    <!-- Guide 主要下拉框 -->
+                    <div id="pc-guide-dropdown" class="absolute right-0 w-64
+                            bg-white rounded-lg shadow-xl p-2 
+                            top-full mt-2 z-50
+                            md:left-0 md:right-auto hidden">
 
-                        <a href="/guide/golang-prevent-json-byte-encoding.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Go JSON: Stop Base64 Encoding
-                        </a>
-                        <a href="/guide/decode-base64-in-python-array.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Python: Base64 to NumPy Array
-                        </a>
-                        <a href="/guide/java-base64-illegalargumentexception-fix.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Java Base64: Fix IllegalArgumentException
-                        </a>
-                        <a href="/guide/macos-linux-base64-decode-to-file.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            macOS/Linux: Base64 Decode to File
-                        </a>
-                        <a href="/guide/csharp-base64-file-io-encoding.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            C#: Base64 File IO
-                        </a>
-                        <a href="/guide/powershell-base64-encoding-batch.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            PowerShell: Base64 Batch Encoding
-                        </a>
-                        <a href="/guide/base64-invalid-input-common-causes.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Base64: Common Invalid Input Causes
-                        </a>
-                        <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Base64 to Hexadecimal Conversion Steps
-                        </a>
-                        <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Base64 to Hexadecimal Conversion Steps
-                        </a>
+                        <!-- Category Item 1 -->
+                        <div class="pc-category-item">
+                            <button
+                                class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
+                                <span>Language Specifics</span>
+                                <svg class="accordion-arrow h-4 w-4 text-gray-500 transform transition-transform duration-200"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Hidden Article List -->
+                            <div
+                                class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <a href="/guide/golang-prevent-json-byte-encoding.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Go JSON: Stop Base64 Encoding</a>
+                                <a href="/guide/decode-base64-in-python-array.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Python: Base64 to NumPy Array</a>
+                                <a href="/guide/java-base64-illegalargumentexception-fix.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Java Base64: Fix
+                                    IllegalArgumentException</a>
+                                <a href="/guide/csharp-base64-file-io-encoding.html"
+                                    class="block py-2 text-gray-600 hover:text-black">C#: Base64 File IO</a>
+                                <a href="/guide/powershell-base64-encoding-batch.html"
+                                    class="block py-2 text-gray-600 hover:text-black">PowerShell: Base64 Batch
+                                    Encoding</a>
+                                <a href="/guide/golang-base64-mastery.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Go: Base64
+                                    Mastery</a>
+                                <a href="/guide/java-csharp-base64-workflow.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Java/C#: Base64 Workflow</a>
+                                <a href="/guide/node-js-base64-buffering-io.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Node.js: Base64 Buffering IO</a>
+                            </div>
+                        </div>
 
-                        <a href="/guide/base64-vs-base62-performance.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            Base64 vs Base62 Performance
-                        </a>
+                        <!-- Category Item 2 -->
+                        <div class="pc-category-item">
+                            <button
+                                class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
+                                <span>Base64 Concepts</span>
+                                <svg class="accordion-arrow h-4 w-4 text-gray-500 transform transition-transform duration-200"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Hidden Article List -->
+                            <div
+                                class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <a href="/guide/base64-invalid-input-common-causes.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Base64: Common Invalid Input
+                                    Causes</a>
+                                <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Base64 to Hexadecimal Conversion
+                                    Steps</a>
+                                <a href="/guide/base64-vs-base62-performance.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Base64 vs Base62 Performance</a>
+                                <a href="/guide/base64-decode-errors-explained.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Base64: Common Decode Errors
+                                    Explained</a>
+                                <a href="/guide/base64-regex-pattern-validation.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Base64 Regex Pattern
+                                    Validation</a>
+                            </div>
+                        </div>
 
-                        <a href="/guide/svg-to-base64-data-uri-embedding.html"
-                            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg">
-                            SVG to Base64 Data URI Embedding
-                        </a>
+                        <!-- Category Item 3 -->
+                        <div class="pc-category-item">
+                            <button
+                                class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
+                                <span>Practical Tools</span>
+                                <svg class="accordion-arrow h-4 w-4 text-gray-500 transform transition-transform duration-200"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Hidden Article List -->
+                            <div
+                                class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <a href="/guide/macos-linux-base64-decode-to-file.html"
+                                    class="block py-2 text-gray-600 hover:text-black">macOS/Linux: Base64 Decode to
+                                    File</a>
+                                <a href="/guide/svg-to-base64-data-uri-embedding.html"
+                                    class="block py-2 text-gray-600 hover:text-black">SVG to Base64 Data URI
+                                    Embedding</a>
+                                <a href="/guide/terminal-base64-toolkit.html"
+                                    class="block py-2 text-gray-600 hover:text-black">Terminal: Base64 Toolkit</a>
+                                <a href="/guide/openssl-rand-base64-key-generation.html"
+                                    class="block py-2 text-gray-600 hover:text-black">OpenSSL: Rand Base64 Key
+                                    Generation</a>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
 
-                <a href="/#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a>
+                <a href="/#tools" class="block text-gray-300 hover:text-white transition-colors">Tools</a>
                 <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
             </nav>
         </div>
     </header>
+
+    <!-- 移动端导航抽屉 -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 w-64 bg-gray-900 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-16">
+        <div class="px-4 py-6">
+            <a href="/" class="block text-white text-lg font-semibold mb-4">Home</a>
+            <a href="/base64-config-converter.html" class="block text-white text-lg font-semibold mb-4">120FPSConfig</a>
+            <a href="/blog/ultimate-120fps-config-guide.html"
+                class="block text-white text-lg font-semibold mb-4">120FPSConfigGuide</a>
+
+            <!-- 移动端 Guide 分类 (手风琴样式) -->
+            <div class="relative mb-4">
+                <button
+                    class="flex justify-between items-center w-full text-white text-lg font-semibold py-2 accordion-header">
+                    <span>Guide</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-300" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="accordion-content hidden pl-4 pt-2">
+                    <!-- Language Specifics -->
+                    <div class="relative mb-2">
+                        <button
+                            class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
+                            <span>Language Specifics</span>
+                            <svg class="h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="accordion-content hidden pl-4 pt-1">
+                            <a href="/guide/golang-prevent-json-byte-encoding.html"
+                                class="block text-gray-400 hover:text-white py-1">Go JSON: Stop Base64 Encoding</a>
+                            <a href="/guide/decode-base64-in-python-array.html"
+                                class="block text-gray-400 hover:text-white py-1">Python: Base64 to NumPy Array</a>
+                            <a href="/guide/java-base64-illegalargumentexception-fix.html"
+                                class="block text-gray-400 hover:text-white py-1">Java Base64: Fix
+                                IllegalArgumentException</a>
+                            <a href="/guide/csharp-base64-file-io-encoding.html"
+                                class="block text-gray-400 hover:text-white py-1">C#:
+                                Base64 File IO</a>
+                            <a href="/guide/powershell-base64-encoding-batch.html"
+                                class="block text-gray-400 hover:text-white py-1">PowerShell: Base64 Batch Encoding</a>
+                            <a href="/guide/golang-base64-mastery.html"
+                                class="block text-gray-400 hover:text-white py-1">Go: Base64
+                                Mastery</a>
+                            <a href="/guide/java-csharp-base64-workflow.html"
+                                class="block text-gray-400 hover:text-white py-1">Java/C#: Base64 Workflow</a>
+                            <a href="/guide/node-js-base64-buffering-io.html"
+                                class="block text-gray-400 hover:text-white py-1">Node.js: Base64 Buffering IO</a>
+                        </div>
+                    </div>
+
+                    <!-- Base64 Concepts -->
+                    <div class="relative mb-2">
+                        <button
+                            class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
+                            <span>Base64 Concepts</span>
+                            <svg class="h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="accordion-content hidden pl-4 pt-1">
+                            <a href="/guide/base64-invalid-input-common-causes.html"
+                                class="block text-gray-400 hover:text-white py-1">Base64: Common Invalid Input
+                                Causes</a>
+                            <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
+                                class="block text-gray-400 hover:text-white py-1">Base64 to Hexadecimal Conversion
+                                Steps</a>
+                            <a href="/guide/base64-vs-base62-performance.html"
+                                class="block text-gray-400 hover:text-white py-1">Base64 vs Base62 Performance</a>
+                            <a href="/guide/base64-decode-errors-explained.html"
+                                class="block text-gray-400 hover:text-white py-1">Base64: Common Decode Errors
+                                Explained</a>
+                            <a href="/guide/base64-regex-pattern-validation.html"
+                                class="block text-gray-400 hover:text-white py-1">Base64 Regex Pattern Validation</a>
+                        </div>
+                    </div>
+
+                    <!-- Practical Tools -->
+                    <div class="relative mb-2">
+                        <button
+                            class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
+                            <span>Practical Tools</span>
+                            <svg class="h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="accordion-content hidden pl-4 pt-1">
+                            <a href="/guide/macos-linux-base64-decode-to-file.html"
+                                class="block text-gray-400 hover:text-white py-1">macOS/Linux: Base64 Decode to File</a>
+                            <a href="/guide/svg-to-base64-data-uri-embedding.html"
+                                class="block text-gray-400 hover:text-white py-1">SVG to Base64 Data URI Embedding</a>
+                            <a href="/guide/terminal-base64-toolkit.html"
+                                class="block text-gray-400 hover:text-white py-1">Terminal:
+                                Base64 Toolkit</a>
+                            <a href="/guide/openssl-rand-base64-key-generation.html"
+                                class="block text-gray-400 hover:text-white py-1">OpenSSL: Rand Base64 Key
+                                Generation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/#tools" class="block text-white text-lg font-semibold mb-4">Tools</a>
+            <a href="/#contact" class="block text-white text-lg font-semibold mb-4">Contact</a>
+        </div>
+    </div>
+
+    <!-- 叠加层，用于关闭移动菜单 -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
 
     <main class=" container mx-auto px-4 py-10 md:py-12 ">
         <h1 class="text-3xl md:text-4xl font-extrabold leading-tight pb-4">
@@ -291,7 +477,7 @@ $FixedString = $MissingPadding.PadRight(($MissingPadding.Length + $PaddingNeeded
             </a>
         </div>
     </main>
-    <!-- Footer -->
+
     <footer class="bg-gray-900 text-white pt-16 pb-12 border-t border-gray-800">
         <div class="container mx-auto px-6">
             <div class="mb-10 pb-6 border-b border-gray-800">
@@ -303,8 +489,10 @@ $FixedString = $MissingPadding.PadRight(($MissingPadding.Length + $PaddingNeeded
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-16">
+            <!-- New 5-column responsive grid -->
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
 
+                <!-- Product Column -->
                 <div>
                     <h3 class="text-lg font-semibold text-blue-500 mb-4">Product</h3>
                     <ul class="space-y-3 text-sm">
@@ -312,78 +500,18 @@ $FixedString = $MissingPadding.PadRight(($MissingPadding.Length + $PaddingNeeded
                                 class="text-gray-400 hover:text-white transition-colors">120FPS
                                 Config</a></li>
                         <li><a href="/blog/ultimate-120fps-config-guide.html"
-                                class="text-gray-400 hover:text-white transition-colors">120FPS Config Guide</a>
-                        </li>
+                                class="text-gray-400 hover:text-white transition-colors">120FPS Config Guide</a></li>
                         <li><a href="/#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Guide</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/guide/golang-prevent-json-byte-encoding.html"
-                                class="text-gray-400 hover:text-white transition-colors">
-                                Go JSON: Stop Base64 Encoding</a></li>
-                        <li><a href="/guide/decode-base64-in-python-array.html"
-                                class="text-gray-400 hover:text-white transition-colors"> Python: Base64 to NumPy Array
-                            </a></li>
-
-                        <li>
-                            <a href="/guide/java-base64-illegalargumentexception-fix.html"
-                                class="text-gray-400 hover:text-white transition-colors">Java Base64: Fix
-                                IllegalArgumentException</a>
-                        </li>
-
-                        <li>
-                            <a href="/guide/macos-linux-base64-decode-to-file.html"
-                                class="text-gray-400 hover:text-white transition-colors">macOS/Linux: Base64 Decode to
-                                File</a>
-                        </li>
-
-                        <li>
-                            <a href="/guide/csharp-base64-file-io-encoding.html"
-                                class="text-gray-400 hover:text-white transition-colors"> C# : File IO Encoding</a>
-                        </li>
-                        <li>
-                            <a href="/guide/powershell-base64-encoding-batch.html"
-                                class="text-gray-400 hover:text-white transition-colors"> PowerShell: Base64 Batch
-                                Encoding</a>
-                        </li>
-                        <li>
-                            <a href="/guide/base64-invalid-input-common-causes.html"
-                                class="text-gray-400 hover:text-white transition-colors"> Base64: Common Invalid Input
-                                Causes</a>
-                        </li>
-                        <li>
-                            <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                                class="text-gray-400 hover:text-white transition-colors"> Base64 to Hexadecimal
-                                Conversion Steps</a>
-                        </li>
-                        <li>
-                            <a href="/guide/base64-vs-base62-performance.html"
-                                class="text-gray-400 hover:text-white transition-colors"> Base64 vs Base62
-                                Performance</a>
-                        </li>
-                        <li>
-                            <a href="/guide/svg-to-base64-data-uri-embedding.html"
-                                class="text-gray-400 hover:text-white transition-colors"> SVG to Base64 Data URI
-                                Embedding</a>
-                        </li>
-
-
-
-                    </ul>
-                </div>
-
-
-
+                <!-- Support & Company Column -->
                 <div>
                     <h3 class="text-lg font-semibold text-blue-500 mb-4">Support & Company</h3>
                     <ul class="space-y-3 text-sm">
                         <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
                         </li>
                         <li><a href="/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-
                         <li><a href="/privacy-policy.html"
                                 class="text-gray-400 hover:text-white transition-colors">Privacy
                                 Policy</a></li>
@@ -392,6 +520,78 @@ $FixedString = $MissingPadding.PadRight(($MissingPadding.Length + $PaddingNeeded
                                 Service</a></li>
                     </ul>
                 </div>
+
+                <!-- Practical Tools Column (Promoted from Guide) -->
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Practical Tools</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/guide/macos-linux-base64-decode-to-file.html"
+                                class="text-gray-400 hover:text-white transition-colors">macOS/Linux: Decode to File</a>
+                        </li>
+                        <li><a href="/guide/svg-to-base64-data-uri-embedding.html"
+                                class="text-gray-400 hover:text-white transition-colors">SVG to Data URI Embedding</a>
+                        </li>
+                        <li><a href="/guide/terminal-base64-toolkit.html"
+                                class="text-gray-400 hover:text-white transition-colors">Terminal: Base64 Toolkit</a>
+                        </li>
+                        <li><a href="/guide/openssl-rand-base64-key-generation.html"
+                                class="text-gray-400 hover:text-white transition-colors">OpenSSL: Key Generation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Base64 Concepts Column (Promoted from Guide) -->
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Base64 Concepts</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/guide/base64-invalid-input-common-causes.html"
+                                class="text-gray-400 hover:text-white transition-colors">Common Invalid Input Causes</a>
+                        </li>
+                        <li><a href="/guide/base64-to-hexadecimal-conversion-steps.html"
+                                class="text-gray-400 hover:text-white transition-colors">To Hexadecimal Conversion</a>
+                        </li>
+                        <li><a href="/guide/base64-vs-base62-performance.html"
+                                class="text-gray-400 hover:text-white transition-colors">Base64 vs Base62
+                                Performance</a></li>
+                        <li><a href="/guide/base64-decode-errors-explained.html"
+                                class="text-gray-400 hover:text-white transition-colors">Common Decode Errors</a></li>
+                        <li><a href="/guide/base64-regex-pattern-validation.html"
+                                class="text-gray-400 hover:text-white transition-colors">Regex Pattern Validation</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Language Specifics Column (Promoted from Guide) -->
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-4">Language Specifics</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/guide/golang-prevent-json-byte-encoding.html"
+                                class="text-gray-400 hover:text-white transition-colors">Go JSON: Stop Base64
+                                Encoding</a></li>
+                        <li><a href="/guide/decode-base64-in-python-array.html"
+                                class="text-gray-400 hover:text-white transition-colors">Python: Base64 to NumPy
+                                Array</a></li>
+                        <li><a href="/guide/java-base64-illegalargumentexception-fix.html"
+                                class="text-gray-400 hover:text-white transition-colors">Java Base64: Fix
+                                IllegalArgumentException</a>
+                        </li>
+                        <li><a href="/guide/csharp-base64-file-io-encoding.html"
+                                class="text-gray-400 hover:text-white transition-colors">C#: Base64 File IO</a></li>
+                        <li><a href="/guide/powershell-base64-encoding-batch.html"
+                                class="text-gray-400 hover:text-white transition-colors">PowerShell: Batch Encoding</a>
+                        </li>
+                        <li><a href="/guide/golang-base64-mastery.html"
+                                class="text-gray-400 hover:text-white transition-colors">Go:
+                                Base64 Mastery</a></li>
+                        <li><a href="/guide/java-csharp-base64-workflow.html"
+                                class="text-gray-400 hover:text-white transition-colors">Java/C#: Base64 Workflow</a>
+                        </li>
+                        <li><a href="/guide/node-js-base64-buffering-io.html"
+                                class="text-gray-400 hover:text-white transition-colors">Node.js: Buffering IO</a></li>
+                    </ul>
+                </div>
+
 
             </div>
 
@@ -402,6 +602,7 @@ $FixedString = $MissingPadding.PadRight(($MissingPadding.Length + $PaddingNeeded
             </div>
         </div>
     </footer>
+    <script src="/js/nav.js" async></script>
     <div id="toast" class="toast">Copied to clipboard!</div>
 </body>
 
