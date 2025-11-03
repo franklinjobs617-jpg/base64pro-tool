@@ -104,11 +104,3 @@ document.addEventListener('click', (event) => {
         });
     }
 });
-
-// 修复 transition 动画和 max-height 的一个问题
-document.querySelectorAll('.accordion-content').forEach(content => {
-    // 初始化时设置 max-height 为 0，确保 CSS transition 生效
-    if (!content.style.maxHeight) {
-        content.style.maxHeight = '0px';
-    }
-}); 
