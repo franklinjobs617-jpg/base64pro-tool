@@ -4,15 +4,71 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO: Optimized Meta Tags for the new page -->
-  <title>PowerShell Base64 Decode & Encode: The Simple Guide (2024)</title>
+  <title>PowerShell Base64 Decode &amp; Encode: The Simple Guide (2024)</title>
   <meta name="description"
-    content="The definitive guide to Base64 in PowerShell. Learn to decode and encode strings and files with easy-to-follow, copy-paste examples. Perfect for scripts and automation." />
+    content="The definitive guide to Base64 in PowerShell. Learn to decode and encode strings and files with easy-to-follow, copy-paste examples. Perfect for scripts and automation.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords"
-    content="powershell base64 decode, powershell decode base64, powershell base64 encode, decode base64 powershell, powershell script base64, convertfrom-base64string, base64 file" />
-  <link rel="canonical" href="https://www.base64pro.top/guide/powershell-base64-guide.html" /> <!-- Finalize this URL upon deployment -->
+    content="svg to base64, svg data uri encoding, img src base64, google icon base64, svg optimization, base64 performance" />
+  <meta name="google-adsense-account" content="ca-pub-3383070348689557" />
+  <link rel="canonical" href="https://base64pro.top/guide/svg-to-base64-data-uri-embedding.html" />
+
+  <link rel="preload" href="../font-awesome-4.7.0/css/font-awesome.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+  </noscript>
+  <link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../dist/output.css" rel="stylesheet">
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QR5YMPT48K"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-QR5YMPT48K");
+  </script>
+  <script defer>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "ti9gd0do1n");
+  </script>
+  <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3383070348689557"
+    crossorigin="anonymous"></script>
+  <style>
+    .placeholder-content {
+      border: 2px dashed #ff4500;
+      padding: 15px;
+      margin: 20px 0;
+      background: #fff3e0;
+      text-align: center;
+      font-style: italic;
+      color: #ff4500;
+      font-weight: bold;
+    }
+
+    /* Essential CSS for code block responsiveness */
+    .code-block {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+  </style>
+  <meta name="keywords"
+    content="powershell base64 decode, powershell decode base64, powershell base64 encode, decode base64 powershell, powershell script base64, convertfrom-base64string, base64 file">
+  <link rel="canonical" href="https://www.base64pro.top/guide/powershell-base64-guide.html">
+  <!-- Finalize this URL upon deployment -->
 
   <!-- SEO: HowTo Schema for Rich Snippets -->
   <script type="application/ld+json">
@@ -54,90 +110,35 @@
         ]
       }
     </script>
-
-  <!-- External Resources -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <style type="text/tailwindcss">
-    body {
-        @apply bg-gray-900 text-gray-200 font-sans;
-      }
-      .container {
-        @apply max-w-4xl mx-auto px-4;
-      }
-      .section-title {
-        @apply text-3xl font-bold mb-6 text-blue-400 border-b-2 border-blue-500 pb-3;
-      }
-      .card {
-        @apply bg-gray-800 p-6 rounded-lg mb-8 shadow-xl;
-      }
-      .author-box {
-        @apply bg-gray-900 border border-blue-500 p-4 rounded-lg flex items-center gap-4 mt-6;
-      }
-      .toc {
-        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 mb-10;
-      }
-      .toc h3 {
-        @apply text-xl font-bold mb-3 text-blue-400;
-      }
-      .toc ul {
-        @apply list-none p-0 space-y-2;
-      }
-      .toc a {
-        @apply text-gray-300 hover:text-blue-400 transition-colors flex items-center;
-      }
-      .toc a .fa {
-        @apply mr-3 text-blue-500;
-      }
-      /* Enhanced Code Block Style */
-      .code-block-wrapper {
-        @apply relative bg-gray-900 border border-gray-700 rounded-lg my-4;
-      }
-      .code-block-header {
-        @apply flex justify-between items-center px-4 py-2 bg-gray-700/50 border-b border-gray-700;
-      }
-      .code-block-title {
-        @apply text-sm font-semibold text-gray-300;
-      }
-      .copy-button {
-        @apply bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-1 px-3 rounded transition-all duration-200;
-      }
-      pre > code.language-powershell {
-        @apply block p-4 overflow-x-auto font-mono text-sm;
-      }
-      /* Info & Tip Boxes */
-      .info-box {
-        @apply bg-blue-900/30 border-l-4 border-blue-500 p-4 rounded-r-lg my-6;
-      }
-      .success-box {
-        @apply bg-green-900/30 border-l-4 border-green-500 p-4 rounded-r-lg my-6 font-mono text-green-300;
-      }
-    </style>
-    <!-- PrismJS for code highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 </head>
 
 <body class="min-h-screen flex flex-col">
-
-  <!-- ======================== START: FULL HEADER (Your original code + new links) ======================== -->
   <header class="bg-gray-800/80 backdrop-blur-sm py-4 shadow-md sticky top-0 z-50 border-b border-gray-700">
     <div class="container mx-auto flex flex-wrap justify-between items-center px-4 sm:px-6 lg:px-8">
       <div class="flex items-center space-x-2">
+
         <img src="/image/logo.png" alt="Base64Pro Logo" class="h-14 w-14" />
         <a href="/" class="text-xl font-bold text-white">Base64<span class="text-blue-500">Pro</span></a>
       </div>
+
+      <!-- 汉堡菜单按钮 - 只在小屏幕显示 -->
       <button id="mobile-menu-button"
         class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-2">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4">
+          </path>
         </svg>
       </button>
+
+      <!-- 桌面端导航 - 只在桌面端显示 -->
       <nav class="hidden md:flex flex-wrap justify-center gap-4 items-center mt-4 md:mt-0 w-full md:w-auto">
         <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
         <a href="/base64-config-converter.html"
           class="text-gray-300 hover:text-white transition-colors whitespace-nowrap">120FPSConfig</a>
         <a href="/blog/ultimate-120fps-config-guide.html"
           class="text-gray-300 hover:text-white transition-colors whitespace-nowrap hidden sm:inline-block">120FPSConfigGuide</a>
+
+        <!-- Guide 下拉菜单 (桌面端) - 点击展开 -->
         <div id="pc-guide-container" class="relative">
           <button id="pc-guide-button"
             class="text-gray-300 hover:text-white transition-colors flex items-center space-x-1 cursor-pointer ">
@@ -149,10 +150,14 @@
                 clip-rule="evenodd" />
             </svg>
           </button>
+
+          <!-- Guide 主要下拉框 -->
           <div id="pc-guide-dropdown" class="absolute right-0 w-64
                             bg-white rounded-lg shadow-xl p-2 
                             top-full mt-2 z-50
                             md:left-0 md:right-auto hidden">
+
+            <!-- Category Item 1 -->
             <div class="pc-category-item">
               <button
                 class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
@@ -164,26 +169,32 @@
                     clip-rule="evenodd" />
                 </svg>
               </button>
+              <!-- Hidden Article List -->
               <div class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                <a href="/guide/powershell-base64-guide.html" class="block py-2 text-gray-600 hover:text-black font-bold">PowerShell: Base64 Guide</a>
                 <a href="/guide/golang-prevent-json-byte-encoding.html"
                   class="block py-2 text-gray-600 hover:text-black">Go JSON: Stop Base64 Encoding</a>
                 <a href="/guide/decode-base64-in-python-array.html"
                   class="block py-2 text-gray-600 hover:text-black">Python: Base64 to NumPy Array</a>
                 <a href="/guide/java-base64-illegalargumentexception-fix.html"
-                  class="block py-2 text-gray-600 hover:text-black">Java Base64: Fix IllegalArgumentException</a>
+                  class="block py-2 text-gray-600 hover:text-black">Java Base64: Fix
+                  IllegalArgumentException</a>
                 <a href="/guide/csharp-base64-file-io-encoding.html"
                   class="block py-2 text-gray-600 hover:text-black">C#: Base64 File IO</a>
                 <a href="/guide/powershell-base64-encoding-batch.html"
-                  class="block py-2 text-gray-600 hover:text-black">PowerShell: Base64 Batch Encoding</a>
+                  class="block py-2 text-gray-600 hover:text-black">PowerShell: Base64 Batch
+                  Encoding</a>
                 <a href="/guide/golang-base64-mastery.html" class="block py-2 text-gray-600 hover:text-black">Go: Base64
                   Mastery</a>
                 <a href="/guide/java-csharp-base64-workflow.html"
                   class="block py-2 text-gray-600 hover:text-black">Java/C#: Base64 Workflow</a>
                 <a href="/guide/node-js-base64-buffering-io.html"
-                  class="block py-2 text-gray-600 hover:text-black">Node.js: Base64 Buffering IO</a>
+                  class="block py-2 text-gray-600 hover:text-black">Node.js: Base64 Buffering IO</a><a
+                  href="/guide/powershell-base64-guide.html"
+                  class="block py-2 text-gray-600 hover:text-black">PowerShell: Base64 Guide</a>
               </div>
             </div>
+
+            <!-- Category Item 2 -->
             <div class="pc-category-item">
               <button
                 class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
@@ -195,19 +206,26 @@
                     clip-rule="evenodd" />
                 </svg>
               </button>
+              <!-- Hidden Article List -->
               <div class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
                 <a href="/guide/base64-invalid-input-common-causes.html"
-                  class="block py-2 text-gray-600 hover:text-black">Base64: Common Invalid Input Causes</a>
+                  class="block py-2 text-gray-600 hover:text-black">Base64: Common Invalid Input
+                  Causes</a>
                 <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                  class="block py-2 text-gray-600 hover:text-black">Base64 to Hexadecimal Conversion Steps</a>
+                  class="block py-2 text-gray-600 hover:text-black">Base64 to Hexadecimal Conversion
+                  Steps</a>
                 <a href="/guide/base64-vs-base62-performance.html"
                   class="block py-2 text-gray-600 hover:text-black">Base64 vs Base62 Performance</a>
                 <a href="/guide/base64-decode-errors-explained.html"
-                  class="block py-2 text-gray-600 hover:text-black">Base64: Common Decode Errors Explained</a>
+                  class="block py-2 text-gray-600 hover:text-black">Base64: Common Decode Errors
+                  Explained</a>
                 <a href="/guide/base64-regex-pattern-validation.html"
-                  class="block py-2 text-gray-600 hover:text-black">Base64 Regex Pattern Validation</a>
+                  class="block py-2 text-gray-600 hover:text-black">Base64 Regex Pattern
+                  Validation</a>
               </div>
             </div>
+
+            <!-- Category Item 3 -->
             <div class="pc-category-item">
               <button
                 class="pc-accordion-header w-full flex items-center justify-between px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 cursor-pointer">
@@ -219,24 +237,32 @@
                     clip-rule="evenodd" />
                 </svg>
               </button>
+              <!-- Hidden Article List -->
               <div class="accordion-content pl-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
                 <a href="/guide/macos-linux-base64-decode-to-file.html"
-                  class="block py-2 text-gray-600 hover:text-black">macOS/Linux: Base64 Decode to File</a>
+                  class="block py-2 text-gray-600 hover:text-black">macOS/Linux: Base64 Decode to
+                  File</a>
                 <a href="/guide/svg-to-base64-data-uri-embedding.html"
-                  class="block py-2 text-gray-600 hover:text-black">SVG to Base64 Data URI Embedding</a>
+                  class="block py-2 text-gray-600 hover:text-black">SVG to Base64 Data URI
+                  Embedding</a>
                 <a href="/guide/terminal-base64-toolkit.html"
                   class="block py-2 text-gray-600 hover:text-black">Terminal: Base64 Toolkit</a>
                 <a href="/guide/openssl-rand-base64-key-generation.html"
-                  class="block py-2 text-gray-600 hover:text-black">OpenSSL: Rand Base64 Key Generation</a>
+                  class="block py-2 text-gray-600 hover:text-black">OpenSSL: Rand Base64 Key
+                  Generation</a>
               </div>
             </div>
+
           </div>
         </div>
+
         <a href="/#tools" class="block text-gray-300 hover:text-white transition-colors">Tools</a>
         <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
       </nav>
     </div>
   </header>
+
+  <!-- 移动端导航抽屉 -->
   <div id="mobile-menu"
     class="fixed inset-y-0 left-0 w-64 bg-gray-900 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-16">
     <div class="px-4 py-6">
@@ -244,6 +270,8 @@
       <a href="/base64-config-converter.html" class="block text-white text-lg font-semibold mb-4">120FPSConfig</a>
       <a href="/blog/ultimate-120fps-config-guide.html"
         class="block text-white text-lg font-semibold mb-4">120FPSConfigGuide</a>
+
+      <!-- 移动端 Guide 分类 (手风琴样式) -->
       <div class="relative mb-4">
         <button class="flex justify-between items-center w-full text-white text-lg font-semibold py-2 accordion-header">
           <span>Guide</span>
@@ -254,6 +282,7 @@
           </svg>
         </button>
         <div class="accordion-content hidden pl-4 pt-2">
+          <!-- Language Specifics -->
           <div class="relative mb-2">
             <button
               class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
@@ -265,13 +294,13 @@
               </svg>
             </button>
             <div class="accordion-content hidden pl-4 pt-1">
-              <a href="/guide/powershell-base64-guide.html" class="block text-white font-bold py-1">PowerShell: Base64 Guide</a>
               <a href="/guide/golang-prevent-json-byte-encoding.html"
                 class="block text-gray-400 hover:text-white py-1">Go JSON: Stop Base64 Encoding</a>
               <a href="/guide/decode-base64-in-python-array.html"
                 class="block text-gray-400 hover:text-white py-1">Python: Base64 to NumPy Array</a>
               <a href="/guide/java-base64-illegalargumentexception-fix.html"
-                class="block text-gray-400 hover:text-white py-1">Java Base64: Fix IllegalArgumentException</a>
+                class="block text-gray-400 hover:text-white py-1">Java Base64: Fix
+                IllegalArgumentException</a>
               <a href="/guide/csharp-base64-file-io-encoding.html" class="block text-gray-400 hover:text-white py-1">C#:
                 Base64 File IO</a>
               <a href="/guide/powershell-base64-encoding-batch.html"
@@ -281,9 +310,13 @@
               <a href="/guide/java-csharp-base64-workflow.html"
                 class="block text-gray-400 hover:text-white py-1">Java/C#: Base64 Workflow</a>
               <a href="/guide/node-js-base64-buffering-io.html"
-                class="block text-gray-400 hover:text-white py-1">Node.js: Base64 Buffering IO</a>
+                class="block text-gray-400 hover:text-white py-1">Node.js: Base64 Buffering IO</a><a
+                href="/guide/powershell-base64-guide.html" class="block text-gray-400 hover:text-white py-1">PowerShell:
+                Base64 Guide</a>
             </div>
           </div>
+
+          <!-- Base64 Concepts -->
           <div class="relative mb-2">
             <button
               class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
@@ -296,17 +329,22 @@
             </button>
             <div class="accordion-content hidden pl-4 pt-1">
               <a href="/guide/base64-invalid-input-common-causes.html"
-                class="block text-gray-400 hover:text-white py-1">Base64: Common Invalid Input Causes</a>
+                class="block text-gray-400 hover:text-white py-1">Base64: Common Invalid Input
+                Causes</a>
               <a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                class="block text-gray-400 hover:text-white py-1">Base64 to Hexadecimal Conversion Steps</a>
+                class="block text-gray-400 hover:text-white py-1">Base64 to Hexadecimal Conversion
+                Steps</a>
               <a href="/guide/base64-vs-base62-performance.html"
                 class="block text-gray-400 hover:text-white py-1">Base64 vs Base62 Performance</a>
               <a href="/guide/base64-decode-errors-explained.html"
-                class="block text-gray-400 hover:text-white py-1">Base64: Common Decode Errors Explained</a>
+                class="block text-gray-400 hover:text-white py-1">Base64: Common Decode Errors
+                Explained</a>
               <a href="/guide/base64-regex-pattern-validation.html"
                 class="block text-gray-400 hover:text-white py-1">Base64 Regex Pattern Validation</a>
             </div>
           </div>
+
+          <!-- Practical Tools -->
           <div class="relative mb-2">
             <button
               class="flex justify-between items-center w-full text-gray-300 hover:text-white py-1 text-base accordion-header">
@@ -325,19 +363,22 @@
               <a href="/guide/terminal-base64-toolkit.html" class="block text-gray-400 hover:text-white py-1">Terminal:
                 Base64 Toolkit</a>
               <a href="/guide/openssl-rand-base64-key-generation.html"
-                class="block text-gray-400 hover:text-white py-1">OpenSSL: Rand Base64 Key Generation</a>
+                class="block text-gray-400 hover:text-white py-1">OpenSSL: Rand Base64 Key
+                Generation</a>
             </div>
           </div>
         </div>
       </div>
+
       <a href="/#tools" class="block text-white text-lg font-semibold mb-4">Tools</a>
       <a href="/#contact" class="block text-white text-lg font-semibold mb-4">Contact</a>
     </div>
   </div>
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
-  <!-- ======================== END: HEADER ======================== -->
 
-  <!-- ======================== START: MAIN CONTENT (New Tutorial) ======================== -->
+  <!-- 叠加层，用于关闭移动菜单 -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+
   <main class="flex-grow container mx-auto px-4 py-12">
     <article>
       <header class="text-center mb-12">
@@ -370,7 +411,8 @@
       </nav>
       <div class="info-box">
         <p class="font-bold text-blue-300">The Core Idea</p>
-        <p class="text-gray-300 mt-1">PowerShell uses .NET to handle Base64. The process always involves converting your data to a "byte array" as a middle step.</p>
+        <p class="text-gray-300 mt-1">PowerShell uses .NET to handle Base64. The process always involves converting your
+          data to a "byte array" as a middle step.</p>
       </div>
       <section id="task1" class="card">
         <h2 class="section-title">Task 1: Decode a Base64 String</h2>
@@ -409,7 +451,8 @@ Write-Host $originalText
       <section id="task2" class="card">
         <h2 class="section-title">Task 2: Encode a String to Base64</h2>
         <p class="text-gray-300 mb-4 leading-relaxed">
-          Here, you'll take regular text and convert it into a Base64 string, often to safely transmit it or include it in a script.
+          Here, you'll take regular text and convert it into a Base64 string, often to safely transmit it or include it
+          in a script.
         </p>
         <h3 class="text-xl font-semibold mt-6 mb-3 text-blue-300">
           Step-by-Step Code
@@ -448,7 +491,8 @@ Write-Host $base64Output
       <section id="task3" class="card">
         <h2 class="section-title">Task 3: Work with Files (Encode & Decode)</h2>
         <p class="text-gray-300 mb-4 leading-relaxed">
-          The same logic applies to files. You just need to read the file into bytes first, or write the decoded bytes back to a new file.
+          The same logic applies to files. You just need to read the file into bytes first, or write the decoded bytes
+          back to a new file.
         </p>
         <h3 class="text-xl font-semibold mt-6 mb-3 text-blue-300">
           Example A: Encode a File into a Base64 String
@@ -505,7 +549,9 @@ Write-Host "File decoded successfully!"
               <i class="fa fa-question-circle mr-2"></i>Why does my decoded text look like random symbols?
             </h3>
             <p class="text-gray-400">
-              This usually means the Base64 string did not represent text. For example, it could be a ZIP file, an image, or a PDF. When you decode it to bytes and try to display it as text, it appears as gibberish. If you expect a file, make sure to use the "Decode to File" method.
+              This usually means the Base64 string did not represent text. For example, it could be a ZIP file, an
+              image, or a PDF. When you decode it to bytes and try to display it as text, it appears as gibberish. If
+              you expect a file, make sure to use the "Decode to File" method.
             </p>
           </div>
           <div>
@@ -513,7 +559,9 @@ Write-Host "File decoded successfully!"
               <i class="fa fa-question-circle mr-2"></i>Is there a simpler command like `ConvertTo-Base64`?
             </h3>
             <p class="text-gray-400">
-              Not built-in, no. While you could create your own PowerShell function to wrap these .NET calls, the methods shown here are the standard, officially supported way to perform Base64 operations in PowerShell and are extremely reliable.
+              Not built-in, no. While you could create your own PowerShell function to wrap these .NET calls, the
+              methods shown here are the standard, officially supported way to perform Base64 operations in PowerShell
+              and are extremely reliable.
             </p>
           </div>
           <div>
@@ -521,16 +569,16 @@ Write-Host "File decoded successfully!"
               <i class="fa fa-question-circle mr-2"></i>What's the `[System.Text.Encoding]::UTF8` part?
             </h3>
             <p class="text-gray-400">
-              That tells PowerShell how to interpret the bytes as text characters. UTF-8 is the universal standard for web and modern systems. If you were working with very old Windows files, you might occasionally need `::ASCII` or `::Unicode`, but 99% of the time, `UTF8` is the correct choice.
+              That tells PowerShell how to interpret the bytes as text characters. UTF-8 is the universal standard for
+              web and modern systems. If you were working with very old Windows files, you might occasionally need
+              `::ASCII` or `::Unicode`, but 99% of the time, `UTF8` is the correct choice.
             </p>
           </div>
         </div>
       </section>
     </article>
   </main>
-  <!-- ======================== END: MAIN CONTENT ======================== -->
 
-  <!-- ======================== START: FULL FOOTER (Your original code + new links) ======================== -->
   <footer class="bg-gray-900 text-white pt-16 pb-12 border-t border-gray-800">
     <div class="container mx-auto px-6">
       <div class="mb-10 pb-6 border-b border-gray-800">
@@ -541,21 +589,28 @@ Write-Host "File decoded successfully!"
           The essential toolkit for video content data extraction, built for speed and reliability.
         </p>
       </div>
+
+      <!-- New 5-column responsive grid -->
       <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+
+        <!-- Product Column -->
         <div>
           <h3 class="text-lg font-semibold text-blue-500 mb-4">Product</h3>
           <ul class="space-y-3 text-sm">
-            <li><a href="/base64-config-converter.html" class="text-gray-400 hover:text-white transition-colors">120FPS
+            <li><a href="base64-config-converter.html" class="text-gray-400 hover:text-white transition-colors">120FPS
                 Config</a></li>
             <li><a href="/blog/ultimate-120fps-config-guide.html"
                 class="text-gray-400 hover:text-white transition-colors">120FPS Config Guide</a></li>
             <li><a href="/#tools" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
           </ul>
         </div>
+
+        <!-- Support & Company Column -->
         <div>
           <h3 class="text-lg font-semibold text-blue-500 mb-4">Support & Company</h3>
           <ul class="space-y-3 text-sm">
-            <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+            </li>
             <li><a href="/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
             <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy
                 Policy</a></li>
@@ -563,81 +618,118 @@ Write-Host "File decoded successfully!"
                 Service</a></li>
           </ul>
         </div>
+
+        <!-- Practical Tools Column (Promoted from Guide) -->
         <div>
           <h3 class="text-lg font-semibold text-blue-500 mb-4">Practical Tools</h3>
           <ul class="space-y-3 text-sm">
             <li><a href="/guide/macos-linux-base64-decode-to-file.html"
-                class="text-gray-400 hover:text-white transition-colors">macOS/Linux: Decode to File</a></li>
+                class="text-gray-400 hover:text-white transition-colors">macOS/Linux: Decode to File</a>
+            </li>
             <li><a href="/guide/svg-to-base64-data-uri-embedding.html"
-                class="text-gray-400 hover:text-white transition-colors">SVG to Data URI Embedding</a></li>
+                class="text-gray-400 hover:text-white transition-colors">SVG to Data URI Embedding</a>
+            </li>
             <li><a href="/guide/terminal-base64-toolkit.html"
-                class="text-gray-400 hover:text-white transition-colors">Terminal: Base64 Toolkit</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Terminal: Base64 Toolkit</a>
+            </li>
             <li><a href="/guide/openssl-rand-base64-key-generation.html"
-                class="text-gray-400 hover:text-white transition-colors">OpenSSL: Key Generation</a></li>
+                class="text-gray-400 hover:text-white transition-colors">OpenSSL: Key Generation</a>
+            </li>
           </ul>
         </div>
+
+        <!-- Base64 Concepts Column (Promoted from Guide) -->
         <div>
           <h3 class="text-lg font-semibold text-blue-500 mb-4">Base64 Concepts</h3>
           <ul class="space-y-3 text-sm">
             <li><a href="/guide/base64-invalid-input-common-causes.html"
-                class="text-gray-400 hover:text-white transition-colors">Common Invalid Input Causes</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Common Invalid Input Causes</a>
+            </li>
             <li><a href="/guide/base64-to-hexadecimal-conversion-steps.html"
-                class="text-gray-400 hover:text-white transition-colors">To Hexadecimal Conversion</a></li>
+                class="text-gray-400 hover:text-white transition-colors">To Hexadecimal Conversion</a>
+            </li>
             <li><a href="/guide/base64-vs-base62-performance.html"
-                class="text-gray-400 hover:text-white transition-colors">Base64 vs Base62 Performance</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Base64 vs Base62
+                Performance</a></li>
             <li><a href="/guide/base64-decode-errors-explained.html"
                 class="text-gray-400 hover:text-white transition-colors">Common Decode Errors</a></li>
             <li><a href="/guide/base64-regex-pattern-validation.html"
-                class="text-gray-400 hover:text-white transition-colors">Regex Pattern Validation</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Regex Pattern Validation</a>
+            </li>
           </ul>
         </div>
+
+
+        <!-- Language Specifics Column (Promoted from Guide) -->
         <div>
           <h3 class="text-lg font-semibold text-blue-500 mb-4">Language Specifics</h3>
           <ul class="space-y-3 text-sm">
-             <li><a href="/guide/powershell-base64-guide.html" class="text-white font-bold transition-colors">PowerShell: Base64 Guide</a></li>
             <li><a href="/guide/golang-prevent-json-byte-encoding.html"
-                class="text-gray-400 hover:text-white transition-colors">Go JSON: Stop Base64 Encoding</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Go JSON: Stop Base64
+                Encoding</a></li>
             <li><a href="/guide/decode-base64-in-python-array.html"
-                class="text-gray-400 hover:text-white transition-colors">Python: Base64 to NumPy Array</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Python: Base64 to NumPy
+                Array</a></li>
             <li><a href="/guide/java-base64-illegalargumentexception-fix.html"
-                class="text-gray-400 hover:text-white transition-colors">Java Base64: Fix IllegalArgumentException</a>
+                class="text-gray-400 hover:text-white transition-colors">Java Base64: Fix
+                IllegalArgumentException</a>
             </li>
             <li><a href="/guide/csharp-base64-file-io-encoding.html"
                 class="text-gray-400 hover:text-white transition-colors">C#: Base64 File IO</a></li>
             <li><a href="/guide/powershell-base64-encoding-batch.html"
-                class="text-gray-400 hover:text-white transition-colors">PowerShell: Batch Encoding</a></li>
+                class="text-gray-400 hover:text-white transition-colors">PowerShell: Batch Encoding</a>
+            </li>
             <li><a href="/guide/golang-base64-mastery.html" class="text-gray-400 hover:text-white transition-colors">Go:
                 Base64 Mastery</a></li>
             <li><a href="/guide/java-csharp-base64-workflow.html"
-                class="text-gray-400 hover:text-white transition-colors">Java/C#: Base64 Workflow</a></li>
+                class="text-gray-400 hover:text-white transition-colors">Java/C#: Base64 Workflow</a>
+            </li>
             <li><a href="/guide/node-js-base64-buffering-io.html"
                 class="text-gray-400 hover:text-white transition-colors">Node.js: Buffering IO</a></li>
+            <li>
+              <a href="/guide/powershell-base64-guide.html"
+                class="text-gray-400 hover:text-white transition-colors">PowerShell: Base64 Guide</a>
+            </li>
           </ul>
         </div>
+
+
       </div>
+
       <div class="mt-16 text-center pt-6 border-t border-gray-800">
         <p class="text-gray-500 text-sm">
-          &copy; 2024 Base64Pro Technologies. All Rights Reserved. Not affiliated with Google or YouTube.
+          &copy; 2025 Base64Pro Technologies. All Rights Reserved. Not affiliated with Google or YouTube.
         </p>
       </div>
     </div>
   </footer><button id="feedback-toggle-button"
     class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out z-[10000] p-4 md:w-auto md:px-5 md:py-3"
     aria-label="Open Feedback Form">
+
+    <!-- Icon (Always visible) -->
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
       </path>
     </svg>
+
+    <!-- Text (Visible on medium screens and up) -->
     <span class="hidden md:inline ml-2">Feedback</span>
   </button>
+
   <div id="feedback-modal"
     class="fixed inset-0 bg-black bg-opacity-70 z-[10001] p-0 md:p-4 hidden flex justify-center items-center">
+
+    <!-- 这是响应式面板，在移动端是底部滑出，桌面端是居中 -->
     <div id="feedback-panel" class="bg-gray-800 w-full border-t md:border border-gray-700 shadow-2xl flex flex-col
            fixed bottom-0 left-0 right-0 rounded-t-2xl max-h-[85vh] p-4 transform translate-y-full transition-transform duration-300 ease-in-out
            md:relative md:max-w-xl md:rounded-2xl md:p-6 md:transform-none">
+
+      <!-- 头部 (包含拖拽指示器) -->
       <header class="flex-shrink-0 text-center relative pb-4">
+        <!-- 移动端拖拽指示器 -->
         <div class="w-12 h-1.5 bg-gray-600 rounded-full mx-auto mb-4 md:hidden" id="cursor-pointer"></div>
+
         <h2 class="text-xl lg:text-2xl font-bold text-white">Community Feedback</h2>
         <button id="close-button"
           class="absolute -top-1 right-0 text-gray-400 hover:text-white text-3xl leading-none transition duration-150"
@@ -645,74 +737,47 @@ Write-Host "File decoded successfully!"
           &times;
         </button>
       </header>
+
+      <!-- 可滚动的内容区域 -->
       <div class="overflow-y-auto">
         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="9c8cc03a-7c6b-4b79-97fc-519727261718"
-          data-page-id="powershell-base64-guide" data-page-url="https://www.base64pro.top/guide/powershell-base64-guide.html" data-page-title="PowerShell Base64 Guide"
-          data-theme="dark">
+          data-page-id="svg-to-base64-data-uri-embedding" data-page-url="https://base64pro.top/"
+          data-page-title="Base64Pro" data-theme="dark">
         </div>
       </div>
     </div>
   </div>
-  <!-- ======================== END: FOOTER ======================== -->
 
-  <!-- PrismJS for code highlighting -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-powershell.min.js"></script>
-  
-  <!-- Script for Copy Button -->
-  <script>
-    function copyCode(button) {
-      const pre = button.closest('.code-block-wrapper').querySelector('pre');
-      const code = pre.querySelector('code');
-      navigator.clipboard.writeText(code.innerText).then(() => {
-        button.innerText = 'Copied!';
-        setTimeout(() => {
-          button.innerText = 'Copy';
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
-    }
-  </script>
-
-  <!-- Your original nav.js and other scripts -->
   <script async defer src="/js/cusdis.es.js"></script>
   <script>
     const modal = document.getElementById('feedback-modal');
     const toggleButton = document.getElementById('feedback-toggle-button');
     const closeButton = document.getElementById('close-button');
-    const panel = document.getElementById('feedback-panel');
 
-    const openModal = () => {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        requestAnimationFrame(() => {
-            panel.classList.remove('translate-y-full');
-        });
-    };
+
+    toggleButton.addEventListener('click', closeModal);
 
     const closeModal = () => {
-        panel.classList.add('translate-y-full');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }, 300); 
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
     };
 
-    toggleButton.addEventListener('click', openModal);
     closeButton.addEventListener('click', closeModal);
+
     modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
+      if (event.target === modal) {
+        closeModal();
+      }
     });
+
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-            closeModal();
-        }
+      if (event.key === 'Escape') {
+        closeModal();
+      }
     });
   </script>
   <script src="/js/nav.js" async></script>
+
 </body>
 
 </html>
