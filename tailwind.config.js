@@ -2,6 +2,8 @@
 module.exports = {
   content: [
     "./*.html", // 告诉它扫描根目录下的所有 .html 文件
+    "./guide/**/*.html",// 告诉它扫描 guide 目录下的所有 .html文件
+    "./ko/**/*.html" // 告诉它扫描 guide 目录下的所有 .html文件
   ],
   theme: {
     extend: {

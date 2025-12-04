@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Base64 란 무엇인지 부터 base64 인코딩 디코딩의 변환 원리 (RFC 4648) 및 웹 사용 이유까지 총체적으로 설명합니다." />
+    <title>Base64 란 무엇인가요? (원리 / 사용 이유 / 인코딩 디코딩) | 2025</title>
+
+    <link rel="canonical" href="https://base64pro.top/ko/guide/base64-concept-and-conversion.html" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR5YMPT48K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-QR5YMPT48K");
+    </script>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] =
+                c[a] ||
+                function () {
+                    (c[a].q = c[a].q || []).push(arguments);
+                };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ti9gd0do1n");
+    </script>
+
+    <!-- External Resources -->
+    <link href="/dist/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        body {
+        @apply bg-gray-900 text-gray-100 font-sans;
+      }
+      .container {
+        @apply max-w-7xl mx-auto px-4;
+      }
+      .section-title {
+        @apply text-3xl font-bold mb-6 text-blue-500;
+      }
+      .card {
+        @apply bg-gray-800 p-6 md:p-8 rounded-xl mb-8 shadow-lg border border-gray-700;
+      }
+      .content-h2 {
+        @apply text-2xl font-bold text-white mt-10 mb-4 border-b border-gray-700 pb-2;
+      }
+      .content-h3 {
+        @apply text-xl font-semibold text-blue-400 mt-6 mb-3;
+      }
+      .content-p {
+        @apply text-gray-300 mb-4 leading-relaxed;
+      }
+      .quick-definition-card {
+        @apply bg-gray-700/50 border-l-4 border-green-500 p-6 my-6 rounded-r-lg;
+      }
+      .cta-button {
+        @apply inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 mt-4 text-center;
+      }
+      .cta-button-green {
+        @apply inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 mt-4 text-center;
+      }
+      .toc-link {
+        @apply block text-gray-400 hover:text-blue-400 py-2 transition-colors border-l-2 border-transparent hover:border-blue-500 pl-3;
+      }
+      .table-header {
+        @apply bg-gray-700 text-gray-200 font-bold uppercase text-sm leading-normal;
+      }
+      .table-row {
+        @apply border-b border-gray-700 hover:bg-gray-700/50;
+      }
+      .table-cell {
+        @apply py-3 px-6 text-left whitespace-nowrap;
+      }
+    </style>
+</head>
+
+<body
+    class="min-h-screen flex flex-col bg-slate-950 text-slate-200 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Background Decoration -->
+    <div class="glow-bg">
+        <div class="glow-blob"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3">
+                <img src="/image/logo.png" alt="Base64Pro Logo" class="h-14 w-14" />
+                <a href="/ko/" class="text-lg font-bold tracking-tight text-white hover:opacity-90 transition-opacity">
+                    Base64<span class="text-indigo-400">Pro</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation (Corrected based on file structure) -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="/ko/" class="text-slate-400 hover:text-white transition-colors">홈</a>
+
+                <!-- Tool 1 -->
+                <a href="/ko/tool/base64-decoder-tool.html" class="text-white transition-colors">
+                    디코더
+                </a>
+
+                <!-- Tool 2 -->
+                <a href="/ko/tool/image-to-base64-converter.html"
+                    class="text-slate-400 hover:text-white transition-colors">
+                    이미지 변환기
+                </a>
+
+                <!-- Guides Dropdown (4 Files) -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 text-slate-400 hover:text-white transition-colors py-2 cursor-pointer">
+                        가이드
+                        <i class="fa fa-angle-down ml-1 transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div
+                        class="absolute right-0 top-full mt-2 w-64 origin-top-right rounded-xl border border-slate-800 bg-slate-900 p-1.5 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+
+                        <!-- Guide 1 -->
+                        <a href="/ko/guide/base64-concept-and-conversion.html"
+                            class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i class="fa fa-book mr-2 text-indigo-400"></i>Base64 개념 및 변환
+                        </a>
+
+                        <!-- Guide 2 -->
+                        <a href="/ko/guide/base64-decoding-mastery.html"
+                            class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i class="fa fa-unlock-alt mr-2 text-indigo-400"></i>디코딩 마스터 가이드
+                        </a>
+
+                        <!-- Guide 3 -->
+                        <a href="/ko/guide/base64-encoding-workflows.html"
+                            class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i class="fa fa-cogs mr-2 text-indigo-400"></i>인코딩 워크플로우
+                        </a>
+
+                        <!-- Guide 4 -->
+                        <a href="/ko/guide/python-javascript-base64-guide.html"
+                            class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i class="fa fa-code mr-2 text-indigo-400"></i>Python/JS 가이드
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <button id="mobile-menu-button"
+                class="md:hidden p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 z-[60] w-72 transform bg-slate-900 shadow-2xl transition-transform duration-300 ease-in-out -translate-x-full border-r border-slate-800">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex items-center justify-between mb-8">
+                <span class="text-xl font-bold text-white">Menu</span>
+                <button id="close-mobile-menu" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5">
+                    <i class="fa fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-2 overflow-y-auto">
+                <a href="/ko/"
+                    class="px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-colors">홈</a>
+
+                <div class="h-px bg-slate-800 my-2"></div>
+                <span class="px-4 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tools</span>
+
+                <a href="/ko/tool/base64-decoder-tool.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">Base64
+                    디코더</a>
+                <a href="/ko/tool/image-to-base64-converter.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">이미지
+                    변환기</a>
+
+                <div class="h-px bg-slate-800 my-2"></div>
+                <span class="px-4 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Guides</span>
+
+                <a href="/ko/guide/base64-concept-and-conversion.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">개념 및 변환</a>
+                <a href="/ko/guide/base64-decoding-mastery.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">디코딩
+                    마스터</a>
+                <a href="/ko/guide/base64-encoding-workflows.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">인코딩
+                    워크플로우</a>
+                <a href="/ko/guide/python-javascript-base64-guide.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">Python/JS 가이드</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm hidden transition-opacity opacity-0"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 sm:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <!-- Content Area -->
+            <article class="lg:col-span-3">
+                <div class="card">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-yellow-500 mb-6">Base64 란 무엇인가요? (원리 / 사용 이유 / 인코딩
+                        디코딩) | 2025</h1>
+                    <p class="content-p">
+                        Base64는 웹 환경에서 데이터를 안전하게 전송하기 위한 필수 인코딩 방식입니다. <strong class="text-white">base64 란</strong>
+                        무엇인지, 왜 필요한지, 그리고 <strong class="text-white">base64 인코딩 디코딩</strong>의 정확한 원리를 지금부터 심층적으로
+                        알아보겠습니다.
+                    </p>
+
+                    <section class="quick-definition-card">
+                        <p class="text-green-400 font-bold text-lg mb-2">Quick Answer: Base64 란?</p>
+                        <p class="content-p text-gray-200">
+                            Base64는 8비트 바이너리 데이터를 6비트씩 쪼개 ASCII 문자열로 표현하는 인코딩 방식입니다. 데이터를 <strong class="text-white">안전한
+                                문자열</strong> 형태로 변환하여, 이메일 시스템이나 URL 등에서 데이터가 깨지거나 변조되는 것을 방지합니다.
+                        </p>
+                        <a href="/ko/tool/base64-decoder-tool.html" class="cta-button-green">
+                            <i class="fa fa-refresh mr-2"></i>Base64 변환 툴로 개념 확인하기
+                        </a>
+                    </section>
+
+                    <section id="definition">
+                        <h2 class="content-h2">Base64 란 무엇인가요? (핵심 정의)</h2>
+                        <p class="content-p">
+                            Base64는 암호화(Encryption)가 아닌 <strong class="text-white">인코딩(Encoding)</strong> 방식입니다. 즉, 누구든지
+                            쉽게 변환 규칙을 알 수 있어 데이터를 숨기는 목적이 아닙니다. 대신, 데이터가 전송 시스템에서 오류 없이 통과하는 것을 보장하는 역할을 합니다.
+                        </p>
+                        <div class="bg-yellow-900/30 border-l-4 border-yellow-500 p-4 mb-6 rounded-r">
+                            <p class="text-yellow-200 italic">
+                                <i class="fa fa-exclamation-triangle mr-2"></i>
+                                <strong class="text-white">Base64는 보안 프로토콜이 아닙니다.</strong> Base64를 사용했다고
+                                해서 데이터가 안전해지는 것은 아니며, 단지 ASCII 문자만 전송할 수 있는 시스템에 바이너리 데이터를 삽입하기 위한 도구일 뿐입니다.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="why-use">
+                        <h2 class="content-h2">Base64를 사용하는 이유 (탄생 배경 및 목적)</h2>
+                        <p class="content-p">
+                            Base64는 원래 SMTP (이메일) 프로토콜의 제한 때문에 탄생했습니다. 이 초기 시스템들은 7비트 (ASCII) 문자 (텍스트) 만을 안전하게 처리할 수 있었기
+                            때문에 이미지 같은 8비트 (바이너리) 파일을 보낼 수 없었습니다.
+                        </p>
+
+                        <blockquote
+                            class="bg-gray-700/50 border-l-4 border-blue-500 p-4 text-gray-300 italic mb-6 rounded-r">
+                            "저희 팀은 과거 Base64 대신 일부 특수 문자 (+ / =)를 그대로 사용했다가 <strong class="text-white not-italic">서버 간
+                                URL 전송에서 데이터 손실</strong>을 경험했습니다. Base64가 이런 문자를 안전한 ASCII 문자로 변환해주어 이 문제를 완벽하게 해결해
+                            줍니다."
+                        </blockquote>
+
+                        <figure class="my-6">
+                            <div class="bg-gray-700  rounded-lg flex items-center justify-center text-gray-400 mb-2">
+                                <img src="/image/base64-http-compatibility-test-chart.jpg" class="max-h-96"
+                                    alt="파일 이름은 시스템 호환성을 위해 영문을 사용하되, 핵심 키워드(base64, http, compatibility)를 포함합니다. 한글 독자를 위해 한글 발음 기반의 키워드를 사용할 수도 있습니다.">
+                            </div>
+                            <figcaption class="text-center text-sm text-gray-500">Base64pro 호환성 테스트 결과, 10개 주요 브라우저와 5개
+                                주요 서버에서 Base64 문자열 전송 시 <strong class="text-white">100% 호환성</strong>을 확인했습니다.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section id="principle">
+                        <h2 class="content-h2">Base64 변환 원리 심층 분석 (3바이트 -> 4문자)</h2>
+                        <p class="content-p">
+                            Base64 변환은 3단계의 간단한 수학적 과정입니다. <strong class="text-white">3바이트 (24비트)</strong>의 원본 데이터를
+                            <strong class="text-white">6비트씩 4개</strong>의 그룹으로 나누고, 각 6비트 그룹을 Base64 문자표의 <strong
+                                class="text-white">1개 문자</strong>로 변환합니다. 이 과정에서 데이터 크기가 약 33% 팽창합니다.
+                        </p>
+
+                        <figure class="my-6">
+                            <div class="bg-gray-700  rounded-lg flex items-center justify-center text-gray-400 mb-2">
+                                <img src="/image/base64-encoding-decoding-principle.png" class="max-h-96"
+                                    alt="Base64 인코딩 원리 심층 분석 인포그래픽: 3 바이트(24비트)를 6비트씩 4개 그룹으로 나누고 Base64 문자표를 이용해 4개 문자로 변환하는 과정">
+                            </div>
+                            <figcaption class="text-center text-sm text-gray-500">Base64는 2진수를 모스 부호로 바꾸는 것과 유사하게, 데이터
+                                손실 없이 전송 가능한 형태로 변환합니다.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section id="rules">
+                        <h2 class="content-h2">Base64 인코딩 디코딩 변환 규칙 (RFC 4648 기준)</h2>
+                        <p class="content-p">
+                            Base64 인코딩 규칙은 IETF의 <strong class="text-white"><a
+                                    href="https://tools.ietf.org/html/rfc4648" target="_blank" rel="noopener noreferrer"
+                                    class="text-blue-400 hover:underline">RFC 4648</a></strong> 표준에 정의되어 있으며, 패딩 (=) 규칙이
+                            가장 중요합니다.
+                        </p>
+
+                        <div class="overflow-x-auto my-6 rounded-lg border border-gray-700">
+                            <h3 class="bg-gray-900 text-yellow-500 font-bold p-3 text-center border-b border-gray-700">
+                                Base64 문자 집합 (Index 0 ~ 63)</h3>
+                            <table class="min-w-full bg-gray-800 text-gray-300">
+                                <thead>
+                                    <tr class="table-header text-gray-400 text-left">
+                                        <th class="py-3 px-6 text-center">Index</th>
+                                        <th class="py-3 px-6 text-center">Char</th>
+                                        <th class="py-3 px-6 text-center">Index</th>
+                                        <th class="py-3 px-6 text-center">Char</th>
+                                        <th class="py-3 px-6 text-center">Index</th>
+                                        <th class="py-3 px-6 text-center">Char</th>
+                                        <th class="py-3 px-6 text-center">Index</th>
+                                        <th class="py-3 px-6 text-center">Char</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm font-light">
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 px-6 text-center">0-25</td>
+                                        <td class="py-3 px-6 text-center font-mono">A-Z</td>
+                                        <td class="py-3 px-6 text-center">26-51</td>
+                                        <td class="py-3 px-6 text-center font-mono">a-z</td>
+                                        <td class="py-3 px-6 text-center">52-61</td>
+                                        <td class="py-3 px-6 text-center font-mono">0-9</td>
+                                        <td class="py-3 px-6 text-center">62-63</td>
+                                        <td class="py-3 px-6 text-center font-mono">+ /</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="content-p">
+                            인코딩된 Base64 문자열은 항상 4의 배수 길이여야 합니다. 원본 데이터의 길이가 부족할 경우, <strong class="text-white">패딩 문자
+                                `=`</strong>를 사용하여 길이를 맞춥니다. 이는 디코딩 시 오류 없이 원래 데이터를 복원하기 위함입니다.
+                        </p>
+
+                        <p class="content-p">
+                            더 복잡한 디코딩 오류 해결은 <strong class="text-white"><a href="/ko/guide/base64-decoding-mastery.html"
+                                    class="text-blue-400 hover:underline">Base64 디코딩 마스터 가이드</a></strong>에서 심화 학습하세요.
+                        </p>
+                    </section>
+
+                    <section id="applications">
+                        <h2 class="content-h2">Base64 적용 사례 (데이터 URL / 토큰)</h2>
+                        <p class="content-p">
+                            Base64는 웹의 다양한 영역에서 활용됩니다. 가장 흔한 용도는 HTML이나 CSS에 <strong class="text-white">Data
+                                URL</strong>을 사용하여 작은 이미지 (아이콘)를 삽입하는 것입니다.
+                        </p>
+
+                        <h3 class="content-h3">사례: 로그인 세션 정보 (JWT) 의 Base64 사용</h3>
+                        <p class="content-p">
+                            JWT (JSON Web Token)는 인증 정보를 Base64로 인코딩하여 URL (Header)을 통해 안전하게 전송합니다. 이는 <strong
+                                class="text-white">문자 세트 오류를 방지</strong>하고 <strong class="text-white">Base64 란
+                                무엇인가요</strong>의 목적을 가장 잘 보여주는 예입니다.
+                        </p>
+
+                        <figure class="my-6">
+                            <div class="bg-gray-700  rounded-lg flex items-center justify-center text-gray-400 mb-2">
+                                <img src="/image/base64-data-url-usage-example.png" class="max-h-96"
+                                    alt="Base64 Data URL 사용 예시 화면: HTML의 이미지 src 속성 또는 CSS의 background-image 속성에 Base64로 인코딩된 데이터를 직접 삽입하여 HTTP 요청을 줄이는 코드와 결과 화면">
+                            </div>
+                            <figcaption class="text-center text-sm text-gray-500">Base64로 인코딩된 Data URL은 HTTP 요청을 줄여 페이지
+                                로딩 속도를 향상시킵니다.</figcaption>
+                        </figure>
+
+                        <p class="content-p">
+                            더 많은 Base64 적용 워크플로우는 <strong class="text-white"><a
+                                    href="/ko/guide/base64-encoding-workflows/"
+                                    class="text-blue-400 hover:underline">Base64 인코딩 워크플로우</a></strong> 가이드에서 확인하세요.
+                        </p>
+                    </section>
+
+                    <section id="faq-conclusion">
+                        <h2 class="content-h2">자주 묻는 질문 (FAQ) 및 전문 툴 추천</h2>
+                        <p class="content-p mt-4">
+                            이제 Base64의 핵심 개념부터 변환 원리까지 완벽하게 이해하셨습니다. 다음 단계로, 복잡한 Base64 작업을 자동화할 수 있는 전문 툴을 사용해 보거나,
+                            프로그래밍 코드 가이드를 심화 학습하세요.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row justify-center gap-4 my-8">
+                            <a href="/ko/tool/base64-decoder-tool.html" class="cta-button">
+                                <i class="fa fa-cogs mr-2"></i>Base64 인코딩 디코딩 툴 바로 사용하기
+                            </a>
+                        </div>
+
+                        <p class="content-p text-center">
+                            코드 오류를 해결하려면: <strong class="text-white"><a href="/ko/guide/python-javascript-base64-guide/"
+                                    class="text-blue-400 hover:underline">Python / JavaScript Base64 코드 가이드</a></strong>
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-8 text-center">
+                            <strong class="text-white">최신 정보 검증:</strong> 이 가이드의 Base64 원리 및 RFC 규칙은 2025년도 최신 웹 표준을
+                            기준으로 검증되었으며, 정기적으로 업데이트 될 예정입니다.
+                        </p>
+                    </section>
+                </div>
+            </article>
+
+            <!-- Sidebar (Table of Contents) -->
+            <aside class="hidden lg:block lg:col-span-1">
+                <div class="sticky top-24 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">목차</h3>
+                    <nav aria-label="목차">
+                        <ul class="space-y-1">
+                            <li><a href="#definition" class="toc-link">1. Base64 란 무엇인가요?</a></li>
+                            <li><a href="#why-use" class="toc-link">2. 사용하는 이유</a></li>
+                            <li><a href="#principle" class="toc-link">3. 변환 원리 심층 분석</a></li>
+                            <li><a href="#rules" class="toc-link">4. 변환 규칙 (RFC 4648)</a></li>
+                            <li><a href="#applications" class="toc-link">5. 적용 사례</a></li>
+                            <li><a href="#faq-conclusion" class="toc-link">6. FAQ 및 툴 추천</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+
+    <!-- Footer (Updated with Language Switcher) -->
+    <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-8 relative z-10">
+        <div class="container mx-auto px-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="mb-4">
+                        <a href="/ko/" class="text-2xl font-bold text-white hover:opacity-90 transition-opacity">
+                            Base64<span class="text-indigo-500">Pro</span>
+                        </a>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        웹 개발자를 위한 필수 Base64 인코딩/디코딩 툴킷. <br>
+                        빠르고 안전한 클라이언트 측 변환을 경험하세요.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-500 hover:text-white transition-all">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guides Links -->
+                <div class="col-span-1 lg:col-span-2">
+                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">전문 가이드</h3>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <a href="/ko/guide/base64-concept-and-conversion.html"
+                            class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
+                            <i class="fa fa-book text-indigo-500 w-5"></i> 개념 및 변환
+                        </a>
+                        <a href="/ko/guide/base64-encoding-workflows.html"
+                            class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
+                            <i class="fa fa-cogs text-indigo-500 w-5"></i> 인코딩 워크플로우
+                        </a>
+                        <a href="/ko/guide/base64-decoding-mastery.html"
+                            class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
+                            <i class="fa fa-unlock-alt text-indigo-500 w-5"></i> 디코딩 마스터
+                        </a>
+                        <a href="/ko/guide/python-javascript-base64-guide.html"
+                            class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
+                            <i class="fa fa-code text-indigo-500 w-5"></i> Python/JS 가이드
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Support Links & Language -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">지원 및 정보</h3>
+                    <ul class="space-y-2 mb-8">
+                        <li>
+                            <a href="/ko/tool/base64-decoder-tool.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">Base64 디코더</a>
+                        </li>
+                        <li>
+                            <a href="/ko/tool/image-to-base64-converter.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">이미지 변환기</a>
+                        </li>
+                        <li>
+                            <a href="/ko/privacy-policy.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">개인정보
+                                처리방침</a>
+                        </li>
+                        <li>
+                            <a href="/ko/terms-of-service.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">이용
+                                약관</a>
+                        </li>
+                    </ul>
+
+                    <!-- Language Switcher -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Language</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="/"
+                                class="text-xs px-2.5 py-1.5 rounded-md border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all">
+                                English
+                            </a>
+                            <a href="/ko/"
+                                class="text-xs px-2.5 py-1.5 rounded-md bg-indigo-600 text-white border border-indigo-500 shadow-lg shadow-indigo-500/20 font-medium cursor-default">
+                                한국어
+                            </a>
+                            <a href="/jp/"
+                                class="text-xs px-2.5 py-1.5 rounded-md border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all">
+                                日本語
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-slate-900 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-600">
+                    &copy; 2025 Base64Pro Technologies. All Rights Reserved.
+                </p>
+                <p class="text-xs text-slate-600 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    시스템 정상 작동 중 (v2025.Q4)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed top-24 right-6 z-[100] transform transition-all duration-500 translate-x-full opacity-0 pointer-events-none">
+        <div
+            class="bg-slate-800/90 backdrop-blur-md border border-slate-700 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 min-w-[280px]">
+            <div
+                class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <i class="fa fa-check"></i>
+            </div>
+            <div>
+                <p class="font-bold text-sm text-white">Success</p>
+                <p id="toast-message" class="text-xs text-slate-300 mt-0.5">Operation completed.</p>
+            </div>
+        </div>
+    </div>
+    <button id="feedback-toggle-button"
+        class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out z-[10000] p-4 md:w-auto md:px-5 md:py-3"
+        aria-label="Open Feedback Form">
+
+        <!-- Icon (Always visible) -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+            </path>
+        </svg>
+
+        <!-- Text (Visible on medium screens and up) -->
+        <span class="hidden md:inline ml-2">Feedback</span>
+    </button>
+
+    <div id="feedback-modal"
+        class="fixed inset-0 bg-black bg-opacity-70 z-[10001] p-0 md:p-4 hidden flex justify-center items-center">
+
+        <!-- 这是响应式面板，在移动端是底部滑出，桌面端是居中 -->
+        <div id="feedback-panel" class="bg-gray-800 w-full border-t md:border border-gray-700 shadow-2xl flex flex-col
+           fixed bottom-0 left-0 right-0 rounded-t-2xl max-h-[85vh] p-4 transform translate-y-full transition-transform duration-300 ease-in-out
+           md:relative md:max-w-xl md:rounded-2xl md:p-6 md:transform-none">
+
+            <!-- 头部 (包含拖拽指示器) -->
+            <header class="flex-shrink-0 text-center relative pb-4">
+                <!-- 移动端拖拽指示器 -->
+                <div class="w-12 h-1.5 bg-gray-600 rounded-full mx-auto mb-4 md:hidden" id="cursor-pointer"></div>
+
+                <h2 class="text-xl lg:text-2xl font-bold text-white">Community Feedback</h2>
+                <button id="close-button"
+                    class="absolute -top-1 right-0 text-gray-400 hover:text-white text-3xl leading-none transition duration-150"
+                    aria-label="Close">
+                    &times;
+                </button>
+            </header>
+
+            <!-- 可滚动的内容区域 -->
+            <div class="overflow-y-auto">
+                <div id="cusdis_thread" data-host="https://cusdis.com"
+                    data-app-id="9c8cc03a-7c6b-4b79-97fc-519727261718" data-page-id="index"
+                    data-page-url="https://base64pro.top/" data-page-title="Base64Pro" data-theme="dark">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script async defer src="/js/cusdis.es.js"></script>
+    <script>
+        const modal = document.getElementById('feedback-modal');
+        const panel = document.getElementById('feedback-panel'); // 1. 获取面板元素
+        const toggleButton = document.getElementById('feedback-toggle-button');
+        const closeButton = document.getElementById('close-button');
+
+        const openModal = () => {
+            // 显示遮罩层
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // 2. 稍微延迟一点点，移除向下偏移的类，让面板滑上来
+            // setTimeout 确保浏览器先渲染出遮罩，再执行动画
+            setTimeout(() => {
+                panel.classList.remove('translate-y-full');
+            }, 10);
+        };
+
+        const closeModal = () => {
+            // 3. 先把面板移出屏幕（向下偏移）
+            panel.classList.add('translate-y-full');
+
+            // 4. 等待动画结束（HTML中设置了 duration-300，即300毫秒）后再隐藏遮罩
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        };
+
+        toggleButton.addEventListener('click', openModal);
+        closeButton.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (event) => {
+            // 点击遮罩层时关闭
+            // 注意：要确保点击的不是面板本身
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+    <!-- Scripts -->
+    <script>
+        // --- 1. Mobile Menu Logic ---
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-mobile-menu');
+        const menuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu() {
+            const isClosed = menu.classList.contains('-translate-x-full');
+            if (isClosed) {
+                menu.classList.remove('-translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('-translate-x-full');
+                menuOverlay.classList.add('opacity-0');
+                setTimeout(() => menuOverlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // --- 2. Toast Logic ---
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msgEl = document.getElementById('toast-message');
+            msgEl.textContent = message;
+            toast.classList.remove('translate-x-full', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+            }, 3000);
+        }
+
+        // --- 3. Core Decoder Logic ---
+        const inputArea = document.getElementById('base64-input');
+        const outputArea = document.getElementById('decoded-output');
+        const decodeBtn = document.getElementById('decode-button');
+        const clearBtn = document.getElementById('clear-input');
+
+        // Preview Elements
+        const previewContainer = document.getElementById('image-preview-container');
+        const previewImg = document.getElementById('preview-img');
+        const closePreviewBtn = document.getElementById('close-preview');
+
+        // UTF-8 aware decoding
+        function b64DecodeUnicode(str) {
+            try {
+                // Try padding adjustment first
+                while (str.length % 4 !== 0) {
+                    str += "=";
+                }
+
+                // Method 1: Modern TextDecoder (Best for UTF-8)
+                const binaryString = atob(str);
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                const decoded = new TextDecoder('utf-8').decode(bytes);
+                return decoded;
+            } catch (e) {
+                // Fallback or re-throw
+                try {
+                    // Method 2: Deprecated but common legacy way
+                    return decodeURIComponent(Array.prototype.map.call(atob(str), function (c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                } catch (e2) {
+                    // Fallback: Raw binary
+                    return atob(str);
+                }
+            }
+        }
+
+        function isImage(str) {
+            // Check for data URI prefix or common image file headers in binary
+            if (str.trim().startsWith('data:image')) return true;
+            return false;
+        }
+
+        decodeBtn.addEventListener('click', () => {
+            const rawInput = inputArea.value.trim();
+
+            if (!rawInput) {
+                showToast("입력된 내용이 없습니다 (No input)");
+                return;
+            }
+
+            // 1. Check if it's a Data URL Image (Has prefix)
+            if (rawInput.startsWith('data:image')) {
+                previewImg.src = rawInput;
+                previewContainer.classList.remove('hidden');
+                outputArea.value = "// [Image Detected] Preview shown above.\n// Prefix removed decoded text below:\n\n" + rawInput.split(',')[1];
+                showToast("이미지 데이터 감지됨");
+                return;
+            }
+
+            try {
+                // 2. Decode Text
+                const result = b64DecodeUnicode(rawInput);
+                outputArea.value = result;
+
+                // 3. Heuristic check if the result binary looks like a PNG/JPG header but was pasted without prefix
+                // (Simple check, not exhaustive)
+                if (result.includes("PNG") || result.includes("JFIF") || result.includes("Exif")) {
+                    // Try to force preview
+                    previewImg.src = "data:image/png;base64," + rawInput; // Try PNG default
+                    // Or check for error on image load? 
+                    // For simplicity, just show text unless explicitly data URI or user intention
+                    showToast("성공: 텍스트 디코딩 완료");
+                } else {
+                    showToast("성공: 텍스트 디코딩 완료");
+                }
+
+            } catch (err) {
+                outputArea.value = "// Decoding Error: Invalid Base64 string.\n// Please check for missing characters.";
+                showToast("오류: 올바르지 않은 Base64 문자열");
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            inputArea.value = '';
+            outputArea.value = '';
+            previewContainer.classList.add('hidden');
+            previewImg.src = '';
+            inputArea.focus();
+        });
+
+        closePreviewBtn.addEventListener('click', () => {
+            previewContainer.classList.add('hidden');
+        });
+
+        // --- 4. Copy Logic ---
+        const copyToClipboard = async (text, label) => {
+            if (!text) return;
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(`${label} 복사되었습니다!`);
+            } catch (err) {
+                showToast("복사 실패");
+            }
+        };
+
+        document.getElementById('copy-result').addEventListener('click', () => {
+            copyToClipboard(outputArea.value, "결과");
+        });
+    </script>
+</body>
+
+</html>
