@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="가장 빠른 이미지 base64 변환 툴입니다. JPG/PNG 파일을 Data URL 형태로 인코딩하여 웹 최적화를 하세요. (클라이언트 측 처리)" />
-    <meta name="keywords" content="이미지 Base64 변환, Data URL, 이미지 인코더, JPG to Base64, PNG to Base64, 웹 최적화" />
+    <meta name="description" content="最速の画像Base64変換ツールです。JPG/PNGファイルをData URL形式にエンコードしてWeb最適化を行います。（クライアント側処理）" />
+    <meta name="keywords" content="画像Base64変換, Data URL, 画像エンコーダー, JPG to Base64, PNG to Base64, Web最適化" />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -15,13 +14,13 @@
     <meta name="google-adsense-account" content="ca-pub-3383070348689557" />
 
     <!-- Canonical & Alternate Links -->
-    <link rel="canonical" href="https://base64pro.top/ko/tool/image-to-base64-converter.html">
+    <link rel="canonical" href="https://base64pro.top/ja/tool/image-to-base64-converter.html">
     <link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
     <link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/tool/image-to-base64-converter.html" />
     <link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
 
 
-    <title>이미지 Base64 변환 | Data URL 인코더 (JPG/PNG 지원) 2025</title>
+    <title>画像Base64変換 | Data URLエンコーダー (JPG/PNG対応) 2025</title>
 
     <!-- Tailwind CSS CDN -->
     <link href="/dist/output.css" rel="stylesheet">
@@ -123,58 +122,57 @@
         <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
             <div class="flex items-center gap-3">
                 <img src="/image/logo.png" alt="Base64Pro Logo" class="h-14 w-14" />
-                <a href="/ko/" class="text-lg font-bold tracking-tight text-white hover:opacity-90 transition-opacity">
+                <a href="/ja/" class="text-lg font-bold tracking-tight text-white hover:opacity-90 transition-opacity">
                     Base64<span class="text-indigo-400">Pro</span>
                 </a>
             </div>
 
-            <!-- Desktop Navigation (Corrected based on file structure) -->
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="/ko/" class="text-slate-400 hover:text-white transition-colors">홈</a>
+                <a href="/ja/" class="text-slate-400 hover:text-white transition-colors">ホーム</a>
 
                 <!-- Tool 1 -->
-                <a href="/ko/tool/base64-decoder-tool.html" class="text-white transition-colors">
-                    디코더
+                <a href="/ja/tool/base64-decoder-tool.html" class="text-slate-400 hover:text-white transition-colors">
+                    デコーダー
                 </a>
 
                 <!-- Tool 2 -->
-                <a href="/ko/tool/image-to-base64-converter.html"
-                    class="text-slate-400 hover:text-white transition-colors">
-                    이미지 변환기
+                <a href="/ja/tool/image-to-base64-converter.html" class="text-white transition-colors">
+                    画像変換
                 </a>
 
                 <!-- Guides Dropdown (4 Files) -->
                 <div class="relative group">
                     <button
                         class="flex items-center gap-1 text-slate-400 hover:text-white transition-colors py-2 cursor-pointer">
-                        가이드
+                        ガイド
                         <i class="fa fa-angle-down ml-1 transition-transform group-hover:rotate-180"></i>
                     </button>
                     <div
                         class="absolute right-0 top-full mt-2 w-64 origin-top-right rounded-xl border border-slate-800 bg-slate-900 p-1.5 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
 
                         <!-- Guide 1 -->
-                        <a href="/ko/guide/base64-concept-and-conversion.html"
+                        <a href="/ja/guide/base64-concept-and-conversion.html"
                             class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
-                            <i class="fa fa-book mr-2 text-indigo-400"></i>Base64 개념 및 변환
+                            <i class="fa fa-book mr-2 text-indigo-400"></i>Base64の概念と変換
                         </a>
 
                         <!-- Guide 2 -->
-                        <a href="/ko/guide/base64-decoding-mastery.html"
+                        <a href="/ja/guide/base64-decoding-mastery.html"
                             class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
-                            <i class="fa fa-unlock-alt mr-2 text-indigo-400"></i>디코딩 마스터 가이드
+                            <i class="fa fa-unlock-alt mr-2 text-indigo-400"></i>デコード完全ガイド
                         </a>
 
                         <!-- Guide 3 -->
-                        <a href="/ko/guide/base64-encoding-workflows.html"
+                        <a href="/ja/guide/base64-encoding-workflows.html"
                             class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
-                            <i class="fa fa-cogs mr-2 text-indigo-400"></i>인코딩 워크플로우
+                            <i class="fa fa-cogs mr-2 text-indigo-400"></i>エンコードのワークフロー
                         </a>
 
                         <!-- Guide 4 -->
-                        <a href="/ko/guide/python-javascript-base64-guide.html"
+                        <a href="/ja/guide/python-javascript-base64-guide.html"
                             class="block rounded-lg px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
-                            <i class="fa fa-code mr-2 text-indigo-400"></i>Python/JS 가이드
+                            <i class="fa fa-code mr-2 text-indigo-400"></i>Python/JSガイド
                         </a>
                     </div>
                 </div>
@@ -199,32 +197,31 @@
             </div>
 
             <div class="flex flex-col gap-2 overflow-y-auto">
-                <a href="/ko/"
-                    class="px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-colors">홈</a>
+                <a href="/ja/"
+                    class="px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-colors">ホーム</a>
 
                 <div class="h-px bg-slate-800 my-2"></div>
                 <span class="px-4 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tools</span>
 
-                <a href="/ko/tool/base64-decoder-tool.html"
+                <a href="/ja/tool/base64-decoder-tool.html"
                     class="px-4 py-2 text-sm text-slate-400 hover:text-white">Base64
-                    디코더</a>
-                <a href="/ko/tool/image-to-base64-converter.html"
-                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">이미지
-                    변환기</a>
+                    デコーダー</a>
+                <a href="/ja/tool/image-to-base64-converter.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">画像変換</a>
 
                 <div class="h-px bg-slate-800 my-2"></div>
                 <span class="px-4 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Guides</span>
 
-                <a href="/ko/guide/base64-concept-and-conversion.html"
-                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">개념 및 변환</a>
-                <a href="/ko/guide/base64-decoding-mastery.html"
-                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">디코딩
-                    마스터</a>
-                <a href="/ko/guide/base64-encoding-workflows.html"
-                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">인코딩
-                    워크플로우</a>
-                <a href="/ko/guide/python-javascript-base64-guide.html"
-                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">Python/JS 가이드</a>
+                <a href="/ja/guide/base64-concept-and-conversion.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">概念と変換</a>
+                <a href="/ja/guide/base64-decoding-mastery.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">デコード
+                    マスター</a>
+                <a href="/ja/guide/base64-encoding-workflows.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">エンコード
+                    ワークフロー</a>
+                <a href="/ja/guide/python-javascript-base64-guide.html"
+                    class="px-4 py-2 text-sm text-slate-400 hover:text-white">Python/JSガイド</a>
             </div>
         </div>
     </div>
@@ -242,12 +239,12 @@
                 Local Processing Only
             </div>
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
-                이미지 <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Base64
-                    변환</span> | Data URL 인코더
+                画像 <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Base64
+                    変換</span> | Data URLエンコーダー
             </h1>
             <p class="text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
-                파일을 안전하게 <strong>Data URL</strong> 코드로 변환하세요. 모든 인코딩은 로컬에서 처리되어
-                <strong class="text-slate-200">개발 속도와 개인 정보 보호</strong>를 동시에 충족합니다.
+                ファイルを安全に<strong>Data URL</strong>コードに変換します。すべてのエンコードはローカルで処理され、
+                <strong class="text-slate-200">開発スピードとプライバシー保護</strong>を同時に実現します。
             </p>
         </div>
 
@@ -289,9 +286,9 @@
                                 </div>
                                 <h3
                                     class="text-lg font-semibold text-slate-200 group-hover:text-white transition-colors">
-                                    이미지 파일을 여기에 드롭하거나
+                                    画像ファイルをここにドロップするか
                                 </h3>
-                                <p class="text-sm text-slate-500 mt-1 mb-4">클릭하여 파일 선택 (JPG, PNG, WebP 지원)</p>
+                                <p class="text-sm text-slate-500 mt-1 mb-4">クリックしてファイルを選択 (JPG, PNG, WebP 対応)</p>
 
                                 <div class="flex gap-2 justify-center">
                                     <span
@@ -305,7 +302,7 @@
 
                             <div
                                 class="absolute bottom-4 flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-medium text-emerald-400 border border-emerald-500/20 pointer-events-none">
-                                <i class="fa fa-shield"></i> 파일이 서버에 업로드되지 않습니다 (클라이언트 처리)
+                                <i class="fa fa-shield"></i> ファイルはサーバーにアップロードされません (クライアント処理)
                             </div>
                         </div>
                     </div>
@@ -324,25 +321,25 @@
                         <div class="relative flex-grow group">
                             <textarea id="base64-output"
                                 class="custom-scrollbar w-full h-full resize-none rounded-xl border border-slate-800 bg-[#0B1120] p-4 font-mono text-xs leading-relaxed text-emerald-400 placeholder-slate-700 focus:border-indigo-500/50 focus:outline-none focus:ring-1 focus:ring-indigo-500/50 transition-all shadow-inner"
-                                readonly placeholder="// 인코딩된 Base64 문자열 또는 Data URL이 여기에 표시됩니다."></textarea>
+                                readonly placeholder="// エンコードされたBase64文字列またはData URLがここに表示されます。"></textarea>
 
                             <div
                                 class="absolute bottom-4 right-4 flex flex-col gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200">
                                 <button id="copy-text"
                                     class="flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-indigo-500/20 hover:bg-indigo-500 hover:shadow-indigo-500/40 transition-all active:scale-95 transform">
-                                    <i class="fa fa-clipboard"></i> 전체 복사
+                                    <i class="fa fa-clipboard"></i> 全てコピー
                                 </button>
 
                                 <div
                                     class="flex rounded-lg bg-slate-800 p-1 border border-slate-700 shadow-xl backdrop-blur">
                                     <button id="copy-html"
                                         class="flex-1 rounded px-3 py-1.5 text-[10px] font-medium text-slate-400 hover:bg-slate-700 hover:text-white transition-colors">
-                                        HTML 복사
+                                        HTMLコピー
                                     </button>
                                     <div class="w-px bg-slate-700 mx-1"></div>
                                     <button id="copy-css"
                                         class="flex-1 rounded px-3 py-1.5 text-[10px] font-medium text-slate-400 hover:bg-slate-700 hover:text-white transition-colors">
-                                        CSS 복사
+                                        CSSコピー
                                     </button>
                                 </div>
                             </div>
@@ -361,9 +358,9 @@
                     class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform">
                     <i class="fa fa-bolt text-xl"></i>
                 </div>
-                <h3 class="text-white font-bold text-lg mb-2">성능 최적화 (Speed)</h3>
+                <h3 class="text-white font-bold text-lg mb-2">パフォーマンス最適化 (Speed)</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    작은 아이콘이나 로고를 Base64로 변환하여 HTML/CSS에 포함시키면 HTTP 요청 횟수를 줄여 로딩 속도가 빨라집니다.
+                    小さなアイコンやロゴをBase64に変換してHTML/CSSに含めることで、HTTPリクエスト回数を減らし、読み込み速度を向上させます。
                 </p>
             </div>
 
@@ -373,9 +370,9 @@
                     class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
                     <i class="fa fa-lock text-xl"></i>
                 </div>
-                <h3 class="text-white font-bold text-lg mb-2">100% 프라이버시</h3>
+                <h3 class="text-white font-bold text-lg mb-2">100% プライバシー</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    모든 변환 작업은 사용자의 브라우저(Local)에서 수행됩니다. 이미지는 서버로 전송되지 않아 절대적으로 안전합니다.
+                    すべての変換作業はユーザーのブラウザ(Local)で実行されます。画像はサーバーに送信されないため、絶対に安全です。
                 </p>
             </div>
 
@@ -385,9 +382,9 @@
                     class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
                     <i class="fa fa-file-image-o text-xl"></i>
                 </div>
-                <h3 class="text-white font-bold text-lg mb-2">다양한 포맷 지원</h3>
+                <h3 class="text-white font-bold text-lg mb-2">多様なフォーマット対応</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    JPG, PNG는 물론 최신 웹 표준 포맷인 WebP, AVIF 및 벡터 그래픽 SVG까지 완벽하게 지원합니다.
+                    JPG, PNGはもちろん、最新のWeb標準フォーマットであるWebP, AVIF、そしてベクターグラフィックスSVGまで完全にサポートしています。
                 </p>
             </div>
         </div>
@@ -399,7 +396,7 @@
             <section id="usage-guide" class="scroll-mt-24">
                 <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
                     <span class="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center text-sm">1</span>
-                    이미지 Base64 변환 (Data URL) 사용법
+                    画像 Base64 変換 (Data URL) の使い方
                 </h2>
                 <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8">
                     <ol class="space-y-6">
@@ -408,8 +405,8 @@
                                 class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold text-white mt-0.5">
                                 1</div>
                             <div>
-                                <strong class="text-white block mb-1">업로드</strong>
-                                <p class="text-slate-400 text-sm">위에 있는 영역에 이미지를 드래그하거나 '파일 선택' 버튼을 클릭합니다.</p>
+                                <strong class="text-white block mb-1">アップロード</strong>
+                                <p class="text-slate-400 text-sm">上の領域に画像をドラッグするか、「ファイルを選択」ボタンをクリックします。</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
@@ -417,8 +414,8 @@
                                 class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold text-white mt-0.5">
                                 2</div>
                             <div>
-                                <strong class="text-white block mb-1">인코딩</strong>
-                                <p class="text-slate-400 text-sm">툴이 이미지 파일을 자동으로 인코딩하여 결과 영역에 표시합니다.</p>
+                                <strong class="text-white block mb-1">エンコード</strong>
+                                <p class="text-slate-400 text-sm">ツールが画像ファイルを自動的にエンコードし、結果領域に表示します。</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
@@ -426,9 +423,9 @@
                                 class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold text-white mt-0.5">
                                 3</div>
                             <div>
-                                <strong class="text-white block mb-1">활용</strong>
-                                <p class="text-slate-400 text-sm">'HTML 복사' 또는 'CSS 복사' 버튼을 눌러 프로젝트에 즉시 붙여넣어 웹 최적화에
-                                    사용합니다.</p>
+                                <strong class="text-white block mb-1">活用</strong>
+                                <p class="text-slate-400 text-sm">
+                                    「HTMLコピー」または「CSSコピー」ボタンを押して、プロジェクトに即座に貼り付けてWeb最適化に使用します。</p>
                             </div>
                         </li>
                     </ol>
@@ -438,19 +435,20 @@
             <!-- Why Use -->
             <section id="why-use" class="scroll-mt-24">
                 <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">
-                    왜 이미지 Base64 변환이 필요한가요? <span class="text-indigo-400 text-lg font-normal ml-2">(Web 최적화)</span>
+                    なぜ画像Base64変換が必要なのですか？ <span class="text-indigo-400 text-lg font-normal ml-2">(Web最適化)</span>
                 </h2>
                 <div class="prose prose-invert prose-lg max-w-none text-slate-300">
                     <p class="mb-4">
-                        Base64 Data URL은 HTTP 요청 횟수를 줄여 웹페이지 로딩 속도를 획기적으로 향상시킵니다. 작은 이미지(아이콘)을 Base64로 변환하여 CSS 파일에 포함하면
-                        브라우저가 이미지를 별도로 요청할 필요가 없어집니다.
+                        Base64 Data
+                        URLは、HTTPリクエスト回数を減らし、ウェブページの読み込み速度を劇的に向上させます。小さな画像（アイコン）をBase64に変換してCSSファイルに含めれば、ブラウザが画像を個別にリクエストする必要がなくなります。
                     </p>
 
                     <div class="bg-indigo-900/20 border border-indigo-500/20 rounded-xl p-5 mb-8">
                         <p class="mb-0 text-sm">
-                            <strong class="text-indigo-300">사례: 아이콘 스프라이트(Sprite)를 Base64로 대체</strong><br>
-                            기존 30개의 작은 아이콘 파일을 하나의 Base64 문자열로 병합했습니다. 결과: <strong class="text-white">HTTP 요청 횟수 30회
-                                감소</strong>로 <strong class="text-white">웹 성능 점수(LCP) 향상</strong>을 확인했습니다.
+                            <strong class="text-indigo-300">事例: アイコンスプライト(Sprite)をBase64で代替</strong><br>
+                            従来の30個の小さなアイコンファイルを1つのBase64文字列に統合しました。結果：<strong
+                                class="text-white">HTTPリクエスト回数30回削減</strong>により、<strong
+                                class="text-white">Webパフォーマンススコア(LCP)向上</strong>を確認しました。
                         </p>
                     </div>
 
@@ -458,45 +456,44 @@
                         <div class=" bg-slate-800 rounded-lg  mb-3 overflow-hidden">
                             <!-- Image Placeholder -->
                             <img src="/image/base64-web-optimization-performance-comparison.png"
-                                alt="ase64 Data URL을 사용하여 이미지(아이콘)를 인라인으로 포함했을 때, HTTP 요청 횟수가 감소하고 웹페이지 로딩 시간이 획기적으로 개선되는 성능 비교 다이어그램."
+                                alt="Base64 Data URLを使用して画像（アイコン）をインラインで含めた場合、HTTPリクエスト回数が減少し、Webページの読み込み時間が劇的に改善されるパフォーマンス比較図。"
                                 class="max-h-96 mx-auto" </div>
-                            <figcaption class="text-center text-sm text-slate-500 italic">Data URL은 서버 통신 없이 이미지를 인라인으로
-                                로드하여
-                                성능을 개선합니다.</figcaption>
+                            <figcaption class="text-center text-sm text-slate-500 italic">Data
+                                URLはサーバー通信なしで画像をインラインでロードし、パフォーマンスを改善します。</figcaption>
                     </figure>
 
                     <p class="text-sm text-slate-400">
-                        HTTP 요청 감소를 통한 성능 최적화 워크플로우를 더 알고 싶다면
-                        <a href="/ko/guide/base64-encoding-workflows/"
-                            class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 hover:decoration-indigo-500">Base64
-                            인코딩 워크플로우</a>
-                        가이드를 참고하세요.
+                        HTTPリクエスト削減によるパフォーマンス最適化ワークフローの詳細については、
+                        <a href="/ja/guide/base64-encoding-workflows/"
+                            class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 hover:decoration-indigo-500">Base64エンコードワークフロー</a>
+                        ガイドを参照してください。
                     </p>
                 </div>
             </section>
 
             <!-- Strengths -->
             <section id="strengths" class="scroll-mt-24">
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Base64pro 인코더의 주요 기능</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Base64Proエンコーダーの主な機能</h2>
                 <p class="mb-6">
-                    저희 <strong class="text-white">이미지 base64 변환</strong> 툴은 개발자의 니즈를 정확히 반영하여 설계되었습니다. 특히 클라이언트 측 고속 처리를
-                    통해 타사 툴보다 압도적으로 빠릅니다.
+                    当社の<strong
+                        class="text-white">画像Base64変換</strong>ツールは、開発者のニーズを正確に反映して設計されています。特にクライアント側の高速処理により、他社ツールよりも圧倒的に高速です。
                 </p>
 
                 <div class="grid gap-6 items-center mb-8">
                     <div class="bg-slate-900/80 p-6 rounded-xl border border-slate-800">
-                        <h4 class="text-sm text-slate-400 uppercase font-bold mb-4">인코딩 속도 테스트 (5MB 파일)</h4>
+                        <h4 class="text-sm text-slate-400 uppercase font-bold mb-4">エンコード速度テスト (5MBファイル)</h4>
                         <div class="space-y-4">
                             <div>
-                                <div class="flex justify-between text-xs mb-1 text-slate-400"><span>타사 웹
-                                        툴</span><span>0.52s</span></div>
+                                <div class="flex justify-between text-xs mb-1 text-slate-400">
+                                    <span>他社Webツール</span><span>0.52s</span>
+                                </div>
                                 <div class="w-full bg-slate-800 rounded-full h-2">
                                     <div class="bg-slate-600 h-2 rounded-full" style="width: 70%"></div>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between text-xs mb-1 text-emerald-400 font-bold">
-                                    <span>Base64pro</span><span>0.15s</span>
+                                    <span>Base64Pro</span><span>0.15s</span>
                                 </div>
                                 <div class="w-full bg-slate-800 rounded-full h-2">
                                     <div class="bg-emerald-500 h-2 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"
@@ -504,7 +501,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-500 mt-4 text-center">**Base64pro가 3배 이상 빠름을 입증했습니다.</p>
+                        <p class="text-xs text-slate-500 mt-4 text-center">**Base64Proが3倍以上速いことを実証しました。</p>
                     </div>
 
                 </div>
@@ -513,30 +510,29 @@
             <!-- Format Support & Tips -->
             <div class="grid md:grid-cols-2 gap-12">
                 <section id="format-support">
-                    <h2 class="text-xl font-bold text-white mb-4">최신 포맷 (WebP / AVIF) 지원</h2>
+                    <h2 class="text-xl font-bold text-white mb-4">最新フォーマット (WebP / AVIF) 対応</h2>
                     <p class="text-sm mb-4">
-                        웹 표준이 변화함에 따라 Base64pro는 WebP와 같은 차세대 이미지 포맷의 인코딩을 지원합니다. 이는 최신 웹 개발 환경에 맞춰 최고의 성능을 제공하기 위함입니다.
+                        Web標準の変化に伴い、Base64ProはWebPのような次世代画像フォーマットのエンコードをサポートしています。これは最新のWeb開発環境に合わせて最高のパフォーマンスを提供するためです。
                     </p>
                     <a href="https://www.w3.org/TR/FileAPI/#url" target="_blank" rel="noopener noreferrer"
                         class="text-xs text-indigo-400 hover:text-white flex items-center gap-1">
-                        <i class="fa fa-external-link"></i> W3C Data URL 공식 규격 문서 확인
+                        <i class="fa fa-external-link"></i> W3C Data URL 公式規格文書を確認
                     </a>
                 </section>
 
                 <section id="encoding-tips">
-                    <h2 class="text-xl font-bold text-white mb-4">인코딩 시 주의 사항</h2>
+                    <h2 class="text-xl font-bold text-white mb-4">エンコード時の注意事項</h2>
                     <p class="text-sm mb-4">
-                        이미지를 Base64로 변환하면 파일 크기가 약 <strong>33% 증가</strong>합니다. 따라서 모든 이미지에 사용하는 것은 권장되지 않으며, 작은 파일(5KB
-                        미만)에 적합합니다.
+                        画像をBase64に変換すると、ファイルサイズが約<strong>33%増加</strong>します。したがって、すべての画像に使用することは推奨されず、小さなファイル（5KB未満）に適しています。
                     </p>
                     <blockquote
                         class="border-l-4 border-yellow-500 bg-yellow-500/5 pl-4 py-3 italic text-yellow-200/80 rounded-r-lg text-sm">
-                        "10KB를 넘는 이미지는 첫 바이트(First Byte) 시간을 오히려 늦추므로, 작은 아이콘에만 사용해야 합니다."
+                        "10KBを超える画像は最初のバイト(First Byte)時間をむしろ遅らせるため、小さなアイコンにのみ使用すべきです。"
                     </blockquote>
                     <div class="mt-4">
-                        <a href="/ko/guide/python-javascript-base64-guide/"
+                        <a href="/ja/guide/python-javascript-base64-guide/"
                             class="text-sm text-indigo-400 hover:text-white underline decoration-dashed">
-                            👉 Python / JS 코드 인코딩 팁 가이드
+                            👉 Python / JS コードエンコードのヒントガイド
                         </a>
                     </div>
                 </section>
@@ -544,26 +540,26 @@
 
             <!-- Related Tools -->
             <section id="related-tools" class="pt-8 border-t border-slate-800">
-                <h2 class="text-2xl font-bold text-white mb-6 text-center">함께 사용하면 좋은 툴</h2>
+                <h2 class="text-2xl font-bold text-white mb-6 text-center">一緒に使うと便利なツール</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="/ko/tool/base64-decoder-tool.html"
+                    <a href="/ja/tool/base64-decoder-tool.html"
                         class="group block p-5 bg-slate-900 border border-slate-800 rounded-xl hover:border-indigo-500/50 hover:bg-slate-800 transition-all">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-bold text-indigo-400 group-hover:text-white">Base64 디코딩 사이트</h3>
+                            <h3 class="font-bold text-indigo-400 group-hover:text-white">Base64デコードサイト</h3>
                             <i
                                 class="fa fa-arrow-right text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
                         </div>
-                        <p class="text-sm text-slate-500 group-hover:text-slate-400">Base64 코드를 다시 원본 파일로 되돌리려면 이 도구를
-                            사용하세요.</p>
+                        <p class="text-sm text-slate-500 group-hover:text-slate-400">
+                            Base64コードを再び元のファイルに戻すには、このツールを使用してください。</p>
                     </a>
-                    <a href="/ko/guide/base64-concept-and-conversion.html"
+                    <a href="/ja/guide/base64-concept-and-conversion.html"
                         class="group block p-5 bg-slate-900 border border-slate-800 rounded-xl hover:border-indigo-500/50 hover:bg-slate-800 transition-all">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-bold text-indigo-400 group-hover:text-white">Base64란 무엇인가요?</h3>
+                            <h3 class="font-bold text-indigo-400 group-hover:text-white">Base64とは何ですか？</h3>
                             <i
                                 class="fa fa-arrow-right text-slate-600 group-hover:text-indigo-400 transition-colors"></i>
                         </div>
-                        <p class="text-sm text-slate-500 group-hover:text-slate-400">Base64의 작동 원리와 개념을 상세히 설명합니다.</p>
+                        <p class="text-sm text-slate-500 group-hover:text-slate-400">Base64の動作原理と概念を詳細に説明します。</p>
                     </a>
                 </div>
             </section>
@@ -581,13 +577,13 @@
                 <!-- Brand -->
                 <div class="col-span-1 lg:col-span-1">
                     <div class="mb-4">
-                        <a href="/ko/" class="text-2xl font-bold text-white hover:opacity-90 transition-opacity">
+                        <a href="/ja/" class="text-2xl font-bold text-white hover:opacity-90 transition-opacity">
                             Base64<span class="text-indigo-500">Pro</span>
                         </a>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        웹 개발자를 위한 필수 Base64 인코딩/디코딩 툴킷. <br>
-                        빠르고 안전한 클라이언트 측 변환을 경험하세요.
+                        Web開発者のための必須Base64エンコード/デコードツールキット。<br>
+                        高速かつ安全なクライアントサイド変換を体験してください。
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -603,48 +599,46 @@
 
                 <!-- Guides Links -->
                 <div class="col-span-1 lg:col-span-2">
-                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">전문 가이드</h3>
+                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">専門ガイド</h3>
                     <div class="grid sm:grid-cols-2 gap-2">
-                        <a href="/ko/guide/base64-concept-and-conversion.html"
+                        <a href="/ja/guide/base64-concept-and-conversion.html"
                             class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
-                            <i class="fa fa-book text-indigo-500 w-5"></i> 개념 및 변환
+                            <i class="fa fa-book text-indigo-500 w-5"></i> 概念と変換
                         </a>
-                        <a href="/ko/guide/base64-encoding-workflows.html"
+                        <a href="/ja/guide/base64-encoding-workflows.html"
                             class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
-                            <i class="fa fa-cogs text-indigo-500 w-5"></i> 인코딩 워크플로우
+                            <i class="fa fa-cogs text-indigo-500 w-5"></i> エンコードワークフロー
                         </a>
-                        <a href="/ko/guide/base64-decoding-mastery.html"
+                        <a href="/ja/guide/base64-decoding-mastery.html"
                             class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
-                            <i class="fa fa-unlock-alt text-indigo-500 w-5"></i> 디코딩 마스터
+                            <i class="fa fa-unlock-alt text-indigo-500 w-5"></i> デコードマスター
                         </a>
-                        <a href="/ko/guide/python-javascript-base64-guide.html"
+                        <a href="/ja/guide/python-javascript-base64-guide.html"
                             class="flex items-center gap-2 p-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-900 transition-colors">
-                            <i class="fa fa-code text-indigo-500 w-5"></i> Python/JS 가이드
+                            <i class="fa fa-code text-indigo-500 w-5"></i> Python/JSガイド
                         </a>
                     </div>
                 </div>
 
                 <!-- Support Links & Language -->
                 <div>
-                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">지원 및 정보</h3>
+                    <h3 class="text-white font-semibold mb-4 pl-2 border-l-2 border-indigo-500">サポート・情報</h3>
                     <ul class="space-y-2 mb-8">
                         <li>
-                            <a href="/ko/tool/base64-decoder-tool.html"
-                                class="text-sm text-slate-400 hover:text-white transition-colors">Base64 디코더</a>
+                            <a href="/ja/tool/base64-decoder-tool.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">Base64デコーダー</a>
                         </li>
                         <li>
-                            <a href="/ko/tool/image-to-base64-converter.html"
-                                class="text-sm text-slate-400 hover:text-white transition-colors">이미지 변환기</a>
+                            <a href="/ja/tool/image-to-base64-converter.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">画像変換</a>
                         </li>
                         <li>
-                            <a href="/ko/privacy-policy.html"
-                                class="text-sm text-slate-400 hover:text-white transition-colors">개인정보
-                                처리방침</a>
+                            <a href="/ja/privacy-policy.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">プライバシーポリシー</a>
                         </li>
                         <li>
-                            <a href="/ko/terms-of-service.html"
-                                class="text-sm text-slate-400 hover:text-white transition-colors">이용
-                                약관</a>
+                            <a href="/ja/terms-of-service.html"
+                                class="text-sm text-slate-400 hover:text-white transition-colors">利用規約</a>
                         </li>
                     </ul>
 
@@ -657,11 +651,11 @@
                                 English
                             </a>
                             <a href="/ko/"
-                                class="text-xs px-2.5 py-1.5 rounded-md bg-indigo-600 text-white border border-indigo-500 shadow-lg shadow-indigo-500/20 font-medium cursor-default">
+                                class="text-xs px-2.5 py-1.5 rounded-md border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all">
                                 한국어
                             </a>
                             <a href="/ja/"
-                                class="text-xs px-2.5 py-1.5 rounded-md border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all">
+                                class="text-xs px-2.5 py-1.5 rounded-md bg-indigo-600 text-white border border-indigo-500 shadow-lg shadow-indigo-500/20 font-medium cursor-default">
                                 日本語
                             </a>
                         </div>
@@ -676,7 +670,7 @@
                 </p>
                 <p class="text-xs text-slate-600 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    시스템 정상 작동 중 (v2025.Q4)
+                    システム正常稼働中 (v2025.Q4)
                 </p>
             </div>
         </div>
@@ -715,14 +709,14 @@
     <div id="feedback-modal"
         class="fixed inset-0 bg-black bg-opacity-70 z-[10001] p-0 md:p-4 hidden flex justify-center items-center">
 
-        <!-- 这是响应式面板，在移动端是底部滑出，桌面端是居中 -->
+        <!-- レスポンシブパネル: モバイルでは下からスライド、デスクトップでは中央配置 -->
         <div id="feedback-panel" class="bg-gray-800 w-full border-t md:border border-gray-700 shadow-2xl flex flex-col
            fixed bottom-0 left-0 right-0 rounded-t-2xl max-h-[85vh] p-4 transform translate-y-full transition-transform duration-300 ease-in-out
            md:relative md:max-w-xl md:rounded-2xl md:p-6 md:transform-none">
 
-            <!-- 头部 (包含拖拽指示器) -->
+            <!-- ヘッダー (ドラッグインジケーター含む) -->
             <header class="flex-shrink-0 text-center relative pb-4">
-                <!-- 移动端拖拽指示器 -->
+                <!-- モバイル用ドラッグインジケーター -->
                 <div class="w-12 h-1.5 bg-gray-600 rounded-full mx-auto mb-4 md:hidden" id="cursor-pointer"></div>
 
                 <h2 class="text-xl lg:text-2xl font-bold text-white">Community Feedback</h2>
@@ -733,7 +727,7 @@
                 </button>
             </header>
 
-            <!-- 可滚动的内容区域 -->
+            <!-- スクロール可能なコンテンツエリア -->
             <div class="overflow-y-auto">
                 <div id="cusdis_thread" data-host="https://cusdis.com"
                     data-app-id="9c8cc03a-7c6b-4b79-97fc-519727261718" data-page-id="index"
@@ -746,27 +740,27 @@
     <script async defer src="/js/cusdis.es.js"></script>
     <script>
         const modal = document.getElementById('feedback-modal');
-        const panel = document.getElementById('feedback-panel'); // 1. 获取面板元素
+        const panel = document.getElementById('feedback-panel'); // 1. パネル要素の取得
         const toggleButton = document.getElementById('feedback-toggle-button');
         const closeButton = document.getElementById('close-button');
 
         const openModal = () => {
-            // 显示遮罩层
+            // マスクレイヤーを表示
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
 
-            // 2. 稍微延迟一点点，移除向下偏移的类，让面板滑上来
-            // setTimeout 确保浏览器先渲染出遮罩，再执行动画
+            // 2. 少し遅らせてから、下にずらすクラスを削除してパネルをスライドさせる
+            // setTimeout でブラウザがマスクを先にレンダリングするようにする
             setTimeout(() => {
                 panel.classList.remove('translate-y-full');
             }, 10);
         };
 
         const closeModal = () => {
-            // 3. 先把面板移出屏幕（向下偏移）
+            // 3. 先にパネルを画面外（下）へ移動
             panel.classList.add('translate-y-full');
 
-            // 4. 等待动画结束（HTML中设置了 duration-300，即300毫秒）后再隐藏遮罩
+            // 4. アニメーション終了（HTMLで duration-300 と設定、300ミリ秒）を待ってからマスクを非表示
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = '';
@@ -777,8 +771,8 @@
         closeButton.addEventListener('click', closeModal);
 
         modal.addEventListener('click', (event) => {
-            // 点击遮罩层时关闭
-            // 注意：要确保点击的不是面板本身
+            // マスクレイヤーをクリックした時に閉じる
+            // 注意: パネル自体をクリックしても閉じないようにする
             if (event.target === modal) {
                 closeModal();
             }
@@ -830,118 +824,99 @@
             }, 3000);
         }
 
-        // --- 3. Core Decoder Logic ---
-        const inputArea = document.getElementById('base64-input');
-        const outputArea = document.getElementById('decoded-output');
-        const decodeBtn = document.getElementById('decode-button');
-        const clearBtn = document.getElementById('clear-input');
+        // --- 3. Image to Base64 Logic ---
+        const dropZone = document.getElementById('drop-zone');
+        const imageInput = document.getElementById('image-input');
+        const base64Output = document.getElementById('base64-output');
+        const copyTextBtn = document.getElementById('copy-text');
+        const copyHtmlBtn = document.getElementById('copy-html');
+        const copyCssBtn = document.getElementById('copy-css');
+        const sizeTag = document.getElementById('size-tag');
 
-        // Preview Elements
-        const previewContainer = document.getElementById('image-preview-container');
-        const previewImg = document.getElementById('preview-img');
-        const closePreviewBtn = document.getElementById('close-preview');
+        // Drag & Drop visual feedback
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('bg-slate-800/60', 'border-indigo-500');
+        });
 
-        // UTF-8 aware decoding
-        function b64DecodeUnicode(str) {
-            try {
-                // Try padding adjustment first
-                while (str.length % 4 !== 0) {
-                    str += "=";
-                }
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-slate-800/60', 'border-indigo-500');
+        });
 
-                // Method 1: Modern TextDecoder (Best for UTF-8)
-                const binaryString = atob(str);
-                const bytes = new Uint8Array(binaryString.length);
-                for (let i = 0; i < binaryString.length; i++) {
-                    bytes[i] = binaryString.charCodeAt(i);
-                }
-                const decoded = new TextDecoder('utf-8').decode(bytes);
-                return decoded;
-            } catch (e) {
-                // Fallback or re-throw
-                try {
-                    // Method 2: Deprecated but common legacy way
-                    return decodeURIComponent(Array.prototype.map.call(atob(str), function (c) {
-                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                    }).join(''));
-                } catch (e2) {
-                    // Fallback: Raw binary
-                    return atob(str);
-                }
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-slate-800/60', 'border-indigo-500');
+            if (e.dataTransfer.files.length > 0) {
+                handleFile(e.dataTransfer.files[0]);
             }
-        }
+        });
 
-        function isImage(str) {
-            // Check for data URI prefix or common image file headers in binary
-            if (str.trim().startsWith('data:image')) return true;
-            return false;
-        }
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
 
-        decodeBtn.addEventListener('click', () => {
-            const rawInput = inputArea.value.trim();
-
-            if (!rawInput) {
-                showToast("입력된 내용이 없습니다 (No input)");
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                showToast("エラー: 画像ファイルのみサポートされています");
                 return;
             }
 
-            // 1. Check if it's a Data URL Image (Has prefix)
-            if (rawInput.startsWith('data:image')) {
-                previewImg.src = rawInput;
-                previewContainer.classList.remove('hidden');
-                outputArea.value = "// [Image Detected] Preview shown above.\n// Prefix removed decoded text below:\n\n" + rawInput.split(',')[1];
-                showToast("이미지 데이터 감지됨");
+            // Size check (warn if > 5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                showToast("警告: 大きなファイルはブラウザを遅くする可能性があります");
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const result = e.target.result;
+                base64Output.value = result;
+
+                // Calculate approx size
+                const sizeKB = (result.length * 0.75 / 1024).toFixed(2);
+                sizeTag.textContent = `${sizeKB} KB`;
+                sizeTag.classList.remove('hidden');
+
+                showToast("変換完了!");
+            };
+            reader.onerror = () => {
+                showToast("ファイルの読み込みに失敗しました");
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Copy Functions
+        async function copyToClipboard(text, type) {
+            if (!text) {
+                showToast("コピーする内容がありません");
                 return;
             }
-
-            try {
-                // 2. Decode Text
-                const result = b64DecodeUnicode(rawInput);
-                outputArea.value = result;
-
-                // 3. Heuristic check if the result binary looks like a PNG/JPG header but was pasted without prefix
-                // (Simple check, not exhaustive)
-                if (result.includes("PNG") || result.includes("JFIF") || result.includes("Exif")) {
-                    // Try to force preview
-                    previewImg.src = "data:image/png;base64," + rawInput; // Try PNG default
-                    // Or check for error on image load? 
-                    // For simplicity, just show text unless explicitly data URI or user intention
-                    showToast("성공: 텍스트 디코딩 완료");
-                } else {
-                    showToast("성공: 텍스트 디코딩 완료");
-                }
-
-            } catch (err) {
-                outputArea.value = "// Decoding Error: Invalid Base64 string.\n// Please check for missing characters.";
-                showToast("오류: 올바르지 않은 Base64 문자열");
-            }
-        });
-
-        clearBtn.addEventListener('click', () => {
-            inputArea.value = '';
-            outputArea.value = '';
-            previewContainer.classList.add('hidden');
-            previewImg.src = '';
-            inputArea.focus();
-        });
-
-        closePreviewBtn.addEventListener('click', () => {
-            previewContainer.classList.add('hidden');
-        });
-
-        // --- 4. Copy Logic ---
-        const copyToClipboard = async (text, label) => {
-            if (!text) return;
             try {
                 await navigator.clipboard.writeText(text);
-                showToast(`${label} 복사되었습니다!`);
+                showToast(`${type}をコピーしました!`);
             } catch (err) {
-                showToast("복사 실패");
+                showToast("コピーに失敗しました");
             }
-        };
+        }
 
-        document.getElementById('copy-result').addEventListener('click', () => {
-            copyToClipboard(outputArea.value, "결과");
+        copyTextBtn.addEventListener('click', () => {
+            copyToClipboard(base64Output.value, "Base64全体");
+        });
+
+        copyHtmlBtn.addEventListener('click', () => {
+            const code = base64Output.value;
+            if (code) {
+                copyToClipboard(`<img src="${code}" alt="Base64 Image" />`, "HTMLタグ");
+            }
+        });
+
+        copyCssBtn.addEventListener('click', () => {
+            const code = base64Output.value;
+            if (code) {
+                copyToClipboard(`background-image: url('${code}');`, "CSSプロパティ");
+            }
         });
     </script>
 </body>

@@ -1,71 +1,314 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        
   <url>
     <loc>https://base64pro.top/</loc>
-    <lastmod>2024-08-15</lastmod>
+    <lastmod>2025-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/" />
   </url>
+  <url>
+    <loc>https://base64pro.top/ko/</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/" />
+  </url>
+
+  <!-- 2. 隐私政策 (Privacy Policy) -->
   <url>
     <loc>https://base64pro.top/privacy-policy.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/privacy-policy.html" />
   </url>
+  <url>
+    <loc>https://base64pro.top/ko/privacy-policy.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/privacy-policy.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/privacy-policy.html" />
+  </url>
+
+  <!-- 3. 服务条款 (Terms of Service) -->
   <url>
     <loc>https://base64pro.top/terms-of-service.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.8</priority>
-  </url>
-    <url>
-    <loc>https://base64pro.top/base64-config-converter.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-      <url>
-    <loc>https://base64pro.top/blog/ultimate-120fps-config-guide.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/terms-of-service.html" />
   </url>
   <url>
-    <loc>https://base64pro.top/kr/</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://base64pro.top/pk/</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://base64pro.top/kr/privacy-policy.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://base64pro.top/ko/terms-of-service.html</loc>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/terms-of-service.html" />
   </url>
   <url>
-    <loc>https://base64pro.top/kr/terms-of-service.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://base64pro.top/ja/terms-of-service.html</loc>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://base64pro.top/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/terms-of-service.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/terms-of-service.html" />
   </url>
+
+  <!-- 4. 工具: Base64 Decoder -->
+   
+  <url>
+    <loc>https://base64pro.top/ko/tool/base64-decoder-tool.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.8</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/tool/base64-decoder-tool.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/tool/base64-decoder-tool.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/tool/base64-decoder-tool.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/tool/base64-decoder-tool.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.8</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/tool/base64-decoder-tool.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/tool/base64-decoder-tool.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/tool/base64-decoder-tool.html" />
+  </url>
+
+  <!-- 5. 工具: Image to Base64 Converter -->
+ 
+  <url>
+    <loc>https://base64pro.top/ko/tool/image-to-base64-converter.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.8</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/tool/image-to-base64-converter.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/tool/image-to-base64-converter.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.8</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/tool/image-to-base64-converter.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/tool/image-to-base64-converter.html" />
+  </url>
+
+  <!-- 6. 指南: Concept and Conversion -->
   
   <url>
-    <loc>https://base64pro.top/pk/privacy-policy.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://base64pro.top/ko/guide/base64-concept-and-conversion.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-concept-and-conversion.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-concept-and-conversion.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/base64-concept-and-conversion.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/guide/base64-concept-and-conversion.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-concept-and-conversion.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-concept-and-conversion.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/base64-concept-and-conversion.html" />
+  </url>
+
+  <!-- 7. 指南: Decoding Mastery -->
+ 
+  <url>
+    <loc>https://base64pro.top/ko/guide/base64-decoding-mastery.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-decoding-mastery.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-decoding-mastery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/guide/base64-decoding-mastery.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/guide/base64-decoding-mastery.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-decoding-mastery.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-decoding-mastery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/base64-decoding-mastery.html" />
+  </url>
+
+  <!-- 8. 指南: Encoding Workflows -->
+
+  <url>
+    <loc>https://base64pro.top/ko/guide/base64-encoding-workflows.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-encoding-workflows.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-encoding-workflows.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/base64-encoding-workflows.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/guide/base64-encoding-workflows.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/base64-encoding-workflows.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/base64-encoding-workflows.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/base64-encoding-workflows.html" />
+  </url>
+
+  <!-- 9. 指南: Python/JS Guide -->
+ 
+  <url>
+    <loc>https://base64pro.top/ko/guide/python-javascript-base64-guide.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/python-javascript-base64-guide.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/python-javascript-base64-guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/python-javascript-base64-guide.html" />
+  </url>
+  <url>
+    <loc>https://base64pro.top/ja/guide/python-javascript-base64-guide.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority> 
+    <xhtml:link rel="alternate" hreflang="ko" href="https://base64pro.top/ko/guide/python-javascript-base64-guide.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://base64pro.top/ja/guide/python-javascript-base64-guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://base64pro.top/ko/guide/python-javascript-base64-guide.html" />
+  </url>
+
+  <!-- ==================================================
+       第二部分：仅英文版页面 (无对应翻译)
+       包含：根目录下的独立页面和 blog/guide 目录下的其他文件
+       ================================================== -->
+
+  <url>
+    <loc>https://base64pro.top/base64-config-converter.html</loc>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://base64pro.top/pk/terms-of-service.html</loc>
-    <lastmod>2024-08-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://base64pro.top/blog/ultimate-120fps-config-guide.html</loc>
+    <lastmod>2025-12-04</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://base64pro.top/guide/base64-decode-errors-explained.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/base64-invalid-input-common-causes.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/base64-regex-pattern-validation.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/base64-to-hexadecimal-conversion-steps.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/base64-vs-base62-performance.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/csharp-base64-file-io-encoding.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/decode-base64-in-python-array.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/golang-base64-mastery.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/golang-prevent-json-byte-encoding.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/java-base64-illegalargumentexception-fix.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/java-csharp-base64-workflow.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/macos-linux-base64-decode-to-file.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/node-js-base64-buffering-io.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/openssl-rand-base64-key-generation.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/powershell-base64-encoding-batch.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/powershell-base64-guide.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/svg-to-base64-data-uri-embedding.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://base64pro.top/guide/terminal-base64-toolkit.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
-    
