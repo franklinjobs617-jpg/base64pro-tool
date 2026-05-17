@@ -23,7 +23,6 @@ Base64Pro 是一个游戏攻略 Hub 站，专注于为玩家提供最新游戏�
 ├── public/                     # 静态资源
 │   └── games/                  # 游戏图片资源
 │       ├── directive-8020/     # Directive 8020 Hero 图
-│       ├── lorain/             # Lorain Hero 图
 │       ├── project-mist/
 │       ├── thick-as-thieves/
 │       ├── coffee-talk-tokyo/
@@ -57,7 +56,6 @@ Base64Pro 是一个游戏攻略 Hub 站，专注于为玩家提供最新游戏�
 | 游戏名称 | Slug | 上线日期 | 状态 | 攻略数量 |
 |---------|------|---------|------|---------|
 | Directive 8020 | directive-8020 | 2025-05-12 | 已上线 | 8篇 |
-| Lorain | lorain | 2025-05-14 | 已上线 | 4篇 |
 | Project: Mist | project-mist | 2025-05-19 | 即将上线 | 4篇 |
 | Thick As Thieves | thick-as-thieves | 2025-05-20 | 即将上线 | 4篇 |
 | Coffee Talk Tokyo | coffee-talk-tokyo | 2025-05-21 | 即将上线 | 4篇 |

@@ -170,7 +170,7 @@ export default function AboutPage() {
         <section className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Currently Covering</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Directive 8020', 'Lorain', 'Project: Mist', 'Thick As Thieves', 'Coffee Talk Tokyo', '007 First Light'].map((game) => (
+            {['Directive 8020', 'Project: Mist', 'Thick As Thieves', 'Coffee Talk Tokyo', '007 First Light'].map((game) => (
               <Link 
                 key={game} 
                 href={`/game/${game.toLowerCase().replace(/[:'\s]+/g, '-').replace(/-+/g, '-')}`}

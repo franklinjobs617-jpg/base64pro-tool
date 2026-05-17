@@ -4,7 +4,6 @@ import { directive8020GuideOrder } from '@/lib/directive-8020';
 import { projectMistGuideOrder } from '@/lib/project-mist';
 import { firstLight007GuideOrder } from '@/lib/first-light-007';
 import { coffeeTalkTokyoGuideOrder } from '@/lib/coffee-talk-tokyo';
-import { lorainGuideOrder } from '@/lib/lorain';
 import { thickAsThievesGuideOrder } from '@/lib/thick-as-thieves';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -55,12 +54,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/category/platformer`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
       url: `${baseUrl}/category/survival`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -98,7 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const guidePages: MetadataRoute.Sitemap = [];
   const gameGuides: Record<string, string[]> = {
     'directive-8020': [...directive8020GuideOrder],
-    lorain: [...lorainGuideOrder],
     'project-mist': [...projectMistGuideOrder],
     'thick-as-thieves': [...thickAsThievesGuideOrder],
     'coffee-talk-tokyo': [...coffeeTalkTokyoGuideOrder],

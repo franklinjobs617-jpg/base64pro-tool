@@ -28,12 +28,6 @@ import {
   firstLight007HubContent,
 } from '@/lib/first-light-007';
 import {
-  lorainFacts,
-  lorainGuideContent,
-  lorainGuideOrder,
-  lorainHubContent,
-} from '@/lib/lorain';
-import {
   coffeeTalkTokyoFacts,
   coffeeTalkTokyoGuideContent,
   coffeeTalkTokyoGuideOrder,
@@ -192,66 +186,6 @@ Fans of The Thing and Alien will find plenty to love here. The claustrophobic co
       {
         question: 'Do choices from previous Dark Pictures games matter?',
         answer: 'No, Directive 8020 is a standalone story with no connections to previous entries in the anthology.',
-      },
-    ],
-  },
-  lorain: {
-    overview: `Lorain is a dark fantasy action-exploration RPG from OmenOcta and Kagura Games, released on May 14, 2025. You play as Lorain, a hired adventurer navigating a world filled with danger, ancient secrets, and difficult choices that will shape her fate.
-
-The game features a high-frequency action system with platforming elements—Lorain constantly jumps (hop), climbs (up), and traverses challenging terrain with real-time audio feedback. But the core mechanic that defines the experience is the "Heat" system. This numerical value builds up through combat, special attacks, and environmental pressure. When Heat reaches critical levels, Lorain's state changes dramatically, affecting her abilities and potentially triggering special events.
-
-Combat encounters feature multi-stage battles where you'll need to adapt your strategy as fights progress. The game rewards patience too—knowing when to wait and recover is just as important as knowing when to press the attack. Your dialogue choices, including pivotal moments like "I don't want to," branch the story in different directions, leading to multiple distinct endings.
-
-For completionists, Lorain offers a compelling array of achievements tied to exploration, combat mastery, and discovering all narrative branches. The platforming challenges hide secret areas with valuable collectibles, encouraging thorough exploration of every dark corner of this atmospheric world.`,
-    features: [
-      'Deep "Heat" system that affects combat and character state',
-      'High-frequency action with platforming and traversal mechanics',
-      'Multi-stage boss battles requiring adaptive strategies',
-      'Choice-driven narrative with multiple endings',
-      'Hidden collectibles and secret areas for exploration',
-      'Dark fantasy world with atmospheric visuals',
-    ],
-    guides: [
-      {
-        title: 'All Endings & Achievements Guide',
-        description: 'Complete guide to unlocking all endings and achievements in Lorain.',
-        slug: 'endings-achievements',
-      },
-      {
-        title: 'Heat System & Combat Guide',
-        description: 'Master the Heat mechanic and advanced combat techniques.',
-        slug: 'combat-heat-guide',
-      },
-      {
-        title: 'Map & Collectibles Guide',
-        description: 'Find every hidden item and secret location in the game.',
-        slug: 'map-collectibles',
-      },
-    ],
-    tips: [
-      'Monitor your Heat level—high Heat changes Lorain\'s abilities and can trigger special events',
-      'Use "wait" moments strategically to recover during combat',
-      'Platforming sections often hide secret collectibles—explore thoroughly',
-      'Dialogue choices like "I don\'t want to" branch the story significantly',
-      'Multi-stage boss fights require different strategies for each phase',
-      'Audio cues provide important feedback during action sequences',
-    ],
-    faq: [
-      {
-        question: 'What happens when Heat gets too high?',
-        answer: 'When Heat accumulates to critical levels, Lorain\'s audio feedback intensifies dramatically. High Heat can affect her movement capabilities and potentially trigger specific events. Use waiting actions or find environmental items to reduce Heat when needed.',
-      },
-      {
-        question: 'Why does Lorain keep saying "Up" and "Hop"?',
-        answer: 'This is the core platforming mechanic. Every climbing and jumping action has corresponding audio feedback. During sections requiring continuous jumps, this feedback becomes very frequent—perfectly normal for the game\'s design.',
-      },
-      {
-        question: 'How do I trigger different story branches?',
-        answer: 'Pay attention to Lorain\'s dialogue moments like "I don\'t want to." Your choices at these pivotal points—whether to continue or stop—directly lead to different consequences and endings.',
-      },
-      {
-        question: 'How long is the game?',
-        answer: 'A standard playthrough takes 4-6 hours. Completionists can expect 8-12 hours to find all secrets, collectibles, and experience all endings.',
       },
     ],
   },
@@ -517,8 +451,6 @@ export default async function GamePage({ params }: GamePageProps) {
   const content =
     gameSlug === 'directive-8020'
       ? directive8020HubContent
-      : gameSlug === 'lorain'
-        ? lorainHubContent
       : gameSlug === 'project-mist'
         ? projectMistHubContent
       : gameSlug === 'thick-as-thieves'
@@ -550,8 +482,6 @@ export default async function GamePage({ params }: GamePageProps) {
     publisher:
       gameSlug === 'directive-8020'
         ? 'Supermassive Games'
-        : gameSlug === 'lorain'
-          ? lorainFacts.publisher
         : gameSlug === 'project-mist'
           ? projectMistFacts.publisher
           : gameSlug === 'thick-as-thieves'
@@ -564,8 +494,6 @@ export default async function GamePage({ params }: GamePageProps) {
     creator:
       gameSlug === 'directive-8020'
         ? 'Supermassive Games'
-        : gameSlug === 'lorain'
-          ? lorainFacts.developer
         : gameSlug === 'project-mist'
           ? projectMistFacts.developer
           : gameSlug === 'thick-as-thieves'
@@ -786,272 +714,6 @@ export default async function GamePage({ params }: GamePageProps) {
                         <div className="mb-3 flex flex-wrap gap-2">
                           <Badge variant={guide.spoilerLevel === 'spoiler' ? 'destructive' : 'secondary'} className="rounded-full">
                             {guide.spoilerLevel === 'spoiler' ? 'Spoilers' : 'Spoiler-light'}
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
-    );
-  }
-
-  if (gameSlug === 'lorain') {
-    const guideCards = lorainGuideOrder.map((guideSlug) => {
-      const guide = lorainGuideContent[guideSlug];
-      const firstMedia = Object.values(guide.sectionMedia)[0];
-
-      return {
-        slug: guideSlug,
-        title: guide.title.replace(/^Lorain:?\s*/, ''),
-        description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
-        status: guide.verificationStatus,
-        spoilerLevel: guide.spoilerLevel,
-      };
-    });
-
-    const startHere = [
-      {
-        title: 'Release facts',
-        href: `/game/${game.slug}/release-date-platforms-guide`,
-        body: 'Confirm the release date, storefronts, languages, Steam Cloud status, and what is not listed on Steam.',
-      },
-      {
-        title: 'First runs',
-        href: `/game/${game.slug}/beginner-platforming-guide`,
-        body: 'Learn how to approach Lorain as an upgrade-and-revisit platformer instead of forcing full completion too early.',
-      },
-      {
-        title: 'Route testing',
-        href: `/game/${game.slug}/endings-scenes-guide`,
-        body: 'Set up clean branch saves for endings and scene completion without relying on made-up route charts.',
-      },
-    ];
-
-    const answerCards = [
-      { label: 'Release date', value: lorainFacts.displayReleaseDate, status: 'Steam-listed' },
-      { label: 'Platforms', value: lorainFacts.platforms, status: 'Official' },
-      { label: 'Developer', value: lorainFacts.developer, status: 'Steam-listed' },
-      { label: 'Publisher', value: lorainFacts.publisher, status: 'Store-listed' },
-      { label: 'Endings and scenes', value: 'Multiple endings and over 20 scenes are publicly listed', status: 'Store-listed' },
-      { label: 'Steam achievements', value: 'Not currently listed on Steam', status: 'Steam-listed' },
-    ];
-
-    return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge className="rounded-full px-3">Now Available</Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  Mature platformer guide hub
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                Lorain Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Factual Lorain coverage for players who want release facts, upgrade-loop guidance,
-                endings research, gallery tracking, and support answers without fake achievement or
-                system claims.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/release-date-platforms-guide`}>
-                    Release Facts
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/beginner-platforming-guide`}>
-                    Beginner Guide
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a href={lorainFacts.steamUrl} target="_blank" rel="noopener noreferrer">
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">{lorainFacts.displayReleaseDate}</p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">{lorainFacts.developer}</p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} factual pages
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/lorain/hero.jpg"
-                  alt="Lorain key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                This hub keeps the public facts and the unverified route logic separate. Ending
-                conditions, gallery completion routes, and exact progression breakpoints should be
-                tested directly before they are treated as final.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Answer center
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {answerCards.map((item) => (
-                  <div key={item.label} className="rounded-xl border bg-background p-4">
-                    <p className="text-xs uppercase text-muted-foreground">{item.label}</p>
-                    <p className="mt-2 text-sm font-medium leading-6 text-foreground">{item.value}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{item.status}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Screenshot-backed Lorain pages with real tables, clear FAQ blocks, and visible
-                    verification labels instead of invented systems.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant={guide.spoilerLevel === 'spoiler' ? 'destructive' : 'secondary'} className="rounded-full">
-                            {guide.spoilerLevel === 'spoiler' ? 'Spoiler' : 'Guide'}
                           </Badge>
                           <Badge variant="outline" className="rounded-full">
                             {guide.status}

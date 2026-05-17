@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     'game strategies',
     'video game guides',
     'gaming tutorials',
-    'Lorain guide',
     'Project Mist guide',
     'Thick As Thieves guide',
     'Coffee Talk Tokyo recipes',

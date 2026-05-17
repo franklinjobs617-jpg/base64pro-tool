@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Skull, Sword, Target, Coffee, Gamepad2, MoveUpRight } from 'lucide-react';
+import { ArrowRight, Skull, Sword, Target, Coffee, Gamepad2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,12 +22,6 @@ const categories = [
     slug: 'horror',
     description: 'Spine-chilling horror experiences that will keep you on the edge of your seat',
     icon: Skull,
-  },
-  {
-    name: 'Platformer',
-    slug: 'platformer',
-    description: 'Movement-heavy games built around traversal, upgrades, and route learning',
-    icon: MoveUpRight,
   },
   {
     name: 'Survival',

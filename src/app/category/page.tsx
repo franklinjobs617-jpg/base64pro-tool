@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Skull, Sword, Target, Coffee, Gamepad2, MoveUpRight } from 'lucide-react';
+import { Skull, Sword, Target, Coffee, Gamepad2 } from 'lucide-react';
 import { games, siteConfig } from '@/lib/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
@@ -18,12 +18,6 @@ const categories = [
     slug: 'horror',
     description: 'Spine-chilling horror experiences that will keep you on the edge of your seat',
     icon: Skull,
-  },
-  {
-    name: 'Platformer',
-    slug: 'platformer',
-    description: 'Movement-heavy games built around traversal, upgrades, and route learning',
-    icon: MoveUpRight,
   },
   {
     name: 'Survival',

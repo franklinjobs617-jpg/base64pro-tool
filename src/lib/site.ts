@@ -25,19 +25,6 @@ export const games = [
     cardImage: '/games/directive-8020/card.jpg',
   },
   {
-    id: 'lorain',
-    name: 'Lorain',
-    slug: 'lorain',
-    steamId: '3415060',
-    releaseDate: '2026-05-13',
-    status: 'released' as const,
-    category: 'Platformer',
-    tags: ['Platformer', 'Casual', '2D', 'Multiple Endings'],
-    description: 'Lorain is a Windows PC platformer from OmenOcta where upgrades let Lorain fight back against enemies that captured her earlier, with multiple endings and a large scene gallery promoted on the official product page.',
-    heroImage: '/games/lorain/hero.jpg',
-    cardImage: '/games/lorain/card.jpg',
-  },
-  {
     id: 'project-mist',
     name: 'Project: Mist',
     slug: 'project-mist',
@@ -112,7 +99,6 @@ export function getUpcomingGames(): Game[] {
 
 export const categories = [
   { name: 'Horror', slug: 'horror', description: 'Survive the nightmares' },
-  { name: 'Platformer', slug: 'platformer', description: 'Movement, upgrades, and route mastery' },
   { name: 'Survival', slug: 'survival', description: 'Craft, build, survive' },
   { name: 'Stealth', slug: 'stealth', description: 'Move in shadows' },
   { name: 'Visual Novel', slug: 'visual-novel', description: 'Story-driven experiences' },

@@ -9,7 +9,6 @@ import {
   Coffee,
   Compass,
   Gamepad2,
-  MoveUpRight,
   Skull,
   Sparkles,
   Sword,
@@ -32,7 +31,6 @@ export const metadata: Metadata = {
 
 const categoryIcons: Record<string, LucideIcon> = {
   Horror: Skull,
-  Platformer: MoveUpRight,
   Survival: Sword,
   Stealth: Target,
   'Visual Novel': Coffee,
@@ -80,8 +78,6 @@ export default function HomePage() {
     description:
       name === 'Horror'
         ? 'Cinematic tension, endings, and survival routes'
-        : name === 'Platformer'
-          ? 'Movement, upgrades, and route recovery'
           : name === 'Survival'
             ? 'Crafting, building, and launch-week planning'
             : name === 'Stealth'
@@ -99,7 +95,7 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-start">
             <div className="py-2 sm:py-4">
               <Badge variant="outline" className="rounded-full px-3 py-1 text-[11px]">
-                6 tracked game hubs
+                5 tracked game hubs
               </Badge>
               <h1 className="mt-5 max-w-3xl font-serif text-4xl font-normal leading-[1.02] tracking-normal text-foreground sm:text-5xl lg:text-[68px]">
                 Clean game hubs that actually get players to answers
