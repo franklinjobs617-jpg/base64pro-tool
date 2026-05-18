@@ -1,7 +1,8 @@
 // Site configuration for base64pro.top
 export const siteConfig = {
   name: 'Base64Pro',
-  description: 'Ultimate Gaming Guides, Walkthroughs & Wiki - Your go-to source for comprehensive game guides, tips, and strategies.',
+  description:
+    'Game guides, walkthroughs, release dates, trophy routes, co-op answers, demo guides, and launch-week hubs for new and upcoming games.',
   url: 'https://base64pro.top',
   ogImage: '/og-image.png',
   links: {

@@ -1,35 +1,55 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Gamepad2, Mail, Twitter } from 'lucide-react';
-import { siteConfig, games, categories } from '@/lib/site';
+import { categories, games, siteConfig } from '@/lib/site';
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+  const isPortalChrome =
+    pathname === '/' || pathname.startsWith('/game/') || pathname.startsWith('/category/');
 
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
+    <footer
+      className={
+        isPortalChrome
+          ? 'border-t border-white/8 bg-[#04060a] text-white'
+          : 'border-t bg-muted/30'
+      }
+    >
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,1.25fr)_repeat(3,minmax(0,0.75fr))]">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-              <Gamepad2 className="h-5 w-5 text-primary" />
+            <Link
+              href="/"
+              className={`flex items-center gap-2 text-lg font-semibold ${
+                isPortalChrome ? 'text-white' : 'text-foreground'
+              }`}
+            >
+              <Gamepad2 className={`h-5 w-5 ${isPortalChrome ? 'text-white' : 'text-primary'}`} />
               <span>{siteConfig.name}</span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Your ultimate destination for game guides, walkthroughs, and strategies. We help gamers
-              master their favorite titles.
+            <p className={`max-w-sm text-sm leading-7 ${isPortalChrome ? 'text-zinc-400' : 'text-muted-foreground'}`}>
+              Guide hubs for launch-week browsing, walkthrough planning, platform fact checks, and
+              pre-release pages that stay useful without pretending to know what has not been
+              verified yet.
             </p>
           </div>
 
-          {/* Games */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Popular Games</h3>
+            <h3 className={`text-sm font-semibold uppercase tracking-[0.18em] ${isPortalChrome ? 'text-zinc-500' : 'text-foreground'}`}>
+              Games
+            </h3>
             <ul className="space-y-2">
-              {games.slice(0, 5).map((game) => (
+              {games.map((game) => (
                 <li key={game.id}>
                   <Link
                     href={`/game/${game.slug}`}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className={`text-sm transition-colors ${
+                      isPortalChrome ? 'text-zinc-300 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+                    }`}
                   >
                     {game.name}
                   </Link>
@@ -38,15 +58,18 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Categories */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Categories</h3>
+            <h3 className={`text-sm font-semibold uppercase tracking-[0.18em] ${isPortalChrome ? 'text-zinc-500' : 'text-foreground'}`}>
+              Categories
+            </h3>
             <ul className="space-y-2">
               {categories.map((category) => (
                 <li key={category.slug}>
                   <Link
                     href={`/category/${category.slug}`}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className={`text-sm transition-colors ${
+                      isPortalChrome ? 'text-zinc-300 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+                    }`}
                   >
                     {category.name}
                   </Link>
@@ -55,49 +78,38 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Quick Links</h3>
+            <h3 className={`text-sm font-semibold uppercase tracking-[0.18em] ${isPortalChrome ? 'text-zinc-500' : 'text-foreground'}`}>
+              Site
+            </h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms-of-service"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li>
+              {[
+                ['/about', 'About'],
+                ['/contact', 'Contact'],
+                ['/privacy-policy', 'Privacy Policy'],
+                ['/terms-of-service', 'Terms of Service'],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className={`text-sm transition-colors ${
+                      isPortalChrome ? 'text-zinc-300 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div
+          className={`mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:flex-row ${
+            isPortalChrome ? 'border-white/8' : ''
+          }`}
+        >
+          <p className={`text-sm ${isPortalChrome ? 'text-zinc-500' : 'text-muted-foreground'}`}>
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -105,14 +117,18 @@ export function SiteFooter() {
               href={siteConfig.links.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors ${
+                isPortalChrome ? 'text-zinc-400 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+              }`}
               aria-label="Twitter"
             >
               <Twitter className="h-5 w-5" />
             </a>
             <a
               href="mailto:contact@base64pro.top"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors ${
+                isPortalChrome ? 'text-zinc-400 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+              }`}
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />

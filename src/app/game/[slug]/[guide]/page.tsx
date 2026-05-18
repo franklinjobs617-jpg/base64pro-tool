@@ -1,31 +1,14 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  AlertTriangle,
-  ArrowLeft,
-  BookOpen,
-  CheckCircle2,
-  Clock,
-} from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
+import { type BreadcrumbItem } from "@/components/Breadcrumbs";
+import { GuidePortalPage } from "@/components/game/GuidePortalPage";
 import { games, getGameBySlug, siteConfig } from "@/lib/site";
 import { directive8020GuideContent } from "@/lib/directive-8020";
 import { projectMistGuideContent } from "@/lib/project-mist";
 import { firstLight007GuideContent } from "@/lib/first-light-007";
 import { coffeeTalkTokyoGuideContent } from "@/lib/coffee-talk-tokyo";
 import { thickAsThievesGuideContent } from "@/lib/thick-as-thieves";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { buildGuideMetadata } from "@/lib/seo";
 
 interface GuidePageProps {
   params: Promise<{
@@ -262,7 +245,7 @@ Each ending provides a different perspective on the tragedy and is worth experie
       content: `
 ## How Choices Work
 
-Directive 8020 introduces the Turning Points system—a web of interconnected decisions where early choices echo through the entire narrative. Unlike traditional branching paths, your decisions here affect:
+Directive 8020 introduces the Turning Points system鈥攁 web of interconnected decisions where early choices echo through the entire narrative. Unlike traditional branching paths, your decisions here affect:
 
 1. **Trust levels** between characters
 2. **Suspicion** about who might be infected
@@ -276,27 +259,27 @@ Directive 8020 introduces the Turning Points system—a web of interconnected de
 ### Choice 1: Report the Anomaly
 **When:** After discovering the hull breach
 **Options:**
-- Report immediately → Command trusts you, but puts the ship on alert
-- Investigate first → Gain information, but risk the breach spreading
-- Hide the finding → Crew questions your motives later
+- Report immediately 鈫?Command trusts you, but puts the ship on alert
+- Investigate first 鈫?Gain information, but risk the breach spreading
+- Hide the finding 鈫?Crew questions your motives later
 
 **Consequence:** This affects whether the crew believes your warnings later.
 
 ### Choice 2: Wake the Crew
 **When:** Deciding who to wake from cryo first
 **Options:**
-- Wake Carter → He becomes your ally throughout
-- Wake Young → She provides military expertise
-- Wake the Engineer → Technical skills help later
+- Wake Carter 鈫?He becomes your ally throughout
+- Wake Young 鈫?She provides military expertise
+- Wake the Engineer 鈫?Technical skills help later
 
 **Consequence:** The person you wake first gains +1 trust with you permanently.
 
 ### Choice 3: First Contact
 **When:** Meeting the survivor
 **Options:**
-- Welcome them aboard → They may be infected
-- Quarantine them → Safer but they may die
-- Turn them away → Harsh but eliminates risk
+- Welcome them aboard 鈫?They may be infected
+- Quarantine them 鈫?Safer but they may die
+- Turn them away 鈫?Harsh but eliminates risk
 
 **Consequence:** This is the first Turning Point that branches the story significantly.
 
@@ -307,16 +290,16 @@ Directive 8020 introduces the Turning Points system—a web of interconnected de
 ### Choice 4: Trust or Test
 **When:** A crewmate shows signs of infection
 **Options:**
-- Trust them → If they're infected, this is fatal
-- Test them → They're hurt but you know the truth
-- Avoid them → Neutural but loses trust
+- Trust them 鈫?If they're infected, this is fatal
+- Test them 鈫?They're hurt but you know the truth
+- Avoid them 鈫?Neutural but loses trust
 
 ### Choice 5: The Hunted
 **When:** Someone is hunting through the ship
 **Options:**
-- Set a trap → Tactical approach
-- Hide and wait → Passive approach
-- Confront directly → Aggressive approach
+- Set a trap 鈫?Tactical approach
+- Hide and wait 鈫?Passive approach
+- Confront directly 鈫?Aggressive approach
 
 **Consequence:** The approach determines who survives the encounter.
 
@@ -329,9 +312,9 @@ This is where most players see their choices truly matter. Characters who trust 
 ### Choice 6: Sacrifice or Save
 **When:** Someone must stay behind
 **Options:**
-- Volunteer yourself → Heroic, affects final options
-- Choose someone else → Pragmatic, affects trust
-- Find another way → Requires high trust from everyone
+- Volunteer yourself 鈫?Heroic, affects final options
+- Choose someone else 鈫?Pragmatic, affects trust
+- Find another way 鈫?Requires high trust from everyone
 
 ---
 
@@ -361,7 +344,7 @@ Each combination produces one of the six endings.
       content: `
 ## Death Overview
 
-Directive 8020 features 44 unique death scenes across five playable characters. Each death is a scripted event triggered by specific conditions—failing QTEs, making certain choices, or entering dangerous situations unprepared.
+Directive 8020 features 44 unique death scenes across five playable characters. Each death is a scripted event triggered by specific conditions鈥攆ailing QTEs, making certain choices, or entering dangerous situations unprepared.
 
 **Why collect deaths?** The "Grim Reaper" trophy requires seeing all death scenes. Plus, some deaths unlock new story fragments.
 
@@ -390,12 +373,12 @@ These occur when failing quick-time events during action sequences.
 These occur when making "wrong" choices at key moments.
 
 ### Trust-Related Deaths
-- Trusting an infected crew member → They kill you
-- Not trusting a healthy ally → They abandon you to die
+- Trusting an infected crew member 鈫?They kill you
+- Not trusting a healthy ally 鈫?They abandon you to die
 
 ### Sacrifice Deaths
-- Volunteer to stay behind → Certain death (but heroic)
-- Send someone else → They die instead
+- Volunteer to stay behind 鈫?Certain death (but heroic)
+- Send someone else 鈫?They die instead
 
 ---
 
@@ -448,7 +431,7 @@ These involve multiple characters dying together:
       content: `
 ## Why Collect Dolls?
 
-The 12 hidden dolls scattered throughout the Cassiopeia aren't just collectibles—they're fragments of a darker story. Each doll represents a victim of the alien organism from a previous encounter. Collecting all of them:
+The 12 hidden dolls scattered throughout the Cassiopeia aren't just collectibles鈥攖hey're fragments of a darker story. Each doll represents a victim of the alien organism from a previous encounter. Collecting all of them:
 
 - Unlocks the secret ending teaser
 - Reveals the true origin of the infection
@@ -581,7 +564,7 @@ Before starting your "everyone lives" run:
 
 These choices directly affect survival:
 
-1. **Report the breach honestly** → Command trusts you later
+1. **Report the breach honestly** 鈫?Command trusts you later
 2. **Don't sacrifice anyone** when given the option
 3. **Trust the medic** during the infection scare
 4. **Work together** in the final chapter
@@ -591,7 +574,7 @@ These choices directly affect survival:
 
 ## QTE Survival
 
-Some QTEs are one-shot—fail and someone dies. Practice these:
+Some QTEs are one-shot鈥攆ail and someone dies. Practice these:
 
 - Airlock sequence (Chapter 1)
 - Combat encounters (Chapters 2-3)
@@ -859,11 +842,11 @@ Hold your breath when the alien is nearby. Use the Wedge Tool to stun if caught.
 
 | Character | Episode 1 | Episode 3 | Episode 5 | Episode 8 |
 |-----------|-----------|-----------|-----------|-----------|
-| Thomas Carter | Computer choice | Simms escape | — | Final stand |
-| Brianna Young | — | Locker code | Anders vs Mitchell | — |
-| Jamal Clarke | — | Stealth section | Medical bay | — |
-| Naomi Chen | — | — | Research lab | Airlock |
-| Marcus Webb | — | — | — | Engineering |
+| Thomas Carter | Computer choice | Simms escape | 鈥?| Final stand |
+| Brianna Young | 鈥?| Locker code | Anders vs Mitchell | 鈥?|
+| Jamal Clarke | 鈥?| Stealth section | Medical bay | 鈥?|
+| Naomi Chen | 鈥?| 鈥?| Research lab | Airlock |
+| Marcus Webb | 鈥?| 鈥?| 鈥?| Engineering |
 
 **Key Rule:** Most deaths come from failed QTEs or wrong choices during Turning Points. Pay attention during these moments.
 
@@ -1069,7 +1052,7 @@ In the engineering section. Requires three Obols. Reveals the true ending requir
 
 ## Collection Progress Tracking
 
-Check the menu → Extras → Collectibles to see:
+Check the menu 鈫?Extras 鈫?Collectibles to see:
 - Which dolls you've found
 - Document completion percentage
 - O Death secrets unlocked
@@ -1257,34 +1240,6 @@ const guideContent: Record<string, Record<string, GuideContentItem>> = {
   "007-first-light": firstLight007GuideContent,
 };
 
-function getTextContent(node: React.ReactNode): string {
-  if (typeof node === "string" || typeof node === "number") {
-    return String(node);
-  }
-
-  if (Array.isArray(node)) {
-    return node.map(getTextContent).join("");
-  }
-
-  return "";
-}
-
-function findSectionId(
-  sections: GuideContentItem["sections"],
-  children: React.ReactNode
-) {
-  const heading = getTextContent(children).trim().toLowerCase();
-  return sections.find((section) => section.title.toLowerCase() === heading)
-    ?.id;
-}
-
-function getYouTubeId(url: string) {
-  const match = url.match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
-  );
-  return match?.[1] || "";
-}
-
 // Generate static paths for all guides
 export async function generateStaticParams() {
   const params: { slug: string; guide: string }[] = [];
@@ -1313,26 +1268,7 @@ export async function generateMetadata({
     return { title: "Guide Not Found" };
   }
 
-  return {
-    title: `${content.title} | ${game.name} Guide`,
-    description: content.description,
-    keywords: [
-      game.name,
-      content.primaryKeyword || content.title,
-      content.title,
-      "guide",
-      "walkthrough",
-      "tips",
-    ],
-    openGraph: {
-      title: content.title,
-      description: content.description,
-      type: "article",
-    },
-    alternates: {
-      canonical: `https://base64pro.top/game/${slug}/${guide}`,
-    },
-  };
+  return buildGuideMetadata(game, guide, content);
 }
 
 export default async function GuidePage({ params }: GuidePageProps) {
@@ -1409,340 +1345,38 @@ export default async function GuidePage({ params }: GuidePageProps) {
   const videoItems = content.videos?.length
     ? content.videos
     : content.video
-    ? [content.video]
-    : [];
+      ? [content.video]
+      : [];
   const relatedGuides = Object.entries(guideContent[slug] || {})
     .filter(([key]) => key !== guide)
-    .slice(0, 4);
+    .slice(0, 4)
+    .map(([key, related]) => ({
+      href: `/game/${slug}/${key}`,
+      title: related.title,
+      description: related.description,
+    }));
 
   return (
-    <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <Breadcrumbs items={breadcrumbs} />
-
-      <header className="mb-8 overflow-hidden rounded-2xl border bg-card shadow-sm">
-        <div className="grid gap-0 lg:grid-cols-[minmax(0,1.05fr)_460px]">
-          <div className="p-5 sm:p-7 lg:p-9">
-            <Link
-              href={`/game/${game.slug}`}
-              className="mb-5 inline-flex items-center text-sm text-muted-foreground hover:text-primary"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to {game.name}
-            </Link>
-
-            <div className="mb-5 flex flex-wrap gap-2">
-              {content.spoilerLevel === "spoiler" ? (
-                <Badge
-                  variant="destructive"
-                  className="gap-1 rounded-full px-3"
-                >
-                  <AlertTriangle className="h-3.5 w-3.5" />
-                  Spoiler guide
-                </Badge>
-              ) : (
-                <Badge variant="secondary" className="gap-1 rounded-full px-3">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
-                  Spoiler-light
-                </Badge>
-              )}
-              {content.verificationStatus && (
-                <Badge variant="outline" className="rounded-full px-3">
-                  Status: {content.verificationStatus}
-                </Badge>
-              )}
-            </div>
-
-            <h1 className="max-w-4xl font-serif text-3xl font-normal leading-tight tracking-normal sm:text-4xl lg:text-[48px]">
-              {content.title}
-            </h1>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-              {content.description}
-            </p>
-
-            <div className="mt-7 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-              <span className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2">
-                <Clock className="h-4 w-4" />
-                {content.timeToRead} read
-              </span>
-              <span className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2">
-                <BookOpen className="h-4 w-4" />
-                Updated {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2">
-                <CheckCircle2 className="h-4 w-4" />
-                {videoItems.length} videos
-              </span>
-            </div>
-          </div>
-
-          {content.heroImage && (
-            <figure className="flex flex-col justify-center border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src={content.heroImage}
-                  alt={content.heroImageAlt || `${content.title} hero image`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 420px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                Visual reference for this guide. More screenshots appear beside
-                each major section.
-              </figcaption>
-            </figure>
-          )}
-        </div>
-      </header>
-
-      <div className="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
-        {/* Sidebar - Table of Contents */}
-        <div className="hidden lg:block">
-          <Card className="sticky top-8 rounded-xl">
-            <CardHeader>
-              <CardTitle className="text-sm">Table of Contents</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <nav className="space-y-2">
-                {content.sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-                  >
-                    {section.title}
-                  </a>
-                ))}
-                {content.faqs?.length ? (
-                  <a
-                    href="#faq"
-                    className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-                  >
-                    FAQ
-                  </a>
-                ) : null}
-              </nav>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main Content */}
-        <div className="min-w-0">
-          {content.spoilerLevel === "spoiler" && (
-            <section className="mb-6 rounded-xl border border-amber-300/70 bg-amber-50 p-4 text-amber-950 dark:border-amber-500/40 dark:bg-amber-950/30 dark:text-amber-100 sm:p-5">
-              <div className="flex gap-3">
-                <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
-                <div>
-                  <h2 className="text-base font-semibold">Spoiler warning</h2>
-                  <p className="mt-1 text-sm leading-6">
-                    This guide discusses route logic and outcome planning.
-                    Finish one story run first if you want the reveals to remain
-                    intact.
-                  </p>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {videoItems.length > 0 && (
-            <section className="mb-8" aria-labelledby="video-guides">
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <div>
-                  <h2
-                    id="video-guides"
-                    className="font-serif text-2xl font-normal tracking-normal"
-                  >
-                    YouTube Video Guides
-                  </h2>
-                  <p className="mt-1 text-sm text-muted-foreground md:hidden">
-                    Swipe sideways to compare videos without losing the guide
-                    text.
-                  </p>
-                </div>
-                <Badge variant="outline">{videoItems.length} videos</Badge>
-              </div>
-              <div className="flex snap-x gap-3 overflow-x-auto pb-3 [-webkit-overflow-scrolling:touch] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 xl:grid-cols-3">
-                {videoItems.map((video) => {
-                  const youtubeId = getYouTubeId(video.url);
-
-                  return (
-                    <article
-                      key={video.url}
-                      className="w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl border bg-card shadow-sm md:w-auto md:max-w-none"
-                    >
-                      <div className="relative aspect-video bg-muted">
-                        {youtubeId ? (
-                          <iframe
-                            src={`https://www.youtube.com/embed/${youtubeId}`}
-                            title={video.title}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="absolute inset-0 h-full w-full"
-                          />
-                        ) : null}
-                      </div>
-                      <div className="p-3 md:p-4">
-                        <h3 className="line-clamp-2 text-sm font-medium leading-6">
-                          {video.title}
-                        </h3>
-                        <p className="mt-1 text-xs text-muted-foreground">
-                          {video.channel} - {video.duration}
-                        </p>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-          {/* Video Embed */}
-          {content.video && (
-            <Card className="mb-6 overflow-hidden">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-red-500"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
-                  {content.video.title}
-                </CardTitle>
-                <CardDescription>
-                  By {content.video.channel} • {content.video.duration}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="relative aspect-video">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${
-                      content.video.url.split("v=")[1]?.split("&")[0] ||
-                      content.video.url.split("/").pop()
-                    }`}
-                    title={content.video.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          <Card className="rounded-2xl">
-            <CardContent className="prose prose-neutral max-w-none overflow-hidden px-5 pt-6 pb-8 dark:prose-invert sm:px-7 prose-p:leading-8 prose-headings:scroll-mt-24 prose-h2:mt-10 prose-h2:font-serif prose-h2:text-2xl prose-h2:font-normal prose-h2:tracking-normal prose-h3:text-lg prose-h3:font-medium prose-table:text-sm">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  h2: ({ children }) => {
-                    const id = findSectionId(content.sections, children);
-                    const media = id ? content.sectionMedia?.[id] : undefined;
-
-                    return (
-                      <>
-                        <h2 id={id}>{children}</h2>
-                        {media && (
-                          <figure className="not-prose my-5 overflow-hidden rounded-xl border bg-muted/20">
-                            <div className="relative aspect-[16/9] min-h-[180px]">
-                              <Image
-                                src={media.image}
-                                alt={media.alt}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 860px"
-                                className="object-cover"
-                              />
-                            </div>
-                            <figcaption className="border-t px-4 py-3 text-sm text-muted-foreground">
-                              {media.caption}
-                            </figcaption>
-                          </figure>
-                        )}
-                      </>
-                    );
-                  },
-                  table: ({ children }) => (
-                    <div className="not-prose my-6 overflow-x-auto rounded-xl border">
-                      <table className="w-full min-w-[680px] border-collapse text-sm">
-                        {children}
-                      </table>
-                    </div>
-                  ),
-                  th: ({ children }) => (
-                    <th className="border-b bg-muted/60 px-4 py-3 text-left font-semibold">
-                      {children}
-                    </th>
-                  ),
-                  td: ({ children }) => (
-                    <td className="border-b px-4 py-3 align-top text-muted-foreground">
-                      {children}
-                    </td>
-                  ),
-                }}
-              >
-                {content.content}
-              </ReactMarkdown>
-            </CardContent>
-          </Card>
-
-          {content.faqs?.length ? (
-            <section id="faq" className="mt-8" aria-labelledby="faq-heading">
-              <h2
-                id="faq-heading"
-                className="mb-4 text-2xl font-bold tracking-tight"
-              >
-                Frequently Asked Questions
-              </h2>
-              <div className="grid gap-4">
-                {content.faqs.map((faq) => (
-                  <article
-                    key={faq.question}
-                    className="rounded-xl border bg-card p-5 shadow-sm"
-                  >
-                    <h3 className="text-base font-semibold">{faq.question}</h3>
-                    <p className="mt-2 leading-7 text-muted-foreground">
-                      {faq.answer}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ) : null}
-
-          <section className="mt-8" aria-labelledby="related-guides">
-            <h2
-              id="related-guides"
-              className="mb-4 text-2xl font-bold tracking-tight"
-            >
-              Related Guides
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {relatedGuides.map(([key, related]) => (
-                <Link key={key} href={`/game/${slug}/${key}`}>
-                  <Card className="h-full rounded-xl transition-shadow hover:shadow-md">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-base">
-                        {related.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-sm">
-                        {related.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </div>
-      </div>
-    </article>
+    <GuidePortalPage
+      breadcrumbs={breadcrumbs}
+      jsonLd={jsonLd}
+      backHref={`/game/${game.slug}`}
+      backLabel={`Back to ${game.name}`}
+      heroImage={content.heroImage}
+      heroImageAlt={content.heroImageAlt}
+      title={content.title}
+      description={content.description}
+      spoilerLevel={content.spoilerLevel}
+      verificationStatus={content.verificationStatus}
+      timeToRead={content.timeToRead}
+      lastUpdated={content.lastUpdated}
+      sections={content.sections}
+      sectionMedia={content.sectionMedia}
+      videos={videoItems}
+      content={content.content}
+      faqs={content.faqs || []}
+      relatedGuides={relatedGuides}
+    />
   );
 }
+

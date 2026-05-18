@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Breadcrumbs, type BreadcrumbItem } from '@/components/Breadcrumbs';
+import { GameHubPortalPage } from '@/components/game/GameHubPortalPage';
 import { games, getGameBySlug, siteConfig } from '@/lib/site';
 import {
   directive8020Facts,
@@ -39,6 +40,7 @@ import {
   thickAsThievesGuideOrder,
   thickAsThievesHubContent,
 } from '@/lib/thick-as-thieves';
+import { buildGameHubMetadata } from '@/lib/seo';
 
 interface GamePageProps {
   params: Promise<{
@@ -64,27 +66,7 @@ export async function generateMetadata({ params }: GamePageProps): Promise<Metad
     };
   }
 
-  return {
-    title: `${game.name} Guide - Walkthrough, Tips & Strategies`,
-    description: `Complete ${game.name} guide with walkthroughs, tips, strategies, and everything you need to master the game. ${game.description}`,
-    keywords: [
-      game.name,
-      `${game.name} guide`,
-      `${game.name} walkthrough`,
-      `${game.name} tips`,
-      `${game.name} strategies`,
-      `${game.name} wiki`,
-      ...game.tags,
-    ],
-    openGraph: {
-      title: `${game.name} Guide - Walkthrough, Tips & Strategies | Base64Pro`,
-      description: `Complete ${game.name} guide with walkthroughs, tips, strategies, and everything you need to master the game.`,
-      type: 'article',
-    },
-    alternates: {
-      canonical: `https://base64pro.top/game/${game.slug}`,
-    },
-  };
+  return buildGameHubMetadata(game);
 }
 
 // Game-specific content data
@@ -439,6 +421,352 @@ Early previews show a game that respects Bond's legacy while carving its own ide
   },
 };
 
+interface HubGuideImage {
+  image: string;
+  imageAlt: string;
+}
+
+const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
+  'directive-8020': {
+    'trophy-guide': {
+      image: '/games/directive-8020/homepage/trophy-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game trophy guide screenshot',
+    },
+    walkthrough: {
+      image: '/games/directive-8020/homepage/walkthrough.webp',
+      imageAlt: 'Directive 8020 - Horror game walkthrough screenshot',
+    },
+    'all-endings-guide': {
+      image: '/games/directive-8020/homepage/all-endings-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game all endings guide screenshot',
+    },
+    'choices-guide': {
+      image: '/games/directive-8020/homepage/choices-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game choices and consequences guide screenshot',
+    },
+    'save-everyone-guide': {
+      image: '/games/directive-8020/homepage/save-everyone-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game save everyone guide screenshot',
+    },
+    'collectibles-guide': {
+      image: '/games/directive-8020/homepage/collectibles-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game collectibles guide screenshot',
+    },
+    'all-deaths-guide': {
+      image: '/games/directive-8020/homepage/all-deaths-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game all deaths guide screenshot',
+    },
+    'multiplayer-performance-guide': {
+      image: '/games/directive-8020/homepage/multiplayer-performance-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game multiplayer and performance guide screenshot',
+    },
+  },
+  'project-mist': {
+    'beginner-survival-guide': {
+      image: '/games/project-mist/homepage/beginner-survival-guide.webp',
+      imageAlt: 'Project: Mist - Survival game beginner survival guide screenshot',
+    },
+    'first-steps-survival-guide': {
+      image: '/games/project-mist/homepage/first-steps-survival-guide.webp',
+      imageAlt: 'Project: Mist - Survival game first steps guide screenshot',
+    },
+    'release-date-platforms-guide': {
+      image: '/games/project-mist/homepage/release-date-platforms-guide.webp',
+      imageAlt: 'Project: Mist - Survival game release date and platforms guide screenshot',
+    },
+    'demo-player-count-pricing-guide': {
+      image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
+      imageAlt: 'Project: Mist - Survival game demo player count and pricing guide screenshot',
+    },
+    'multiplayer-coop-guide': {
+      image: '/games/project-mist/homepage/multiplayer-coop-guide.webp',
+      imageAlt: 'Project: Mist - Survival game multiplayer co-op guide screenshot',
+    },
+    'gravity-gun-guide': {
+      image: '/games/project-mist/homepage/gravity-gun-guide.webp',
+      imageAlt: 'Project: Mist - Survival game Gravity Gun guide screenshot',
+    },
+    'train-base-building-guide': {
+      image: '/games/project-mist/homepage/train-base-building-guide.webp',
+      imageAlt: 'Project: Mist - Survival game train base building guide screenshot',
+    },
+    'creatures-guide': {
+      image: '/games/project-mist/homepage/creatures-guide.webp',
+      imageAlt: 'Project: Mist - Survival game creatures guide screenshot',
+    },
+    'crafting-gear-upgrades-guide': {
+      image: '/games/project-mist/homepage/crafting-gear-upgrades-guide.png',
+      imageAlt: 'Project: Mist - Survival game crafting gear upgrades guide screenshot',
+    },
+    'map-facilities-guide': {
+      image: '/games/project-mist/homepage/map-facilities-guide.jpg',
+      imageAlt: 'Project: Mist - Survival game map and facilities guide screenshot',
+    },
+  },
+  'thick-as-thieves': {
+    'release-date-platforms-guide': {
+      image: '/games/thick-as-thieves/homepage/release-date-platforms-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game release date and platforms guide screenshot',
+    },
+    'solo-coop-campaign-guide': {
+      image: '/games/thick-as-thieves/homepage/solo-coop-campaign-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game solo co-op campaign guide screenshot',
+    },
+    'beginner-stealth-guide': {
+      image: '/games/thick-as-thieves/homepage/beginner-stealth-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game beginner stealth guide screenshot',
+    },
+    'contracts-maps-replayability-guide': {
+      image: '/games/thick-as-thieves/homepage/contracts-maps-replayability-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game contracts maps replayability guide screenshot',
+    },
+    'gear-loadout-guide': {
+      image: '/games/thick-as-thieves/homepage/gear-loadout-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game gear loadout guide screenshot',
+    },
+    'pc-specs-controller-cloud-guide': {
+      image: '/games/thick-as-thieves/homepage/pc-specs-controller-cloud-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game PC specs controller cloud guide screenshot',
+    },
+    'live-service-roadmap-console-guide': {
+      image: '/games/thick-as-thieves/homepage/live-service-roadmap-console-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game live service roadmap console guide screenshot',
+    },
+    'kilcairn-lore-factions-guide': {
+      image: '/games/thick-as-thieves/homepage/kilcairn-lore-factions-guide.webp',
+      imageAlt: 'Thick As Thieves - Stealth game Kilcairn lore factions guide screenshot',
+    },
+  },
+  'coffee-talk-tokyo': {
+    'release-date-platforms-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/release-date-platforms-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game release date and platforms guide screenshot',
+    },
+    'demo-length-save-transfer-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/demo-length-save-transfer-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game demo length save transfer guide screenshot',
+    },
+    'beginner-night-shift-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/beginner-night-shift-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game beginner night shift guide screenshot',
+    },
+    'drink-recipes-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/drink-recipes-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game drink recipes guide screenshot',
+    },
+    'characters-story-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/characters-story-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game characters story guide screenshot',
+    },
+    'tomodachill-social-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/tomodachill-social-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game Tomodachill social guide screenshot',
+    },
+    'latte-art-sprinkle-stencils-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/latte-art-sprinkle-stencils-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game latte art sprinkle stencils guide screenshot',
+    },
+    'deluxe-edition-soundtrack-guide': {
+      image: '/games/coffee-talk-tokyo/homepage/deluxe-edition-soundtrack-guide.webp',
+      imageAlt: 'Coffee Talk Tokyo - Visual Novel game Deluxe Edition soundtrack guide screenshot',
+    },
+  },
+  '007-first-light': {
+    'release-date-platforms-guide': {
+      image: '/games/007-first-light/homepage/release-date-platforms-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game release date and platforms guide screenshot',
+    },
+    'preorder-editions-guide': {
+      image: '/games/007-first-light/homepage/preorder-editions-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game preorder editions guide screenshot',
+    },
+    'beginner-spycraft-guide': {
+      image: '/games/007-first-light/homepage/beginner-spycraft-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game beginner spycraft guide screenshot',
+    },
+    'stealth-vs-action-guide': {
+      image: '/games/007-first-light/homepage/stealth-vs-action-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game stealth versus action guide screenshot',
+    },
+    'gadgets-guide': {
+      image: '/games/007-first-light/homepage/gadgets-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game gadgets guide screenshot',
+    },
+    'locations-missions-guide': {
+      image: '/games/007-first-light/homepage/locations-missions-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game locations missions guide screenshot',
+    },
+    'pc-specs-performance-guide': {
+      image: '/games/007-first-light/homepage/pc-specs-performance-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game PC specs performance guide screenshot',
+    },
+    'cast-story-guide': {
+      image: '/games/007-first-light/homepage/cast-story-guide.jpg',
+      imageAlt: '007 First Light - Action Adventure game cast story guide screenshot',
+    },
+  },
+};
+
+function getHubGuideImage(gameSlug: string, guideSlug: string, fallback: HubGuideImage): HubGuideImage {
+  return hubGuideImages[gameSlug]?.[guideSlug] ?? fallback;
+}
+
+function ProjectMistCommunityResearch() {
+  const sections = [
+    {
+      id: 'performance-demo-feedback',
+      title: 'Performance and demo stability are the first trust check',
+      image: '/games/project-mist/homepage/release-date-platforms-guide.webp',
+      imageAlt: 'Project: Mist - Survival game performance and demo feedback screenshot',
+      body:
+        'Steam discussion threads around the demo repeatedly point to optimization, loud GPU load, save reliability, chest interactions, and object physics as the issues players want answered before a long Early Access save. The useful page angle is not just "can my PC run it?" but "what should I test in the first 30 minutes before committing a world?"',
+    },
+    {
+      id: 'gravity-gun-combat-ai',
+      title: 'The Gravity Gun needs practical limits, not hype',
+      image: '/games/project-mist/homepage/gravity-gun-guide.webp',
+      imageAlt: 'Project: Mist - Survival game Gravity Gun combat feedback screenshot',
+      body:
+        'YouTube gameplay and Steam player questions both circle the same mechanic: the Gravity Gun looks like the signature tool, but players want to know whether it works on heavy enemies, whether it has cooldowns or energy limits, and whether giant creature AI can create real pressure instead of simple pathing loops.',
+    },
+    {
+      id: 'train-base-survival-loop',
+      title: 'The train base is the clearest long-tail search hook',
+      image: '/games/project-mist/homepage/train-base-building-guide.webp',
+      imageAlt: 'Project: Mist - Survival game train base survival loop screenshot',
+      body:
+        'Players are already asking about building doors, moving-base customization, storage, farming, water, automation, and whether the train becomes a true mobile fortress. This should become a dedicated answer surface because it combines survival-game intent with a feature that makes Project: Mist distinct.',
+    },
+    {
+      id: 'multiplayer-coop-questions',
+      title: 'Co-op intent is high, but the important details are still unknown',
+      image: '/games/project-mist/homepage/multiplayer-coop-guide.webp',
+      imageAlt: 'Project: Mist - Survival game multiplayer co-op questions screenshot',
+      body:
+        'Steam lists solo, multiplayer, co-op, and online co-op. The unresolved player questions are more specific: host-owned saves, loot sharing, revive rules, enemy scaling, session stability, and whether cross-play exists. The page should state confirmed co-op support and clearly mark every launch-test item.',
+    },
+    {
+      id: 'buyer-questions-before-launch',
+      title: 'Price, languages, demo access, and Early Access risk shape buying intent',
+      image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
+      imageAlt: 'Project: Mist - Survival game buyer questions before launch screenshot',
+      body:
+        'The strongest buyer-intent questions are about the May 19, 2026 Steam Early Access launch, whether the demo remains available, regional language support, launch price, and whether Chicken Launcher will keep updating the game. Those questions should sit close to release and demo sections, not be buried under generic feature copy.',
+    },
+  ];
+
+  const questionRows = [
+    {
+      question: 'Will Project: Mist run well after launch?',
+      answer: 'Unknown until the May 19, 2026 Early Access build is tested; demo feedback makes performance a priority verification item.',
+      source: 'Steam discussions',
+    },
+    {
+      question: 'Can I play Project: Mist with friends?',
+      answer: 'Steam lists solo play plus online co-op, but save ownership, scaling, and stability still need launch-week testing.',
+      source: 'Steam store',
+    },
+    {
+      question: 'Does the Gravity Gun work on every monster?',
+      answer: 'Not confirmed. The guide should test enemy weight limits, cooldowns, stun behavior, and boss resistance separately.',
+      source: 'Gameplay videos',
+    },
+    {
+      question: 'How deep is the train base system?',
+      answer: 'Steam confirms a moving train base, but door placement, storage, automation, farming, and defense depth need hands-on capture.',
+      source: 'Steam store and discussions',
+    },
+    {
+      question: 'Is the demo enough to judge the game?',
+      answer: 'The demo is useful for controls, performance, first crafting, and tone, but it cannot verify late-game facilities or co-op progression.',
+      source: 'Steam discussions',
+    },
+  ];
+
+  return (
+    <section id="project-mist-community-research" aria-labelledby="project-mist-community-research-title" className="rounded-[30px] border border-white/8 bg-[#070910] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
+      <div className="max-w-3xl">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-300">
+          Research updated May 18, 2026
+        </p>
+        <h2 id="project-mist-community-research-title" className="mt-3 text-3xl font-semibold tracking-tight text-white">
+          Project: Mist Community Questions Before Early Access
+        </h2>
+        <p className="mt-3 text-sm leading-8 text-zinc-300 sm:text-base">
+          This research brief turns Steam community threads, current Steam store facts, and YouTube gameplay coverage into answerable guide topics. Reddit search did not surface a stronger Project: Mist discussion cluster than Steam, so Steam player questions should be treated as the main public feedback source before launch.
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-5">
+        {sections.map((section) => (
+          <article key={section.id} id={section.id} className="grid gap-4 rounded-[24px] border border-white/8 bg-white/[0.03] p-4 md:grid-cols-[240px_minmax(0,1fr)]">
+            <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-950">
+              <Image
+                src={section.image}
+                alt={section.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 240px"
+                className="object-cover"
+              />
+            </figure>
+            <div>
+              <h3 className="text-xl font-semibold tracking-tight text-white">
+                {section.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">{section.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-6 overflow-x-auto rounded-[24px] border border-white/8">
+        <table className="w-full border-collapse text-left text-sm">
+          <caption className="sr-only">
+            Project: Mist player questions, current answers, and source types before Early Access
+          </caption>
+          <thead className="bg-white/[0.06] text-white">
+            <tr>
+              <th scope="col" className="px-4 py-3 font-medium">Player question</th>
+              <th scope="col" className="px-4 py-3 font-medium">Current answer for the page</th>
+              <th scope="col" className="px-4 py-3 font-medium">Source type</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-white/8 bg-black/20 text-zinc-400">
+            {questionRows.map((row) => (
+              <tr key={row.question}>
+                <td className="px-4 py-4 align-top font-medium text-zinc-100">{row.question}</td>
+                <td className="px-4 py-4 align-top leading-7">{row.answer}</td>
+                <td className="px-4 py-4 align-top">{row.source}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-sm font-medium text-white">Sources checked</h3>
+        <ul className="mt-3 space-y-2 text-sm leading-7 text-zinc-400">
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://store.steampowered.com/app/2383130/Project_Mist/" target="_blank" rel="noopener noreferrer">
+              Steam store page for Project: Mist
+            </a>
+          </li>
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://steamcommunity.com/app/2383130/discussions/" target="_blank" rel="noopener noreferrer">
+              Steam Community discussions for Project: Mist
+            </a>
+          </li>
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://www.youtube.com/results?search_query=Project%3A+Mist+gameplay+demo+gravity+gun+train+base" target="_blank" rel="noopener noreferrer">
+              YouTube gameplay and demo searches for Project: Mist
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
   const game = getGameBySlug(slug);
@@ -524,13 +852,17 @@ export default async function GamePage({ params }: GamePageProps) {
     const guideCards = directive8020GuideOrder.map((guideSlug, index) => {
       const guide = directive8020GuideContent[guideSlug];
       const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
 
       return {
         slug: guideSlug,
         title: guide.title.replace(/^Directive 8020:?\s*/, ''),
         description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
         status: guide.verificationStatus,
         spoilerLevel: guide.spoilerLevel,
         index,
@@ -555,221 +887,88 @@ export default async function GamePage({ params }: GamePageProps) {
       },
     ];
 
+    const spotlightCards = [
+      {
+        label: 'Release',
+        value: directive8020Facts.displayReleaseDate,
+        note: 'Playable now across PS5, Xbox Series X|S, and PC',
+      },
+      {
+        label: 'Best first page',
+        value: 'Walkthrough',
+        note: 'Stay spoiler-light before you open endings or death routes',
+      },
+      {
+        label: 'Completion path',
+        value: 'Trophy roadmap',
+        note: 'Build one survivor file before collectibles and cleanup',
+      },
+    ];
+
+    const answerCards = [
+      { label: 'Developer', value: directive8020Facts.developer, status: 'Confirmed' },
+      { label: 'Platforms', value: directive8020Facts.platforms, status: 'Confirmed' },
+      { label: 'Major risk', value: 'Choices, trust, and Turning Points can lock routes', status: 'Confirmed' },
+      { label: 'Co-op check', value: 'Movie Night and Remote Play need to be separated from native online claims', status: 'Needs platform capture' },
+      { label: 'Death count', value: '44 death scenes tracked across route combinations', status: 'Reported' },
+      { label: 'Safe entry', value: 'Walkthrough and trophy pages first; endings and deaths later', status: 'Confirmed' },
+    ];
+
     return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge className="rounded-full px-3">Now Available</Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  {directive8020Facts.platforms}
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                Directive 8020 Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Spoiler-aware routes, trophy planning, endings, choices, deaths, collectibles,
-                and performance notes for Supermassive&apos;s sci-fi horror story aboard the
-                Cassiopeia.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/walkthrough`}>
-                    Start Walkthrough
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/trophy-guide`}>Trophy Roadmap</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a
-                    href={directive8020Facts.steamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {directive8020Facts.displayReleaseDate}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {directive8020Facts.developer}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} implemented
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/directive-8020/hero.jpg"
-                  alt="Directive 8020 Cassiopeia sci-fi horror key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                The Hub stays spoiler-light. Open endings, choices, deaths, or save-everyone only
-                after one playthrough.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Spoiler-aware answer center
-              </h2>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Each page includes screenshots, tables, FAQs, and verification labels.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant={guide.spoilerLevel === 'spoiler' ? 'destructive' : 'secondary'} className="rounded-full">
-                            {guide.spoilerLevel === 'spoiler' ? 'Spoilers' : 'Spoiler-light'}
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/directive-8020/hero.jpg"
+        heroImageAlt="Directive 8020 Cassiopeia sci-fi horror key art"
+        heroBadges={[
+          { label: 'Released hub', tone: 'success' },
+          { label: directive8020Facts.platforms },
+          { label: directive8020Facts.displayReleaseDate },
+        ]}
+        title="Directive 8020 Guide Hub"
+        description="Spoiler-aware routes, trophy planning, endings, choices, deaths, collectibles, and performance notes for Supermassive's sci-fi horror story aboard the Cassiopeia."
+        ctas={[
+          { label: 'Start Walkthrough', href: `/game/${game.slug}/walkthrough` },
+          { label: 'Trophy Roadmap', href: `/game/${game.slug}/trophy-guide`, variant: 'outline' },
+          { label: 'Steam', href: directive8020Facts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={spotlightCards}
+        sideNotes={[
+          {
+            label: 'Spoiler policy',
+            body: 'The hub stays spoiler-light. Open endings, choices, deaths, or save-everyone only after one full playthrough.',
+          },
+          {
+            label: 'Best route',
+            body: 'Walkthrough first, trophy second, then endings or deaths once you are ready to route cleanup deliberately.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The cleanest sequence for a first run, completion cleanup, and multiplayer or Remote Play checks."
+        startHere={startHere}
+        answerTitle="Spoiler-aware answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Each page includes screenshots, tables, FAQs, and visible verification or spoiler labels."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [
+            {
+              label: guide.spoilerLevel === 'spoiler' ? 'Spoilers' : 'Spoiler-light',
+              tone: guide.spoilerLevel === 'spoiler' ? 'danger' : 'accent',
+            },
+            { label: guide.status },
+          ],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
     );
   }
 
@@ -777,13 +976,17 @@ export default async function GamePage({ params }: GamePageProps) {
     const guideCards = projectMistGuideOrder.map((guideSlug) => {
       const guide = projectMistGuideContent[guideSlug];
       const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
 
       return {
         slug: guideSlug,
         title: guide.title.replace(/^Project: Mist:?\s*/, ''),
         description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
         status: guide.verificationStatus,
       };
     });
@@ -819,235 +1022,60 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'Train base', value: 'Moving train base is a core feature', status: 'Steam-listed' },
       { label: 'Final routes', value: 'Map, recipes, and weaknesses need testing', status: 'Needs verification' },
     ];
-
     return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge variant="secondary" className="rounded-full px-3">
-                  Pre-release guide hub
-                </Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  {projectMistFacts.earlyAccess}
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                Project: Mist Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Pre-release survival guides for Chicken Launcher&apos;s open-world horror game:
-                Gravity Gun testing, moving train base planning, online co-op questions, giant
-                creatures, crafting, and facilities.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/beginner-survival-guide`}>
-                    Start Beginner Guide
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/release-date-platforms-guide`}>
-                    Release Facts
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a
-                    href={projectMistFacts.steamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {projectMistFacts.displayReleaseDate}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {projectMistFacts.developer}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} pre-release pages
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/project-mist/hero.jpg"
-                  alt="Project: Mist island survival horror key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                This hub is honest about pre-launch uncertainty. Exact map routes, crafting costs,
-                and creature weaknesses will be updated after hands-on testing.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Pre-release answer center
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {answerCards.map((item) => (
-                  <div key={item.label} className="rounded-xl border bg-background p-4">
-                    <p className="text-xs uppercase text-muted-foreground">{item.label}</p>
-                    <p className="mt-2 text-sm font-medium leading-6 text-foreground">{item.value}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{item.status}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Screenshot-backed pages with tables, FAQs, and visible verification labels.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="rounded-full">
-                            Pre-release
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/project-mist/hero.jpg"
+        heroImageAlt="Project: Mist island survival horror key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: projectMistFacts.earlyAccess },
+          { label: projectMistFacts.displayReleaseDate },
+        ]}
+        title="Project: Mist Guide Hub"
+        description="Pre-release survival guides for Chicken Launcher's open-world horror game: Gravity Gun testing, moving train base planning, online co-op questions, giant creatures, crafting, and facilities."
+        ctas={[
+          { label: 'Start Beginner Guide', href: `/game/${game.slug}/beginner-survival-guide` },
+          { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide`, variant: 'outline' },
+          { label: 'Steam', href: projectMistFacts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch date', value: projectMistFacts.displayReleaseDate, note: 'Steam currently lists Early Access on May 19, 2026' },
+          { label: 'Play style', value: 'Solo or 1-4 co-op', note: 'Current listing supports solo plus seamless online co-op' },
+          { label: 'Core hook', value: 'Train base + Gravity Gun', note: 'The train base and object-control tool are the clearest differentiators so far' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Verification focus',
+            body: 'Exact map routes, crafting costs, and creature weaknesses should stay provisional until hands-on testing begins.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open the first-steps or beginner guide first if you want practical launch prep instead of broad feature summaries.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The best order for opening demo-backed guidance, general survival planning, release facts, and co-op setup."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        communityResearch={<ProjectMistCommunityResearch />}
+        guideSectionDescription="Screenshot-backed pages with tables, FAQs, and visible verification labels."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
     );
   }
 
@@ -1055,13 +1083,17 @@ export default async function GamePage({ params }: GamePageProps) {
     const guideCards = thickAsThievesGuideOrder.map((guideSlug) => {
       const guide = thickAsThievesGuideContent[guideSlug];
       const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
 
       return {
         slug: guideSlug,
         title: guide.title.replace(/^Thick As Thieves:?\s*/, ''),
         description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
         status: guide.verificationStatus,
       };
     });
@@ -1092,237 +1124,59 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'Campaign scope', value: '3 maps, 16 contracts, at least 4 hours', status: 'Official' },
       { label: 'Live service', value: 'Official FAQ says no', status: 'Official' },
     ];
-
     return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge variant="secondary" className="rounded-full px-3">
-                  Pre-release guide hub
-                </Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  Stealth heist campaign
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                Thick As Thieves Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Original pre-release guides for Thick As Thieves: release facts, solo versus
-                co-op setup, stealth fundamentals, campaign scope, gear planning, PC readiness,
-                and roadmap questions without recycled PvPvE-era summaries.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/release-date-platforms-guide`}>
-                    Release Facts
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/solo-coop-campaign-guide`}>
-                    Solo and Co-op
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a
-                    href={thickAsThievesFacts.steamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {thickAsThievesFacts.displayReleaseDate}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {thickAsThievesFacts.developer}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} pre-release pages
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/thick-as-thieves/hero.jpg"
-                  alt="Thick As Thieves key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                This hub is built around the current Steam page and the official FAQ. Co-op flow,
-                mission routing, exact gear behavior, and Steam Deck feel still need launch-day
-                testing after May 20, 2026.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Pre-release answer center
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {answerCards.map((item) => (
-                  <div key={item.label} className="rounded-xl border bg-background p-4">
-                    <p className="text-xs uppercase text-muted-foreground">{item.label}</p>
-                    <p className="mt-2 text-sm font-medium leading-6 text-foreground">{item.value}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{item.status}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Screenshot-backed pages with real tables, visible verification labels, and
-                    answers to the practical launch questions stealth players actually have.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="rounded-full">
-                            Pre-release
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/thick-as-thieves/hero.jpg"
+        heroImageAlt="Thick As Thieves key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Stealth heist campaign' },
+          { label: thickAsThievesFacts.displayReleaseDate },
+        ]}
+        title="Thick As Thieves Guide Hub"
+        description="Original pre-release guides for Thick As Thieves: release facts, solo versus co-op setup, stealth fundamentals, campaign scope, gear planning, PC readiness, and roadmap questions without recycled PvPvE-era summaries."
+        ctas={[
+          { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide` },
+          { label: 'Solo and Co-op', href: `/game/${game.slug}/solo-coop-campaign-guide`, variant: 'outline' },
+          { label: 'Steam', href: thickAsThievesFacts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch date', value: thickAsThievesFacts.displayReleaseDate, note: 'Steam currently positions this as a focused introductory campaign launch' },
+          { label: 'Play modes', value: thickAsThievesFacts.players, note: 'The current message is solo or one online co-op partner, not PvPvE' },
+          { label: 'Campaign scope', value: 'Maps, contracts, gear', note: 'Players mostly need campaign size, mission replay, and gear clarity before launch' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Verification focus',
+            body: 'Co-op flow, mission routing, exact gear behavior, and Steam Deck feel still need launch-day testing after May 20, 2026.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open release facts first, then solo or co-op setup if you are deciding how to approach the launch campaign.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="A cleaner order for launch facts, co-op decisions, and stealth fundamentals."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Screenshot-backed pages with real tables, visible verification labels, and answers to the practical launch questions stealth players actually have."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
     );
   }
 
@@ -1330,13 +1184,17 @@ export default async function GamePage({ params }: GamePageProps) {
     const guideCards = coffeeTalkTokyoGuideOrder.map((guideSlug) => {
       const guide = coffeeTalkTokyoGuideContent[guideSlug];
       const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
 
       return {
         slug: guideSlug,
         title: guide.title.replace(/^Coffee Talk Tokyo:?\s*/, ''),
         description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
         status: guide.verificationStatus,
       };
     });
@@ -1367,236 +1225,59 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'Drink changes', value: 'Cold drinks and sprinkle stencils', status: 'Official' },
       { label: 'Full recipes', value: 'Wait for launch-week testing', status: 'Needs verification' },
     ];
-
     return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge variant="secondary" className="rounded-full px-3">
-                  Pre-release guide hub
-                </Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  Tokyo late-night cafe
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                Coffee Talk Tokyo Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Original pre-release guides for Coffee Talk Tokyo: release facts, demo scope,
-                Tomodachill, cold drinks, sprinkle stencils, character context, and edition
-                decisions that are actually useful before launch.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/release-date-platforms-guide`}>
-                    Release Facts
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/demo-length-save-transfer-guide`}>
-                    Demo Guide
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a
-                    href={coffeeTalkTokyoFacts.steamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {coffeeTalkTokyoFacts.displayReleaseDate}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {coffeeTalkTokyoFacts.publisher}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} pre-release pages
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/coffee-talk-tokyo/hero.jpg"
-                  alt="Coffee Talk Tokyo key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                This hub stays spoiler-light and pre-release honest. Full route charts, complete
-                recipes, and ending pages should wait for hands-on launch capture.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Pre-release answer center
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {answerCards.map((item) => (
-                  <div key={item.label} className="rounded-xl border bg-background p-4">
-                    <p className="text-xs uppercase text-muted-foreground">{item.label}</p>
-                    <p className="mt-2 text-sm font-medium leading-6 text-foreground">{item.value}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{item.status}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Editorial-style pages with screenshots, direct-answer tables, visible verification
-                    labels, and FAQ blocks that match the visible content.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="rounded-full">
-                            Pre-release
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/coffee-talk-tokyo/hero.jpg"
+        heroImageAlt="Coffee Talk Tokyo key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Tokyo late-night cafe' },
+          { label: coffeeTalkTokyoFacts.displayReleaseDate },
+        ]}
+        title="Coffee Talk Tokyo Guide Hub"
+        description="Original pre-release guides for Coffee Talk Tokyo: release facts, demo scope, Tomodachill, cold drinks, sprinkle stencils, character context, and edition decisions that are actually useful before launch."
+        ctas={[
+          { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide` },
+          { label: 'Demo Guide', href: `/game/${game.slug}/demo-length-save-transfer-guide`, variant: 'outline' },
+          { label: 'Steam', href: coffeeTalkTokyoFacts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch date', value: coffeeTalkTokyoFacts.displayReleaseDate, note: 'Platform set is already public, but route and recipe completeness should wait' },
+          { label: 'Demo scope', value: 'Day 1 + early Day 2', note: 'The demo already answers several buyer questions before launch' },
+          { label: 'New systems', value: 'Tomodachill + cold drinks', note: 'Those two upgrades are where most player curiosity currently clusters' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Verification focus',
+            body: 'Full route charts, complete recipes, and ending pages should wait for hands-on launch capture.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open release facts first if you are deciding whether to buy, then check the demo page before reading deeper system guides.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The cleanest sequence for release facts, demo scope, and a spoiler-light first-night read."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Editorial-style pages with screenshots, direct-answer tables, visible verification labels, and FAQ blocks that match the visible content."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
     );
   }
 
@@ -1604,13 +1285,17 @@ export default async function GamePage({ params }: GamePageProps) {
     const guideCards = firstLight007GuideOrder.map((guideSlug) => {
       const guide = firstLight007GuideContent[guideSlug];
       const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
 
       return {
         slug: guideSlug,
         title: guide.title.replace(/^007 First Light:?\s*/, ''),
         description: guide.description,
-        image: firstMedia?.image || guide.heroImage,
-        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
         status: guide.verificationStatus,
       };
     });
@@ -1642,235 +1327,73 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'PC storage', value: '80GB SSD required', status: 'Steam-listed' },
     ];
 
+    const spotlightCards = [
+      {
+        label: 'Launch date',
+        value: firstLight007Facts.displayReleaseDate,
+        note: 'Main launch on PS5, Xbox Series X|S, and PC',
+      },
+      {
+        label: 'Play style',
+        value: 'Single-player espionage',
+        note: 'Steam currently lists no multiplayer mode',
+      },
+      {
+        label: 'Platform watch',
+        value: 'Switch 2 later',
+        note: 'Do not merge summer timing into the May 27 date',
+      },
+    ];
+
     return (
-      <article className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Breadcrumbs items={breadcrumbs} />
-
-        <header className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_460px]">
-            <div className="p-5 sm:p-8 lg:p-10">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge variant="secondary" className="rounded-full px-3">
-                  Pre-release guide hub
-                </Badge>
-                <Badge variant="outline" className="rounded-full px-3">
-                  {firstLight007Facts.genre}
-                </Badge>
-              </div>
-
-              <h1 className="font-serif text-4xl font-normal leading-tight tracking-normal sm:text-5xl lg:text-[56px]">
-                007 First Light Guide Hub
-              </h1>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-                Spoiler-safe pre-release guides for IO Interactive&apos;s Bond origin story:
-                release facts, editions, spycraft, stealth versus action, gadgets, missions,
-                PC performance, and cast context.
-              </p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="h-11">
-                  <Link href={`/game/${game.slug}/release-date-platforms-guide`}>
-                    Release Facts
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <Link href={`/game/${game.slug}/beginner-spycraft-guide`}>
-                    Spycraft Guide
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-11">
-                  <a
-                    href={firstLight007Facts.steamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Steam
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Release</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {firstLight007Facts.displayReleaseDate}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Studio</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {firstLight007Facts.developer}
-                  </p>
-                </div>
-                <div className="rounded-xl border bg-background p-3">
-                  <p className="text-xs uppercase text-muted-foreground">Guides</p>
-                  <p className="mt-1 font-medium text-foreground">
-                    {guideCards.length} pre-release pages
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <figure className="border-t bg-muted/20 p-3 lg:border-l lg:border-t-0">
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-950">
-                <Image
-                  src="/games/007-first-light/hero.jpg"
-                  alt="007 First Light young James Bond key art"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-3 text-sm leading-6 text-muted-foreground">
-                This hub avoids fake full walkthrough claims until the game is playable. Complete
-                mission routes and collectibles need hands-on capture after launch.
-              </figcaption>
-            </figure>
-          </div>
-        </header>
-
-        <section className="mt-8 grid gap-4 lg:grid-cols-3" aria-labelledby="start-here">
-          <div className="lg:col-span-3">
-            <h2 id="start-here" className="font-serif text-2xl font-normal tracking-normal">
-              Start here
-            </h2>
-          </div>
-          {startHere.map((item) => (
-            <Link key={item.title} href={item.href} className="group">
-              <Card className="h-full rounded-2xl transition-shadow hover:shadow-md">
-                <CardContent className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors group-hover:text-primary">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal tracking-normal">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </section>
-
-        <section className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-8">
-            <section className="rounded-2xl border bg-card p-5 shadow-sm sm:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-normal">
-                Pre-release answer center
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {answerCards.map((item) => (
-                  <div key={item.label} className="rounded-xl border bg-background p-4">
-                    <p className="text-xs uppercase text-muted-foreground">{item.label}</p>
-                    <p className="mt-2 text-sm font-medium leading-6 text-foreground">{item.value}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{item.status}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {content.overview.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-7 text-muted-foreground sm:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="guide-library">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 id="guide-library" className="font-serif text-3xl font-normal tracking-normal">
-                    Guide library
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Each page uses official facts, trailer-observed details, screenshots, tables, FAQs,
-                    and visible verification labels.
-                  </p>
-                </div>
-                <Badge variant="outline" className="w-fit rounded-full px-3">
-                  {guideCards.length} pages
-                </Badge>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {guideCards.map((guide) => (
-                  <Link key={guide.slug} href={`/game/${game.slug}/${guide.slug}`} className="group">
-                    <Card className="h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-md">
-                      <div className="relative aspect-[16/9] bg-muted">
-                        <Image
-                          src={guide.image}
-                          alt={guide.imageAlt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="rounded-full">
-                            Pre-release
-                          </Badge>
-                          <Badge variant="outline" className="rounded-full">
-                            {guide.status}
-                          </Badge>
-                        </div>
-                        <h3 className="font-serif text-xl font-normal leading-snug tracking-normal group-hover:text-primary">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                          {guide.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-5">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  Route map
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {content.tips.map((tip, index) => (
-                  <div key={tip} className="flex gap-3 rounded-xl border bg-background p-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-muted-foreground">{tip}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl font-normal tracking-normal">
-                  FAQ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {content.faq.map((item) => (
-                  <article key={item.question}>
-                    <h3 className="text-sm font-medium">{item.question}</h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-              </CardContent>
-            </Card>
-          </aside>
-        </section>
-      </article>
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/007-first-light/hero.jpg"
+        heroImageAlt="007 First Light young James Bond key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: firstLight007Facts.genre },
+          { label: firstLight007Facts.displayReleaseDate },
+        ]}
+        title="007 First Light Guide Hub"
+        description="Spoiler-safe pre-release coverage for release timing, editions, spycraft, stealth-versus-action decisions, gadgets, missions, PC readiness, and cast context without pretending the full game has already been solved."
+        ctas={[
+          { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide` },
+          { label: 'Spycraft Guide', href: `/game/${game.slug}/beginner-spycraft-guide`, variant: 'outline' },
+          { label: 'Steam', href: firstLight007Facts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={spotlightCards}
+        sideNotes={[
+          {
+            label: 'Verification focus',
+            body: 'Launch platforms are clear. Mission structure, collectibles, and exact replay flow still need hands-on verification.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Start with the release-date page if you are buying, then move to the spycraft guide if you are already committed to a first run.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The first three pages most players should open before they chase preorder noise or fake full walkthrough claims."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Visual entry points into the pages that matter most before launch: release, buying, spycraft, gadgets, missions, PC specs, and story context."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
     );
   }
 

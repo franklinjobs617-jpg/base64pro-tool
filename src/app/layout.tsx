@@ -25,7 +25,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} - Ultimate Gaming Guides & Wiki`,
+    default: `${siteConfig.name} - Game Guides & Launch Hubs`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -55,12 +55,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} - Ultimate Gaming Guides & Wiki`,
+    title: `${siteConfig.name} - Game Guides & Launch Hubs`,
     description: siteConfig.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} - Ultimate Gaming Guides & Wiki`,
+    title: `${siteConfig.name} - Game Guides & Launch Hubs`,
     description: siteConfig.description,
   },
   robots: {
