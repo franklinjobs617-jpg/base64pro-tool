@@ -136,7 +136,7 @@ export function SiteFooter() {
               <Twitter className="h-5 w-5" />
             </a>
             <a
-              href="mailto:contact@base64pro.top"
+              href="mailto:admin@base64pro.top"
               className={`transition-colors ${
                 isPortalChrome ? 'text-zinc-400 hover:text-white' : 'text-muted-foreground hover:text-foreground'
               }`}

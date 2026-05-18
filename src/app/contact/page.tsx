@@ -29,10 +29,10 @@ export default function ContactPage() {
               For general inquiries, feedback, or business opportunities:
             </p>
             <a 
-              href="mailto:contact@base64pro.top" 
+              href="mailto:admin@base64pro.top" 
               className="text-primary hover:underline font-medium"
             >
-              contact@base64pro.top
+              admin@base64pro.top
             </a>
           </div>
 

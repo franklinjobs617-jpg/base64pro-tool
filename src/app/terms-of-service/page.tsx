@@ -87,8 +87,8 @@ export default function TermsOfServicePage() {
             <h2 className="text-xl font-semibold mb-3">Contact</h2>
             <p className="text-muted-foreground">
               Questions about these terms? Contact us at{' '}
-              <a href="mailto:legal@base64pro.top" className="text-primary hover:underline">
-                legal@base64pro.top
+              <a href="mailto:admin@base64pro.top" className="text-primary hover:underline">
+                admin@base64pro.top
               </a>
             </p>
           </section>

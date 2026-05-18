@@ -88,8 +88,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-semibold mb-3">Contact</h2>
             <p className="text-muted-foreground">
               For privacy-related questions, contact us at{' '}
-              <a href="mailto:privacy@base64pro.top" className="text-primary hover:underline">
-                privacy@base64pro.top
+              <a href="mailto:admin@base64pro.top" className="text-primary hover:underline">
+                admin@base64pro.top
               </a>
             </p>
           </section>
