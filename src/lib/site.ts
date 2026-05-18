@@ -2,16 +2,43 @@
 export const siteConfig = {
   name: 'Base64Pro',
   description:
-    'Game guides, walkthroughs, release dates, trophy routes, co-op answers, demo guides, and launch-week hubs for new and upcoming games.',
+    'Game guides, walkthroughs, release dates, trophy routes, co-op answers, demo guides, Early Access explainers, and launch-week hubs for new and upcoming games.',
   url: 'https://base64pro.top',
   ogImage: '/og-image.png',
   links: {
     twitter: 'https://twitter.com/base64pro',
+    reddit: 'https://www.reddit.com/r/enjoy4game/',
   },
   creator: 'Base64Pro Team',
 };
 
 export const games = [
+  {
+    id: 'paralives',
+    name: 'Paralives',
+    slug: 'paralives',
+    steamId: '1118520',
+    releaseDate: '2026-05-25',
+    status: 'upcoming' as const,
+    category: 'Simulation',
+    tags: ['Simulation', 'Life Sim', 'Open World', 'Sandbox'],
+    description: 'Paralives is an upcoming Early Access life simulation game where you build homes with gridless tools, create Parafolks in the Paramaker, explore an open-world town, share creations through Steam Workshop, and track roadmap features like pets, cars, and town editing.',
+    heroImage: '/games/paralives/hero.jpg',
+    cardImage: '/games/paralives/card.jpg',
+  },
+  {
+    id: 'farming-simulator-26',
+    name: 'Farming Simulator 26',
+    slug: 'farming-simulator-26',
+    steamId: '',
+    releaseDate: '2026-05-19',
+    status: 'upcoming' as const,
+    category: 'Simulation',
+    tags: ['Simulation', 'Farming', 'Casual', 'Family Friendly'],
+    description: 'Farming Simulator 26 is the upcoming portable-focused farming game from GIANTS Software for Nintendo Switch and mobile, featuring two maps, 120-plus machines, 15 crops, livestock, production chains, GPS guidance, and a new challenge system.',
+    heroImage: '/games/farming-simulator-26/hero.webp',
+    cardImage: '/games/farming-simulator-26/card.png',
+  },
   {
     id: 'directive-8020',
     name: 'Directive 8020',
@@ -102,6 +129,7 @@ export const categories = [
   { name: 'Horror', slug: 'horror', description: 'Survive the nightmares' },
   { name: 'Survival', slug: 'survival', description: 'Craft, build, survive' },
   { name: 'Stealth', slug: 'stealth', description: 'Move in shadows' },
+  { name: 'Simulation', slug: 'simulation', description: 'Build, manage, and shape living systems' },
   { name: 'Visual Novel', slug: 'visual-novel', description: 'Story-driven experiences' },
   { name: 'Action Adventure', slug: 'action-adventure', description: 'Epic journeys await' },
 ] as const;

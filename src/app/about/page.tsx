@@ -182,6 +182,25 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="mb-12 sm:mb-16">
+          <div className="bg-card border rounded-2xl p-6 sm:p-8 text-center">
+            <Users className="h-10 w-10 text-primary mx-auto mb-4" />
+            <h2 className="text-2xl font-bold mb-3">Join the Conversation</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Got feedback on our guides? Let us know what&apos;s working, what&apos;s missing, or what game you want us to cover next. Join the conversation on{' '}
+              <a
+                href="https://www.reddit.com/r/enjoy4game/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground underline decoration-border underline-offset-4"
+              >
+                r/enjoy4game
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="text-center">
           <div className="bg-card border rounded-2xl p-8 sm:p-12">

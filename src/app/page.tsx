@@ -16,6 +16,14 @@ import {
   projectMistFacts,
   projectMistGuideContent,
 } from '@/lib/project-mist';
+import {
+  paralivesFacts,
+  paralivesGuideContent,
+} from '@/lib/paralives';
+import {
+  farmingSimulator26Facts,
+  farmingSimulator26GuideContent,
+} from '@/lib/farming-simulator-26';
 import { categories, games } from '@/lib/site';
 import {
   thickAsThievesFacts,
@@ -39,6 +47,8 @@ function leadMedia<T extends { heroImage: string; heroImageAlt: string; sectionM
 const platformBySlug = {
   'directive-8020': directive8020Facts.platforms,
   'project-mist': projectMistFacts.platforms,
+  paralives: paralivesFacts.platforms,
+  'farming-simulator-26': farmingSimulator26Facts.platforms,
   'thick-as-thieves': thickAsThievesFacts.platforms,
   'coffee-talk-tokyo': coffeeTalkTokyoFacts.platforms,
   '007-first-light': firstLight007Facts.platforms,
@@ -47,6 +57,8 @@ const platformBySlug = {
 const storeUrlBySlug = {
   'directive-8020': directive8020Facts.steamUrl,
   'project-mist': projectMistFacts.steamUrl,
+  paralives: paralivesFacts.steamUrl,
+  'farming-simulator-26': farmingSimulator26Facts.officialUrl,
   'thick-as-thieves': thickAsThievesFacts.steamUrl,
   'coffee-talk-tokyo': coffeeTalkTokyoFacts.steamUrl,
   '007-first-light': firstLight007Facts.steamUrl,
@@ -55,13 +67,17 @@ const storeUrlBySlug = {
 const homepageImageBySlug = {
   'directive-8020': '/games/directive-8020/homepage-feature.png',
   'project-mist': '/games/project-mist/homepage-feature.png',
+  paralives: '/games/paralives/homepage-feature.jpg',
+  'farming-simulator-26': '/games/farming-simulator-26/homepage-feature.webp',
   'thick-as-thieves': '/games/thick-as-thieves/homepage-feature.png',
   'coffee-talk-tokyo': '/games/coffee-talk-tokyo/homepage-feature.png',
   '007-first-light': '/games/007-first-light/homepage-feature.png',
 } as const;
 
 const heroPriority = [
+  'farming-simulator-26',
   'project-mist',
+  'paralives',
   'directive-8020',
   'thick-as-thieves',
   'coffee-talk-tokyo',
@@ -95,6 +111,8 @@ const homeGames: HomeGameCard[] = heroPriority.map((slug) => {
 const directiveTrophy = directive8020GuideContent['trophy-guide'];
 const directiveWalkthrough = directive8020GuideContent.walkthrough;
 const projectMistFirstSteps = projectMistGuideContent['first-steps-survival-guide'];
+const paralivesRelease = paralivesGuideContent['release-date-early-access-guide'];
+const farmingRelease = farmingSimulator26GuideContent['release-date-platforms-guide'];
 const thickAsThievesStealth = thickAsThievesGuideContent['beginner-stealth-guide'];
 const coffeeTalkDemo = coffeeTalkTokyoGuideContent['demo-length-save-transfer-guide'];
 const firstLightPreorder = firstLight007GuideContent['preorder-editions-guide'];
@@ -104,6 +122,8 @@ const projectMistCoop = projectMistGuideContent['multiplayer-coop-guide'];
 const directiveTrophyLead = leadMedia(directiveTrophy);
 const directiveWalkthroughLead = leadMedia(directiveWalkthrough);
 const projectMistFirstStepsLead = leadMedia(projectMistFirstSteps);
+const paralivesReleaseLead = leadMedia(paralivesRelease);
+const farmingReleaseLead = leadMedia(farmingRelease);
 const thickAsThievesStealthLead = leadMedia(thickAsThievesStealth);
 const coffeeTalkDemoLead = leadMedia(coffeeTalkDemo);
 const firstLightPreorderLead = leadMedia(firstLightPreorder);
@@ -151,6 +171,19 @@ const popularGuides: HomeGuideCard[] = [
     updatedAt: projectMistFirstSteps.lastUpdated,
   },
   {
+    href: '/game/paralives/release-date-early-access-guide',
+    title: 'Paralives Early Access Facts',
+    game: 'Paralives',
+    tag: 'Release Guide',
+    description:
+      'Price, Mac support, no-console status, and the split between launch systems and later roadmap features.',
+    image: paralivesReleaseLead.image,
+    imageAlt: paralivesReleaseLead.alt,
+    verificationStatus: paralivesRelease.verificationStatus,
+    timeToRead: paralivesRelease.timeToRead,
+    updatedAt: paralivesRelease.lastUpdated,
+  },
+  {
     href: '/game/thick-as-thieves/beginner-stealth-guide',
     title: 'Thick As Thieves Stealth Basics',
     game: 'Thick As Thieves',
@@ -192,6 +225,17 @@ const popularGuides: HomeGuideCard[] = [
 ];
 
 const recentUpdates: HomeUpdateCard[] = [
+  {
+    href: '/game/farming-simulator-26/release-date-platforms-guide',
+    title: 'Farming Simulator 26 Release Facts',
+    game: 'Farming Simulator 26',
+    badge: 'New',
+    updatedAt: farmingRelease.lastUpdated,
+    description:
+      'Switch and mobile platforms, launch date, and the official feature set before release-day testing starts.',
+    image: farmingReleaseLead.image,
+    imageAlt: farmingReleaseLead.alt,
+  },
   {
     href: '/game/project-mist/multiplayer-coop-guide',
     title: 'Project: Mist Co-op and Save Questions',

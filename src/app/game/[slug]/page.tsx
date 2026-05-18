@@ -23,6 +23,18 @@ import {
   projectMistHubContent,
 } from '@/lib/project-mist';
 import {
+  paralivesFacts,
+  paralivesGuideContent,
+  paralivesGuideOrder,
+  paralivesHubContent,
+} from '@/lib/paralives';
+import {
+  farmingSimulator26Facts,
+  farmingSimulator26GuideContent,
+  farmingSimulator26GuideOrder,
+  farmingSimulator26HubContent,
+} from '@/lib/farming-simulator-26';
+import {
   firstLight007Facts,
   firstLight007GuideContent,
   firstLight007GuideOrder,
@@ -503,6 +515,50 @@ const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
       imageAlt: 'Project: Mist - Survival game map and facilities guide screenshot',
     },
   },
+  paralives: {
+    'release-date-early-access-guide': {
+      image: '/games/paralives/homepage/release-date-early-access-guide.jpg',
+      imageAlt: 'Paralives - Simulation game release date and Early Access guide screenshot',
+    },
+    'price-platforms-mac-guide': {
+      image: '/games/paralives/homepage/price-platforms-mac-guide.jpg',
+      imageAlt: 'Paralives - Simulation game price platforms and Mac guide screenshot',
+    },
+    'early-access-roadmap-guide': {
+      image: '/games/paralives/homepage/early-access-roadmap-guide.jpg',
+      imageAlt: 'Paralives - Simulation game Early Access roadmap guide screenshot',
+    },
+    'build-mode-paramaker-guide': {
+      image: '/games/paralives/homepage/build-mode-paramaker-guide.jpg',
+      imageAlt: 'Paralives - Simulation game build mode and Paramaker guide screenshot',
+    },
+    'mods-workshop-guide': {
+      image: '/games/paralives/homepage/mods-workshop-guide.jpg',
+      imageAlt: 'Paralives - Simulation game mods and Steam Workshop guide screenshot',
+    },
+    'pets-cars-town-tools-guide': {
+      image: '/games/paralives/homepage/pets-cars-town-tools-guide.jpg',
+      imageAlt: 'Paralives - Simulation game pets cars and town tools guide screenshot',
+    },
+  },
+  'farming-simulator-26': {
+    'release-date-platforms-guide': {
+      image: '/games/farming-simulator-26/homepage/release-date-platforms-guide.webp',
+      imageAlt: 'Farming Simulator 26 - Simulation game release date and platforms guide screenshot',
+    },
+    'maps-crops-animals-guide': {
+      image: '/games/farming-simulator-26/homepage/maps-crops-animals-guide.webp',
+      imageAlt: 'Farming Simulator 26 - Simulation game maps crops and animals guide screenshot',
+    },
+    'machines-features-guide': {
+      image: '/games/farming-simulator-26/homepage/machines-features-guide.webp',
+      imageAlt: 'Farming Simulator 26 - Simulation game machines and features guide screenshot',
+    },
+    'switch-mobile-buying-guide': {
+      image: '/games/farming-simulator-26/homepage/switch-mobile-buying-guide.webp',
+      imageAlt: 'Farming Simulator 26 - Simulation game Switch and mobile buying guide screenshot',
+    },
+  },
   'thick-as-thieves': {
     'release-date-platforms-guide': {
       image: '/games/thick-as-thieves/homepage/release-date-platforms-guide.webp',
@@ -937,6 +993,10 @@ export default async function GamePage({ params }: GamePageProps) {
       ? directive8020HubContent
       : gameSlug === 'project-mist'
         ? projectMistHubContent
+      : gameSlug === 'paralives'
+        ? paralivesHubContent
+      : gameSlug === 'farming-simulator-26'
+        ? farmingSimulator26HubContent
       : gameSlug === 'thick-as-thieves'
         ? thickAsThievesHubContent
         : gameSlug === 'coffee-talk-tokyo'
@@ -968,6 +1028,10 @@ export default async function GamePage({ params }: GamePageProps) {
         ? 'Supermassive Games'
         : gameSlug === 'project-mist'
           ? projectMistFacts.publisher
+          : gameSlug === 'paralives'
+            ? paralivesFacts.publisher
+          : gameSlug === 'farming-simulator-26'
+            ? farmingSimulator26Facts.publisher
           : gameSlug === 'thick-as-thieves'
             ? thickAsThievesFacts.publisher
           : gameSlug === 'coffee-talk-tokyo'
@@ -980,6 +1044,10 @@ export default async function GamePage({ params }: GamePageProps) {
         ? 'Supermassive Games'
         : gameSlug === 'project-mist'
           ? projectMistFacts.developer
+          : gameSlug === 'paralives'
+            ? paralivesFacts.developer
+          : gameSlug === 'farming-simulator-26'
+            ? farmingSimulator26Facts.developer
           : gameSlug === 'thick-as-thieves'
             ? thickAsThievesFacts.developer
           : gameSlug === 'coffee-talk-tokyo'
@@ -991,6 +1059,10 @@ export default async function GamePage({ params }: GamePageProps) {
     operatingSystem:
       gameSlug === 'directive-8020'
         ? 'Windows, PlayStation 5, Xbox Series X|S'
+        : gameSlug === 'paralives'
+          ? 'Windows, macOS'
+        : gameSlug === 'farming-simulator-26'
+          ? 'Nintendo Switch, iOS, Android'
         : gameSlug === 'coffee-talk-tokyo'
           ? 'Windows, PlayStation 5, Xbox Series X|S, Nintendo Switch'
         : 'Windows',
@@ -999,7 +1071,10 @@ export default async function GamePage({ params }: GamePageProps) {
       availability: game.status === 'released' ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
       seller: {
         '@type': 'Organization',
-        name: 'Steam',
+        name:
+          gameSlug === 'farming-simulator-26'
+            ? 'SEGA'
+            : 'Steam',
       },
     },
   };
@@ -1220,6 +1295,220 @@ export default async function GamePage({ params }: GamePageProps) {
         overviewParagraphs={content.overview.split('\n\n')}
         communityResearch={<ProjectMistCommunityResearch />}
         guideSectionDescription="Screenshot-backed pages with tables, FAQs, and visible verification labels."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
+    );
+  }
+
+  if (gameSlug === 'paralives') {
+    const guideCards = paralivesGuideOrder.map((guideSlug) => {
+      const guide = paralivesGuideContent[guideSlug];
+      const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
+
+      return {
+        slug: guideSlug,
+        title: guide.title.replace(/^Paralives:?\s*/, ''),
+        description: guide.description,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
+        status: guide.verificationStatus,
+      };
+    });
+
+    const startHere = [
+      {
+        title: 'Release facts',
+        href: `/game/${game.slug}/release-date-early-access-guide`,
+        body: 'Start with the date, Early Access status, and the cleanest source-backed answer for launch timing.',
+      },
+      {
+        title: 'Price and Mac support',
+        href: `/game/${game.slug}/price-platforms-mac-guide`,
+        body: 'Check the $39.99 Early Access price, Mac support, no-console status, and what still lacks hard specs.',
+      },
+      {
+        title: 'Roadmap split',
+        href: `/game/${game.slug}/early-access-roadmap-guide`,
+        body: 'Use this before trusting posts that treat pets, cars, or town tools as confirmed day-one systems.',
+      },
+      {
+        title: 'Build and mods',
+        href: `/game/${game.slug}/build-mode-paramaker-guide`,
+        body: 'Open build mode or Workshop pages if creative tools matter more to you than first-week life-sim breadth.',
+      },
+    ];
+
+    const answerCards = [
+      { label: 'Release date', value: paralivesFacts.displayReleaseDate, status: 'Official' },
+      { label: 'Platform', value: paralivesFacts.platforms, status: 'Official' },
+      { label: 'Price', value: paralivesFacts.price, status: 'FAQ-listed' },
+      { label: 'Console', value: 'No current console plans', status: 'FAQ-listed' },
+      { label: 'Mods', value: 'Steam Workshop plus an in-game modding interface', status: 'Official' },
+      { label: 'Roadmap split', value: 'Pets, cars, weather, and town tools are later Early Access items', status: 'Steam-listed' },
+    ];
+
+    return (
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/paralives/hero.jpg"
+        heroImageAlt="Paralives life simulation key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: paralivesFacts.earlyAccess },
+          { label: paralivesFacts.displayReleaseDate },
+        ]}
+        title="Paralives Guide Hub"
+        description="Pre-release Paralives guides for the questions that actually matter before launch: release date, price, Mac support, build mode, Steam Workshop, and whether roadmap features like pets or cars are in the first Early Access build."
+        ctas={[
+          { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-early-access-guide` },
+          { label: 'Roadmap Guide', href: `/game/${game.slug}/early-access-roadmap-guide`, variant: 'outline' },
+          { label: 'Steam', href: paralivesFacts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch model', value: 'Early Access', note: 'The right question is what is playable on day one, not what might exist later' },
+          { label: 'Current price', value: paralivesFacts.price, note: 'The official FAQ says the price will rise after Early Access' },
+          { label: 'Best hook', value: 'Build mode + Paramaker', note: 'Gridless construction and flexible character creation are the clearest present-tense strengths' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Trust policy',
+            body: 'This hub separates launch facts from roadmap items so pets, cars, weather, and town tools are not misrepresented as automatic day-one features.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open the release or price page first if you are deciding whether to buy now. Open build mode or mods if your interest is more creative than completion-focused.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The cleanest reading order for launch timing, platform and price, roadmap expectations, and build or mod interest."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Source-backed pages with tables, direct FAQs, and visible labels for what is official today versus what still needs live testing."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
+    );
+  }
+
+  if (gameSlug === 'farming-simulator-26') {
+    const guideCards = farmingSimulator26GuideOrder.map((guideSlug) => {
+      const guide = farmingSimulator26GuideContent[guideSlug];
+      const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
+
+      return {
+        slug: guideSlug,
+        title: guide.title.replace(/^Farming Simulator 26:?\s*/, ''),
+        description: guide.description,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
+        status: guide.verificationStatus,
+      };
+    });
+
+    const startHere = [
+      {
+        title: 'Release and platform facts',
+        href: `/game/${game.slug}/release-date-platforms-guide`,
+        body: 'Confirm the May 19, 2026 release date and that this version is currently being positioned for Switch and mobile.',
+      },
+      {
+        title: 'Maps and farm scope',
+        href: `/game/${game.slug}/maps-crops-animals-guide`,
+        body: 'Check the two maps, 15-plus crops, livestock lineup, forestry support, and production-chain scope.',
+      },
+      {
+        title: 'Machines and guidance',
+        href: `/game/${game.slug}/machines-features-guide`,
+        body: 'Open this if you care most about the 120-plus machines, challenge system, GPS guidance, and onboarding quality.',
+      },
+      {
+        title: 'Switch and mobile fit',
+        href: `/game/${game.slug}/switch-mobile-buying-guide`,
+        body: 'Use the buying guide if comfort, controls, battery, and portable-play fit matter more than pure feature bullets.',
+      },
+    ];
+
+    const answerCards = [
+      { label: 'Release date', value: farmingSimulator26Facts.displayReleaseDate, status: 'Official' },
+      { label: 'Platform set', value: farmingSimulator26Facts.platforms, status: 'Official' },
+      { label: 'Maps', value: 'Dawnridge and Harburck', status: 'Official' },
+      { label: 'Machines', value: '120-plus authentic machines', status: 'Official' },
+      { label: 'Core farming', value: '15-plus crops, forestry, and livestock', status: 'Official' },
+      { label: 'Open question', value: 'Real Switch and mobile comfort still needs live testing', status: 'Needs hands-on verification' },
+    ];
+
+    return (
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/farming-simulator-26/hero.webp"
+        heroImageAlt="Farming Simulator 26 official key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Switch + mobile' },
+          { label: farmingSimulator26Facts.displayReleaseDate },
+        ]}
+        title="Farming Simulator 26 Guide Hub"
+        description="Pre-release Farming Simulator 26 guides focused on the real buyer questions before launch: release timing, Switch and mobile platforms, maps, crops, animals, machines, challenge structure, and portable-play fit."
+        ctas={[
+          { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-platforms-guide` },
+          { label: 'Maps and Animals', href: `/game/${game.slug}/maps-crops-animals-guide`, variant: 'outline' },
+          { label: 'Official Site', href: farmingSimulator26Facts.officialUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch date', value: farmingSimulator26Facts.displayReleaseDate, note: 'Official pages align around the same May 19, 2026 release date' },
+          { label: 'Platform focus', value: 'Switch and mobile', note: 'This is the key context that shapes every buying question around the game' },
+          { label: 'Best hook', value: 'Portable farming with guidance', note: 'Challenge tasks, GPS support, and improved tutorials point to an accessibility-first release' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Content policy',
+            body: 'This hub stays narrow on purpose. It answers the public feature set and buying questions without forcing fake walkthrough coverage onto a game that is not live yet.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open the release or buying guide first if you are deciding whether this Switch and mobile version fits the way you actually play farming sims.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The best order for release facts, farm scope, new features, and practical Switch or mobile buying questions."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Focused pages for release facts, maps and animals, machine and challenge details, and Switch or mobile fit without padding the topic cluster."
         guideCountLabel={`${guideCards.length} pages`}
         guideCards={guideCards.map((guide) => ({
           href: `/game/${game.slug}/${guide.slug}`,

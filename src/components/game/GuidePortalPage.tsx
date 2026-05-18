@@ -393,6 +393,21 @@ export function GuidePortalPage({
               </section>
             ) : null}
 
+            <section className="mt-8 rounded-[28px] border border-white/10 bg-white/[0.04] p-5">
+              <p className="text-sm leading-7 text-zinc-300">
+                Have questions or feedback? Join our community at{' '}
+                <a
+                  href="https://www.reddit.com/r/enjoy4game/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white"
+                >
+                  r/enjoy4game
+                </a>
+                .
+              </p>
+            </section>
+
             {relatedGuides.length ? (
               <section className="mt-8" aria-labelledby="related-guides">
                 <h2

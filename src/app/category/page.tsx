@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Skull, Sword, Target, Coffee, Gamepad2 } from 'lucide-react';
+import { Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
 import { games, siteConfig } from '@/lib/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
@@ -30,6 +30,12 @@ const categories = [
     slug: 'stealth',
     description: 'Master the art of infiltration and avoid detection',
     icon: Target,
+  },
+  {
+    name: 'Simulation',
+    slug: 'simulation',
+    description: 'Build, manage, and shape living systems across farms, towns, and sandboxes',
+    icon: Layers3,
   },
   {
     name: 'Visual Novel',

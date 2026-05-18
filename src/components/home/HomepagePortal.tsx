@@ -86,6 +86,7 @@ const genreIcons: Record<string, LucideIcon> = {
   Horror: Skull,
   Survival: Sword,
   Stealth: Target,
+  Simulation: Layers3,
   'Visual Novel': Coffee,
   'Action Adventure': Sparkles,
 };

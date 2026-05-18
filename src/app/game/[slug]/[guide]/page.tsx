@@ -5,6 +5,8 @@ import { GuidePortalPage } from "@/components/game/GuidePortalPage";
 import { games, getGameBySlug, siteConfig } from "@/lib/site";
 import { directive8020GuideContent } from "@/lib/directive-8020";
 import { projectMistGuideContent } from "@/lib/project-mist";
+import { paralivesGuideContent } from "@/lib/paralives";
+import { farmingSimulator26GuideContent } from "@/lib/farming-simulator-26";
 import { firstLight007GuideContent } from "@/lib/first-light-007";
 import { coffeeTalkTokyoGuideContent } from "@/lib/coffee-talk-tokyo";
 import { thickAsThievesGuideContent } from "@/lib/thick-as-thieves";
@@ -1235,6 +1237,8 @@ const guideContent: Record<string, Record<string, GuideContentItem>> = {
   ...legacyGuideContent,
   "directive-8020": directive8020GuideContent,
   "project-mist": projectMistGuideContent,
+  paralives: paralivesGuideContent,
+  "farming-simulator-26": farmingSimulator26GuideContent,
   "thick-as-thieves": thickAsThievesGuideContent,
   "coffee-talk-tokyo": coffeeTalkTokyoGuideContent,
   "007-first-light": firstLight007GuideContent,

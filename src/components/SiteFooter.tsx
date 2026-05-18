@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Gamepad2, Mail, Twitter } from 'lucide-react';
+import { Gamepad2, Mail, MessageSquare, Twitter } from 'lucide-react';
 import { categories, games, siteConfig } from '@/lib/site';
 
 export function SiteFooter() {
@@ -36,6 +36,17 @@ export function SiteFooter() {
               pre-release pages that stay useful without pretending to know what has not been
               verified yet.
             </p>
+            <a
+              href={siteConfig.links.reddit}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                isPortalChrome ? 'text-zinc-300 hover:text-white' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <MessageSquare className="h-4 w-4" />
+              Join our community: r/enjoy4game
+            </a>
           </div>
 
           <div className="space-y-4">

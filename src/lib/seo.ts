@@ -19,12 +19,14 @@ interface PageSeo {
 export const homeSeo: PageSeo = {
   title: 'Base64Pro - Game Guides, Walkthroughs & Launch Hubs',
   description:
-    'Find release dates, walkthroughs, trophy routes, co-op answers, demo guides, and launch-week hubs for Directive 8020, Project: Mist, 007 First Light, and more.',
+    'Find release dates, walkthroughs, trophy routes, co-op answers, demo guides, Early Access explainers, and launch-week hubs for Paralives, Farming Simulator 26, Directive 8020, Project: Mist, and more.',
   keywords: [
     'game guides',
     'walkthroughs',
     'launch guides',
     'trophy guide',
+    'Paralives guide',
+    'Farming Simulator 26 guide',
     'Project Mist guide',
     'Directive 8020 guide',
     '007 First Light guide',
@@ -60,6 +62,34 @@ export const gameHubSeo: Record<string, PageSeo> = {
       'Project Mist co-op',
       'Project Mist Gravity Gun',
       'Project Mist train base',
+    ],
+  },
+  paralives: {
+    title: 'Paralives Guide Hub - Early Access, Mods & Build Mode',
+    description:
+      'Paralives guide hub with release date, price, Mac support, build mode, Paramaker, Steam Workshop, roadmap features, pets, cars, and Early Access answers.',
+    keywords: [
+      'Paralives guide',
+      'Paralives release date',
+      'Paralives price',
+      'Paralives Mac',
+      'Paralives mods',
+      'Paralives build mode',
+      'Paralives pets',
+    ],
+  },
+  'farming-simulator-26': {
+    title: 'Farming Simulator 26 Guide Hub - Switch, Maps & Features',
+    description:
+      'Farming Simulator 26 guide hub with release date, Switch and mobile platforms, maps, crops, animals, machine lineup, challenge system, and buying guidance.',
+    keywords: [
+      'Farming Simulator 26 guide',
+      'Farming Simulator 26 release date',
+      'Farming Simulator 26 Switch',
+      'Farming Simulator 26 mobile',
+      'Farming Simulator 26 maps',
+      'Farming Simulator 26 animals',
+      'Farming Simulator 26 machines',
     ],
   },
   'thick-as-thieves': {

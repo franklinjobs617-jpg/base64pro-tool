@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Skull, Sword, Target, Coffee, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -34,6 +34,12 @@ const categories = [
     slug: 'stealth',
     description: 'Master the art of infiltration and avoid detection',
     icon: Target,
+  },
+  {
+    name: 'Simulation',
+    slug: 'simulation',
+    description: 'Build, manage, and shape living systems across farms, towns, and sandboxes',
+    icon: Layers3,
   },
   {
     name: 'Visual Novel',

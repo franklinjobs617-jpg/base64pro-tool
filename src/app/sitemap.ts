@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { games, siteConfig } from '@/lib/site';
 import { directive8020GuideOrder } from '@/lib/directive-8020';
 import { projectMistGuideOrder } from '@/lib/project-mist';
+import { paralivesGuideOrder } from '@/lib/paralives';
+import { farmingSimulator26GuideOrder } from '@/lib/farming-simulator-26';
 import { firstLight007GuideOrder } from '@/lib/first-light-007';
 import { coffeeTalkTokyoGuideOrder } from '@/lib/coffee-talk-tokyo';
 import { thickAsThievesGuideOrder } from '@/lib/thick-as-thieves';
@@ -66,6 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${baseUrl}/category/simulation`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
       url: `${baseUrl}/category/visual-novel`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -92,6 +100,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const gameGuides: Record<string, string[]> = {
     'directive-8020': [...directive8020GuideOrder],
     'project-mist': [...projectMistGuideOrder],
+    paralives: [...paralivesGuideOrder],
+    'farming-simulator-26': [...farmingSimulator26GuideOrder],
     'thick-as-thieves': [...thickAsThievesGuideOrder],
     'coffee-talk-tokyo': [...coffeeTalkTokyoGuideOrder],
     '007-first-light': [...firstLight007GuideOrder],
