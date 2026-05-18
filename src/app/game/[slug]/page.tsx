@@ -611,6 +611,162 @@ function getHubGuideImage(gameSlug: string, guideSlug: string, fallback: HubGuid
   return hubGuideImages[gameSlug]?.[guideSlug] ?? fallback;
 }
 
+function Directive8020PlayerResearch() {
+  const sections = [
+    {
+      id: 'first-run-vs-spoiler-cleanup',
+      title: 'First-run players want help without losing the story',
+      image: '/games/directive-8020/homepage/walkthrough.webp',
+      imageAlt: 'Directive 8020 - Horror game spoiler-light walkthrough guide image',
+      body:
+        'Reddit discussion around Directive 8020 focuses heavily on whether choices, Turning Points, and the final twist make the story feel earned. The hub should protect first-run readers by sending them to the walkthrough first, while keeping endings, choices, deaths, and save-everyone pages clearly marked as spoiler-heavy cleanup.',
+    },
+    {
+      id: 'trophy-platinum-route',
+      title: 'Trophy hunters need a route, not a loose checklist',
+      image: '/games/directive-8020/homepage/trophy-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game trophy and platinum roadmap guide image',
+      body:
+        'YouTube and guide searches cluster around trophy guide, platinum walkthrough, all deaths, endings, collectibles, and save everyone. A useful hub should explain the recommended order: one clean survivor file, then collectibles and secrets, then death routes and alternate endings.',
+    },
+    {
+      id: 'save-everyone-endings',
+      title: 'Save-everyone and ending pages answer different questions',
+      image: '/games/directive-8020/homepage/save-everyone-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game save everyone route guide image',
+      body:
+        'Players searching save everyone usually want direct route protection. Players searching endings often want interpretation, final-message differences, and whether survival changes the outcome. Keeping those pages separate avoids spoiling people who only need survival help.',
+    },
+    {
+      id: 'secrets-collectibles-cleanup',
+      title: 'Collectibles need category clarity',
+      image: '/games/directive-8020/homepage/collectibles-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game collectibles and secrets guide image',
+      body:
+        'Collectible searches do not only mean dolls. Players also look for Secrets, Simms Recordings, O Death Secrets, Heirlooms, and Curator-related cleanup. The hub should frame collectibles as a post-run tracker so players know which guide to open before replaying chapters.',
+    },
+    {
+      id: 'pc-performance-and-coop',
+      title: 'Performance and co-op wording should stay precise',
+      image: '/games/directive-8020/homepage/multiplayer-performance-guide.webp',
+      imageAlt: 'Directive 8020 - Horror game multiplayer performance guide image',
+      body:
+        'PC-focused coverage and storefront pages discuss ray tracing, path tracing, frame generation, Steam Deck status, and group-play wording. The hub should avoid blending Movie Night, Steam Remote Play, and native online co-op into one claim because those are different user expectations.',
+    },
+  ];
+
+  const questionRows = [
+    {
+      question: 'What should I read before my first playthrough?',
+      answer: 'Use the walkthrough only when stuck. Avoid endings, all-deaths, choices, and save-everyone pages until you are ready for spoilers.',
+      source: 'Reddit spoiler discussions and walkthrough searches',
+    },
+    {
+      question: 'What is the best completion order?',
+      answer: 'Build one survivor file, clean collectibles and secrets, then route deaths, endings, and platinum cleanup with Turning Points.',
+      source: 'Trophy and platinum guide demand',
+    },
+    {
+      question: 'Can I save everyone?',
+      answer: 'Yes, but that intent belongs on a dedicated route page because it reveals major survival conditions and late-game choices.',
+      source: 'Save-everyone guide searches',
+    },
+    {
+      question: 'What are O Death / Curator secrets?',
+      answer: 'They are post-run cleanup targets that should be tracked separately from normal collectibles and first-run story clues.',
+      source: 'Collectible and secret guide demand',
+    },
+    {
+      question: 'Is PC performance part of the buying decision?',
+      answer: 'Yes. PC readers need separate guidance for ray tracing, path tracing, frame generation, Steam Deck, and whether a video walkthrough is enough.',
+      source: 'PC review and performance coverage',
+    },
+  ];
+
+  return (
+    <section id="directive-8020-player-research" aria-labelledby="directive-8020-player-research-title" className="rounded-[30px] border border-white/8 bg-[#070910] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
+      <div className="max-w-3xl">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-300">
+          Player demand research
+        </p>
+        <h2 id="directive-8020-player-research-title" className="mt-3 text-3xl font-semibold tracking-tight text-white">
+          What Directive 8020 Players Actually Search After Release
+        </h2>
+        <p className="mt-3 text-sm leading-8 text-zinc-300 sm:text-base">
+          This hub is organized around visible post-release demand from Reddit discussion, YouTube walkthrough behavior, and guide searches: spoiler-light help first, then trophies, save-everyone routes, endings, deaths, collectibles, and PC performance checks.
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-5">
+        {sections.map((section) => (
+          <article key={section.id} id={section.id} className="grid gap-4 rounded-[24px] border border-white/8 bg-white/[0.03] p-4 md:grid-cols-[240px_minmax(0,1fr)]">
+            <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-950">
+              <Image
+                src={section.image}
+                alt={section.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 240px"
+                className="object-cover"
+              />
+            </figure>
+            <div>
+              <h3 className="text-xl font-semibold tracking-tight text-white">
+                {section.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">{section.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-6 overflow-x-auto rounded-[24px] border border-white/8">
+        <table className="w-full border-collapse text-left text-sm">
+          <caption className="sr-only">
+            Directive 8020 player questions, recommended hub answer, and source type
+          </caption>
+          <thead className="bg-white/[0.06] text-white">
+            <tr>
+              <th scope="col" className="px-4 py-3 font-medium">Player question</th>
+              <th scope="col" className="px-4 py-3 font-medium">Best hub answer</th>
+              <th scope="col" className="px-4 py-3 font-medium">Demand signal</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-white/8 bg-black/20 text-zinc-400">
+            {questionRows.map((row) => (
+              <tr key={row.question}>
+                <td className="px-4 py-4 align-top font-medium text-zinc-100">{row.question}</td>
+                <td className="px-4 py-4 align-top leading-7">{row.answer}</td>
+                <td className="px-4 py-4 align-top">{row.source}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-sm font-medium text-white">Sources checked</h3>
+        <ul className="mt-3 space-y-2 text-sm leading-7 text-zinc-400">
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://www.reddit.com/r/DarkPicturesAnthology/search/?q=Directive%208020&restrict_sr=1" target="_blank" rel="noopener noreferrer">
+              Reddit discussions in r/DarkPicturesAnthology for Directive 8020
+            </a>
+          </li>
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://www.youtube.com/results?search_query=Directive+8020+walkthrough+trophy+guide+all+endings+all+deaths" target="_blank" rel="noopener noreferrer">
+              YouTube walkthrough, trophy, endings, and deaths searches
+            </a>
+          </li>
+          <li>
+            <a className="text-cyan-200 underline decoration-cyan-200/30 underline-offset-4 hover:text-white" href="https://store.steampowered.com/app/2255370/Directive_8020/" target="_blank" rel="noopener noreferrer">
+              Steam store page for platform and feature context
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function ProjectMistCommunityResearch() {
   const sections = [
     {
@@ -871,19 +1027,19 @@ export default async function GamePage({ params }: GamePageProps) {
 
     const startHere = [
       {
-        title: 'First run',
+        title: 'Spoiler-light first run',
         href: `/game/${game.slug}/walkthrough`,
-        body: 'Use the spoiler-light walkthrough before opening ending or death routes.',
+        body: 'Use the walkthrough only when stuck, then return to spoiler-heavy pages after one clear.',
       },
       {
-        title: 'Completion',
+        title: 'Trophy and platinum route',
         href: `/game/${game.slug}/trophy-guide`,
-        body: 'Build one survivor file, then clean collectibles, endings, and deaths.',
+        body: 'Start with one clean survivor file before collectibles, all deaths, endings, and cleanup.',
       },
       {
-        title: 'Co-op checks',
-        href: `/game/${game.slug}/multiplayer-performance-guide`,
-        body: 'Separate Movie Night, Steam Remote Play, and native online co-op claims.',
+        title: 'Save everyone route',
+        href: `/game/${game.slug}/save-everyone-guide`,
+        body: 'Open this when you are ready to protect every crew member and accept route spoilers.',
       },
     ];
 
@@ -894,24 +1050,24 @@ export default async function GamePage({ params }: GamePageProps) {
         note: 'Playable now across PS5, Xbox Series X|S, and PC',
       },
       {
-        label: 'Best first page',
+        label: 'Best first click',
         value: 'Walkthrough',
-        note: 'Stay spoiler-light before you open endings or death routes',
+        note: 'The safest page for stuck first-run players',
       },
       {
-        label: 'Completion path',
-        value: 'Trophy roadmap',
-        note: 'Build one survivor file before collectibles and cleanup',
+        label: 'Cleanup order',
+        value: 'Survivors first',
+        note: 'Then route collectibles, deaths, endings, and trophies',
       },
     ];
 
     const answerCards = [
       { label: 'Developer', value: directive8020Facts.developer, status: 'Confirmed' },
       { label: 'Platforms', value: directive8020Facts.platforms, status: 'Confirmed' },
-      { label: 'Major risk', value: 'Choices, trust, and Turning Points can lock routes', status: 'Confirmed' },
-      { label: 'Co-op check', value: 'Movie Night and Remote Play need to be separated from native online claims', status: 'Needs platform capture' },
-      { label: 'Death count', value: '44 death scenes tracked across route combinations', status: 'Reported' },
-      { label: 'Safe entry', value: 'Walkthrough and trophy pages first; endings and deaths later', status: 'Confirmed' },
+      { label: 'First-run risk', value: 'Endings, choices, deaths, and save-everyone pages contain major spoilers', status: 'Editorial policy' },
+      { label: 'Completion focus', value: 'Trophies, survivor routing, O Death secrets, collectibles, deaths, and endings', status: 'Player demand' },
+      { label: 'Route tool', value: 'Turning Points are best used for cleanup, not for every first-run decision', status: 'Route advice' },
+      { label: 'Buying check', value: 'PC performance and group-play wording deserve a separate page before purchase', status: 'User intent' },
     ];
 
     return (
@@ -926,7 +1082,7 @@ export default async function GamePage({ params }: GamePageProps) {
           { label: directive8020Facts.displayReleaseDate },
         ]}
         title="Directive 8020 Guide Hub"
-        description="Spoiler-aware routes, trophy planning, endings, choices, deaths, collectibles, and performance notes for Supermassive's sci-fi horror story aboard the Cassiopeia."
+        description="A post-release Directive 8020 answer hub built around what players actually search: spoiler-light walkthrough help, trophies, save-everyone routes, endings, choices, deaths, O Death secrets, collectibles, and PC performance."
         ctas={[
           { label: 'Start Walkthrough', href: `/game/${game.slug}/walkthrough` },
           { label: 'Trophy Roadmap', href: `/game/${game.slug}/trophy-guide`, variant: 'outline' },
@@ -944,12 +1100,13 @@ export default async function GamePage({ params }: GamePageProps) {
           },
         ]}
         startHereTitle="Start here"
-        startHereIntro="The cleanest sequence for a first run, completion cleanup, and multiplayer or Remote Play checks."
+        startHereIntro="The cleanest sequence for a first run, survivor routing, and completion cleanup without opening the wrong spoiler too early."
         startHere={startHere}
-        answerTitle="Spoiler-aware answer center"
+        answerTitle="Player-question answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
-        guideSectionDescription="Each page includes screenshots, tables, FAQs, and visible verification or spoiler labels."
+        communityResearch={<Directive8020PlayerResearch />}
+        guideSectionDescription="Choose the page by intent: spoiler-light play, trophy routing, save-everyone planning, ending interpretation, all-deaths cleanup, collectibles, or PC performance."
         guideCountLabel={`${guideCards.length} pages`}
         guideCards={guideCards.map((guide) => ({
           href: `/game/${game.slug}/${guide.slug}`,

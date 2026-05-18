@@ -869,25 +869,25 @@ export const directive8020Guides = directive8020GuideOrder.map((slug) => ({
 }));
 
 export const directive8020HubContent = {
-  overview: `Directive 8020 is Supermassive Games' sci-fi survival horror entry in The Dark Pictures line, released on ${directive8020Facts.displayReleaseDate} for ${directive8020Facts.platforms}. The crew of the Cassiopeia is hunted by an alien organism that can mimic its prey, so every trust decision, accusation, QTE, stealth section, and Turning Point can change who survives.
+  overview: `Directive 8020 is Supermassive Games' sci-fi survival horror entry in The Dark Pictures line, released on ${directive8020Facts.displayReleaseDate} for ${directive8020Facts.platforms}. The current player questions are not generic "is it scary?" questions. They are practical route questions: how to keep everyone alive, when to use Turning Points, which choices affect the ending, how to clean collectibles and O Death secrets, and whether PC performance or stealth sections change the buying decision.
 
-This hub is built for players who want useful answers without having the whole story spoiled. Start with the spoiler-light walkthrough or trophy roadmap if you are still on a first run. Use the endings, choices, save-everyone, and all-deaths guides only when you are ready for route spoilers.`,
+This hub is built around those live needs. It separates spoiler-light first-run help from spoiler-heavy cleanup, then points trophy hunters, ending hunters, and completionists to the correct page without forcing every reader into the clone twist, all-deaths routes, or late-game O Death content too early.`,
   features: [
     'Released May 12, 2026 for PS5, Xbox Series X|S, and PC via Steam',
     'Developed and published by Supermassive Games',
-    'Mimic threat where an alien organism can impersonate crew members',
-    'Real-time threats, QTE pressure, stealth movement, and route-changing Turning Points',
-    'Eight-episode route model used for spoiler-aware walkthrough planning',
-    'Movie Night group play, Steam achievements, and Steam Deck Playable tracking',
-    'Screenshot and YouTube-supported guides for trophies, walkthrough, endings, choices, deaths, collectibles, and performance',
+    'Player demand clusters around walkthrough, trophy roadmap, save everyone, endings, choices, deaths, collectibles, and PC performance',
+    'Turning Points are useful for completion cleanup, but first-run players should avoid overusing them if they want consequences to land',
+    'O Death / Curator secrets and other collectibles are high-intent cleanup topics after the first clear',
+    'Ending discussions are spoiler-heavy because players disagree about whether the final twist makes survival choices feel meaningful',
+    'PC buyers are asking about ray tracing, path tracing, frame generation, and whether watching a playthrough is safer than buying immediately',
   ],
   guides: directive8020Guides,
   tips: [
-    'Use the walkthrough first if you want spoiler-light help.',
-    'Use Turning Points sparingly on a first run so route consequences remain understandable.',
-    'Track crew state, collectibles, and major choices in a simple table.',
-    'Do collectibles before all-death cleanup.',
-    'Treat online co-op claims carefully because Movie Night, Steam Remote Play, and native Shared Story are not the same thing.',
+    'First run: open the walkthrough only when stuck, and avoid endings, all-deaths, and save-everyone spoilers.',
+    'Completion run: protect one everyone-survives file before branching into deaths, bad endings, and collectible cleanup.',
+    'Trophy route: use Turning Points to reduce replay time, but track which survivor count and final message produced each ending.',
+    'Collectibles route: separate normal Secrets, Simms Recordings, and O Death / Curator secrets so you do not mix first-run clues with post-game cleanup.',
+    'PC route: check performance reports before enabling ray tracing or path tracing, especially if you are sensitive to unstable frame pacing.',
   ],
   faq: [
     {
@@ -906,7 +906,17 @@ This hub is built for players who want useful answers without having the whole s
     {
       question: 'Which Directive 8020 guide should I read first?',
       answer:
-        'Read the walkthrough or trophy guide first. Save endings, choices, deaths, and save-everyone pages for after one playthrough.',
+        'Read the spoiler-light walkthrough first if you are still playing. Use trophy, save-everyone, endings, choices, deaths, and collectibles pages after one clear or when you are deliberately routing cleanup.',
+    },
+    {
+      question: 'Is Directive 8020 worth using Turning Points for?',
+      answer:
+        'Yes for cleanup, endings, trophies, and death routes. For a first run, use Turning Points lightly because Reddit discussion shows many players care about whether choices feel meaningful.',
+    },
+    {
+      question: 'What are players searching for most after finishing Directive 8020?',
+      answer:
+        'The strongest post-finish needs are endings explained, save everyone, O Death / Curator secrets, all collectibles, all deaths, and whether the final twist changes the value of survival choices.',
     },
   ],
 };
