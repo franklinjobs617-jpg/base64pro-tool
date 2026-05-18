@@ -790,6 +790,11 @@ export default async function GamePage({ params }: GamePageProps) {
 
     const startHere = [
       {
+        title: 'First steps',
+        href: `/game/${game.slug}/first-steps-survival-guide`,
+        body: 'Follow the opening demo flow: save, craft the axe, learn the UI, and avoid the whale.',
+      },
+      {
         title: 'Beginner plan',
         href: `/game/${game.slug}/beginner-survival-guide`,
         body: 'Start with safe scouting, train-base basics, Gravity Gun tests, and pre-launch survival priorities.',

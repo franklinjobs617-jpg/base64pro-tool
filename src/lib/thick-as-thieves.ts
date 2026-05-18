@@ -76,9 +76,10 @@ export const thickAsThievesFacts = {
   steamUrl: 'https://store.steampowered.com/app/3341000/Thick_As_Thieves/',
   officialUrl: 'https://megabit-publishing.com/games/thick-as-thieves',
   faqUrl: 'https://megabit-publishing.com/thick-as-thieves-faqs',
+  launchPrice: '$4.99 / EUR4.99 / GBP4.99',
   players: 'Solo or online co-op with one partner',
   campaignScope:
-    'The launch build is currently described as an introductory campaign with 3 maps, 16 contracts, at least 4 hours, and 6 unique pieces of gear.',
+    'The launch build is currently described as an introductory campaign with 2 dynamic replayable maps, 16 missions, at least 4 hours, and 6 pieces of gear.',
   languages:
     'Steam lists English with full audio plus French, German, Spanish - Spain, Japanese, Portuguese - Brazil, Simplified Chinese, and Traditional Chinese.',
   pcMinimum: {
@@ -108,7 +109,7 @@ export const thickAsThievesGuideContent: Record<string, ThickAsThievesGuide> = {
   'release-date-platforms-guide': {
     title: 'Thick As Thieves Release Date, Platforms, and Store Facts Guide',
     description:
-      'A factual Thick As Thieves release date guide covering May 20, 2026, PC platform status, Steam features, language support, and what still needs launch-day verification.',
+      'A factual Thick As Thieves release date guide covering May 20, 2026, PC platform status, launch price, Steam features, language support, and what still needs launch-day verification.',
     lastUpdated,
     timeToRead: '12 min',
     primaryKeyword: 'thick as thieves release date',
@@ -156,6 +157,7 @@ ${prereleaseNote}
 | --- | --- | --- |
 | Release date | May 20, 2026 | Steam-listed |
 | Launch platform | PC via Steam | Steam-listed |
+| Launch price | $4.99 / EUR4.99 / GBP4.99 | Official |
 | Developer | OtherSide Entertainment | Steam-listed |
 | Publisher | Megabit Publishing | Steam-listed |
 | Play modes | Single-player, multiplayer, co-op, online co-op | Steam-listed |
@@ -189,6 +191,10 @@ That is the difference between a useful pre-release guide and SEO filler. The us
       {
         question: 'What platforms is Thick As Thieves on?',
         answer: 'The current public launch platform is PC via Steam.',
+      },
+      {
+        question: 'How much does Thick As Thieves cost at launch?',
+        answer: 'Official launch pricing is currently listed as $4.99, EUR4.99, and GBP4.99.',
       },
       {
         question: 'Is Thick As Thieves on console?',
@@ -265,7 +271,7 @@ That means the best pre-launch advice is to choose your first run based on learn
 
 ## Campaign Scope Today
 
-Megabit's current release messaging describes Thick As Thieves as an introductory campaign with 3 maps, 16 contracts, at least 4 hours of content, and high replayability. That wording matters. It tells readers that the launch build is scoped and focused, not pretending to be a hundred-hour forever game. For user trust, this should be explained as a strength or limitation depending on taste, not spun as a hidden massive game.
+Megabit's current release messaging describes Thick As Thieves as an introductory campaign with 2 dynamic replayable maps, 16 missions, at least 4 hours of content, and high replayability. That wording matters. It tells readers that the launch build is scoped and focused, not pretending to be a hundred-hour forever game. For user trust, this should be explained as a strength or limitation depending on taste, not spun as a hidden massive game.
 
 Four hours also should not be read as a strict full-completion ceiling. In stealth games, route learning, difficulty variation, contract replays, and gear experimentation can stretch a short main path into much more time. A careful first pass can easily be slower than the headline number if you are checking routes, restarting errors, and testing alternative entries. The safe public claim is that the official campaign scope is modest but intentionally replayable.
 
@@ -292,7 +298,7 @@ This is exactly where pre-release content can still be useful. Instead of preten
       {
         question: 'How long is the campaign?',
         answer:
-          'The official FAQ says the introductory campaign is made up of 16 contracts running to at least four hours.',
+          'Current official launch messaging says the introductory campaign covers 16 missions and runs to at least four hours.',
       },
     ],
   },
@@ -391,7 +397,7 @@ The third mistake is reading the official four-hour campaign estimate as a signa
   'contracts-maps-replayability-guide': {
     title: 'Thick As Thieves Contracts, Maps, and Replayability Guide',
     description:
-      'A factual Thick As Thieves guide to the current 3-map, 16-contract campaign scope, how replayability should be understood before launch, and why the four-hour estimate is not the whole story.',
+      'A factual Thick As Thieves guide to the current 2-map, 16-mission campaign scope, how replayability should be understood before launch, and why the four-hour estimate is not the whole story.',
     lastUpdated,
     timeToRead: '12 min',
     primaryKeyword: 'thick as thieves contracts',
@@ -401,7 +407,7 @@ The third mistake is reading the official four-hour campaign estimate as a signa
     heroImageAlt: 'Thick As Thieves contracts guide key art',
     sections: [
       { title: 'Current Campaign Scope', id: 'current-campaign-scope' },
-      { title: 'What 3 Maps and 16 Contracts Really Suggest', id: 'what-3-maps-and-16-contracts-really-suggest' },
+      { title: 'What 2 Maps and 16 Missions Really Suggest', id: 'what-2-maps-and-16-missions-really-suggest' },
       { title: 'How Replayability Should Be Read', id: 'how-replayability-should-be-read' },
       { title: 'What Needs Live Testing', id: 'what-needs-live-testing' },
     ],
@@ -411,7 +417,7 @@ The third mistake is reading the official four-hour campaign estimate as a signa
         alt: 'Thick As Thieves urban skyline screenshot for campaign scope',
         caption: 'Current official messaging sets expectations around a contained introductory campaign, not an endless launch package.',
       },
-      'what-3-maps-and-16-contracts-really-suggest': {
+      'what-2-maps-and-16-missions-really-suggest': {
         image: shot(5),
         alt: 'Thick As Thieves mission screenshot for map and contract structure',
         caption: 'A small number of maps can still support a lot of stealth variation if contracts remix goals and routes well.',
@@ -431,21 +437,21 @@ The third mistake is reading the official four-hour campaign estimate as a signa
     content: `
 ## Current Campaign Scope
 
-The most useful official scope statement right now comes from Megabit's release messaging: Thick As Thieves launches with an introductory campaign built around 3 maps, 16 contracts, and 6 unique pieces of gear, with a runtime of at least four hours. That is unusually concrete language for a pre-release page, and it should be surfaced clearly because it helps readers set the right expectations before spending money or planning co-op time.
+The most useful official scope statement right now comes from Megabit's release messaging: Thick As Thieves launches with an introductory campaign built around 2 dynamic replayable maps, 16 missions, and 6 pieces of gear, with a runtime of at least four hours. That is unusually concrete language for a pre-release page, and it should be surfaced clearly because it helps readers set the right expectations before spending money or planning co-op time.
 
 | Scope item | Current public answer | Verification status |
 | --- | --- | --- |
-| Maps | 3 | Official |
-| Contracts | 16 | Official |
-| Gear pieces | 6 unique pieces | Official |
+| Maps | 2 dynamic replayable maps | Official |
+| Missions | 16 | Official |
+| Gear pieces | 6 pieces | Official |
 | Campaign length | At least 4 hours | Official |
 | Long-term content cadence | No fixed release schedule announced | Official |
 
 This makes Thick As Thieves easier to position honestly than many unreleased games. It is not promising a giant open world. It is promising a tighter stealth campaign that aims to get replay value out of contract structure and route variation.
 
-## What 3 Maps and 16 Contracts Really Suggest
+## What 2 Maps and 16 Missions Really Suggest
 
-Three maps does not automatically mean low content value. In stealth design, dense spaces are often better than a large number of shallow spaces. If one map supports multiple entries, timing windows, patrol states, and objective layouts, it can stay interesting far longer than a one-and-done corridor level. Sixteen contracts also suggests that the game is not asking players to clear each map once and move on forever. The likely structure is repeated returns under different objectives, risk levels, or route demands.
+Two maps does not automatically mean low content value. In stealth design, dense spaces are often better than a large number of shallow spaces. If one map supports multiple entries, timing windows, patrol states, and objective layouts, it can stay interesting far longer than a one-and-done corridor level. Sixteen missions also suggests that the game is not asking players to clear each map once and move on forever. The likely structure is repeated returns under different objectives, risk levels, or route demands.
 
 That is also why the wrong coverage angle would be to dismiss the game as short without context. A four-hour first-clear estimate tells you about scope, not necessarily about replay depth. What matters at launch is whether contracts truly change your decision-making or simply send you back through the same route with a new label. That answer needs hands-on testing, but the current structure at least points toward deliberate replayability rather than filler length.
 
@@ -457,18 +463,18 @@ For pre-release readers, the best way to use the current scope is to decide whet
 
 ## What Needs Live Testing
 
-There are four big launch-day checks for this page. First, verify whether contract objectives actually remix the 3 maps meaningfully. Second, see whether higher-difficulty or later-game pressure changes route logic instead of only raising punishment. Third, test whether co-op creates new tactical value or mostly duplicates solo movement. Fourth, confirm whether gear progression opens genuinely new approaches across repeated contracts.
+There are four big launch-day checks for this page. First, verify whether mission objectives actually remix the 2 maps meaningfully. Second, see whether higher-difficulty or later-game pressure changes route logic instead of only raising punishment. Third, test whether co-op creates new tactical value or mostly duplicates solo movement. Fourth, confirm whether gear progression opens genuinely new approaches across repeated runs.
 
-Until those checks are done, the page should stay grounded: 3 maps, 16 contracts, at least 4 hours, strong replayability claims, and no invented numbers beyond that. That gives readers a usable expectation without overselling what has not been proven yet.
+Until those checks are done, the page should stay grounded: 2 maps, 16 missions, at least 4 hours, strong replayability claims, and no invented numbers beyond that. That gives readers a usable expectation without overselling what has not been proven yet.
 `,
     faqs: [
       {
         question: 'How many maps are in Thick As Thieves?',
-        answer: 'Current official release messaging says Thick As Thieves launches with 3 maps.',
+        answer: 'Current official release messaging says Thick As Thieves launches with 2 dynamic replayable maps.',
       },
       {
-        question: 'How many contracts are in Thick As Thieves?',
-        answer: 'Current official release messaging says the introductory campaign includes 16 contracts.',
+        question: 'How many missions are in Thick As Thieves?',
+        answer: 'Current official release messaging says the introductory campaign includes 16 missions.',
       },
       {
         question: 'How long is Thick As Thieves?',
@@ -525,7 +531,7 @@ Until those checks are done, the page should stay grounded: 3 maps, 16 contracts
     content: `
 ## What Is Confirmed About Gear
 
-The official release messaging says Thick As Thieves launches with 6 unique pieces of gear, and the official FAQ says players progress through the Thieves Guild, complete contracts, and unlock new gear on the road to becoming a Master Thief. That is enough to support a real guide, but not enough to support fake wikis full of made-up item names, upgrade tiers, and costs. The right approach is to separate confirmed structure from unverified specifics.
+The official release messaging says Thick As Thieves launches with 6 pieces of gear, and the official FAQ says players progress through the Thieves Guild, complete contracts, and unlock new gear on the road to becoming a Master Thief. That is enough to support a real guide, but not enough to support fake wikis full of made-up item names, upgrade tiers, and costs. The right approach is to separate confirmed structure from unverified specifics.
 
 | Gear question | Current answer | Verification status |
 | --- | --- | --- |
@@ -553,12 +559,12 @@ The safest public recommendation is to spend early unlocks on tools that widen y
 
 The live build needs to answer five things quickly. Which gear pieces are available earliest? Which pieces are shared across solo and co-op progression? Which tools actually open new routes versus simply smooth mistakes? Are there cooldowns or hard-use limits that change how often a tool can carry a run? And how much does gear interact with difficulty settings or higher-pressure contracts?
 
-Once those answers are tested, this page can become a true upgrade route guide. Before then, the honest version is still valuable: 6 unique pieces of gear are officially announced, progression is contract-driven, and beginners should prioritize loadouts that improve information and recovery before pure style.
+Once those answers are tested, this page can become a true upgrade route guide. Before then, the honest version is still valuable: 6 pieces of gear are officially announced, progression is contract-driven, and beginners should prioritize loadouts that improve information and recovery before pure style.
 `,
     faqs: [
       {
         question: 'How many gear pieces are announced for Thick As Thieves?',
-        answer: 'Current official release messaging says the launch build includes 6 unique pieces of gear.',
+        answer: 'Current official release messaging says the launch build includes 6 pieces of gear.',
       },
       {
         question: 'How do you unlock gear in Thick As Thieves?',
@@ -870,17 +876,18 @@ export const thickAsThievesHubContent = {
 This hub exists to fix the exact kinds of problems that usually show up around stealth games before release: outdated PvPvE summaries, fake console launch claims, invented roadmap promises, and made-up gear pages. The useful work right now is to separate what Steam and the official FAQ already confirm from what still needs real launch-day testing.`,
   features: [
     'Steam currently lists release date: May 20, 2026',
+    'Official launch pricing is $4.99 / EUR4.99 / GBP4.99',
     'PC launch through Steam',
     'Playable solo or in online co-op with a partner',
-    'Official launch messaging says 3 maps and 16 contracts',
-    'Official launch messaging says 6 unique pieces of gear',
+    'Official launch messaging says 2 dynamic replayable maps and 16 missions',
+    'Official launch messaging says 6 pieces of gear',
     'Official FAQ says the campaign runs at least 4 hours and is built for replayability',
     'Official FAQ says it is not a live service game',
   ],
   guides: thickAsThievesGuides,
   tips: [
     'Start with release facts and mode setup before reading any old PvPvE-era coverage.',
-    'Treat the 4-hour estimate as campaign scope, not a full value verdict.',
+    'Read launch price and scope together instead of judging the game on hour count alone.',
     'Use the co-op page to decide whether your first run should be solo learning or partner coordination.',
     'Use the PC page before launch night if your group depends on controller support or cloud saves.',
     'Keep launch-day questions focused on session flow, route variety, and real gear utility.',
@@ -901,7 +908,7 @@ This hub exists to fix the exact kinds of problems that usually show up around s
     {
       question: 'How big is the launch campaign?',
       answer:
-        'The current public scope is 3 maps, 16 contracts, 6 unique gear pieces, and at least 4 hours of campaign runtime.',
+        'The current public scope is 2 dynamic replayable maps, 16 missions, 6 pieces of gear, and at least 4 hours of campaign runtime.',
     },
   ],
 };

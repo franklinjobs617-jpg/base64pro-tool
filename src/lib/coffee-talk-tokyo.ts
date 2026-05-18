@@ -124,6 +124,8 @@ export const coffeeTalkTokyoGuideContent: Record<string, CoffeeTalkTokyoGuide> =
 
 Coffee Talk Tokyo is currently set to release on ${coffeeTalkTokyoFacts.displayReleaseDate}. Steam lists the game under app ID ${coffeeTalkTokyoFacts.steamId}, while Chorus Worldwide's official page and the PlayStation Store both align around the same May 21, 2026 timing. The game is developed by ${coffeeTalkTokyoFacts.developer} and published by ${coffeeTalkTokyoFacts.publisher}. The safest user-facing summary is that Coffee Talk Tokyo is a story-rich late-night cafe game with conversation choices, drink making, Tomodachill social posts, and new stencil-based latte presentation.
 
+Some readers are still landing on older March 5, 2026 posts or cached announcement coverage. The current official date to trust is May 21, 2026. That is the date reflected across the live official page and current storefront coverage, so this guide should treat May 21 as the canonical launch date unless those official sources change again.
+
 ${prereleaseNote}
 
 | Item | Current answer | Verification status |
@@ -181,6 +183,11 @@ That makes this a better guide, not a weaker one. A pre-release page earns trust
         question: 'What is in the Deluxe Edition?',
         answer:
           'The PS5 Deluxe listing currently names a Seattle Prologue Chapter, 10 additional in-game City Pop tracks, and a digital artbook.',
+      },
+      {
+        question: 'Was Coffee Talk Tokyo delayed?',
+        answer:
+          'Some older coverage still shows March 5, 2026, but the current official launch date used by the live official page and storefront coverage is May 21, 2026.',
       },
     ],
   },
@@ -920,6 +927,7 @@ export const coffeeTalkTokyoHubContent = {
 This hub is built for pre-release trust. It answers the high-intent questions readers actually have before launch: release date, demo scope, edition differences, beginner reading strategy, drink-system changes, and the cast you can safely discuss today.`,
   features: [
     'Official release date: May 21, 2026',
+    'Ignore older March 5, 2026 posts; current official date is May 21, 2026',
     'Confirmed platforms: PC, PS5, Xbox Series X|S, and Nintendo Switch',
     'Official demo covers the full Day 1 and the early part of Day 2',
     'Tomodachill now has expanded features including clickable hashtags',
@@ -930,6 +938,7 @@ This hub is built for pre-release trust. It answers the high-intent questions re
   guides: coffeeTalkTokyoGuides,
   tips: [
     'Start with release date and demo scope if you are deciding whether to buy now or wait.',
+    'If you still see March 5 in search results or old posts, use the release-date page first to clear that up.',
     'Use the beginner, Tomodachill, and stencil pages if you care more about experience quality than raw completion.',
     'Treat any page promising all recipes or all endings before launch as low-trust until it shows tested evidence.',
     'Check Deluxe only if bonus story content or extra soundtrack value matters to you.',
@@ -939,6 +948,11 @@ This hub is built for pre-release trust. It answers the high-intent questions re
     {
       question: 'When does Coffee Talk Tokyo release?',
       answer: 'Coffee Talk Tokyo is currently scheduled for May 21, 2026.',
+    },
+    {
+      question: 'Why do some pages still show March 5, 2026?',
+      answer:
+        'That is older date coverage. The current official date used by the live official page and storefront coverage is May 21, 2026.',
     },
     {
       question: 'How much of Coffee Talk Tokyo is in the demo?',
