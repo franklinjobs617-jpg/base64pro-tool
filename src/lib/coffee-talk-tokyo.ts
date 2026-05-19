@@ -36,9 +36,9 @@ export interface CoffeeTalkTokyoGuide {
 }
 
 const lastUpdated = '2026-05-16';
-const hero = '/games/coffee-talk-tokyo/hero.jpg';
+const hero = '/games/coffee-talk-tokyo/hero.webp';
 const shot = (index: number) =>
-  `/games/coffee-talk-tokyo/screenshots/coffee-talk-tokyo-screenshot-${index}.jpg`;
+  `/games/coffee-talk-tokyo/screenshots/coffee-talk-tokyo-screenshot-${index}.webp`;
 
 const videos = {
   reveal: {

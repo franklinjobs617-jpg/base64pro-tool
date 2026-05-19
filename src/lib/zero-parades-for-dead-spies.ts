@@ -38,8 +38,7 @@ export interface ZeroParadesGuide {
 const lastUpdated = '2026-05-19';
 const base = '/games/zero-parades-for-dead-spies';
 const hero = `${base}/hero.webp`;
-const shot = (index: number) => `${base}/screenshots/zero-parades-screenshot-${index}.jpg`;
-const shotPng = (index: number) => `${base}/screenshots/zero-parades-screenshot-${index}.png`;
+const shot = (index: number) => `${base}/screenshots/zero-parades-screenshot-${index}.webp`;
 
 const videos = {
   release: {
@@ -184,7 +183,7 @@ Sources checked: the official ZERO PARADES press page, Steam store page, Epic Ga
     primaryKeyword: 'is ZERO PARADES like Disco Elysium',
     spoilerLevel: 'safe',
     verificationStatus: 'Preview-reported',
-    heroImage: `${base}/card.jpg`,
+    heroImage: `${base}/card.webp`,
     heroImageAlt: 'ZERO PARADES: For Dead Spies comparison guide key art',
     sections: [
       { title: 'Short Answer For Disco Elysium Fans', id: 'short-answer-for-disco-elysium-fans' },
@@ -271,7 +270,7 @@ The launch-week update should answer the real comparison questions: whether the 
     primaryKeyword: 'ZERO PARADES gameplay',
     spoilerLevel: 'safe',
     verificationStatus: 'Official',
-    heroImage: `${base}/homepage-feature.jpg`,
+    heroImage: `${base}/homepage-feature.webp`,
     heroImageAlt: 'ZERO PARADES: For Dead Spies gameplay systems guide image',
     sections: [
       { title: 'What Kind Of RPG Is It', id: 'what-kind-of-rpg-is-it' },
@@ -296,7 +295,7 @@ The launch-week update should answer the real comparison questions: whether the 
         caption: 'Tactical View is described as a pause-and-read layer for encounter decisions.',
       },
       'pressure-exertion-and-failure': {
-        image: `${base}/screenshots/zero-parades-screenshot-12.jpeg`,
+        image: `${base}/screenshots/zero-parades-screenshot-12.webp`,
         alt: 'ZERO PARADES - RPG game pressure exertion and failure screenshot',
         caption: 'Fatigue, Anxiety, and Delirium are named pressure states in public materials.',
       },
@@ -371,17 +370,17 @@ After release, this page should become a practical guide: when to exert, which p
         caption: 'Day-one confidence depends on whether you value writing and role-playing over solved routes.',
       },
       'buy-now-if-these-are-your-priorities': {
-        image: shotPng(14),
+        image: shot(14),
         alt: 'ZERO PARADES - RPG game buy now priority screenshot',
         caption: 'Narrative RPG players have the strongest reason to pay attention at launch.',
       },
       'wait-if-these-questions-matter': {
-        image: shotPng(15),
+        image: shot(15),
         alt: 'ZERO PARADES - RPG game wait for reviews screenshot',
         caption: 'Performance, accessibility, and route clarity need evidence from the live build.',
       },
       'launch-week-update-plan': {
-        image: shotPng(16),
+        image: shot(16),
         alt: 'ZERO PARADES - RPG game launch week update plan screenshot',
         caption: 'The page should convert into hands-on advice after May 21, not stay as pre-release copy.',
       },

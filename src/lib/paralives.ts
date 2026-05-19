@@ -33,9 +33,9 @@ export interface ParalivesGuide {
 }
 
 const lastUpdated = '2026-05-18';
-const hero = '/games/paralives/hero.jpg';
+const hero = '/games/paralives/hero.webp';
 const shot = (index: number) =>
-  `/games/paralives/screenshots/paralives-screenshot-${index}.jpg`;
+  `/games/paralives/screenshots/paralives-screenshot-${index}.webp`;
 
 const prereleaseNote =
   'This is a pre-release guide set. It uses the current Steam store page, the official Paralives FAQ, and live official messaging checked on May 18, 2026. Exact performance, final save behavior, bug level, full feature depth, and first-week balance need hands-on verification after Early Access starts.';

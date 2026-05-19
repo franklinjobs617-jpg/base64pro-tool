@@ -35,9 +35,9 @@ export interface ProjectMistGuide {
 }
 
 const lastUpdated = '2026-05-19';
-const hero = '/games/project-mist/hero.jpg';
+const hero = '/games/project-mist/hero.webp';
 const shot = (index: number) =>
-  `/games/project-mist/screenshots/project-mist-screenshot-${index}.jpg`;
+  `/games/project-mist/screenshots/project-mist-screenshot-${index}.webp`;
 
 const videos = {
   releaseDate: {

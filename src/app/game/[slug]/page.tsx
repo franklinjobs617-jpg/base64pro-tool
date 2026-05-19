@@ -513,37 +513,37 @@ const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
       imageAlt: 'Project: Mist - Survival game creatures guide screenshot',
     },
     'crafting-gear-upgrades-guide': {
-      image: '/games/project-mist/homepage/crafting-gear-upgrades-guide.png',
+      image: '/games/project-mist/homepage/crafting-gear-upgrades-guide.webp',
       imageAlt: 'Project: Mist - Survival game crafting gear upgrades guide screenshot',
     },
     'map-facilities-guide': {
-      image: '/games/project-mist/homepage/map-facilities-guide.jpg',
+      image: '/games/project-mist/homepage/map-facilities-guide.webp',
       imageAlt: 'Project: Mist - Survival game map and facilities guide screenshot',
     },
   },
   paralives: {
     'release-date-early-access-guide': {
-      image: '/games/paralives/homepage/release-date-early-access-guide.jpg',
+      image: '/games/paralives/homepage/release-date-early-access-guide.webp',
       imageAlt: 'Paralives - Simulation game release date and Early Access guide screenshot',
     },
     'price-platforms-mac-guide': {
-      image: '/games/paralives/homepage/price-platforms-mac-guide.jpg',
+      image: '/games/paralives/homepage/price-platforms-mac-guide.webp',
       imageAlt: 'Paralives - Simulation game price platforms and Mac guide screenshot',
     },
     'early-access-roadmap-guide': {
-      image: '/games/paralives/homepage/early-access-roadmap-guide.jpg',
+      image: '/games/paralives/homepage/early-access-roadmap-guide.webp',
       imageAlt: 'Paralives - Simulation game Early Access roadmap guide screenshot',
     },
     'build-mode-paramaker-guide': {
-      image: '/games/paralives/homepage/build-mode-paramaker-guide.jpg',
+      image: '/games/paralives/homepage/build-mode-paramaker-guide.webp',
       imageAlt: 'Paralives - Simulation game build mode and Paramaker guide screenshot',
     },
     'mods-workshop-guide': {
-      image: '/games/paralives/homepage/mods-workshop-guide.jpg',
+      image: '/games/paralives/homepage/mods-workshop-guide.webp',
       imageAlt: 'Paralives - Simulation game mods and Steam Workshop guide screenshot',
     },
     'pets-cars-town-tools-guide': {
-      image: '/games/paralives/homepage/pets-cars-town-tools-guide.jpg',
+      image: '/games/paralives/homepage/pets-cars-town-tools-guide.webp',
       imageAlt: 'Paralives - Simulation game pets cars and town tools guide screenshot',
     },
   },
@@ -635,35 +635,35 @@ const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
   },
   '007-first-light': {
     'release-date-platforms-guide': {
-      image: '/games/007-first-light/homepage/release-date-platforms-guide.jpg',
+      image: '/games/007-first-light/homepage/release-date-platforms-guide.webp',
       imageAlt: '007 First Light - Action Adventure game release date and platforms guide screenshot',
     },
     'preorder-editions-guide': {
-      image: '/games/007-first-light/homepage/preorder-editions-guide.jpg',
+      image: '/games/007-first-light/homepage/preorder-editions-guide.webp',
       imageAlt: '007 First Light - Action Adventure game preorder editions guide screenshot',
     },
     'beginner-spycraft-guide': {
-      image: '/games/007-first-light/homepage/beginner-spycraft-guide.jpg',
+      image: '/games/007-first-light/homepage/beginner-spycraft-guide.webp',
       imageAlt: '007 First Light - Action Adventure game beginner spycraft guide screenshot',
     },
     'stealth-vs-action-guide': {
-      image: '/games/007-first-light/homepage/stealth-vs-action-guide.jpg',
+      image: '/games/007-first-light/homepage/stealth-vs-action-guide.webp',
       imageAlt: '007 First Light - Action Adventure game stealth versus action guide screenshot',
     },
     'gadgets-guide': {
-      image: '/games/007-first-light/homepage/gadgets-guide.jpg',
+      image: '/games/007-first-light/homepage/gadgets-guide.webp',
       imageAlt: '007 First Light - Action Adventure game gadgets guide screenshot',
     },
     'locations-missions-guide': {
-      image: '/games/007-first-light/homepage/locations-missions-guide.jpg',
+      image: '/games/007-first-light/homepage/locations-missions-guide.webp',
       imageAlt: '007 First Light - Action Adventure game locations missions guide screenshot',
     },
     'pc-specs-performance-guide': {
-      image: '/games/007-first-light/homepage/pc-specs-performance-guide.jpg',
+      image: '/games/007-first-light/homepage/pc-specs-performance-guide.webp',
       imageAlt: '007 First Light - Action Adventure game PC specs performance guide screenshot',
     },
     'cast-story-guide': {
-      image: '/games/007-first-light/homepage/cast-story-guide.jpg',
+      image: '/games/007-first-light/homepage/cast-story-guide.webp',
       imageAlt: '007 First Light - Action Adventure game cast story guide screenshot',
     },
   },
@@ -1181,7 +1181,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/directive-8020/hero.jpg"
+        heroImage="/games/directive-8020/hero.webp"
         heroImageAlt="Directive 8020 Cassiopeia sci-fi horror key art"
         heroBadges={[
           { label: 'Released hub', tone: 'success' },
@@ -1291,7 +1291,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/project-mist/hero.jpg"
+        heroImage="/games/project-mist/hero.webp"
         heroImageAlt="Project: Mist island survival horror key art"
         heroBadges={[
           { label: 'Launch-day guide hub', tone: 'accent' },
@@ -1507,7 +1507,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/paralives/hero.jpg"
+        heroImage="/games/paralives/hero.webp"
         heroImageAlt="Paralives life simulation key art"
         heroBadges={[
           { label: 'Pre-release guide hub', tone: 'accent' },
@@ -1715,7 +1715,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/thick-as-thieves/hero.jpg"
+        heroImage="/games/thick-as-thieves/hero.webp"
         heroImageAlt="Thick As Thieves key art"
         heroBadges={[
           { label: 'Pre-release guide hub', tone: 'accent' },
@@ -1816,7 +1816,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/coffee-talk-tokyo/hero.jpg"
+        heroImage="/games/coffee-talk-tokyo/hero.webp"
         heroImageAlt="Coffee Talk Tokyo key art"
         heroBadges={[
           { label: 'Pre-release guide hub', tone: 'accent' },
@@ -1936,7 +1936,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <GameHubPortalPage
         breadcrumbs={breadcrumbs}
         jsonLd={jsonLd}
-        heroImage="/games/007-first-light/hero.jpg"
+        heroImage="/games/007-first-light/hero.webp"
         heroImageAlt="007 First Light young James Bond key art"
         heroBadges={[
           { label: 'Pre-release guide hub', tone: 'accent' },
@@ -1997,7 +1997,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <section className="mb-8 -mx-4 sm:mx-0">
         <div className="relative aspect-video sm:rounded-xl overflow-hidden bg-muted">
           <Image
-            src={`/games/${game.slug}/hero.jpg`}
+            src={`/games/${game.slug}/hero.webp`}
             alt={`${game.name} - ${game.tags.slice(0, 2).join(' ')} game guide and walkthrough`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
@@ -2235,7 +2235,7 @@ export default async function GamePage({ params }: GamePageProps) {
                   >
                     <div className="relative w-12 h-12 rounded overflow-hidden bg-muted">
                       <Image
-                        src={`/games/${relatedGame.slug}/hero.jpg`}
+                        src={`/games/${relatedGame.slug}/hero.webp`}
                         alt={`${relatedGame.name} game cover`}
                         fill
                         className="object-cover"

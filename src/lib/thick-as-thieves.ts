@@ -35,9 +35,9 @@ export interface ThickAsThievesGuide {
 }
 
 const lastUpdated = '2026-05-16';
-const hero = '/games/thick-as-thieves/hero.jpg';
+const hero = '/games/thick-as-thieves/hero.webp';
 const shot = (index: number) =>
-  `/games/thick-as-thieves/screenshots/thick-as-thieves-screenshot-${index}.jpg`;
+  `/games/thick-as-thieves/screenshots/thick-as-thieves-screenshot-${index}.webp`;
 
 const videos = {
   welcome: {

@@ -35,9 +35,9 @@ export interface Directive8020Guide {
 }
 
 const lastUpdated = '2026-05-15';
-const hero = '/games/directive-8020/hero.jpg';
+const hero = '/games/directive-8020/hero.webp';
 const shot = (index: number) =>
-  `/games/directive-8020/screenshots/directive-8020-screenshot-${index}.jpg`;
+  `/games/directive-8020/screenshots/directive-8020-screenshot-${index}.webp`;
 
 const videos = {
   officialLaunch: {

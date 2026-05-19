@@ -36,9 +36,9 @@ export interface FirstLight007Guide {
 }
 
 const lastUpdated = '2026-05-16';
-const hero = '/games/007-first-light/hero.jpg';
+const hero = '/games/007-first-light/hero.webp';
 const shot = (index: number) =>
-  `/games/007-first-light/screenshots/007-first-light-screenshot-${index}.jpg`;
+  `/games/007-first-light/screenshots/007-first-light-screenshot-${index}.webp`;
 
 const videos = {
   gameplay: {

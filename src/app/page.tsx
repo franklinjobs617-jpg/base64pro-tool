@@ -71,14 +71,14 @@ const storeUrlBySlug = {
 } as const;
 
 const homepageImageBySlug = {
-  'directive-8020': '/games/directive-8020/homepage-feature.png',
-  'project-mist': '/games/project-mist/homepage-feature.png',
-  paralives: '/games/paralives/homepage-feature.jpg',
+  'directive-8020': '/games/directive-8020/homepage-feature.webp',
+  'project-mist': '/games/project-mist/homepage-feature.webp',
+  paralives: '/games/paralives/homepage-feature.webp',
   'farming-simulator-26': '/games/farming-simulator-26/homepage-feature.webp',
-  'thick-as-thieves': '/games/thick-as-thieves/homepage-feature.png',
-  'coffee-talk-tokyo': '/games/coffee-talk-tokyo/homepage-feature.png',
-  '007-first-light': '/games/007-first-light/homepage-feature.png',
-  'zero-parades-for-dead-spies': '/games/zero-parades-for-dead-spies/homepage-feature.jpg',
+  'thick-as-thieves': '/games/thick-as-thieves/homepage-feature.webp',
+  'coffee-talk-tokyo': '/games/coffee-talk-tokyo/homepage-feature.webp',
+  '007-first-light': '/games/007-first-light/homepage-feature.webp',
+  'zero-parades-for-dead-spies': '/games/zero-parades-for-dead-spies/homepage-feature.webp',
 } as const;
 
 const heroPriority = [
