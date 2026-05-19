@@ -6,7 +6,7 @@ import { Gamepad2, Users, Zap, Target, Heart, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us | Base64Pro - Your Gaming Guides Hub',
-  description: 'Base64Pro is your ultimate destination for gaming guides, walkthroughs, and wiki content. We help players discover, explore, and master their favorite games with comprehensive guides crafted by passionate gamers.',
+  description: 'Base64Pro is a gaming guides hub focused on launch-week facts, walkthroughs, and player-first answer pages built from verified sources, public gameplay, and hands-on updates when live builds are available.',
   keywords: 'about Base64Pro, gaming guides, game walkthroughs, gaming wiki, game strategy guides',
   openGraph: {
     title: 'About Us | Base64Pro',
@@ -68,14 +68,14 @@ export default function AboutPage() {
               <Zap className="h-10 w-10 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Fast &amp; Accurate Content</h3>
               <p className="text-muted-foreground">
-                When a game launches, we&apos;re already there. Our guides go live before or at release, so you&apos;re never left searching for answers.
+                When a game launches, we try to have the first useful pages ready: release facts, buying checks, first steps, and the questions players usually ask first.
               </p>
             </div>
             <div className="bg-card border rounded-xl p-6 hover:shadow-lg transition-shadow">
               <Heart className="h-10 w-10 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Written by Players</h3>
               <p className="text-muted-foreground">
-                Every guide is crafted by someone who actually played the game. No AI-generated fluff — just real insights from real gamers.
+                We separate verified storefront facts, public gameplay evidence, community questions, and hands-on testing so readers can see what is known now and what still needs live confirmation.
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-semibold text-lg mb-2">We Play First, Write Second</h3>
                 <p className="text-muted-foreground">
-                  Every guide is based on actual gameplay. We don&apos;t just regurgitate information — we verify everything through hands-on experience.
+                  When a live build is available, we update guides from actual play. Before release, we keep pages narrow and source-backed instead of pretending the full game has already been solved.
                 </p>
               </div>
               <div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
         <section className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Currently Covering</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Directive 8020', 'Project: Mist', 'Thick As Thieves', 'Coffee Talk Tokyo', '007 First Light'].map((game) => (
+            {['Directive 8020', 'Project: Mist', 'ZERO PARADES: For Dead Spies', 'Paralives', 'Farming Simulator 26', 'Thick As Thieves', 'Coffee Talk Tokyo', '007 First Light'].map((game) => (
               <Link 
                 key={game} 
                 href={`/game/${game.toLowerCase().replace(/[:'\s]+/g, '-').replace(/-+/g, '-')}`}

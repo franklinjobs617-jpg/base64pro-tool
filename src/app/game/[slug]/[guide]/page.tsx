@@ -10,6 +10,7 @@ import { farmingSimulator26GuideContent } from "@/lib/farming-simulator-26";
 import { firstLight007GuideContent } from "@/lib/first-light-007";
 import { coffeeTalkTokyoGuideContent } from "@/lib/coffee-talk-tokyo";
 import { thickAsThievesGuideContent } from "@/lib/thick-as-thieves";
+import { zeroParadesGuideContent } from "@/lib/zero-parades-for-dead-spies";
 import { buildGuideMetadata } from "@/lib/seo";
 
 interface GuidePageProps {
@@ -1242,6 +1243,7 @@ const guideContent: Record<string, Record<string, GuideContentItem>> = {
   "thick-as-thieves": thickAsThievesGuideContent,
   "coffee-talk-tokyo": coffeeTalkTokyoGuideContent,
   "007-first-light": firstLight007GuideContent,
+  "zero-parades-for-dead-spies": zeroParadesGuideContent,
 };
 
 // Generate static paths for all guides
@@ -1321,8 +1323,22 @@ export default async function GuidePage({ params }: GuidePageProps) {
         "@type": "Article",
         headline: content.title,
         description: content.description,
+        datePublished: content.lastUpdated,
         dateModified: content.lastUpdated,
         mainEntityOfPage: pageUrl,
+        inLanguage: "en",
+        image: content.heroImage
+          ? `${siteConfig.url}${content.heroImage}`
+          : undefined,
+        author: {
+          "@type": "Organization",
+          name: siteConfig.creator,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: siteConfig.name,
+          url: siteConfig.url,
+        },
         about: {
           "@type": "VideoGame",
           name: game.name,

@@ -1,17 +1,17 @@
-import type { ReactNode } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import type { ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   AlertTriangle,
   ArrowLeft,
   BookOpen,
   CheckCircle2,
   Clock,
-} from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Badge } from '@/components/ui/badge';
-import { Breadcrumbs, type BreadcrumbItem } from '@/components/Breadcrumbs';
+} from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 
 interface GuideSection {
   title: string;
@@ -51,7 +51,7 @@ interface GuidePortalPageProps {
   heroImageAlt?: string;
   title: string;
   description: string;
-  spoilerLevel?: 'safe' | 'spoiler';
+  spoilerLevel?: "safe" | "spoiler";
   verificationStatus?: string;
   timeToRead: string;
   lastUpdated: string;
@@ -64,27 +64,28 @@ interface GuidePortalPageProps {
 }
 
 function getTextContent(node: ReactNode): string {
-  if (typeof node === 'string' || typeof node === 'number') {
+  if (typeof node === "string" || typeof node === "number") {
     return String(node);
   }
 
   if (Array.isArray(node)) {
-    return node.map(getTextContent).join('');
+    return node.map(getTextContent).join("");
   }
 
-  return '';
+  return "";
 }
 
 function findSectionId(sections: GuideSection[], children: ReactNode) {
   const heading = getTextContent(children).trim().toLowerCase();
-  return sections.find((section) => section.title.toLowerCase() === heading)?.id;
+  return sections.find((section) => section.title.toLowerCase() === heading)
+    ?.id;
 }
 
 function getYouTubeId(url: string) {
   const match = url.match(
     /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
   );
-  return match?.[1] || '';
+  return match?.[1] || "";
 }
 
 export function GuidePortalPage({
@@ -148,7 +149,7 @@ export function GuidePortalPage({
               </Link>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                {spoilerLevel === 'spoiler' ? (
+                {spoilerLevel === "spoiler" ? (
                   <Badge className="gap-1 rounded-full border border-rose-400/30 bg-rose-400/15 px-3 py-1 text-[11px] text-rose-100 hover:bg-rose-400/15">
                     <AlertTriangle className="h-3.5 w-3.5" />
                     Spoiler guide
@@ -201,8 +202,9 @@ export function GuidePortalPage({
                   Reading flow
                 </p>
                 <p className="mt-3 text-sm leading-7 text-zinc-300">
-                  Use the table of contents to jump by section. Each major section keeps its own
-                  screenshot, table, or answer block in the same reading stream.
+                  Use the table of contents to jump by section. Each major
+                  section keeps its own screenshot, table, or answer block in
+                  the same reading stream.
                 </p>
               </div>
               {videos.length ? (
@@ -211,8 +213,9 @@ export function GuidePortalPage({
                     Video support
                   </p>
                   <p className="mt-3 text-sm leading-7 text-zinc-300">
-                    {videos.length} embedded YouTube guide{videos.length > 1 ? 's' : ''} are
-                    available below for side-by-side checking against the written route.
+                    {videos.length} embedded YouTube guide
+                    {videos.length > 1 ? "s" : ""} are available below for
+                    side-by-side checking against the written route.
                   </p>
                 </div>
               ) : null}
@@ -223,7 +226,9 @@ export function GuidePortalPage({
         <div className="mt-8 grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
           <aside className="hidden lg:block">
             <div className="sticky top-24 rounded-[28px] border border-white/10 bg-white/[0.04] p-5">
-              <h2 className="text-sm font-medium text-white">Table of Contents</h2>
+              <h2 className="text-sm font-medium text-white">
+                Table of Contents
+              </h2>
               <nav className="mt-4 space-y-2">
                 {sections.map((section) => (
                   <a
@@ -247,15 +252,16 @@ export function GuidePortalPage({
           </aside>
 
           <div className="min-w-0">
-            {spoilerLevel === 'spoiler' ? (
+            {spoilerLevel === "spoiler" ? (
               <section className="mb-6 rounded-[28px] border border-rose-400/25 bg-rose-400/10 p-5 text-rose-50">
                 <div className="flex gap-3">
                   <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
                   <div>
                     <h2 className="text-base font-semibold">Spoiler warning</h2>
                     <p className="mt-2 text-sm leading-7 text-rose-100/90">
-                      This guide discusses route logic, outcome planning, or reveal-heavy sections.
-                      Finish one story run first if you want the surprises intact.
+                      This guide discusses route logic, outcome planning, or
+                      reveal-heavy sections. Finish one story run first if you
+                      want the surprises intact.
                     </p>
                   </div>
                 </div>
@@ -273,7 +279,8 @@ export function GuidePortalPage({
                       YouTube video guides
                     </h2>
                     <p className="mt-2 text-sm leading-7 text-zinc-400 md:hidden">
-                      Swipe sideways to compare videos without losing the main guide.
+                      Swipe sideways to compare videos without losing the main
+                      guide.
                     </p>
                   </div>
                   <Badge className="rounded-full border border-white/10 bg-black/25 text-zinc-200 hover:bg-black/25">
@@ -385,8 +392,12 @@ export function GuidePortalPage({
                       key={faq.question}
                       className="rounded-[28px] border border-white/10 bg-white/[0.04] p-5"
                     >
-                      <h3 className="text-base font-semibold text-white">{faq.question}</h3>
-                      <p className="mt-2 leading-8 text-zinc-400">{faq.answer}</p>
+                      <h3 className="text-base font-semibold text-white">
+                        {faq.question}
+                      </h3>
+                      <p className="mt-2 leading-8 text-zinc-400">
+                        {faq.answer}
+                      </p>
                     </article>
                   ))}
                 </div>
@@ -395,7 +406,7 @@ export function GuidePortalPage({
 
             <section className="mt-8 rounded-[28px] border border-white/10 bg-white/[0.04] p-5">
               <p className="text-sm leading-7 text-zinc-300">
-                Have questions or feedback? Join our community at{' '}
+                Have questions or feedback? Join our community at{" "}
                 <a
                   href="https://www.reddit.com/r/enjoy4game/"
                   target="_blank"
@@ -418,7 +429,11 @@ export function GuidePortalPage({
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {relatedGuides.map((related) => (
-                    <Link key={related.href} href={related.href} className="group">
+                    <Link
+                      key={related.href}
+                      href={related.href}
+                      className="group"
+                    >
                       <article className="h-full rounded-[28px] border border-white/10 bg-white/[0.04] p-5 transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06]">
                         <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-zinc-100">
                           {related.title}

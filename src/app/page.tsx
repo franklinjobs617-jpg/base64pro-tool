@@ -29,6 +29,10 @@ import {
   thickAsThievesFacts,
   thickAsThievesGuideContent,
 } from '@/lib/thick-as-thieves';
+import {
+  zeroParadesFacts,
+  zeroParadesGuideContent,
+} from '@/lib/zero-parades-for-dead-spies';
 import { buildHomeMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildHomeMetadata();
@@ -52,6 +56,7 @@ const platformBySlug = {
   'thick-as-thieves': thickAsThievesFacts.platforms,
   'coffee-talk-tokyo': coffeeTalkTokyoFacts.platforms,
   '007-first-light': firstLight007Facts.platforms,
+  'zero-parades-for-dead-spies': zeroParadesFacts.platforms,
 } as const;
 
 const storeUrlBySlug = {
@@ -62,6 +67,7 @@ const storeUrlBySlug = {
   'thick-as-thieves': thickAsThievesFacts.steamUrl,
   'coffee-talk-tokyo': coffeeTalkTokyoFacts.steamUrl,
   '007-first-light': firstLight007Facts.steamUrl,
+  'zero-parades-for-dead-spies': zeroParadesFacts.steamUrl,
 } as const;
 
 const homepageImageBySlug = {
@@ -72,11 +78,13 @@ const homepageImageBySlug = {
   'thick-as-thieves': '/games/thick-as-thieves/homepage-feature.png',
   'coffee-talk-tokyo': '/games/coffee-talk-tokyo/homepage-feature.png',
   '007-first-light': '/games/007-first-light/homepage-feature.png',
+  'zero-parades-for-dead-spies': '/games/zero-parades-for-dead-spies/homepage-feature.jpg',
 } as const;
 
 const heroPriority = [
   'farming-simulator-26',
   'project-mist',
+  'zero-parades-for-dead-spies',
   'paralives',
   'directive-8020',
   'thick-as-thieves',
@@ -118,6 +126,8 @@ const coffeeTalkDemo = coffeeTalkTokyoGuideContent['demo-length-save-transfer-gu
 const firstLightPreorder = firstLight007GuideContent['preorder-editions-guide'];
 const firstLightPcSpecs = firstLight007GuideContent['pc-specs-performance-guide'];
 const projectMistCoop = projectMistGuideContent['multiplayer-coop-guide'];
+const zeroParadesComparison = zeroParadesGuideContent['is-it-like-disco-elysium-guide'];
+const zeroParadesRelease = zeroParadesGuideContent['release-date-platforms-language-guide'];
 
 const directiveTrophyLead = leadMedia(directiveTrophy);
 const directiveWalkthroughLead = leadMedia(directiveWalkthrough);
@@ -129,8 +139,23 @@ const coffeeTalkDemoLead = leadMedia(coffeeTalkDemo);
 const firstLightPreorderLead = leadMedia(firstLightPreorder);
 const firstLightPcLead = leadMedia(firstLightPcSpecs);
 const projectMistCoopLead = leadMedia(projectMistCoop);
+const zeroParadesComparisonLead = leadMedia(zeroParadesComparison);
+const zeroParadesReleaseLead = leadMedia(zeroParadesRelease);
 
 const popularGuides: HomeGuideCard[] = [
+  {
+    href: '/game/zero-parades-for-dead-spies/is-it-like-disco-elysium-guide',
+    title: 'ZERO PARADES vs Disco Elysium',
+    game: 'ZERO PARADES: For Dead Spies',
+    tag: 'Comparison',
+    description:
+      'A careful pre-release read on what looks familiar, what is different, and why this should not be treated as Disco Elysium 2.',
+    image: zeroParadesComparisonLead.image,
+    imageAlt: zeroParadesComparisonLead.alt,
+    verificationStatus: zeroParadesComparison.verificationStatus,
+    timeToRead: zeroParadesComparison.timeToRead,
+    updatedAt: zeroParadesComparison.lastUpdated,
+  },
   {
     href: '/game/directive-8020/trophy-guide',
     title: 'Directive 8020 Trophy Roadmap',
@@ -226,13 +251,24 @@ const popularGuides: HomeGuideCard[] = [
 
 const recentUpdates: HomeUpdateCard[] = [
   {
+    href: '/game/zero-parades-for-dead-spies/release-date-platforms-language-guide',
+    title: 'ZERO PARADES PC Release Facts',
+    game: 'ZERO PARADES: For Dead Spies',
+    badge: 'May 21',
+    updatedAt: zeroParadesRelease.lastUpdated,
+    description:
+      'PC release timing, Steam/Epic/GOG storefronts, PS5 2026 wording, and the launch checks that still need hands-on verification.',
+    image: zeroParadesReleaseLead.image,
+    imageAlt: zeroParadesReleaseLead.alt,
+  },
+  {
     href: '/game/farming-simulator-26/release-date-platforms-guide',
     title: 'Farming Simulator 26 Release Facts',
     game: 'Farming Simulator 26',
     badge: 'New',
     updatedAt: farmingRelease.lastUpdated,
     description:
-      'Switch and mobile platforms, launch date, and the official feature set before release-day testing starts.',
+      'Switch and mobile platforms, launch date, and the official feature set now that release day is here.',
     image: farmingReleaseLead.image,
     imageAlt: farmingReleaseLead.alt,
   },
@@ -243,7 +279,7 @@ const recentUpdates: HomeUpdateCard[] = [
     badge: 'Updated',
     updatedAt: projectMistCoop.lastUpdated,
     description:
-      'Quick answers for solo play, seamless 1-4 player co-op, and which save behaviors still need launch testing.',
+      'Quick answers for solo play, seamless 1-4 player co-op, and which save behaviors still need live Early Access testing.',
     image: projectMistCoopLead.image,
     imageAlt: projectMistCoopLead.alt,
   },

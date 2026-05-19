@@ -52,6 +52,12 @@ import {
   thickAsThievesGuideOrder,
   thickAsThievesHubContent,
 } from '@/lib/thick-as-thieves';
+import {
+  zeroParadesFacts,
+  zeroParadesGuideContent,
+  zeroParadesGuideOrder,
+  zeroParadesHubContent,
+} from '@/lib/zero-parades-for-dead-spies';
 import { buildGameHubMetadata } from '@/lib/seo';
 
 interface GamePageProps {
@@ -661,6 +667,24 @@ const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
       imageAlt: '007 First Light - Action Adventure game cast story guide screenshot',
     },
   },
+  'zero-parades-for-dead-spies': {
+    'release-date-platforms-language-guide': {
+      image: '/games/zero-parades-for-dead-spies/homepage/release-date-platforms-language-guide.webp',
+      imageAlt: 'ZERO PARADES: For Dead Spies - RPG game release date platforms and language guide screenshot',
+    },
+    'is-it-like-disco-elysium-guide': {
+      image: '/games/zero-parades-for-dead-spies/homepage/is-it-like-disco-elysium-guide.webp',
+      imageAlt: 'ZERO PARADES: For Dead Spies - RPG game Disco Elysium comparison guide screenshot',
+    },
+    'gameplay-skills-encounters-guide': {
+      image: '/games/zero-parades-for-dead-spies/homepage/gameplay-skills-encounters-guide.webp',
+      imageAlt: 'ZERO PARADES: For Dead Spies - RPG game gameplay skills and encounters guide screenshot',
+    },
+    'should-you-buy-guide': {
+      image: '/games/zero-parades-for-dead-spies/homepage/should-you-buy-guide.webp',
+      imageAlt: 'ZERO PARADES: For Dead Spies - RPG game launch buying guide screenshot',
+    },
+  },
 };
 
 function getHubGuideImage(gameSlug: string, guideSlug: string, fallback: HubGuideImage): HubGuideImage {
@@ -859,11 +883,11 @@ function ProjectMistCommunityResearch() {
     },
     {
       id: 'buyer-questions-before-launch',
-      title: 'Price, languages, demo access, and Early Access risk shape buying intent',
+      title: 'Price, languages, demo access, and Early Access risk shape launch-day buying intent',
       image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
       imageAlt: 'Project: Mist - Survival game buyer questions before launch screenshot',
       body:
-        'The strongest buyer-intent questions are about the May 19, 2026 Steam Early Access launch, whether the demo remains available, regional language support, launch price, and whether Chicken Launcher will keep updating the game. Those questions should sit close to release and demo sections, not be buried under generic feature copy.',
+        'The strongest buyer-intent questions are about the May 19, 2026 Steam Early Access release, whether the demo remains available, regional language support, launch price, and whether Chicken Launcher will keep updating the game. Those questions should sit close to release and demo sections, not be buried under generic feature copy.',
     },
   ];
 
@@ -899,13 +923,13 @@ function ProjectMistCommunityResearch() {
     <section id="project-mist-community-research" aria-labelledby="project-mist-community-research-title" className="rounded-[30px] border border-white/8 bg-[#070910] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
       <div className="max-w-3xl">
         <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-300">
-          Research updated May 18, 2026
+          Research updated May 19, 2026
         </p>
         <h2 id="project-mist-community-research-title" className="mt-3 text-3xl font-semibold tracking-tight text-white">
           Project: Mist Community Questions Before Early Access
         </h2>
         <p className="mt-3 text-sm leading-8 text-zinc-300 sm:text-base">
-          This research brief turns Steam community threads, current Steam store facts, and YouTube gameplay coverage into answerable guide topics. Reddit search did not surface a stronger Project: Mist discussion cluster than Steam, so Steam player questions should be treated as the main public feedback source before launch.
+          This research brief turns Steam community threads, current Steam store facts, and YouTube gameplay coverage into answerable guide topics. Reddit search still did not surface a stronger Project: Mist discussion cluster than Steam, so Steam player questions should be treated as the main public feedback source on launch day.
         </p>
       </div>
 
@@ -1003,6 +1027,8 @@ export default async function GamePage({ params }: GamePageProps) {
           ? coffeeTalkTokyoHubContent
         : gameSlug === '007-first-light'
           ? firstLight007HubContent
+        : gameSlug === 'zero-parades-for-dead-spies'
+          ? zeroParadesHubContent
       : gameContent[game.slug] || {
           overview: game.description,
           features: [],
@@ -1038,6 +1064,8 @@ export default async function GamePage({ params }: GamePageProps) {
             ? coffeeTalkTokyoFacts.publisher
           : gameSlug === '007-first-light'
             ? firstLight007Facts.publisher
+          : gameSlug === 'zero-parades-for-dead-spies'
+            ? zeroParadesFacts.publisher
           : siteConfig.name,
     creator:
       gameSlug === 'directive-8020'
@@ -1054,6 +1082,8 @@ export default async function GamePage({ params }: GamePageProps) {
             ? coffeeTalkTokyoFacts.developer
           : gameSlug === '007-first-light'
             ? firstLight007Facts.developer
+          : gameSlug === 'zero-parades-for-dead-spies'
+            ? zeroParadesFacts.developer
           : siteConfig.name,
     applicationCategory: 'Game',
     operatingSystem:
@@ -1065,6 +1095,8 @@ export default async function GamePage({ params }: GamePageProps) {
           ? 'Nintendo Switch, iOS, Android'
         : gameSlug === 'coffee-talk-tokyo'
           ? 'Windows, PlayStation 5, Xbox Series X|S, Nintendo Switch'
+        : gameSlug === 'zero-parades-for-dead-spies'
+          ? 'Windows, PlayStation 5'
         : 'Windows',
     offers: {
       '@type': 'Offer',
@@ -1232,7 +1264,7 @@ export default async function GamePage({ params }: GamePageProps) {
       {
         title: 'Beginner plan',
         href: `/game/${game.slug}/beginner-survival-guide`,
-        body: 'Start with safe scouting, train-base basics, Gravity Gun tests, and pre-launch survival priorities.',
+        body: 'Start with safe scouting, train-base basics, Gravity Gun tests, and the first launch-day survival priorities.',
       },
       {
         title: 'Release facts',
@@ -1248,11 +1280,12 @@ export default async function GamePage({ params }: GamePageProps) {
 
     const answerCards = [
       { label: 'Release date', value: projectMistFacts.displayReleaseDate, status: 'Steam-listed' },
+      { label: 'Store access', value: 'Steam still showed unlock later today at latest check', status: 'Steam-listed' },
       { label: 'Platform', value: projectMistFacts.platforms, status: 'Steam-listed' },
       { label: 'Developer', value: projectMistFacts.developer, status: 'Steam-listed' },
-      { label: 'Co-op', value: 'Solo, multiplayer, co-op, online co-op', status: 'Steam-listed' },
+      { label: 'Co-op', value: 'Solo or seamless 1-4 player co-op', status: 'Steam-listed' },
       { label: 'Train base', value: 'Moving train base is a core feature', status: 'Steam-listed' },
-      { label: 'Final routes', value: 'Map, recipes, and weaknesses need testing', status: 'Needs verification' },
+      { label: 'Live guide gap', value: 'Map routes, recipes, and weaknesses still need testing', status: 'Needs verification' },
     ];
     return (
       <GameHubPortalPage
@@ -1261,12 +1294,12 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/project-mist/hero.jpg"
         heroImageAlt="Project: Mist island survival horror key art"
         heroBadges={[
-          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Launch-day guide hub', tone: 'accent' },
           { label: projectMistFacts.earlyAccess },
           { label: projectMistFacts.displayReleaseDate },
         ]}
         title="Project: Mist Guide Hub"
-        description="Pre-release survival guides for Chicken Launcher's open-world horror game: Gravity Gun testing, moving train base planning, online co-op questions, giant creatures, crafting, and facilities."
+        description="Launch-day survival guides for Chicken Launcher's open-world horror game: Steam unlock status, Gravity Gun testing, moving train base planning, online co-op questions, giant creatures, crafting, and facilities."
         ctas={[
           { label: 'Start Beginner Guide', href: `/game/${game.slug}/beginner-survival-guide` },
           { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide`, variant: 'outline' },
@@ -1274,27 +1307,135 @@ export default async function GamePage({ params }: GamePageProps) {
         ]}
         spotlightCards={[
           { label: 'Launch date', value: projectMistFacts.displayReleaseDate, note: 'Steam currently lists Early Access on May 19, 2026' },
+          { label: 'Current status', value: 'Unlocks later today', note: 'The Steam page still showed the game as unavailable at the latest May 19 check' },
           { label: 'Play style', value: 'Solo or 1-4 co-op', note: 'Current listing supports solo plus seamless online co-op' },
           { label: 'Core hook', value: 'Train base + Gravity Gun', note: 'The train base and object-control tool are the clearest differentiators so far' },
         ]}
         sideNotes={[
           {
             label: 'Verification focus',
-            body: 'Exact map routes, crafting costs, and creature weaknesses should stay provisional until hands-on testing begins.',
+            body: 'Exact map routes, crafting costs, save behavior, and creature weaknesses should stay provisional until the live Early Access build is tested.',
           },
           {
             label: 'Best first click',
-            body: 'Open the first-steps or beginner guide first if you want practical launch prep instead of broad feature summaries.',
+            body: 'Open the release facts page first if you want the current Steam unlock context, then move into first steps and co-op setup.',
           },
         ]}
         startHereTitle="Start here"
         startHereIntro="The best order for opening demo-backed guidance, general survival planning, release facts, and co-op setup."
         startHere={startHere}
-        answerTitle="Pre-release answer center"
+        answerTitle="Launch-day answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
         communityResearch={<ProjectMistCommunityResearch />}
         guideSectionDescription="Screenshot-backed pages with tables, FAQs, and visible verification labels."
+        guideCountLabel={`${guideCards.length} pages`}
+        guideCards={guideCards.map((guide) => ({
+          href: `/game/${game.slug}/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          image: guide.image,
+          imageAlt: guide.imageAlt,
+          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+        }))}
+        routeMapTitle="Route map"
+        tips={content.tips}
+        faq={content.faq}
+      />
+    );
+  }
+
+  if (gameSlug === 'zero-parades-for-dead-spies') {
+    const guideCards = zeroParadesGuideOrder.map((guideSlug) => {
+      const guide = zeroParadesGuideContent[guideSlug];
+      const firstMedia = Object.values(guide.sectionMedia)[0];
+      const guideImage = getHubGuideImage(game.slug, guideSlug, {
+        image: firstMedia?.image || guide.heroImage,
+        imageAlt: firstMedia?.alt || guide.heroImageAlt,
+      });
+
+      return {
+        slug: guideSlug,
+        title: guide.title.replace(/^ZERO PARADES:?\s*/, ''),
+        description: guide.description,
+        image: guideImage.image,
+        imageAlt: guideImage.imageAlt,
+        status: guide.verificationStatus,
+      };
+    });
+
+    const startHere = [
+      {
+        title: 'Release facts',
+        href: `/game/${game.slug}/release-date-platforms-language-guide`,
+        body: 'Start here for the May 21 PC date, Steam/Epic/GOG links, PS5 2026 wording, languages, and PC requirement checks.',
+      },
+      {
+        title: 'Disco comparison',
+        href: `/game/${game.slug}/is-it-like-disco-elysium-guide`,
+        body: 'Use this before assuming ZERO PARADES is Disco Elysium 2 or the same kind of detective RPG.',
+      },
+      {
+        title: 'Gameplay systems',
+        href: `/game/${game.slug}/gameplay-skills-encounters-guide`,
+        body: 'Read the current official explanation of operant skills, Conditioning, Dramatic Encounters, Tactical View, Pressures, and Exertion.',
+      },
+      {
+        title: 'Buy or wait',
+        href: `/game/${game.slug}/should-you-buy-guide`,
+        body: 'Decide whether to buy day one or wait for Steam Deck, user review, PS5, achievement, and performance evidence.',
+      },
+    ];
+
+    const answerCards = [
+      { label: 'PC release', value: zeroParadesFacts.displayReleaseDate, status: 'Official / Steam-listed' },
+      { label: 'PC stores', value: 'Steam, Epic Games Store, and GOG', status: 'Store-listed' },
+      { label: 'PS5', value: 'Planned in 2026', status: 'Press-listed' },
+      { label: 'Developer', value: zeroParadesFacts.developer, status: 'Official' },
+      { label: 'Play mode', value: 'Single-player', status: 'Steam-listed' },
+      { label: 'Best current pages', value: 'Release facts, Disco comparison, systems, buying advice', status: 'Pre-release content plan' },
+    ];
+
+    return (
+      <GameHubPortalPage
+        breadcrumbs={breadcrumbs}
+        jsonLd={jsonLd}
+        heroImage="/games/zero-parades-for-dead-spies/hero.webp"
+        heroImageAlt="ZERO PARADES: For Dead Spies official key art"
+        heroBadges={[
+          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Espionage CRPG' },
+          { label: zeroParadesFacts.displayReleaseDate },
+        ]}
+        title="ZERO PARADES: For Dead Spies Guide Hub"
+        description="Source-backed pre-release guides for ZERO PARADES: release date and platforms, whether it is like Disco Elysium, what skills and Dramatic Encounters promise, and whether you should buy at launch or wait for hands-on reports."
+        ctas={[
+          { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-platforms-language-guide` },
+          { label: 'Disco Elysium Comparison', href: `/game/${game.slug}/is-it-like-disco-elysium-guide`, variant: 'outline' },
+          { label: 'Steam', href: zeroParadesFacts.steamUrl, external: true, variant: 'outline' },
+        ]}
+        spotlightCards={[
+          { label: 'Launch timing', value: 'PC on May 21, 2026', note: 'PS5 is listed separately for 2026, so the date should not be merged across platforms' },
+          { label: 'Core hook', value: 'Espionage CRPG', note: 'Skills, dice rolls, Tactical View, and failure-forward decisions are the useful pre-release hooks' },
+          { label: 'Content stance', value: 'No fake walkthroughs', note: 'Endings, choices, builds, achievements, and routes should wait for the live build' },
+        ]}
+        sideNotes={[
+          {
+            label: 'Source policy',
+            body: 'Facts come from the official press page, Steam, Epic, GOG, and public trailer or preview coverage. Anything that requires a finished playthrough is marked for launch-week verification.',
+          },
+          {
+            label: 'Best first click',
+            body: 'Open the release guide for store facts. Open the Disco comparison if you are coming from Disco Elysium search intent.',
+          },
+        ]}
+        startHereTitle="Start here"
+        startHereIntro="The cleanest four-page path for a game that has strong pre-release demand but no verified full routes yet."
+        startHere={startHere}
+        answerTitle="Pre-release answer center"
+        answerCards={answerCards}
+        overviewParagraphs={content.overview.split('\n\n')}
+        guideSectionDescription="Four source-backed pages with real tables, direct FAQs, unique official images, and visible verification labels. Full walkthrough-style coverage waits until the May 21 PC build can be tested."
         guideCountLabel={`${guideCards.length} pages`}
         guideCards={guideCards.map((guide) => ({
           href: `/game/${game.slug}/${guide.slug}`,
@@ -1409,7 +1550,7 @@ export default async function GamePage({ params }: GamePageProps) {
           description: guide.description,
           image: guide.image,
           imageAlt: guide.imageAlt,
-          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+          badges: [{ label: 'Launch day', tone: 'accent' }, { label: guide.status }],
         }))}
         routeMapTitle="Route map"
         tips={content.tips}
@@ -1476,12 +1617,12 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/farming-simulator-26/hero.webp"
         heroImageAlt="Farming Simulator 26 official key art"
         heroBadges={[
-          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Launch-day guide hub', tone: 'success' },
           { label: 'Switch + mobile' },
           { label: farmingSimulator26Facts.displayReleaseDate },
         ]}
         title="Farming Simulator 26 Guide Hub"
-        description="Pre-release Farming Simulator 26 guides focused on the real buyer questions before launch: release timing, Switch and mobile platforms, maps, crops, animals, machines, challenge structure, and portable-play fit."
+        description="Launch-day Farming Simulator 26 guides focused on the real buyer questions now that release is live: Switch and mobile platforms, maps, crops, animals, machines, challenge structure, and portable-play fit."
         ctas={[
           { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-platforms-guide` },
           { label: 'Maps and Animals', href: `/game/${game.slug}/maps-crops-animals-guide`, variant: 'outline' },
@@ -1495,7 +1636,7 @@ export default async function GamePage({ params }: GamePageProps) {
         sideNotes={[
           {
             label: 'Content policy',
-            body: 'This hub stays narrow on purpose. It answers the public feature set and buying questions without forcing fake walkthrough coverage onto a game that is not live yet.',
+            body: 'This hub stays narrow on purpose. It answers the public feature set and first live-buying questions without forcing fake walkthrough coverage onto a game that just launched.',
           },
           {
             label: 'Best first click',
@@ -1505,7 +1646,7 @@ export default async function GamePage({ params }: GamePageProps) {
         startHereTitle="Start here"
         startHereIntro="The best order for release facts, farm scope, new features, and practical Switch or mobile buying questions."
         startHere={startHere}
-        answerTitle="Pre-release answer center"
+        answerTitle="Launch-day answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
         guideSectionDescription="Focused pages for release facts, maps and animals, machine and challenge details, and Switch or mobile fit without padding the topic cluster."
@@ -1516,7 +1657,7 @@ export default async function GamePage({ params }: GamePageProps) {
           description: guide.description,
           image: guide.image,
           imageAlt: guide.imageAlt,
-          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+          badges: [{ label: 'Launch day', tone: 'success' }, { label: guide.status }],
         }))}
         routeMapTitle="Route map"
         tips={content.tips}

@@ -19,7 +19,7 @@ interface PageSeo {
 export const homeSeo: PageSeo = {
   title: 'Base64Pro - Game Guides, Walkthroughs & Launch Hubs',
   description:
-    'Find release dates, walkthroughs, trophy routes, co-op answers, demo guides, Early Access explainers, and launch-week hubs for Paralives, Farming Simulator 26, Directive 8020, Project: Mist, and more.',
+    'Find release dates, walkthroughs, trophy routes, co-op answers, demo guides, Early Access explainers, and launch-week hubs for ZERO PARADES, Paralives, Project: Mist, and more.',
   keywords: [
     'game guides',
     'walkthroughs',
@@ -28,6 +28,8 @@ export const homeSeo: PageSeo = {
     'Paralives guide',
     'Farming Simulator 26 guide',
     'Project Mist guide',
+    'ZERO PARADES guide',
+    'ZERO PARADES release date',
     'Directive 8020 guide',
     '007 First Light guide',
     'Coffee Talk Tokyo guide',
@@ -53,7 +55,7 @@ export const gameHubSeo: Record<string, PageSeo> = {
   'project-mist': {
     title: 'Project: Mist Guide Hub - Release Date, Co-op & Survival',
     description:
-      'Project: Mist guide hub for the May 19, 2026 Steam Early Access launch, demo facts, co-op questions, Gravity Gun, train base, creatures, crafting, and facilities.',
+      'Project: Mist launch-day guide hub for the May 19, 2026 Steam Early Access release, current Steam unlock status, demo facts, co-op questions, Gravity Gun, train base, creatures, crafting, and facilities.',
     keywords: [
       'Project Mist guide',
       'Project Mist release date',
@@ -81,7 +83,7 @@ export const gameHubSeo: Record<string, PageSeo> = {
   'farming-simulator-26': {
     title: 'Farming Simulator 26 Guide Hub - Switch, Maps & Features',
     description:
-      'Farming Simulator 26 guide hub with release date, Switch and mobile platforms, maps, crops, animals, machine lineup, challenge system, and buying guidance.',
+      'Farming Simulator 26 launch-day guide hub with release date, Switch and mobile platforms, maps, crops, animals, machine lineup, challenge system, and buying guidance.',
     keywords: [
       'Farming Simulator 26 guide',
       'Farming Simulator 26 release date',
@@ -131,6 +133,20 @@ export const gameHubSeo: Record<string, PageSeo> = {
       '007 First Light spycraft',
       '007 First Light PC specs',
       '007 First Light gadgets',
+    ],
+  },
+  'zero-parades-for-dead-spies': {
+    title: 'ZERO PARADES Guide Hub - Release Date, Skills & Buying Advice',
+    description:
+      'ZERO PARADES guide hub with May 21, 2026 PC release facts, Steam/Epic/GOG links, PS5 timing, Disco Elysium comparison, skills, Tactical View, and buying advice.',
+    keywords: [
+      'ZERO PARADES guide',
+      'ZERO PARADES release date',
+      'ZERO PARADES For Dead Spies',
+      'ZERO PARADES Disco Elysium',
+      'ZERO PARADES gameplay',
+      'ZERO PARADES skills',
+      'ZERO PARADES should you buy',
     ],
   },
 };

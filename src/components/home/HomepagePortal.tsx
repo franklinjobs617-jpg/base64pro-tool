@@ -88,13 +88,35 @@ const genreIcons: Record<string, LucideIcon> = {
   Stealth: Target,
   Simulation: Layers3,
   'Visual Novel': Coffee,
+  RPG: BookOpen,
   'Action Adventure': Sparkles,
 };
 
 const statusClasses = {
   released: 'border-emerald-400/30 bg-emerald-400/15 text-emerald-100',
+  'launch-day': 'border-amber-300/30 bg-amber-300/15 text-amber-100',
   upcoming: 'border-sky-400/30 bg-sky-400/15 text-sky-100',
 };
+
+type LaunchPhase = keyof typeof statusClasses;
+
+function launchPhase(game: Pick<HomeGameCard, 'status' | 'releaseDate'>): LaunchPhase {
+  if (game.status === 'released') return 'released';
+
+  const target = new Date(`${game.releaseDate}T00:00:00`);
+  const now = new Date();
+
+  if (Number.isNaN(target.getTime())) return 'upcoming';
+
+  const dayMs = 1000 * 60 * 60 * 24;
+  const diff = now.getTime() - target.getTime();
+
+  if (diff >= 0 && diff < dayMs * 2) {
+    return 'launch-day';
+  }
+
+  return 'upcoming';
+}
 
 function formatReleaseDate(date: string) {
   const parsed = new Date(`${date}T00:00:00Z`);
@@ -137,8 +159,23 @@ function countdownLabel(date: string) {
 }
 
 function statusLabel(game: HomeGameCard) {
-  if (game.status === 'released') return 'Released';
+  const phase = launchPhase(game);
+  if (phase === 'released') return 'Released';
+  if (phase === 'launch-day') return 'Launch day';
   return 'Upcoming';
+}
+
+function storeLabel(game: HomeGameCard) {
+  const phase = launchPhase(game);
+  if (phase === 'upcoming') return 'Wishlist on Steam';
+  return 'View Store Page';
+}
+
+function scheduleLabel(game: HomeGameCard) {
+  const phase = launchPhase(game);
+  if (phase === 'launch-day') return 'Today';
+  if (phase === 'released') return 'Live now';
+  return countdownLabel(game.releaseDate);
 }
 
 export function HomepagePortal({
@@ -176,9 +213,9 @@ export function HomepagePortal({
   }, [activeIndex]);
 
   const activeGame = games[activeIndex];
-  const releasedCount = games.filter((game) => game.status === 'released').length;
+  const releasedCount = games.filter((game) => launchPhase(game) === 'released').length;
   const upcomingCount = games.length - releasedCount;
-  const nextLaunches = games.filter((game) => game.status === 'upcoming');
+  const nextLaunches = games.filter((game) => launchPhase(game) !== 'released');
   const changeFeaturedGame = (direction: -1 | 1) => {
     setActiveIndex((current) => (current + direction + games.length) % games.length);
   };
@@ -207,12 +244,12 @@ export function HomepagePortal({
                 Featured game hub
               </Badge>
               <Badge
-                className={`rounded-full border px-3 py-1 text-[11px] ${statusClasses[activeGame.status]}`}
+                className={`rounded-full border px-3 py-1 text-[11px] ${statusClasses[launchPhase(activeGame)]}`}
               >
                 {statusLabel(activeGame)}
               </Badge>
               <Badge className="rounded-full border border-white/10 bg-black/[0.35] px-3 py-1 text-[11px] text-zinc-200 hover:bg-black/[0.35]">
-                {countdownLabel(activeGame.releaseDate)}
+                {scheduleLabel(activeGame)}
               </Badge>
             </div>
 
@@ -242,7 +279,7 @@ export function HomepagePortal({
                 className="h-11 rounded-full border-white/15 bg-white/[0.06] px-5 text-white hover:bg-white/[0.12] hover:text-white"
               >
                 <Link href={activeGame.storeUrl} target="_blank" rel="noopener noreferrer">
-                  {activeGame.status === 'upcoming' ? 'Wishlist on Steam' : 'View Store Page'}
+                  {storeLabel(activeGame)}
                   <ExternalLink className="h-4 w-4" />
                 </Link>
               </Button>
@@ -363,12 +400,12 @@ export function HomepagePortal({
                 <div className="absolute inset-x-0 bottom-0 p-4">
                   <div className="flex items-center gap-2">
                     <Badge
-                      className={`rounded-full border px-2.5 py-1 text-[10px] ${statusClasses[game.status]}`}
+                      className={`rounded-full border px-2.5 py-1 text-[10px] ${statusClasses[launchPhase(game)]}`}
                     >
                       {statusLabel(game)}
                     </Badge>
                     <span className="text-[11px] uppercase tracking-[0.16em] text-zinc-300">
-                      {countdownLabel(game.releaseDate)}
+                      {scheduleLabel(game)}
                     </span>
                   </div>
                   <h2 className="mt-3 text-lg font-semibold text-white">{game.name}</h2>
@@ -388,10 +425,10 @@ export function HomepagePortal({
           <div className="mb-6">
             <div className="flex items-center gap-2 text-sm font-medium text-violet-300">
               <CalendarDays className="h-4 w-4" />
-              Upcoming / pre-order
+              Launch day / upcoming
             </div>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Upcoming watchlist
+              Launch watchlist
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
               Release date, platform, and the first page to read before launch.
@@ -429,11 +466,13 @@ export function HomepagePortal({
                 <div className="relative flex min-h-[360px] h-full flex-col justify-end p-5 sm:min-h-[400px] sm:p-6">
                   <div className="max-w-[34rem]">
                     <div className="flex flex-wrap items-center gap-2">
-                      <Badge className="rounded-full border border-sky-400/30 bg-sky-400/15 text-[11px] text-sky-100">
-                        Coming soon
+                      <Badge
+                        className={`rounded-full border text-[11px] ${launchPhase(game) === 'launch-day' ? 'border-amber-300/30 bg-amber-300/15 text-amber-100' : 'border-sky-400/30 bg-sky-400/15 text-sky-100'}`}
+                      >
+                        {launchPhase(game) === 'launch-day' ? 'Launch day' : 'Coming soon'}
                       </Badge>
                       <Badge className="rounded-full border border-white/10 bg-black/[0.35] text-[11px] text-zinc-200 hover:bg-black/[0.35]">
-                        {countdownLabel(game.releaseDate)}
+                        {scheduleLabel(game)}
                       </Badge>
                     </div>
 
@@ -484,7 +523,7 @@ export function HomepagePortal({
                           rel="noopener noreferrer"
                           onClick={(event) => event.stopPropagation()}
                         >
-                          Wishlist
+                          {launchPhase(game) === 'launch-day' ? 'Store Page' : 'Wishlist'}
                           <ExternalLink className="h-4 w-4" />
                         </Link>
                       </Button>

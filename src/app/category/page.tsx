@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
+import { BookOpen, Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
 import { games, siteConfig } from '@/lib/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
@@ -42,6 +42,12 @@ const categories = [
     slug: 'visual-novel',
     description: 'Story-driven experiences with meaningful choices',
     icon: Coffee,
+  },
+  {
+    name: 'RPG',
+    slug: 'rpg',
+    description: 'Dialogue-heavy role-playing, builds, choices, and consequences',
+    icon: BookOpen,
   },
   {
     name: 'Action Adventure',

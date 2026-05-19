@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
+import { ArrowRight, BookOpen, Skull, Sword, Target, Coffee, Gamepad2, Layers3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +13,22 @@ interface CategoryPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+function availabilityLabel(game: { status: 'released' | 'upcoming'; releaseDate: string }) {
+  if (game.status === 'released') {
+    return { variant: 'default' as const, className: 'bg-primary', label: 'Available Now' };
+  }
+
+  const target = new Date(`${game.releaseDate}T00:00:00`);
+  const now = new Date();
+  const dayMs = 1000 * 60 * 60 * 24;
+
+  if (!Number.isNaN(target.getTime()) && now.getTime() >= target.getTime() && now.getTime() < target.getTime() + dayMs * 2) {
+    return { variant: 'outline' as const, className: 'border-amber-400/40 bg-amber-400/10 text-amber-700 dark:text-amber-200', label: 'Launch Day' };
+  }
+
+  return { variant: 'secondary' as const, className: '', label: 'Coming Soon' };
 }
 
 // Category definitions
@@ -46,6 +62,12 @@ const categories = [
     slug: 'visual-novel',
     description: 'Story-driven experiences with meaningful choices',
     icon: Coffee,
+  },
+  {
+    name: 'RPG',
+    slug: 'rpg',
+    description: 'Dialogue-heavy role-playing, builds, choices, and consequences',
+    icon: BookOpen,
   },
   {
     name: 'Action Adventure',
@@ -132,7 +154,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <Card key={game.slug} className="overflow-hidden group hover:shadow-lg transition-all">
                   <div className="relative aspect-video bg-muted">
                     <Image
-                      src={`/games/${game.slug}/hero.jpg`}
+                      src={game.heroImage}
                       alt={`${game.name} - ${category.name} game cover`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -140,12 +162,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-3 left-3">
-                      <Badge
-                        variant={game.status === 'released' ? 'default' : 'secondary'}
-                        className={game.status === 'released' ? 'bg-primary' : ''}
-                      >
-                        {game.status === 'released' ? 'Available Now' : 'Coming Soon'}
-                      </Badge>
+                      {(() => {
+                        const availability = availabilityLabel(game);
+                        return (
+                          <Badge variant={availability.variant} className={availability.className}>
+                            {availability.label}
+                          </Badge>
+                        );
+                      })()}
                     </div>
                   </div>
                   <CardContent className="p-4">

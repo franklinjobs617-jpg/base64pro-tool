@@ -32,13 +32,13 @@ export interface FarmingSimulator26Guide {
   }[];
 }
 
-const lastUpdated = '2026-05-18';
+const lastUpdated = '2026-05-19';
 const hero = '/games/farming-simulator-26/hero.webp';
 const shot = (index: number) =>
   `/games/farming-simulator-26/screenshots/farming-simulator-26-screenshot-${index}.webp`;
 
-const prereleaseNote =
-  'This is a pre-release guide set. It uses the live SEGA Asia site and the GIANTS Software press release checked on May 18, 2026. Final mobile performance, exact touchscreen feel, regional pricing, and version differences between Switch and mobile still need hands-on verification after release.';
+const launchDayNote =
+  'This guide set was rechecked against the live SEGA Asia site and GIANTS Software press material on May 19, 2026. The release date is now current, but real-world Switch comfort, mobile touch feel, regional pricing, and version-specific differences still need hands-on verification.';
 
 export const farmingSimulator26Facts = {
   releaseDate: '2026-05-19',
@@ -62,7 +62,7 @@ export const farmingSimulator26GuideContent: Record<string, FarmingSimulator26Gu
   'release-date-platforms-guide': {
     title: 'Farming Simulator 26 Release Date and Platforms Guide',
     description:
-      'A factual Farming Simulator 26 guide covering the May 19, 2026 release date, Switch and mobile platforms, and the key official features already confirmed before launch.',
+      'A factual Farming Simulator 26 guide covering the May 19, 2026 release date, Switch and mobile platforms, and the key official features already confirmed on launch day.',
     lastUpdated,
     timeToRead: '10 min',
     primaryKeyword: 'farming simulator 26 release date',
@@ -104,7 +104,7 @@ export const farmingSimulator26GuideContent: Record<string, FarmingSimulator26Gu
 
 Farming Simulator 26 is currently scheduled to release on ${farmingSimulator26Facts.displayReleaseDate}. The official SEGA Asia site and the GIANTS Software press release both point to the same date. Official messaging also says the game is coming to Nintendo Switch and mobile devices rather than following the usual PC-first expectation some players may assume.
 
-${prereleaseNote}
+${launchDayNote}
 
 | Item | Current answer | Verification status |
 | --- | --- | --- |
@@ -119,11 +119,11 @@ This page matters because Farming Simulator 26 is not being sold in the same way
 
 ## What Is Already Confirmed
 
-Official materials already confirm several concrete features: two new maps, more than 120 authentic machines, 15 crops, production chains, GPS guidance, improved tutorials, and a new challenge system that adds optional direction and rewards. That is enough to write a useful pre-release page without inventing technical details or version comparisons.
+Official materials already confirm several concrete features: two new maps, more than 120 authentic machines, 15 crops, production chains, GPS guidance, improved tutorials, and a new challenge system that adds optional direction and rewards. That is enough to write a useful launch-day page without inventing technical details or version comparisons.
 
 ## What Still Needs Verification
 
-Before launch, do not promise exact performance on older Switch hardware, battery impact on mobile, controller parity, or how smooth touchscreen interactions feel during long sessions. Those are release-week questions. The right pre-release page gives the official scope first, then marks the platform comfort questions as pending hands-on verification.
+On launch day, do not promise exact performance on older Switch hardware, battery impact on mobile, controller parity, or how smooth touchscreen interactions feel during long sessions. Those are release-week questions. The right page gives the official scope first, then marks the platform comfort questions as pending hands-on verification.
 `,
     faqs: [
       {
@@ -143,7 +143,7 @@ Before launch, do not promise exact performance on older Switch hardware, batter
   'maps-crops-animals-guide': {
     title: 'Farming Simulator 26 Maps, Crops, and Animals Guide',
     description:
-      'A practical Farming Simulator 26 guide covering the two confirmed maps, 15 crops, livestock lineup, forestry, and production-chain planning before release.',
+      'A practical Farming Simulator 26 guide covering the two confirmed maps, 15 crops, livestock lineup, forestry, and production-chain planning at launch.',
     lastUpdated,
     timeToRead: '11 min',
     primaryKeyword: 'farming simulator 26 maps',
@@ -261,7 +261,7 @@ The open questions are not whether those systems exist. The open questions are h
     content: `
 ## Direct Feature Answer
 
-Official sources say Farming Simulator 26 includes more than 120 authentic machines, a new challenge system, GPS guidance, improved tutorials, and expanded production chains. That is a strong feature set for a pre-release info page because it tells players how the game is trying to balance relaxed sandbox play with more directed progression.
+Official sources say Farming Simulator 26 includes more than 120 authentic machines, a new challenge system, GPS guidance, improved tutorials, and expanded production chains. That is a strong feature set for a launch-day info page because it tells players how the game is trying to balance relaxed sandbox play with more directed progression.
 
 ## 120 Plus Machines
 
@@ -342,7 +342,7 @@ These additions matter most to two kinds of players: newcomers who want clearer 
 
 Farming Simulator 26 looks most relevant for players who want a portable or lower-friction farming experience on Nintendo Switch or mobile rather than a large-box simulation setup on a high-end PC. The official materials already make that positioning clear by emphasizing accessibility features like GPS guidance and improved tutorials alongside the usual farming systems.
 
-${prereleaseNote}
+${launchDayNote}
 
 ## Why This Release Exists
 
@@ -393,9 +393,9 @@ export const farmingSimulator26Guides = farmingSimulator26GuideOrder.map((slug) 
 }));
 
 export const farmingSimulator26HubContent = {
-  overview: `Farming Simulator 26 is the upcoming portable-focused entry from ${farmingSimulator26Facts.developer}, currently scheduled for ${farmingSimulator26Facts.displayReleaseDate}. Official pages already confirm a clear set of features: Nintendo Switch and mobile platforms, two maps, more than 120 machines, more than 15 crops, livestock, forestry, expanded production chains, GPS guidance, improved tutorials, and a new challenge system.
+  overview: `Farming Simulator 26 is the portable-focused entry from ${farmingSimulator26Facts.developer}, released on ${farmingSimulator26Facts.displayReleaseDate}. Official pages already confirm a clear set of features: Nintendo Switch and mobile platforms, two maps, more than 120 machines, more than 15 crops, livestock, forestry, expanded production chains, GPS guidance, improved tutorials, and a new challenge system.
 
-This hub stays narrow on purpose. It is not forcing fake walkthrough content onto a game that is not live yet. It answers the real pre-release questions users actually have now: release timing, supported platforms, maps, crops, animals, machine lineup, accessibility direction, and whether this Switch and mobile version fits the way they play.`,
+This hub stays narrow on purpose. It does not force fake walkthrough content onto a game that has just hit launch day. It answers the real user questions that matter first: supported platforms, maps, crops, animals, machine lineup, accessibility direction, and whether this Switch and mobile version fits the way they play.`,
   features: [
     'Official release date: May 19, 2026',
     'Official platforms: Nintendo Switch, iPhone, iPad, and Android',
@@ -411,7 +411,7 @@ This hub stays narrow on purpose. It is not forcing fake walkthrough content ont
     'Start with release date and platform facts if you are checking whether this is the Switch and mobile Farming Simulator release you want.',
     'Use the maps and crops page if farm variety matters more to you than pure tech details.',
     'Use the machines page if you care most about brand lineup, challenge flow, and beginner accessibility.',
-    'Treat controls, battery behavior, and real mobile comfort as launch-week verification questions.',
+    'Treat controls, battery behavior, and real mobile comfort as the first live verification questions.',
   ],
   faq: [
     {

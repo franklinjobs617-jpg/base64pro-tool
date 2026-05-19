@@ -34,7 +34,7 @@ export interface ProjectMistGuide {
   videos: ProjectMistVideo[];
 }
 
-const lastUpdated = '2026-05-15';
+const lastUpdated = '2026-05-19';
 const hero = '/games/project-mist/hero.jpg';
 const shot = (index: number) =>
   `/games/project-mist/screenshots/project-mist-screenshot-${index}.jpg`;
@@ -83,14 +83,14 @@ export const projectMistFacts = {
     'Steam says the price is expected to increase when the full version releases.',
 };
 
-const prereleaseNote =
-  'This is a pre-release guide. It uses Steam, official trailer footage, and clearly marked player-facing assumptions. Exact numbers, map routes, enemy weaknesses, and final progression values need hands-on verification after launch.';
+const launchDayNote =
+  'This is a launch-day guide set checked against the Steam store, Steam Community, and public gameplay coverage on May 19, 2026. Steam lists Project: Mist for May 19, 2026, but the store still showed the Early Access build unlocking later the same day when this update was prepared. Exact numbers, map routes, enemy weaknesses, and final progression values still need hands-on verification once the live build is available.';
 
 export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
   'beginner-survival-guide': {
     title: 'Project: Mist Beginner Survival Guide',
     description:
-      'A pre-release Project: Mist beginner guide for first-day priorities, survival planning, base setup, Gravity Gun use, and what still needs hands-on verification.',
+      'A launch-day Project: Mist beginner guide for first-day priorities, survival planning, base setup, Gravity Gun use, and what still needs hands-on verification.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist beginner guide',
@@ -99,7 +99,7 @@ export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
     heroImage: hero,
     heroImageAlt: 'Project: Mist open world island survival scene',
     sections: [
-      { title: 'Pre-release Survival Answer', id: 'pre-release-survival-answer' },
+      { title: 'Launch-Day Survival Answer', id: 'pre-release-survival-answer' },
       { title: 'First Hour Priorities', id: 'first-hour-priorities' },
       { title: 'Mistake Checklist', id: 'mistake-checklist' },
       { title: 'Launch Update Plan', id: 'launch-update-plan' },
@@ -130,7 +130,7 @@ export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
     content: `
 ## Pre-release Survival Answer
 
-${prereleaseNote}
+${launchDayNote}
 
 Project: Mist should be approached as a survival routing problem before it is approached as a combat game. Steam describes an open-world survival horror island with solo and online co-op play, a Gravity Gun, a moving train base, gear upgrades, giant creatures, critter catching, and abandoned facilities. That means a good first run is about building a stable loop: gather, scout, return, upgrade, and only then push deeper into danger.
 
@@ -266,6 +266,8 @@ The first survival loop is not about perfect combat. It is about keeping food, w
 
 Do not overbuild too early. The transcript shows the player discovering materials, a cooking station, and basic shelter ideas in the same opening stretch. That suggests Project: Mist wants a practical base rhythm, not a decorative one. Your first camp should exist to reduce friction: cook, store, recover, and leave.
 
+One useful extra detail from the longer YouTube gameplay transcript is that the early route quickly starts tying survival basics to objective progress. The observed story prompt points the player toward entering the greenhouse to find a train gate key, and the route appears to open only after collecting the required mech part. That makes the first loop clearer: stabilize food and health first, then move on the greenhouse objective instead of wandering the island aimlessly.
+
 ## Do Not Fight the Whale
 
 The floating power whale is the clearest "respect the world" moment in the video. It is tagged, marked on the map, and explicitly framed as something you should not provoke. That makes it a great tutorial lesson because a lot of survival players instinctively test big targets too early. In Project: Mist, that mindset is the wrong call.
@@ -275,6 +277,8 @@ Treat the whale as a danger signal, not a loot pinata. If a giant creature is fl
 ## What This Tutorial Should Teach You
 
 The best first-run loop from the transcript is not complicated: save, learn the keys, craft the axe, build a small survival loop, and keep your distance from world hazards until you understand the map. That is a real tutorial because it helps the player avoid the mistakes the video naturally highlights.
+
+The same gameplay video also shows several practical early-game signals worth carrying into the guide. Bear traps are worth picking up. Boxes and crates may hide loot. Facility traversal can include acid-floor hazards and jump sections rather than only combat. Those are small details, but they make the page more useful because they come from actual route friction rather than generic survival filler.
 
 After launch, this page should be updated with exact recipe names, final objective flow, and any real early-game combat rules that the full build confirms. Until then, the transcript already gives enough signal to make a useful tutorial rather than a speculative one.
 `,
@@ -286,6 +290,10 @@ After launch, this page should be updated with exact recipe names, final objecti
       {
         question: 'What should I do first in Project: Mist?',
         answer: 'Save, take the starter supplies, learn the keys, craft the axe, and follow the first objective marker.',
+      },
+      {
+        question: 'What is the first major objective shown in the current gameplay route?',
+        answer: 'The observed gameplay route points the player toward the greenhouse to find a train gate key after basic setup and required part collection.',
       },
       {
         question: 'Should I fight the whale?',
@@ -311,7 +319,7 @@ After launch, this page should be updated with exact recipe names, final objecti
     sections: [
       { title: 'Direct Answer', id: 'direct-answer' },
       { title: 'Steam and Demo Checklist', id: 'steam-and-demo-checklist' },
-      { title: 'Buying Before Launch', id: 'buying-before-launch' },
+      { title: 'Buying On Launch Day', id: 'buying-before-launch' },
       { title: 'What Needs Verification', id: 'what-needs-verification' },
     ],
     sectionMedia: {
@@ -342,11 +350,12 @@ After launch, this page should be updated with exact recipe names, final objecti
 
 Project: Mist is currently listed on Steam for ${projectMistFacts.displayReleaseDate}. The game is developed and published by ${projectMistFacts.developer}, and the Steam page presents it as an Early Access open-world survival horror game for PC. The store description highlights a remote island, multiplayer co-op, a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
 
-Because this is pre-release information, the date and features should be treated as current Steam-listed facts, not permanent guarantees. Store pages can change before launch. A good guide should show the current date, link users to Steam, and keep a visible update date so readers understand when the page was checked.
+This page has to be more precise than a generic pre-release post because May 19 is no longer just a future date. At the time of the current May 19, 2026 check, Steam still showed the game as not yet available and unlocking later the same day. A good guide should say both things clearly: the listed release date is May 19, 2026, and hands-on verification still depends on when the live Early Access build actually unlocks.
 
 | Item | Current listing | Verification status |
 | --- | --- | --- |
 | Release date | May 19, 2026 | Steam-listed |
+| Store access at latest check | Steam still showed unlock later on May 19, 2026 | Steam-listed |
 | Platform | PC via Steam | Steam-listed |
 | Development model | Early Access | Steam-listed |
 | Demo | Steam currently lists a playable demo | Steam-listed |
@@ -362,9 +371,9 @@ Steam also currently exposes a demo. That is one of the biggest practical gaps i
 
 For GEO and user trust, keep the label and the practical meaning separate. Say Steam lists seamless 1-4 player co-op. Do not invent dedicated servers, host migration, save rules, or shared-world ownership unless the live build or official documentation confirms them.
 
-## Buying Before Launch
+## Buying On Launch Day
 
-Project: Mist is an Early Access game, so buyers should expect changes to balancing, content amount, performance, UI, and progression. That is not a negative point by itself; it is the nature of Early Access. The useful buyer question is whether the current concept matches what they want: survival horror, co-op island exploration, a mobile train base, and large-scale creature encounters.
+Project: Mist is an Early Access game, so buyers should expect changes to balancing, content amount, performance, UI, and progression. That is not a negative point by itself; it is the nature of Early Access. The useful buyer question on May 19 is whether the current concept matches what they want: survival horror, co-op island exploration, a mobile train base, and large-scale creature encounters, and whether they are comfortable waiting for live-build verification as the unlock window finishes.
 
 Steam's Early Access section currently says all core features shown in the trailer, screenshots, and About This Game section are already implemented and playable in the Early Access version. It also says the price is planned to increase when the full version releases. Those two details are strong buyer-facing facts. They tell readers this is not a concept-only shell, but they also frame early access as the cheaper entry point for players who are comfortable with evolving systems.
 
@@ -372,7 +381,7 @@ Players who only want a fully finished map, complete story, final achievement gu
 
 ## What Needs Verification
 
-The launch update should verify performance, controller support feel, save behavior, co-op session flow, achievement unlocks, resource names, crafting costs, train upgrades, and whether giant creature encounters are avoidable, farmable, or gated. Those details should not be guessed before hands-on testing.
+The first live-build update should verify performance, controller support feel, save behavior, co-op session flow, achievement unlocks, resource names, crafting costs, train upgrades, and whether giant creature encounters are avoidable, farmable, or gated. Those details should not be guessed before hands-on testing.
 `,
     faqs: [
       {
@@ -444,7 +453,7 @@ The launch update should verify performance, controller support feel, save behav
     content: `
 ## Direct Buyer Answer
 
-As of May 18, 2026, the current Steam page for Project: Mist gives three unusually useful pre-launch facts in one place. First, the game is still listed for May 19, 2026. Second, Steam currently lists a playable demo. Third, the store copy says the game can be played solo or in seamless 1-4 player co-op. Those facts matter because they answer the exact questions players usually ask the day before launch: can I try it, how many friends can join, and should I buy into Early Access now or wait.
+As of May 19, 2026, the current Steam page for Project: Mist gives three unusually useful launch-day facts in one place. First, the game is listed for May 19, 2026. Second, Steam currently lists a playable demo. Third, the store copy says the game can be played solo or in seamless 1-4 player co-op. At the same time, the store still showed the game unlocking later that day when this update was prepared. Those facts matter because they answer the exact questions players ask on release day: can I try it, how many friends can join, and do I need to wait for the live build before trusting deeper guide claims.
 
 | Buyer question | Current answer | Verification status |
 | --- | --- | --- |
@@ -496,7 +505,7 @@ Buy at Early Access launch if you specifically want to learn the systems early, 
   'multiplayer-coop-guide': {
     title: 'Project: Mist Multiplayer and Co-op Guide',
     description:
-      'A pre-release Project: Mist multiplayer guide covering Steam-listed online co-op, group roles, save questions, scaling risks, and launch-week verification.',
+      'A launch-day Project: Mist multiplayer guide covering Steam-listed online co-op, group roles, save questions, scaling risks, and launch-week verification.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist multiplayer co-op',
@@ -585,7 +594,7 @@ The first co-op session should be short and diagnostic. Test joining, leaving, r
   'gravity-gun-guide': {
     title: 'Project: Mist Gravity Gun Guide',
     description:
-      'A pre-release Project: Mist Gravity Gun guide explaining confirmed uses, combat planning, object manipulation, co-op utility, and limits that need testing.',
+      'A launch-day Project: Mist Gravity Gun guide explaining confirmed uses, combat planning, object manipulation, co-op utility, and limits that need testing.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist gravity gun',
@@ -670,7 +679,7 @@ In co-op, the Gravity Gun should be tested as a support tool. One player can con
   'train-base-building-guide': {
     title: 'Project: Mist Train Base Building Guide',
     description:
-      'A pre-release Project: Mist train base guide covering the moving base concept, upgrade priorities, defense planning, storage, and launch-week verification.',
+      'A launch-day Project: Mist train base guide covering the moving base concept, upgrade priorities, defense planning, storage, and launch-week verification.',
     lastUpdated,
     timeToRead: '16 min',
     primaryKeyword: 'project mist train base',
@@ -757,7 +766,7 @@ The launch guide should capture upgrade names, material costs, build limits, pla
   'creatures-guide': {
     title: 'Project: Mist Creatures Guide',
     description:
-      'A pre-release Project: Mist creatures guide for giant creature encounters, observation, combat caution, escape planning, and post-launch verification.',
+      'A launch-day Project: Mist creatures guide for giant creature encounters, observation, combat caution, escape planning, and post-launch verification.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist creatures',
@@ -841,7 +850,7 @@ After launch, creature pages should be updated by test blocks: observe without a
   'crafting-gear-upgrades-guide': {
     title: 'Project: Mist Crafting and Gear Upgrades Guide',
     description:
-      'A pre-release Project: Mist crafting guide covering gear upgrades, resources, critter catching, food loops, and what needs launch verification.',
+      'A launch-day Project: Mist crafting guide covering gear upgrades, resources, critter catching, food loops, and what needs launch verification.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist crafting gear upgrades',
@@ -903,6 +912,16 @@ Track resources by function: building, repair, food, weapon, utility, facility, 
 
 Critter catching should be tested separately from hunting. If critters provide food, crafting materials, farming systems, or train upgrades, they may become a low-risk resource loop. If they are mostly optional, they belong later in progression.
 
+One of the stronger additions from the long-form YouTube gameplay transcript is that it surfaces a few concrete crafting-adjacent observations without pretending the whole recipe tree is solved. The player reaches a facility with a crafting bench, notes that copper can be used to make more ammo, finds a distiller and filtered water, and picks up a frag grenade blueprint. They also loot a Blaze Fern Trinket that gives a 30% weapon-damage increase at full health, plus better boots. That is enough to strengthen the page in a user-first way: facilities are not only lore spaces, they appear to be early upgrade and utility checkpoints.
+
+| Observed item or station | What it suggests | Evidence type |
+| --- | --- | --- |
+| Crafting bench | Facilities may contain upgrade stations instead of only loot boxes | Gameplay-video observed |
+| Copper for ammo | Ammunition may rely on material conversion rather than pure drops | Gameplay-video observed |
+| Distiller and filtered water | Water processing may matter as a real survival utility loop | Gameplay-video observed |
+| Frag grenade blueprint | Blueprints appear to be a real progression hook | Gameplay-video observed |
+| Blaze Fern Trinket | Gear bonuses can meaningfully affect combat, at least in observed builds | Gameplay-video observed |
+
 ## Verification Plan
 
 After launch, update this page with confirmed station names, recipe costs, upgrade tiers, durability rules, food values, and whether multiplayer changes resource yield. Each recipe should have a source context: crafted at train, found in facility, unlocked by upgrade, or dropped by creature. That prevents a guide from becoming a flat list with no route value.
@@ -922,12 +941,16 @@ After launch, update this page with confirmed station names, recipe costs, upgra
         question: 'Are all recipes known?',
         answer: 'No. Recipe names and costs should be captured after Early Access launches.',
       },
+      {
+        question: 'Has any real crafting station or blueprint been seen in gameplay?',
+        answer: 'Yes. A longer gameplay transcript shows a crafting bench, a distiller, filtered water, copper ammo notes, and a frag grenade blueprint, but the full recipe tree is still not verified.',
+      },
     ],
   },
   'map-facilities-guide': {
     title: 'Project: Mist Map and Facilities Guide',
     description:
-      'A pre-release Project: Mist map guide for island exploration, abandoned facilities, route notes, landmarks, and the launch-week mapping plan.',
+      'A launch-day Project: Mist map guide for island exploration, abandoned facilities, route notes, landmarks, and the launch-week mapping plan.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist map facilities',
@@ -977,6 +1000,8 @@ Start from the train base and create loops. A loop should have an objective, res
 
 For co-op, map communication matters. Use simple names for landmarks: broken tower, beach facility, red pipe station, giant rib field. These names can be replaced with official map labels later, but they help groups coordinate before the full map is known.
 
+The longer YouTube gameplay transcript gives one genuinely useful example route: a greenhouse objective tied to finding a train gate key, with the approach gated by prior progress and the interior mixing combat, traversal, and utility loot. That is valuable because it shows facilities are not only map pins. They may be progression gates with vertical navigation, hazard floors, shutters, hidden loot behind crates, and station access.
+
 ## Facility Checklist
 
 | Facility detail | Why it matters | Verification status |
@@ -986,6 +1011,15 @@ For co-op, map communication matters. Use simple names for landmarks: broken tow
 | Threat type | Facility enemies may differ from island creatures | Needs hands-on verification |
 | Loot category | Determines whether a facility is worth repeating | Needs hands-on verification |
 | Exit route | Survival value depends on leaving safely | Needs hands-on verification |
+
+For the greenhouse-style route seen in gameplay, add a second layer to the checklist:
+
+| Observed greenhouse route detail | Why it matters | Evidence type |
+| --- | --- | --- |
+| Objective points to train gate key | Confirms facilities may unlock travel progression | Gameplay-video observed |
+| Acid or corrosive floor hazards | Traversal risk is not only enemy damage | Gameplay-video observed |
+| Crates can hide loot | Thorough room clearing has real reward value | Gameplay-video observed |
+| Interior stations and blueprints | Facilities may double as upgrade checkpoints | Gameplay-video observed |
 
 ## Launch Mapping Rules
 
@@ -1001,6 +1035,11 @@ Do not publish a complete map until it has been walked. For the first launch upd
         question: 'Are facilities important in Project: Mist?',
         answer:
           'Yes. Steam mentions abandoned mysterious facilities, so they are likely important exploration targets.',
+      },
+      {
+        question: 'What is one facility objective already seen in gameplay?',
+        answer:
+          'A longer gameplay route shows the player entering a greenhouse to find a train gate key, which suggests facilities can gate travel progression rather than serving as optional side areas only.',
       },
       {
         question: 'Will this page include a full map?',
@@ -1031,11 +1070,12 @@ export const projectMistGuides = projectMistGuideOrder.map((slug) => ({
 }));
 
 export const projectMistHubContent = {
-  overview: `Project: Mist is a pre-release open-world survival horror game from ${projectMistFacts.developer}, currently listed on Steam for ${projectMistFacts.displayReleaseDate}. The current Steam page also exposes a playable demo and describes the game as playable solo or in seamless 1-4 player co-op. It highlights a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
+  overview: `Project: Mist is a launch-day Early Access open-world survival horror game from ${projectMistFacts.developer}, currently listed on Steam for ${projectMistFacts.displayReleaseDate}. The current Steam page also exposes a playable demo and describes the game as playable solo or in seamless 1-4 player co-op. It highlights a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
 
-This hub is intentionally built as a pre-release answer center. It helps players decide what is confirmed, what is likely based on trailers, and what should wait for hands-on verification after Early Access begins.`,
+This hub is intentionally built as a launch-day answer center. It separates what Steam and public gameplay already confirm from what still needs hands-on verification once the live Early Access build is fully accessible.`,
   features: [
     'Steam-listed release date: May 19, 2026',
+    'Latest Steam check still showed unlock later on May 19, 2026',
     'Steam currently lists a playable demo',
     'Developed and published by Chicken Launcher',
     'Early Access open-world survival horror',
@@ -1047,12 +1087,12 @@ This hub is intentionally built as a pre-release answer center. It helps players
   ],
   guides: projectMistGuides,
   tips: [
-    'Start with the release date, demo, and beginner guides if you are deciding whether to wishlist or buy.',
+    'Start with the release date, demo, and beginner guides if you are deciding whether to buy now or wait for the live build to unlock.',
     'Use the first-steps tutorial if you want a clean opening loop from the current gameplay video.',
     'Use the multiplayer guide before planning a group world.',
-    'Treat creature weaknesses, map routes, and crafting costs as unverified until launch.',
+    'Treat creature weaknesses, map routes, and crafting costs as unverified until the live Early Access build is tested.',
     'Watch Gravity Gun and train base systems first because they define the game identity.',
-    'Return after Early Access launch for hands-on route updates.',
+    'Prioritize the real player questions first: performance, save behavior, doors and base building, languages, and co-op session rules.',
   ],
   faq: [
     {
@@ -1070,6 +1110,10 @@ This hub is intentionally built as a pre-release answer center. It helps players
     {
       question: 'Does Project: Mist have a demo?',
       answer: 'Yes. The current Steam page lists a playable demo.',
+    },
+    {
+      question: 'Why does Project: Mist still show as not available on May 19?',
+      answer: 'At the latest May 19, 2026 Steam check, the store still showed the game unlocking later the same day, so live-build guides should wait for that unlock window to finish.',
     },
     {
       question: 'Can you build a train base?',
