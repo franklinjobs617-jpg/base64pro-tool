@@ -496,6 +496,10 @@ const hubGuideImages: Record<string, Record<string, HubGuideImage>> = {
       image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
       imageAlt: 'Project: Mist - Survival game demo player count and pricing guide screenshot',
     },
+    'should-you-buy-project-mist-early-access-guide': {
+      image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
+      imageAlt: 'Project: Mist - Survival game Early Access buy or wait guide screenshot',
+    },
     'multiplayer-coop-guide': {
       image: '/games/project-mist/homepage/multiplayer-coop-guide.webp',
       imageAlt: 'Project: Mist - Survival game multiplayer co-op guide screenshot',
@@ -882,10 +886,10 @@ function ProjectMistCommunityResearch() {
         'Steam lists solo, multiplayer, co-op, and online co-op. The unresolved player questions are more specific: host-owned saves, loot sharing, revive rules, enemy scaling, session stability, and whether cross-play exists. The page should state confirmed co-op support and clearly mark every launch-test item.',
     },
     {
-      id: 'buyer-questions-before-launch',
-      title: 'Price, languages, demo access, and Early Access risk shape launch-day buying intent',
+      id: 'buyer-questions-after-launch',
+      title: 'Price, languages, demo access, and Early Access risk shape post-launch buying intent',
       image: '/games/project-mist/homepage/demo-player-count-pricing-guide.webp',
-      imageAlt: 'Project: Mist - Survival game buyer questions before launch screenshot',
+      imageAlt: 'Project: Mist - Survival game buyer questions after launch screenshot',
       body:
         'The strongest buyer-intent questions are about the May 19, 2026 Steam Early Access release, whether the demo remains available, regional language support, launch price, and whether Chicken Launcher will keep updating the game. Those questions should sit close to release and demo sections, not be buried under generic feature copy.',
     },
@@ -1264,12 +1268,17 @@ export default async function GamePage({ params }: GamePageProps) {
       {
         title: 'Beginner plan',
         href: `/game/${game.slug}/beginner-survival-guide`,
-        body: 'Start with safe scouting, train-base basics, Gravity Gun tests, and the first launch-day survival priorities.',
+        body: 'Start with safe scouting, train-base basics, Gravity Gun tests, and the first survival priorities.',
       },
       {
         title: 'Release facts',
         href: `/game/${game.slug}/release-date-platforms-guide`,
-        body: 'Check the current Steam-listed date, Early Access status, platform, and feature labels.',
+        body: 'Check the released Steam Early Access status, platform, Xbox answer, demo, and feature labels.',
+      },
+      {
+        title: 'Buy or wait',
+        href: `/game/${game.slug}/should-you-buy-project-mist-early-access-guide`,
+        body: 'Decide whether to buy Early Access now, try the demo first, wait for patches, or wait for console news.',
       },
       {
         title: 'Co-op setup',
@@ -1280,10 +1289,12 @@ export default async function GamePage({ params }: GamePageProps) {
 
     const answerCards = [
       { label: 'Release date', value: projectMistFacts.displayReleaseDate, status: 'Steam-listed' },
-      { label: 'Store access', value: 'Steam still showed unlock later today at latest check', status: 'Steam-listed' },
+      { label: 'Store access', value: projectMistFacts.currentStatus, status: 'Steam-listed' },
       { label: 'Platform', value: projectMistFacts.platforms, status: 'Steam-listed' },
+      { label: 'Xbox', value: 'No official Xbox version confirmed', status: 'Needs official confirmation' },
       { label: 'Developer', value: projectMistFacts.developer, status: 'Steam-listed' },
       { label: 'Co-op', value: 'Solo or seamless 1-4 player co-op', status: 'Steam-listed' },
+      { label: 'Review status', value: projectMistFacts.steamReviewSignal, status: 'Steam-listed' },
       { label: 'Train base', value: 'Moving train base is a core feature', status: 'Steam-listed' },
       { label: 'Live guide gap', value: 'Map routes, recipes, and weaknesses still need testing', status: 'Needs verification' },
     ];
@@ -1294,37 +1305,37 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/project-mist/hero.webp"
         heroImageAlt="Project: Mist island survival horror key art"
         heroBadges={[
-          { label: 'Launch-day guide hub', tone: 'accent' },
+          { label: 'Post-launch guide hub', tone: 'accent' },
           { label: projectMistFacts.earlyAccess },
           { label: projectMistFacts.displayReleaseDate },
         ]}
         title="Project: Mist Guide Hub"
-        description="Launch-day survival guides for Chicken Launcher's open-world horror game: Steam unlock status, Gravity Gun testing, moving train base planning, online co-op questions, giant creatures, crafting, and facilities."
+        description="Post-launch survival guides for Chicken Launcher's open-world horror game: Steam Early Access status, Xbox answer, demo, buy-or-wait advice, Gravity Gun testing, moving train base planning, online co-op questions, giant creatures, crafting, and facilities."
         ctas={[
           { label: 'Start Beginner Guide', href: `/game/${game.slug}/beginner-survival-guide` },
           { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide`, variant: 'outline' },
           { label: 'Steam', href: projectMistFacts.steamUrl, external: true, variant: 'outline' },
         ]}
         spotlightCards={[
-          { label: 'Launch date', value: projectMistFacts.displayReleaseDate, note: 'Steam currently lists Early Access on May 19, 2026' },
-          { label: 'Current status', value: 'Unlocks later today', note: 'The Steam page still showed the game as unavailable at the latest May 19 check' },
+          { label: 'Launch date', value: projectMistFacts.displayReleaseDate, note: 'Released on Steam Early Access' },
+          { label: 'Current status', value: 'Released on Steam', note: 'The current buyer question is whether to buy Early Access now or try the demo first' },
           { label: 'Play style', value: 'Solo or 1-4 co-op', note: 'Current listing supports solo plus seamless online co-op' },
           { label: 'Core hook', value: 'Train base + Gravity Gun', note: 'The train base and object-control tool are the clearest differentiators so far' },
         ]}
         sideNotes={[
           {
             label: 'Verification focus',
-            body: 'Exact map routes, crafting costs, save behavior, and creature weaknesses should stay provisional until the live Early Access build is tested.',
+            body: 'Exact map routes, crafting costs, save behavior, co-op edge cases, and creature weaknesses should stay provisional until the paid Early Access build is tested.',
           },
           {
             label: 'Best first click',
-            body: 'Open the release facts page first if you want the current Steam unlock context, then move into first steps and co-op setup.',
+            body: 'Open the release facts page first for platform and Xbox status, then use buy-or-wait, first steps, and co-op setup.',
           },
         ]}
         startHereTitle="Start here"
-        startHereIntro="The best order for opening demo-backed guidance, general survival planning, release facts, and co-op setup."
+        startHereIntro="The best order for release facts, buy-or-wait guidance, demo-backed first steps, and co-op setup."
         startHere={startHere}
-        answerTitle="Launch-day answer center"
+        answerTitle="Post-launch answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
         communityResearch={<ProjectMistCommunityResearch />}
@@ -1336,7 +1347,7 @@ export default async function GamePage({ params }: GamePageProps) {
           description: guide.description,
           image: guide.image,
           imageAlt: guide.imageAlt,
-          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+          badges: [{ label: 'Post-launch', tone: 'accent' }, { label: guide.status }],
         }))}
         routeMapTitle="Route map"
         tips={content.tips}

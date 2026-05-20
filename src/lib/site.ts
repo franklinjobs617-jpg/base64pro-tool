@@ -61,7 +61,7 @@ export const games = [
     status: 'released' as const,
     category: 'Survival',
     tags: ['Survival', 'Horror', 'Open World', 'Crafting'],
-    description: 'Project: Mist is a launch-day Early Access open-world survival horror game from Chicken Launcher where you explore a remote island, use a Gravity Gun, build a moving train base, fight giant creatures, upgrade gear, test the current demo, and survive solo or in seamless 1-4 player co-op.',
+    description: 'Project: Mist is a released Steam Early Access open-world survival horror game from Chicken Launcher where you explore a remote island, use a Gravity Gun, build a moving train base, fight giant creatures, upgrade gear, test the current demo, and survive solo or in seamless 1-4 player co-op.',
     heroImage: '/games/project-mist/hero.webp',
     cardImage: '/games/project-mist/card.webp',
   },

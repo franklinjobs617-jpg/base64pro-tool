@@ -34,7 +34,7 @@ export interface ProjectMistGuide {
   videos: ProjectMistVideo[];
 }
 
-const lastUpdated = '2026-05-19';
+const lastUpdated = '2026-05-20';
 const hero = '/games/project-mist/hero.webp';
 const shot = (index: number) =>
   `/games/project-mist/screenshots/project-mist-screenshot-${index}.webp`;
@@ -77,6 +77,15 @@ export const projectMistFacts = {
   earlyAccess: 'Early Access',
   players: 'Steam currently describes Project: Mist as playable solo or in seamless 1-4 player co-op',
   demo: 'Steam currently lists a playable demo',
+  currentStatus: 'Released on Steam Early Access',
+  xboxStatus: 'No official Xbox version is confirmed in the current store data.',
+  steamReviewSignal: '7 Steam user reviews, not enough to generate a score at the latest check',
+  achievementCount: '31 Steam achievements',
+  introductoryOffer: 'Steam currently shows a 10% introductory offer ending May 26, 2026',
+  earlyAccessDuration:
+    'Steam says the developer expects Early Access to last approximately 6 months, though that may change with feedback and progress.',
+  plannedFullVersion:
+    'Steam says the full version is planned to add more bosses, enemies, skills, items, structures, systems, optimization, polish, and community-inspired features.',
   earlyAccessState:
     'Steam says all core features shown in the trailer, screenshots, and About This Game section are already implemented and playable in the Early Access version.',
   pricingPlan:
@@ -84,13 +93,13 @@ export const projectMistFacts = {
 };
 
 const launchDayNote =
-  'This is a launch-day guide set checked against the Steam store, Steam Community, and public gameplay coverage on May 19, 2026. Steam lists Project: Mist for May 19, 2026, but the store still showed the Early Access build unlocking later the same day when this update was prepared. Exact numbers, map routes, enemy weaknesses, and final progression values still need hands-on verification once the live build is available.';
+  'This is a post-launch Early Access guide set checked against the Steam store, Steam Community, and public gameplay coverage after the May 19, 2026 release. Project: Mist is available on Steam Early Access, but exact numbers, map routes, enemy weaknesses, save behavior, co-op edge cases, and final progression values still need hands-on verification.';
 
 export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
   'beginner-survival-guide': {
     title: 'Project: Mist Beginner Survival Guide',
     description:
-      'A launch-day Project: Mist beginner guide for first-day priorities, survival planning, base setup, Gravity Gun use, and what still needs hands-on verification.',
+      'A post-launch Project: Mist beginner guide for first-hour priorities, survival planning, base setup, Gravity Gun use, and what still needs hands-on verification.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist beginner guide',
@@ -99,10 +108,10 @@ export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
     heroImage: hero,
     heroImageAlt: 'Project: Mist open world island survival scene',
     sections: [
-      { title: 'Launch-Day Survival Answer', id: 'pre-release-survival-answer' },
+      { title: 'Post-Launch Survival Answer', id: 'pre-release-survival-answer' },
       { title: 'First Hour Priorities', id: 'first-hour-priorities' },
       { title: 'Mistake Checklist', id: 'mistake-checklist' },
-      { title: 'Launch Update Plan', id: 'launch-update-plan' },
+      { title: 'Update Plan', id: 'launch-update-plan' },
     ],
     sectionMedia: {
       'pre-release-survival-answer': {
@@ -128,13 +137,13 @@ export const projectMistGuideContent: Record<string, ProjectMistGuide> = {
     },
     videos: [videos.releaseDate, videos.gravityGun, videos.gameplayPartOne],
     content: `
-## Pre-release Survival Answer
+## Post-Launch Survival Answer
 
 ${launchDayNote}
 
 Project: Mist should be approached as a survival routing problem before it is approached as a combat game. Steam describes an open-world survival horror island with solo and online co-op play, a Gravity Gun, a moving train base, gear upgrades, giant creatures, critter catching, and abandoned facilities. That means a good first run is about building a stable loop: gather, scout, return, upgrade, and only then push deeper into danger.
 
-The safest pre-release recommendation is to avoid absolute promises. We do not know the final resource density, enemy damage, repair costs, hunger pressure, or train upgrade order. What we can say is that players should learn how the island communicates danger before committing rare materials. If the game rewards observation, then your first hour should produce information as much as loot.
+The safest post-launch recommendation is still to avoid absolute promises until routes are tested. We do not yet have verified resource density, enemy damage, repair costs, hunger pressure, or train upgrade order. What we can say is that players should learn how the island communicates danger before committing rare materials. If the game rewards observation, then your first hour should produce information as much as loot.
 
 | Topic | Current answer | Verification status |
 | --- | --- | --- |
@@ -159,15 +168,15 @@ For co-op groups, split roles without splitting too far. One player can scout re
 | Ignoring facilities | Steam highlights abandoned mysterious facilities | Mark entrances and return with gear |
 | Treating co-op as automatically easier | Scaling, loot sharing, and save ownership are unverified | Test a short session before committing |
 
-## Launch Update Plan
+## Update Plan
 
-After Early Access opens, this guide should be updated with a real first-hour route, safe starter base advice, confirmed resource names, and verified beginner mistakes. Until then, the useful value is preparation: know the systems, know what is confirmed, and know which claims should not be trusted yet.
+This guide should be updated with a tested first-hour route, safe starter base advice, confirmed resource names, and verified beginner mistakes. Until then, the useful value is preparation: know the systems, know what is confirmed, and know which claims should not be trusted yet.
 `,
     faqs: [
       {
         question: 'Is this a full Project: Mist walkthrough?',
         answer:
-          'No. This is a pre-release beginner guide, and exact routes need hands-on verification after launch.',
+          'No. This is a beginner guide with verified store facts and observed opening footage; exact full routes still need hands-on verification.',
       },
       {
         question: 'What should I do first in Project: Mist?',
@@ -336,57 +345,62 @@ After launch, this page should be updated with exact recipe names, final objecti
       'buying-before-launch': {
         image: shot(7),
         alt: 'Project: Mist train and survival scene for buyer guidance',
-        caption: 'Early Access buyers should expect systems to change after launch.',
+        caption: 'Early Access buyers should expect systems to keep changing after release.',
       },
       'what-needs-verification': {
         image: shot(8),
         alt: 'Project: Mist mysterious facility screenshot for verification planning',
-        caption: 'Performance, progression, co-op save behavior, and final tuning need launch-week testing.',
+        caption: 'Performance, progression, co-op save behavior, and final tuning need hands-on testing.',
       },
     },
     videos: [videos.releaseDate, videos.survivalPreview, videos.gravityGun],
     content: `
 ## Direct Answer
 
-Project: Mist is currently listed on Steam for ${projectMistFacts.displayReleaseDate}. The game is developed and published by ${projectMistFacts.developer}, and the Steam page presents it as an Early Access open-world survival horror game for PC. The store description highlights a remote island, multiplayer co-op, a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
+Project: Mist released on Steam Early Access on ${projectMistFacts.displayReleaseDate}. The game is developed and published by ${projectMistFacts.developer}, and the Steam page presents it as an Early Access open-world survival horror game for PC. The store description highlights a remote island, multiplayer co-op, a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
 
-This page has to be more precise than a generic pre-release post because May 19 is no longer just a future date. At the time of the current May 19, 2026 check, Steam still showed the game as not yet available and unlocking later the same day. A good guide should say both things clearly: the listed release date is May 19, 2026, and hands-on verification still depends on when the live Early Access build actually unlocks.
+This page has to be more precise than a generic release-date post because the game is already out. A good guide should say both things clearly: the release date was May 19, 2026, and the current verified platform is PC via Steam. Deeper guide claims still need testing because Early Access balance, performance, and co-op behavior can change quickly after launch.
 
 | Item | Current listing | Verification status |
 | --- | --- | --- |
-| Release date | May 19, 2026 | Steam-listed |
-| Store access at latest check | Steam still showed unlock later on May 19, 2026 | Steam-listed |
+| Release status | Released May 19, 2026 on Steam Early Access | Steam-listed |
 | Platform | PC via Steam | Steam-listed |
+| Xbox version | No official Xbox version is confirmed in the current store data | Needs official confirmation |
 | Development model | Early Access | Steam-listed |
 | Demo | Steam currently lists a playable demo | Steam-listed |
 | Player count | Steam store copy says seamless 1-4 player co-op | Steam-listed |
+| Steam achievements | 31 achievements | Steam-listed |
+| Steam features | Online Co-op, Steam Cloud, Family Sharing | Steam-listed |
+| Current review status | 7 Steam user reviews, not enough to generate a score at latest check | Steam-listed |
 | Developer and publisher | Chicken Launcher | Steam-listed |
-| Native console versions | Not listed in the current Steam data | Needs hands-on verification |
+| Native console versions | Not confirmed in current store data | Needs official confirmation |
 
 ## Steam and Demo Checklist
 
 Steam lists single-player, online co-op, Steam achievements, Steam Cloud, Family Sharing, adjustable difficulty, custom volume controls, playable without timed input, stereo sound, and surround sound. The current store copy is also more specific than a tag list alone because it explicitly says the game supports seamless 1-4 player co-op. That matters for users because "has co-op" and "supports four players" are very different buying questions.
 
-Steam also currently exposes a demo. That is one of the biggest practical gaps in the existing content cluster because users commonly search release date, demo status, and player count together for survival games right before launch. If a demo exists, say it plainly and tell the reader what it does not prove. A demo can confirm performance feel, tone, and some mechanics, but it does not automatically confirm final balance, save carryover, or launch-day stability.
+Steam also currently exposes a demo. That is one of the biggest practical user questions because players can test the survival feel before buying Early Access. If a demo exists, say it plainly and tell the reader what it does not prove. A demo can confirm performance feel, tone, and some mechanics, but it does not automatically confirm final balance, save carryover, paid-build progression, or co-op stability.
 
-For GEO and user trust, keep the label and the practical meaning separate. Say Steam lists seamless 1-4 player co-op. Do not invent dedicated servers, host migration, save rules, or shared-world ownership unless the live build or official documentation confirms them.
+For GEO and user trust, keep the label and the practical meaning separate. Say Steam lists seamless 1-4 player co-op. Do not invent dedicated servers, host migration, save rules, or shared-world ownership unless official documentation or hands-on testing confirms them.
 
-## Buying On Launch Day
+## Buying After Early Access Launch
 
-Project: Mist is an Early Access game, so buyers should expect changes to balancing, content amount, performance, UI, and progression. That is not a negative point by itself; it is the nature of Early Access. The useful buyer question on May 19 is whether the current concept matches what they want: survival horror, co-op island exploration, a mobile train base, and large-scale creature encounters, and whether they are comfortable waiting for live-build verification as the unlock window finishes.
+Project: Mist is an Early Access game, so buyers should expect changes to balancing, content amount, performance, UI, and progression. That is not a negative point by itself; it is the nature of Early Access. The useful buyer question after launch is whether the current concept matches what they want: survival horror, co-op island exploration, a mobile train base, and large-scale creature encounters, and whether they are comfortable buying before Steam has enough user reviews to generate a score.
 
 Steam's Early Access section currently says all core features shown in the trailer, screenshots, and About This Game section are already implemented and playable in the Early Access version. It also says the price is planned to increase when the full version releases. Those two details are strong buyer-facing facts. They tell readers this is not a concept-only shell, but they also frame early access as the cheaper entry point for players who are comfortable with evolving systems.
 
-Players who only want a fully finished map, complete story, final achievement guide, or optimized Steam Deck profile should wait for launch-week reports. Players who enjoy watching systems evolve may benefit from getting in early, especially if they want to learn base building and co-op routes before broader competition.
+Steam also says the developer expects Early Access to last approximately 6 months, though that may change with player feedback and development progress. The full version is planned to expand the current build with more bosses, enemies, skills, items, structures, gameplay systems, optimization, polish, and community-inspired features. That makes the buy-now decision clearer: buy for the current playable sandbox, not for every planned 1.0 feature.
+
+Players who only want a fully finished map, complete story, final achievement guide, or optimized Steam Deck profile should wait for more post-launch reports. Players who enjoy watching systems evolve may benefit from getting in early, especially if they want to learn base building and co-op routes before broader competition.
 
 ## What Needs Verification
 
-The first live-build update should verify performance, controller support feel, save behavior, co-op session flow, achievement unlocks, resource names, crafting costs, train upgrades, and whether giant creature encounters are avoidable, farmable, or gated. Those details should not be guessed before hands-on testing.
+The first post-launch update should verify performance, controller support feel, save behavior, co-op session flow, achievement unlocks, resource names, crafting costs, train upgrades, and whether giant creature encounters are avoidable, farmable, or gated. Those details should not be guessed without hands-on testing.
 `,
     faqs: [
       {
         question: 'When does Project: Mist release?',
-        answer: 'Project: Mist is currently listed on Steam for May 19, 2026.',
+        answer: 'Project: Mist released on Steam Early Access on May 19, 2026.',
       },
       {
         question: 'Is Project: Mist Early Access?',
@@ -405,15 +419,20 @@ The first live-build update should verify performance, controller support feel, 
         answer: 'The currently verified platform is PC via Steam.',
       },
       {
+        question: 'Is Project: Mist on Xbox?',
+        answer:
+          'No official Xbox version is confirmed in the current store data. The verified platform is PC via Steam.',
+      },
+      {
         question: 'Does Project: Mist have achievements?',
-        answer: 'Steam lists Steam achievements, but exact achievement conditions need launch verification.',
+        answer: 'Steam lists Steam achievements, but exact achievement conditions still need hands-on verification.',
       },
     ],
   },
   'demo-player-count-pricing-guide': {
     title: 'Project: Mist Demo, Player Count, and Early Access Pricing Guide',
     description:
-      'A practical Project: Mist guide covering demo availability, seamless 1-4 player co-op, current Early Access pricing signals, and the buyer questions that still need launch testing.',
+      'A practical Project: Mist guide covering demo availability, seamless 1-4 player co-op, current Early Access pricing signals, and the buyer questions that still need post-launch testing.',
     lastUpdated,
     timeToRead: '12 min',
     primaryKeyword: 'project mist demo',
@@ -446,14 +465,14 @@ The first live-build update should verify performance, controller support feel, 
       'early-access-price-and-wait-or-buy-call': {
         image: shot(7),
         alt: 'Project: Mist train base screenshot for early access pricing section',
-        caption: 'Steam says the price is planned to increase at full release, which matters for readers deciding whether to jump in at Early Access launch.',
+        caption: 'Steam says the price is planned to increase at full release, which matters for readers deciding whether to jump in during Early Access.',
       },
     },
     videos: [videos.releaseDate, videos.gravityGun, videos.survivalPreview],
     content: `
 ## Direct Buyer Answer
 
-As of May 19, 2026, the current Steam page for Project: Mist gives three unusually useful launch-day facts in one place. First, the game is listed for May 19, 2026. Second, Steam currently lists a playable demo. Third, the store copy says the game can be played solo or in seamless 1-4 player co-op. At the same time, the store still showed the game unlocking later that day when this update was prepared. Those facts matter because they answer the exact questions players ask on release day: can I try it, how many friends can join, and do I need to wait for the live build before trusting deeper guide claims.
+The current Steam page for Project: Mist gives three unusually useful post-launch facts in one place. First, the game released on Steam Early Access on May 19, 2026. Second, Steam currently lists a playable demo. Third, the store copy says the game can be played solo or in seamless 1-4 player co-op. Those facts matter because they answer the exact questions players ask before buying: can I try it, how many friends can join, and what does Early Access actually mean here?
 
 | Buyer question | Current answer | Verification status |
 | --- | --- | --- |
@@ -461,27 +480,28 @@ As of May 19, 2026, the current Steam page for Project: Mist gives three unusual
 | How many players can play together? | Steam store copy says seamless 1-4 player co-op | Steam-listed |
 | Is the launch an Early Access release? | Yes | Steam-listed |
 | Will the price stay the same forever? | Steam says the price is planned to increase at full release | Steam-listed |
+| Is there an introductory offer? | Steam currently shows a 10% offer ending May 26, 2026 | Steam-listed |
 | Does the demo prove final optimization and save behavior? | No | Needs hands-on verification |
 
-This is the kind of page that helps a user make a real decision. It does not pretend the whole survival loop is solved. It just tells readers what they can act on before launch.
+This is the kind of page that helps a user make a real decision. It does not pretend the whole survival loop is solved. It just tells readers what they can act on now.
 
 ## What the Demo Confirms
 
 The demo matters because it lowers buyer risk. A demo can confirm whether Project: Mist's movement, atmosphere, visibility, interface readability, and general tension loop are actually appealing on your hardware. It can also help players decide whether the game's identity is strong enough to care about the Gravity Gun, giant creatures, and moving train base before spending money on the Early Access release.
 
-What the demo should not be stretched into is a fake final review. A demo does not prove the later island structure, endgame crafting depth, creature variety, or co-op stability under launch-week server load. It also does not prove that the full release-day build will behave exactly the same as the demo branch. That is why the strongest buyer-facing copy is conservative: use the demo to judge feel, not to promise late-game route quality.
+What the demo should not be stretched into is a fake final review. A demo does not prove the later island structure, endgame crafting depth, creature variety, or co-op stability under post-launch load. It also does not prove that the paid Early Access build will behave exactly the same as the demo branch. That is why the strongest buyer-facing copy is conservative: use the demo to judge feel, not to promise late-game route quality.
 
 ## 1-4 Player Co-op Meaning
 
 Project: Mist now has a stronger co-op answer than it did earlier in the content cluster. The current Steam store copy says the game is playable solo or in seamless 1-4 player co-op. That is more useful than a generic "online co-op" tag because it immediately answers group planning questions. A lot of survival players search co-op pages because they want to know whether the game is really built for a full friend group or only for a duo. Right now the safest public answer is that the intended upper range is four players.
 
-That still leaves several launch-day questions open. Seamless 1-4 player co-op does not automatically explain who owns the world state, how reconnects work, whether a dedicated server exists, or whether creature pressure scales well from one player to four. Those details need testing once the live build is available. But the top-level player-count question is now strong enough to surface clearly on the hub and in buyer-facing FAQ content.
+That still leaves several post-launch questions open. Seamless 1-4 player co-op does not automatically explain who owns the world state, how reconnects work, whether a dedicated server exists, or whether creature pressure scales well from one player to four. Those details need testing in the paid build. But the top-level player-count question is strong enough to surface clearly on the hub and in buyer-facing FAQ content.
 
 ## Early Access Price and Wait-or-Buy Call
 
 Steam's Early Access section currently says the price is planned to increase when the full version releases. That is important because it changes the buyer decision from "is this cheaper because it is unfinished?" to "is this an early entry point into a game that expects to grow?" Combined with the statement that the currently advertised core features are already implemented and playable, the page now supports a sharper recommendation.
 
-Buy at Early Access launch if you specifically want to learn the systems early, join friends immediately, and do not mind missing polish or waiting for balance updates. Wait if your priority is a stable long-term progression read, a fully proven co-op structure, or better hardware/performance guidance. For user trust, that is the right framing: cheaper entry can be a benefit, but only for players whose tolerance matches what Early Access actually means.
+Buy during Early Access if you specifically want to learn the systems early, join friends immediately, and do not mind missing polish or waiting for balance updates. Wait if your priority is a stable long-term progression read, a fully proven co-op structure, or better hardware/performance guidance. For user trust, that is the right framing: cheaper entry can be a benefit, but only for players whose tolerance matches what Early Access actually means.
 `,
     faqs: [
       {
@@ -497,15 +517,133 @@ Buy at Early Access launch if you specifically want to learn the systems early, 
         answer: 'Steam currently says the price is planned to increase when the full version releases.',
       },
       {
-        question: 'Should I buy Project: Mist on day one or wait?',
-        answer: 'Buy day one if you are comfortable with Early Access iteration and want to learn the systems early. Wait if you need verified performance, save behavior, and full co-op testing first.',
+        question: 'Should I buy Project: Mist now or wait?',
+        answer: 'Buy now if you are comfortable with Early Access iteration and want to learn the systems early. Wait if you need verified performance, save behavior, and full co-op testing first.',
+      },
+    ],
+  },
+  'should-you-buy-project-mist-early-access-guide': {
+    title: 'Should You Buy Project: Mist Early Access?',
+    description:
+      'A user-first Project: Mist buying guide for deciding whether to buy Early Access now, try the demo first, wait for more patches, or skip if you need console support.',
+    lastUpdated,
+    timeToRead: '13 min',
+    primaryKeyword: 'should you buy project mist',
+    spoilerLevel: 'safe',
+    verificationStatus: 'Steam-listed',
+    heroImage: hero,
+    heroImageAlt: 'Project: Mist Early Access buyer guide key art',
+    sections: [
+      { title: 'Fast Buyer Verdict', id: 'fast-buyer-verdict' },
+      { title: 'What Steam Reviews Mean Right Now', id: 'what-steam-reviews-mean-right-now' },
+      { title: 'Demo Versus Early Access Build', id: 'demo-versus-early-access-build' },
+      { title: 'Co-op Buyer Notes', id: 'co-op-buyer-notes' },
+      { title: 'Wait If These Risks Matter', id: 'wait-if-these-risks-matter' },
+    ],
+    sectionMedia: {
+      'fast-buyer-verdict': {
+        image: shot(7),
+        alt: 'Project: Mist train base screenshot for Early Access buyer verdict',
+        caption: 'The best buying decision depends on whether you want the evolving survival sandbox now or a more stable version later.',
+      },
+      'what-steam-reviews-mean-right-now': {
+        image: shot(5),
+        alt: 'Project: Mist island screenshot for Steam review signal',
+        caption: 'The early review count is still too small for a Steam score, so buyers should read specifics rather than treat it as a verdict.',
+      },
+      'demo-versus-early-access-build': {
+        image: shot(3),
+        alt: 'Project: Mist creature scene for demo versus Early Access comparison',
+        caption: 'The demo is useful for feel, controls, and atmosphere, but it cannot prove late-game balance.',
+      },
+      'co-op-buyer-notes': {
+        image: shot(4),
+        alt: 'Project: Mist co-op exploration screenshot for buyer notes',
+        caption: 'Co-op is one of the strongest reasons to buy, but session rules still need careful verification.',
+      },
+      'wait-if-these-risks-matter': {
+        image: shot(8),
+        alt: 'Project: Mist facility screenshot for Early Access risk checklist',
+        caption: 'Players who need polished performance, final routes, or console support should wait for more evidence.',
+      },
+    },
+    videos: [videos.releaseDate, videos.survivalPreview, videos.gravityGun],
+    content: `
+## Fast Buyer Verdict
+
+Buy Project: Mist now if you want to join an evolving Early Access survival game, test the Gravity Gun, build around a moving train base, and play solo or with up to three friends in online co-op. Try the demo first if you mainly want to check performance, controls, UI readability, and atmosphere before paying. Wait if you need a polished full-release experience, verified late-game routes, stable co-op evidence, or an Xbox version.
+
+${launchDayNote}
+
+| Player situation | Best move | Why |
+| --- | --- | --- |
+| You like Early Access survival games | Buy if the current Steam facts and early review count feel acceptable | The core concept is already playable, but balance and polish can change |
+| You are unsure about performance or feel | Try the demo first | The demo can answer basic movement, visibility, and hardware comfort questions |
+| You want to play with friends | Buy only if everyone accepts Early Access risk | Steam lists seamless 1-4 co-op, but host saves, reconnects, and scaling need testing |
+| You need Xbox or console support | Wait | The verified platform is PC via Steam; Xbox is not confirmed in current store data |
+| You need a finished walkthrough or final map | Wait | Routes, recipes, creature weaknesses, and late-game systems still need capture |
+
+This is not a review score page. It is a buying decision page. The user value is clarity: what is confirmed, what the demo can answer, and what still has to be proven by the paid Early Access build.
+
+## What Steam Reviews Mean Right Now
+
+Steam currently shows 7 user reviews for Project: Mist, which is not enough to generate a Steam review score. That matters because a tiny review pool can highlight useful issues, but it should not be treated as a stable verdict. Early Access survival games often receive feedback around performance, UI friction, bugs, content amount, and co-op stability, even when the underlying idea is interesting. A useful guide should not flatten a small sample into "good" or "bad" without reading the substance of player reports.
+
+Use the review count as a caution marker. If you are excited by the premise and comfortable with rough edges, the lack of a score may not be a dealbreaker. If you only buy polished survival games after systems settle, wait for more reviews, patches, and specific player reports.
+
+## Demo Versus Early Access Build
+
+The demo is the safest first step for undecided players. It can tell you whether Project: Mist feels good on your PC, whether the atmosphere works, whether the UI is readable, and whether the survival loop sounds appealing. It can also help you decide if the Gravity Gun, giant creatures, and train-base premise are worth following.
+
+The demo cannot prove everything. It does not guarantee save carryover, final optimization, late-game crafting depth, long-session co-op stability, full map quality, or how often the train base becomes meaningful after the opening hours. Use it as a feel check, not as proof that every paid-build system is solved.
+
+## Co-op Buyer Notes
+
+Co-op is one of Project: Mist's strongest buying hooks because Steam describes the game as playable solo or in seamless 1-4 player co-op. That makes it more attractive for groups than a survival game with vague multiplayer plans. But a buyer still needs practical answers before committing a whole group.
+
+| Co-op question | Current answer | Verification status |
+| --- | --- | --- |
+| Does the game support online co-op? | Yes | Steam-listed |
+| How many players? | Solo or seamless 1-4 player co-op | Steam-listed |
+| Who owns the world save? | Not clearly verified here | Needs hands-on verification |
+| Can friends reconnect cleanly? | Not clearly verified here | Needs hands-on verification |
+| Does enemy pressure scale with group size? | Not clearly verified here | Needs hands-on verification |
+
+If you are buying for a group, test one short session before treating it as your main co-op world. Confirm who hosts, how saves behave, whether loot sharing feels fair, and whether everyone can run the game comfortably.
+
+## Wait If These Risks Matter
+
+Wait if you need a stable finished game, a full map, a route-optimized walkthrough, confirmed best gear, verified creature weaknesses, polished controller support, or console availability. Those are legitimate needs, but they are not what Early Access is best at on day one.
+
+The stronger post-launch strategy is to let the first wave of player reports answer the risky questions. If reviews improve, patches land quickly, and co-op reports are stable, the buying case becomes stronger. If reports focus on performance, unclear progression, or session issues, waiting will probably save frustration.
+`,
+    faqs: [
+      {
+        question: 'Should I buy Project: Mist Early Access now?',
+        answer:
+          'Buy now if you like evolving survival games and accept Early Access risk. Try the demo first if performance, controls, or feel are your main concern.',
+      },
+      {
+        question: 'Should I try the Project: Mist demo before buying?',
+        answer:
+          'Yes. The demo is the safest way to check performance, movement, UI readability, and atmosphere before paying for Early Access.',
+      },
+      {
+        question: 'Is Project: Mist worth it for co-op?',
+        answer:
+          'It may be, because Steam lists seamless 1-4 player co-op, but host saves, reconnects, loot sharing, and scaling still need hands-on verification.',
+      },
+      {
+        question: 'Should Xbox players buy Project: Mist?',
+        answer:
+          'Xbox players should wait. The currently verified platform is PC via Steam, and no official Xbox version is confirmed in current store data.',
       },
     ],
   },
   'multiplayer-coop-guide': {
     title: 'Project: Mist Multiplayer and Co-op Guide',
     description:
-      'A launch-day Project: Mist multiplayer guide covering Steam-listed online co-op, group roles, save questions, scaling risks, and launch-week verification.',
+      'A post-launch Project: Mist multiplayer guide covering Steam-listed online co-op, group roles, host saves, reconnect questions, loot sharing, scaling risks, and verification needs.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist multiplayer co-op',
@@ -545,15 +683,17 @@ Buy at Early Access launch if you specifically want to learn the systems early, 
     content: `
 ## Co-op Status
 
-Steam currently lists Project: Mist with single-player, multiplayer, co-op, and online co-op. That is enough to answer the basic question: yes, Project: Mist is presented as a co-op survival game. It is not enough to answer deeper launch questions about servers, world ownership, save transfer, player limits in practice, or scaling. Those details should be verified after Early Access begins.
+Steam currently lists Project: Mist with single-player, multiplayer, co-op, and online co-op. The store copy also says solo or seamless 1-4 player co-op, which is enough to answer the basic question: yes, Project: Mist is presented as a co-op survival game. It is not enough to answer deeper questions about servers, world ownership, save transfer, reconnect behavior, loot sharing, or scaling. Those details should be verified in the paid Early Access build.
 
-The safest pre-release wording is that online co-op is Steam-listed and that the guide will verify session behavior at launch. Survival games often live or die by practical co-op details: can friends join an existing world, who keeps the save, how death works, whether resources are shared, and whether enemies scale with player count.
+The safest post-launch wording is that online co-op and 1-4 player support are Steam-listed, while practical session behavior still needs testing. Survival games often live or die by practical co-op details: can friends join an existing world, who keeps the save, how death works, whether resources are shared, and whether enemies scale with player count.
 
 | Question | Current answer | Verification status |
 | --- | --- | --- |
 | Is co-op listed? | Yes, Steam lists co-op and online co-op | Steam-listed |
 | Is solo supported? | Yes, Steam lists single-player | Steam-listed |
+| How many players are listed? | Solo or seamless 1-4 player co-op | Steam-listed |
 | Are dedicated servers confirmed? | Not confirmed from Steam feature tags alone | Needs hands-on verification |
+| Can players reconnect cleanly? | Not confirmed from Steam feature tags alone | Needs hands-on verification |
 | Does difficulty scale by player count? | Unknown before testing | Needs hands-on verification |
 
 ## Recommended Team Roles
@@ -587,14 +727,14 @@ The first co-op session should be short and diagnostic. Test joining, leaving, r
       {
         question: 'How many players does Project: Mist support?',
         answer:
-          'The exact practical player limit and scaling behavior should be verified at launch before being treated as final.',
+          'Steam store copy says solo or seamless 1-4 player co-op. Practical scaling and session behavior still need hands-on verification.',
       },
     ],
   },
   'gravity-gun-guide': {
     title: 'Project: Mist Gravity Gun Guide',
     description:
-      'A launch-day Project: Mist Gravity Gun guide explaining confirmed uses, combat planning, object manipulation, co-op utility, and limits that need testing.',
+      'A post-launch Project: Mist Gravity Gun guide explaining confirmed uses, combat planning, object manipulation, co-op utility, and limits that need testing.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist gravity gun',
@@ -636,7 +776,7 @@ The first co-op session should be short and diagnostic. Test joining, leaving, r
 
 The Gravity Gun is one of Project: Mist's clearest hooks. Steam says players can manipulate objects and enemies with it, which implies it is not just a weapon but a survival tool. It may help with combat spacing, moving resources, environmental interaction, creature control, or facility traversal. Exact values and restrictions are not confirmed until hands-on testing.
 
-Do not build early guides around assumed damage numbers. The useful pre-release approach is to define test categories. Does the tool lift heavy objects? Does it interrupt enemy attacks? Does it consume energy? Can it move base materials? Does it work on giant creatures or only smaller threats? These are the questions that should shape the launch update.
+Do not build early guides around assumed damage numbers. The useful post-launch approach is to define test categories. Does the tool lift heavy objects? Does it interrupt enemy attacks? Does it consume energy? Can it move base materials? Does it work on giant creatures or only smaller threats? These are the questions that should shape the next update.
 
 | Use case | Why players care | Verification status |
 | --- | --- | --- |
@@ -667,7 +807,7 @@ In co-op, the Gravity Gun should be tested as a support tool. One player can con
       {
         question: 'Can the Gravity Gun defeat giant creatures?',
         answer:
-          'That is not verified before launch. Treat giant creature interactions as a hands-on test item.',
+          'That is not verified yet. Treat giant creature interactions as a hands-on test item.',
       },
       {
         question: 'Is the Gravity Gun useful in co-op?',
@@ -679,7 +819,7 @@ In co-op, the Gravity Gun should be tested as a support tool. One player can con
   'train-base-building-guide': {
     title: 'Project: Mist Train Base Building Guide',
     description:
-      'A launch-day Project: Mist train base guide covering the moving base concept, upgrade priorities, defense planning, storage, and launch-week verification.',
+      'A post-launch Project: Mist train base guide covering the moving base concept, upgrade priorities, defense planning, storage, and verification needs.',
     lastUpdated,
     timeToRead: '16 min',
     primaryKeyword: 'project mist train base',
@@ -744,7 +884,7 @@ Storage should support exploration loops. A good loop is leave train, scout faci
 
 ## What to Verify at Launch
 
-The launch guide should capture upgrade names, material costs, build limits, placement rules, whether the train has health, whether it needs fuel, and whether co-op players share build permissions. These details should replace pre-release assumptions as soon as hands-on testing is available.
+The next guide update should capture upgrade names, material costs, build limits, placement rules, whether the train has health, whether it needs fuel, and whether co-op players share build permissions. These details should replace assumptions as soon as hands-on testing is available.
 `,
     faqs: [
       {
@@ -766,7 +906,7 @@ The launch guide should capture upgrade names, material costs, build limits, pla
   'creatures-guide': {
     title: 'Project: Mist Creatures Guide',
     description:
-      'A launch-day Project: Mist creatures guide for giant creature encounters, observation, combat caution, escape planning, and post-launch verification.',
+      'A post-launch Project: Mist creatures guide for giant creature encounters, observation, combat caution, escape planning, and verification needs.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist creatures',
@@ -806,9 +946,9 @@ The launch guide should capture upgrade names, material costs, build limits, pla
     content: `
 ## Creature Answer Summary
 
-Project: Mist markets giant creatures as a major survival threat. Steam says players can fight giant creatures, catch critters, and survive a hostile world shaped by abandoned facilities. Trailer footage supports the large-creature hook, but a responsible guide should not invent a bestiary before launch. Names, health, loot, weaknesses, spawn rules, and biome behavior all need hands-on capture.
+Project: Mist markets giant creatures as a major survival threat. Steam says players can fight giant creatures, catch critters, and survive a hostile world shaped by abandoned facilities. Trailer footage supports the large-creature hook, but a responsible guide should not invent a bestiary without testing. Names, health, loot, weaknesses, spawn rules, and biome behavior all need hands-on capture.
 
-The best pre-release advice is to treat creatures as systems to study. Watch pathing, sound cues, aggro distance, safe terrain, whether the Gravity Gun works on them, and whether the train base can be used as a retreat. If a creature is too large to fight early, the correct strategy may be avoidance or environmental routing.
+The best early post-launch advice is to treat creatures as systems to study. Watch pathing, sound cues, aggro distance, safe terrain, whether the Gravity Gun works on them, and whether the train base can be used as a retreat. If a creature is too large to fight early, the correct strategy may be avoidance or environmental routing.
 
 ## Fight, Flee, or Observe
 
@@ -838,19 +978,19 @@ After launch, creature pages should be updated by test blocks: observe without a
       {
         question: 'Can every creature be killed?',
         answer:
-          'That is not verified before launch. Some creatures may be hazards, bosses, or avoidance challenges.',
+          'That is not verified yet. Some creatures may be hazards, bosses, or avoidance challenges.',
       },
       {
         question: 'Will this guide list all weaknesses?',
         answer:
-          'Only after hands-on testing. Pre-release weakness lists would be unreliable.',
+          'Only after hands-on testing. Untested weakness lists would be unreliable.',
       },
     ],
   },
   'crafting-gear-upgrades-guide': {
     title: 'Project: Mist Crafting and Gear Upgrades Guide',
     description:
-      'A launch-day Project: Mist crafting guide covering gear upgrades, resources, critter catching, food loops, and what needs launch verification.',
+      'A post-launch Project: Mist crafting guide covering gear upgrades, resources, critter catching, food loops, and what still needs verification.',
     lastUpdated,
     timeToRead: '15 min',
     primaryKeyword: 'project mist crafting gear upgrades',
@@ -890,9 +1030,9 @@ After launch, creature pages should be updated by test blocks: observe without a
     content: `
 ## Crafting Answer Summary
 
-Steam says Project: Mist lets players upgrade gear, build a moving train base, catch critters, and survive a hostile island. That strongly implies crafting and resource routing are central, but exact recipe names, station types, material costs, and upgrade tiers are not verified before launch. This guide should prepare the framework, then replace placeholders with tested values after Early Access starts.
+Steam says Project: Mist lets players upgrade gear, build a moving train base, catch critters, and survive a hostile island. That strongly implies crafting and resource routing are central, but exact recipe names, station types, material costs, and upgrade tiers are not fully verified here yet. This guide should prepare the framework, then replace placeholders with tested values.
 
-The best pre-release upgrade logic is survival first, damage second, convenience third. In a hostile open world, the strongest early upgrade is often the one that lets you return alive with more resources, not the one with the largest number on a weapon.
+The best early upgrade logic is survival first, damage second, convenience third. In a hostile open world, the strongest early upgrade is often the one that lets you return alive with more resources, not the one with the largest number on a weapon.
 
 ## Upgrade Priority Framework
 
@@ -950,7 +1090,7 @@ After launch, update this page with confirmed station names, recipe costs, upgra
   'map-facilities-guide': {
     title: 'Project: Mist Map and Facilities Guide',
     description:
-      'A launch-day Project: Mist map guide for island exploration, abandoned facilities, route notes, landmarks, and the launch-week mapping plan.',
+      'A post-launch Project: Mist map guide for island exploration, abandoned facilities, route notes, landmarks, and the mapping verification plan.',
     lastUpdated,
     timeToRead: '14 min',
     primaryKeyword: 'project mist map facilities',
@@ -990,7 +1130,7 @@ After launch, update this page with confirmed station names, recipe costs, upgra
     content: `
 ## Map Answer Summary
 
-Project: Mist is described as an open-world survival horror game on a remote island with abandoned mysterious facilities. That is enough to plan a map guide, but not enough to publish a complete map before launch. The correct pre-release structure is a mapping framework: landmarks, safe loops, facility entrances, resource zones, creature zones, train routes, and return points.
+Project: Mist is described as an open-world survival horror game on a remote island with abandoned mysterious facilities. That is enough to plan a map guide, but not enough to publish a complete map without walking it. The correct structure is a mapping framework: landmarks, safe loops, facility entrances, resource zones, creature zones, train routes, and return points.
 
 Open-world survival maps are useful when they answer route questions. Where can I go safely? What do I need before entering a facility? Where can I return to the train? Which areas are likely dangerous? A screenshot gallery alone is not enough.
 
@@ -1023,7 +1163,7 @@ For the greenhouse-style route seen in gameplay, add a second layer to the check
 
 ## Launch Mapping Rules
 
-Do not publish a complete map until it has been walked. For the first launch update, prioritize a starter route, first facility route, safe resource loop, train stop notes, and any high-danger zones. Mark every untested branch as unverified. The map guide should earn trust by being honest about what has and has not been captured.
+Do not publish a complete map until it has been walked. For the next update, prioritize a starter route, first facility route, safe resource loop, train stop notes, and any high-danger zones. Mark every untested branch as unverified. The map guide should earn trust by being honest about what has and has not been captured.
 `,
     faqs: [
       {
@@ -1044,7 +1184,7 @@ Do not publish a complete map until it has been walked. For the first launch upd
       {
         question: 'Will this page include a full map?',
         answer:
-          'After launch, it should be updated with tested routes and landmarks. Pre-release full maps would be speculative.',
+          'It should be updated with tested routes and landmarks. Untested full maps would be speculative.',
       },
     ],
   },
@@ -1055,6 +1195,7 @@ export const projectMistGuideOrder = [
   'first-steps-survival-guide',
   'release-date-platforms-guide',
   'demo-player-count-pricing-guide',
+  'should-you-buy-project-mist-early-access-guide',
   'multiplayer-coop-guide',
   'gravity-gun-guide',
   'train-base-building-guide',
@@ -1070,34 +1211,36 @@ export const projectMistGuides = projectMistGuideOrder.map((slug) => ({
 }));
 
 export const projectMistHubContent = {
-  overview: `Project: Mist is a launch-day Early Access open-world survival horror game from ${projectMistFacts.developer}, currently listed on Steam for ${projectMistFacts.displayReleaseDate}. The current Steam page also exposes a playable demo and describes the game as playable solo or in seamless 1-4 player co-op. It highlights a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
+  overview: `Project: Mist is a released Early Access open-world survival horror game from ${projectMistFacts.developer}. It launched on Steam Early Access on ${projectMistFacts.displayReleaseDate}. The current Steam page also exposes a playable demo and describes the game as playable solo or in seamless 1-4 player co-op. It highlights a Gravity Gun, a moving train base, giant creatures, critter catching, gear upgrades, and abandoned mysterious facilities.
 
-This hub is intentionally built as a launch-day answer center. It separates what Steam and public gameplay already confirm from what still needs hands-on verification once the live Early Access build is fully accessible.`,
+This hub is intentionally built as a post-launch answer center. It separates what Steam and public gameplay already confirm from what still needs hands-on verification in the paid Early Access build.`,
   features: [
-    'Steam-listed release date: May 19, 2026',
-    'Latest Steam check still showed unlock later on May 19, 2026',
+    'Released on Steam Early Access on May 19, 2026',
     'Steam currently lists a playable demo',
     'Developed and published by Chicken Launcher',
     'Early Access open-world survival horror',
     'Steam store copy says seamless 1-4 player co-op',
+    'Steam lists 31 achievements, Steam Cloud, and Family Sharing',
+    'Steam currently shows 7 user reviews, not enough to generate a score at the latest check',
+    'No official Xbox version is confirmed in the current store data',
     'Gravity Gun for manipulating objects and enemies',
     'Moving train base, gear upgrades, critter catching, and giant creatures',
     'Steam says the price is planned to increase at full release',
-    'Guide pages use verification labels to avoid fake pre-launch certainty',
+    'Guide pages use verification labels to avoid fake post-launch certainty',
   ],
   guides: projectMistGuides,
   tips: [
-    'Start with the release date, demo, and beginner guides if you are deciding whether to buy now or wait for the live build to unlock.',
+    'Start with the release date, demo, and buy-or-wait guides if you are deciding whether to buy Early Access now.',
     'Use the first-steps tutorial if you want a clean opening loop from the current gameplay video.',
     'Use the multiplayer guide before planning a group world.',
-    'Treat creature weaknesses, map routes, and crafting costs as unverified until the live Early Access build is tested.',
+    'Treat creature weaknesses, map routes, and crafting costs as unverified until the paid Early Access build is tested.',
     'Watch Gravity Gun and train base systems first because they define the game identity.',
-    'Prioritize the real player questions first: performance, save behavior, doors and base building, languages, and co-op session rules.',
+    'Prioritize the real player questions first: Xbox status, performance, save behavior, doors and base building, languages, and co-op session rules.',
   ],
   faq: [
     {
       question: 'When does Project: Mist release?',
-      answer: 'Project: Mist is currently listed on Steam for May 19, 2026.',
+      answer: 'Project: Mist released on Steam Early Access on May 19, 2026.',
     },
     {
       question: 'Is Project: Mist multiplayer?',
@@ -1112,8 +1255,8 @@ This hub is intentionally built as a launch-day answer center. It separates what
       answer: 'Yes. The current Steam page lists a playable demo.',
     },
     {
-      question: 'Why does Project: Mist still show as not available on May 19?',
-      answer: 'At the latest May 19, 2026 Steam check, the store still showed the game unlocking later the same day, so live-build guides should wait for that unlock window to finish.',
+      question: 'Is Project: Mist on Xbox?',
+      answer: 'No official Xbox version is confirmed in the current store data. The verified platform is PC via Steam.',
     },
     {
       question: 'Can you build a train base?',

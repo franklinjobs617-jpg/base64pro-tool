@@ -53,13 +53,15 @@ export const gameHubSeo: Record<string, PageSeo> = {
     ],
   },
   'project-mist': {
-    title: 'Project: Mist Guide Hub - Release Date, Co-op & Survival',
+    title: 'Project: Mist Guide Hub - Early Access, Xbox & Co-op',
     description:
-      'Project: Mist launch-day guide hub for the May 19, 2026 Steam Early Access release, current Steam unlock status, demo facts, co-op questions, Gravity Gun, train base, creatures, crafting, and facilities.',
+      'Project: Mist post-launch guide hub for Steam Early Access, Xbox status, demo facts, buy-or-wait advice, 1-4 co-op questions, Gravity Gun, train base, creatures, crafting, and facilities.',
     keywords: [
       'Project Mist guide',
       'Project Mist release date',
+      'Project Mist Xbox',
       'Project Mist demo',
+      'Project Mist Early Access',
       'Project Mist multiplayer',
       'Project Mist co-op',
       'Project Mist Gravity Gun',
