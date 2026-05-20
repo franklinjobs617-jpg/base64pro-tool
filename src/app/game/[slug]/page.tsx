@@ -1708,7 +1708,7 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'Platform', value: thickAsThievesFacts.platforms, status: 'Steam-listed' },
       { label: 'Developer', value: thickAsThievesFacts.developer, status: 'Steam-listed' },
       { label: 'Play modes', value: thickAsThievesFacts.players, status: 'Official' },
-      { label: 'Campaign scope', value: '3 maps, 16 contracts, at least 4 hours', status: 'Official' },
+      { label: 'Campaign scope', value: '2 maps, 3 mission types, 16 contracts, at least 4 hours', status: 'Official' },
       { label: 'Live service', value: 'Official FAQ says no', status: 'Official' },
     ];
     return (
@@ -1718,12 +1718,12 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/thick-as-thieves/hero.webp"
         heroImageAlt="Thick As Thieves key art"
         heroBadges={[
-          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Launch-day guide hub', tone: 'accent' },
           { label: 'Stealth heist campaign' },
           { label: thickAsThievesFacts.displayReleaseDate },
         ]}
         title="Thick As Thieves Guide Hub"
-        description="Original pre-release guides for Thick As Thieves: release facts, solo versus co-op setup, stealth fundamentals, campaign scope, gear planning, PC readiness, and roadmap questions without recycled PvPvE-era summaries."
+        description="Launch-day Thick As Thieves guides: release facts, $4.99 scope, solo versus co-op setup, SPIDER versus CHAMELEON basics, gear planning, PC readiness, and roadmap questions without recycled PvPvE-era summaries."
         ctas={[
           { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide` },
           { label: 'Solo and Co-op', href: `/game/${game.slug}/solo-coop-campaign-guide`, variant: 'outline' },
@@ -1732,12 +1732,12 @@ export default async function GamePage({ params }: GamePageProps) {
         spotlightCards={[
           { label: 'Launch date', value: thickAsThievesFacts.displayReleaseDate, note: 'Steam currently positions this as a focused introductory campaign launch' },
           { label: 'Play modes', value: thickAsThievesFacts.players, note: 'The current message is solo or one online co-op partner, not PvPvE' },
-          { label: 'Campaign scope', value: 'Maps, contracts, gear', note: 'Players mostly need campaign size, mission replay, and gear clarity before launch' },
+          { label: 'Campaign scope', value: '2 maps, 16 contracts, 6 gear pieces', note: 'Players need campaign size, mission replay, and gear clarity on launch day' },
         ]}
         sideNotes={[
           {
             label: 'Verification focus',
-            body: 'Co-op flow, mission routing, exact gear behavior, and Steam Deck feel still need launch-day testing after May 20, 2026.',
+            body: 'Co-op flow, mission routing, exact gear behavior, controller feel, and Steam Deck playability still need live testing after the PC build unlocks.',
           },
           {
             label: 'Best first click',

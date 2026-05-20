@@ -95,13 +95,15 @@ export const gameHubSeo: Record<string, PageSeo> = {
     ],
   },
   'thick-as-thieves': {
-    title: 'Thick As Thieves Guide Hub - Co-op, Stealth & PC Facts',
+    title: 'Thick As Thieves Guide Hub - Launch, Co-op & $4.99 Scope',
     description:
-      'Thick As Thieves guide hub with release date, PC platform facts, solo and co-op campaign answers, stealth basics, contracts, gear, specs, and roadmap questions.',
+      'Thick As Thieves launch-day guide hub with May 20 release facts, $4.99 campaign scope, solo and co-op answers, SPIDER versus CHAMELEON basics, contracts, gear, PC specs, and roadmap questions.',
     keywords: [
       'Thick As Thieves guide',
       'Thick As Thieves release date',
       'Thick As Thieves co-op',
+      'Thick As Thieves price',
+      'Thick As Thieves campaign scope',
       'Thick As Thieves stealth guide',
       'Thick As Thieves PC specs',
       'Thick As Thieves roadmap',
