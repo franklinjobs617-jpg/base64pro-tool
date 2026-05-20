@@ -35,7 +35,7 @@ export interface CoffeeTalkTokyoGuide {
   videos: CoffeeTalkTokyoVideo[];
 }
 
-const lastUpdated = '2026-05-16';
+const lastUpdated = '2026-05-20';
 const hero = '/games/coffee-talk-tokyo/hero.webp';
 const shot = (index: number) =>
   `/games/coffee-talk-tokyo/screenshots/coffee-talk-tokyo-screenshot-${index}.webp`;
@@ -76,13 +76,13 @@ export const coffeeTalkTokyoFacts = {
 };
 
 const prereleaseNote =
-  'This is a pre-release guide set. It uses Steam, Chorus Worldwide pages, PlayStation Store details, official trailers, and official Steam news posts. Complete drink lists, final branching outcomes, full achievement conditions, and full route maps need hands-on verification after release.';
+  'This is a launch-eve guide set. It uses Steam, Chorus Worldwide pages, PlayStation Store details, official trailers, and official Steam news posts. Complete drink lists, final branching outcomes, full achievement conditions, demo save transfer, and full route maps need hands-on verification after release.';
 
 export const coffeeTalkTokyoGuideContent: Record<string, CoffeeTalkTokyoGuide> = {
   'release-date-platforms-guide': {
-    title: 'Coffee Talk Tokyo Release Date, Platforms, and Early Access Guide',
+    title: 'Coffee Talk Tokyo Release Date, Platforms, and Deluxe Edition Guide',
     description:
-      'A factual Coffee Talk Tokyo release date guide covering May 21, 2026, confirmed platforms, Steam features, PS5 preorder details, Deluxe Edition bonuses, and what still needs launch verification.',
+      'A factual Coffee Talk Tokyo release date guide covering May 21, 2026, confirmed platforms, Steam features, PS5 preorder details, Deluxe Edition bonuses, demo scope, and what still needs launch verification.',
     lastUpdated,
     timeToRead: '13 min',
     primaryKeyword: 'coffee talk tokyo release date',
@@ -133,10 +133,10 @@ ${prereleaseNote}
 | Release date | May 21, 2026 | Official |
 | Steam store page | Live | Steam-listed |
 | Platforms | PC, PS5, Xbox Series X|S, Nintendo Switch | Official |
-| Steam features | Single-player, Steam Achievements, Save Anytime, Steam Cloud | Steam-listed |
+| Steam features | Single-player, Steam Achievements, Steam Cloud, Family Sharing | Steam-listed |
 | Full launch review score or performance verdict | Not available before release | Needs hands-on verification |
 
-For search intent, the main job of this page is to stop readers from bouncing between half-updated posts. They usually want one clean answer: when does the game come out, where can I play it, and is any version offering early access or extra content. Give that answer first, then separate confirmed facts from store-specific extras.
+For search intent, the main job of this page is to stop readers from bouncing between half-updated posts. They usually want one clean answer: when does the game come out, where can I play it, what does the demo include, and whether Deluxe adds anything meaningful. Give that answer first, then separate confirmed facts from store-specific extras.
 
 ## Platform Breakdown
 
@@ -154,7 +154,7 @@ That still does not mean every platform will have identical launch timing, prici
 
 ## Preorder and Deluxe Status
 
-The PlayStation Store currently advertises a Deluxe Edition with three named extras: a Seattle Prologue Chapter, 10 additional in-game City Pop tracks, and a digital artbook. That is useful because it gives buyers a concrete reason to compare editions rather than guessing. The same PS5 listing also mentions a 72-hour early access preorder bonus, which is meaningful, but it should be labeled as a storefront-specific claim until every platform page is checked.
+The PlayStation Store currently advertises a Deluxe Edition with three named extras: a Seattle Prologue Chapter, 10 additional in-game City Pop tracks, and a digital artbook. That is useful because it gives buyers a concrete reason to compare editions rather than guessing. If a storefront mentions an early-start preorder window, label it as a store-specific preorder benefit, not as Steam Early Access or a universal platform promise.
 
 Preorder pages can easily become low-trust SEO bait because they repeat buzzwords without explaining what those extras actually mean. The better approach is to translate each item into a real player question. Do you want more story? The Seattle prologue matters. Do you mainly care about the core Tokyo campaign? Standard edition may be enough. Do you buy these games for atmosphere and collectible extras? Then the bonus music and artbook may matter more than early access.
 
@@ -175,9 +175,9 @@ That makes this a better guide, not a weaker one. A pre-release page earns trust
           'Current official platform messaging points to PC via Steam, PlayStation 5, Xbox Series X|S, and Nintendo Switch.',
       },
       {
-        question: 'Does Coffee Talk Tokyo have early access?',
+        question: 'Does Coffee Talk Tokyo have a preorder early-start bonus?',
         answer:
-          'The PlayStation Store currently advertises a 72-hour early access preorder bonus on PS5. Check your own storefront before assuming every platform matches it.',
+          'Some storefront wording may advertise an early-start preorder benefit. Treat that as store-specific, not as Steam Early Access or a universal platform promise.',
       },
       {
         question: 'What is in the Deluxe Edition?',
@@ -844,7 +844,7 @@ Those answers should only be published after direct play. Until then, the honest
     content: `
 ## Deluxe Buyer Answer
 
-The current Coffee Talk Tokyo Deluxe Edition adds three named items: a Seattle Prologue Chapter, 10 additional in-game City Pop tracks, and a digital artbook. That is strong enough to build a real buying guide because the bonuses split cleanly into story, atmosphere, and collectible extras. The same PS5 listing also advertises a 72-hour early access preorder bonus, which readers should treat as storefront-specific until every platform page is checked.
+The current Coffee Talk Tokyo Deluxe Edition adds three named items: a Seattle Prologue Chapter, 10 additional in-game City Pop tracks, and a digital artbook. That is strong enough to build a real buying guide because the bonuses split cleanly into story, atmosphere, and collectible extras. If your storefront advertises an early-start preorder window, treat it as a platform-specific bonus and verify it on that store before buying for timing alone.
 
 ${prereleaseNote}
 
@@ -864,7 +864,7 @@ The biggest mistake on edition pages is failing to translate the bonus list into
 | Seattle Prologue Chapter | Returning fans who want more story context |
 | 10 additional City Pop tracks | Players who value the game's atmosphere and replayable chill factor |
 | Digital artbook | Collectors and fans of the art direction |
-| 72-hour early access preorder note | Players who want to start early and whose platform confirms the offer |
+| Early-start preorder note, where listed | Players who want to start early and whose platform confirms the offer |
 
 This is a better structure than hype language because it helps the reader self-sort quickly.
 
@@ -882,7 +882,7 @@ Buy the standard edition if your main goal is to experience the new Tokyo story 
 2. The soundtrack is part of why you return to the series.
 3. You enjoy artbooks and complete-edition style purchases.
 
-Wait for release-day confirmation if your decision depends on early access, storefront parity, or whether Deluxe content is available immediately on all platforms. That is the buyer-first approach: understand what the extras mean, then buy based on the way you actually play these games.
+Wait for release-day confirmation if your decision depends on an early-start window, storefront parity, or whether Deluxe content is available immediately on all platforms. That is the buyer-first approach: understand what the extras mean, then buy based on the way you actually play these games.
 `,
     faqs: [
       {

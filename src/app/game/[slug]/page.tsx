@@ -1383,7 +1383,7 @@ export default async function GamePage({ params }: GamePageProps) {
       {
         title: 'Buy or wait',
         href: `/game/${game.slug}/should-you-buy-guide`,
-        body: 'Decide whether to buy day one or wait for Steam Deck, user review, PS5, achievement, and performance evidence.',
+        body: 'Decide whether to buy day one, trust Steam Deck Verified, use review signals, or wait for PS5, achievement, and player performance evidence.',
       },
     ];
 
@@ -1393,7 +1393,8 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'PS5', value: 'Planned in 2026', status: 'Press-listed' },
       { label: 'Developer', value: zeroParadesFacts.developer, status: 'Official' },
       { label: 'Play mode', value: 'Single-player', status: 'Steam-listed' },
-      { label: 'Best current pages', value: 'Release facts, Disco comparison, systems, buying advice', status: 'Pre-release content plan' },
+      { label: 'Steam Deck', value: zeroParadesFacts.steamDeck, status: 'Steam-listed' },
+      { label: 'Best current pages', value: 'Release facts, Disco comparison, systems, buying advice', status: 'Launch-eve content plan' },
     ];
 
     return (
@@ -1403,12 +1404,12 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/zero-parades-for-dead-spies/hero.webp"
         heroImageAlt="ZERO PARADES: For Dead Spies official key art"
         heroBadges={[
-          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Launch-eve guide hub', tone: 'accent' },
           { label: 'Espionage CRPG' },
           { label: zeroParadesFacts.displayReleaseDate },
         ]}
         title="ZERO PARADES: For Dead Spies Guide Hub"
-        description="Source-backed pre-release guides for ZERO PARADES: release date and platforms, whether it is like Disco Elysium, what skills and Dramatic Encounters promise, and whether you should buy at launch or wait for hands-on reports."
+        description="Source-backed launch-eve guides for ZERO PARADES: release date and platforms, Steam Deck Verified status, whether it is like Disco Elysium, what skills and Dramatic Encounters promise, and whether you should buy at launch or wait for player reports."
         ctas={[
           { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-platforms-language-guide` },
           { label: 'Disco Elysium Comparison', href: `/game/${game.slug}/is-it-like-disco-elysium-guide`, variant: 'outline' },
@@ -1416,13 +1417,13 @@ export default async function GamePage({ params }: GamePageProps) {
         ]}
         spotlightCards={[
           { label: 'Launch timing', value: 'PC on May 21, 2026', note: 'PS5 is listed separately for 2026, so the date should not be merged across platforms' },
-          { label: 'Core hook', value: 'Espionage CRPG', note: 'Skills, dice rolls, Tactical View, and failure-forward decisions are the useful pre-release hooks' },
+          { label: 'Core hook', value: 'Espionage CRPG', note: 'Skills, dice rolls, Tactical View, and failure-forward decisions are the useful launch-eve hooks' },
           { label: 'Content stance', value: 'No fake walkthroughs', note: 'Endings, choices, builds, achievements, and routes should wait for the live build' },
         ]}
         sideNotes={[
           {
             label: 'Source policy',
-            body: 'Facts come from the official press page, Steam, Epic, GOG, and public trailer or preview coverage. Anything that requires a finished playthrough is marked for launch-week verification.',
+            body: 'Facts come from the official press page, Steam, Epic, GOG, and public review or trailer coverage. Anything that requires a finished playthrough is marked for launch-week verification.',
           },
           {
             label: 'Best first click',
@@ -1430,9 +1431,9 @@ export default async function GamePage({ params }: GamePageProps) {
           },
         ]}
         startHereTitle="Start here"
-        startHereIntro="The cleanest four-page path for a game that has strong pre-release demand but no verified full routes yet."
+        startHereIntro="The cleanest four-page path for a game that has strong launch-eve demand but no verified full routes yet."
         startHere={startHere}
-        answerTitle="Pre-release answer center"
+        answerTitle="Launch-eve answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
         guideSectionDescription="Four source-backed pages with real tables, direct FAQs, unique official images, and visible verification labels. Full walkthrough-style coverage waits until the May 21 PC build can be tested."
@@ -1443,7 +1444,7 @@ export default async function GamePage({ params }: GamePageProps) {
           description: guide.description,
           image: guide.image,
           imageAlt: guide.imageAlt,
-          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+          badges: [{ label: 'Launch-eve', tone: 'accent' }, { label: guide.status }],
         }))}
         routeMapTitle="Route map"
         tips={content.tips}
@@ -1795,7 +1796,7 @@ export default async function GamePage({ params }: GamePageProps) {
       {
         title: 'Demo scope',
         href: `/game/${game.slug}/demo-length-save-transfer-guide`,
-        body: 'See exactly what the demo covers, what it confirms, and what you still should not assume before launch.',
+        body: 'See exactly what the demo covers, what it confirms, and what still needs launch verification.',
       },
       {
         title: 'First night',
@@ -1819,12 +1820,12 @@ export default async function GamePage({ params }: GamePageProps) {
         heroImage="/games/coffee-talk-tokyo/hero.webp"
         heroImageAlt="Coffee Talk Tokyo key art"
         heroBadges={[
-          { label: 'Pre-release guide hub', tone: 'accent' },
+          { label: 'Launch-eve guide hub', tone: 'accent' },
           { label: 'Tokyo late-night cafe' },
           { label: coffeeTalkTokyoFacts.displayReleaseDate },
         ]}
         title="Coffee Talk Tokyo Guide Hub"
-        description="Original pre-release guides for Coffee Talk Tokyo: release facts, demo scope, Tomodachill, cold drinks, sprinkle stencils, character context, and edition decisions that are actually useful before launch."
+        description="Launch-eve guides for Coffee Talk Tokyo: release facts, demo scope, Tomodachill, cold drinks, sprinkle stencils, character context, and edition decisions that are useful before launch."
         ctas={[
           { label: 'Release Facts', href: `/game/${game.slug}/release-date-platforms-guide` },
           { label: 'Demo Guide', href: `/game/${game.slug}/demo-length-save-transfer-guide`, variant: 'outline' },
@@ -1832,7 +1833,7 @@ export default async function GamePage({ params }: GamePageProps) {
         ]}
         spotlightCards={[
           { label: 'Launch date', value: coffeeTalkTokyoFacts.displayReleaseDate, note: 'Platform set is already public, but route and recipe completeness should wait' },
-          { label: 'Demo scope', value: 'Day 1 + early Day 2', note: 'The demo already answers several buyer questions before launch' },
+          { label: 'Demo scope', value: 'Day 1 + early Day 2', note: 'The demo already answers several buyer questions before the full launch' },
           { label: 'New systems', value: 'Tomodachill + cold drinks', note: 'Those two upgrades are where most player curiosity currently clusters' },
         ]}
         sideNotes={[
@@ -1848,7 +1849,7 @@ export default async function GamePage({ params }: GamePageProps) {
         startHereTitle="Start here"
         startHereIntro="The cleanest sequence for release facts, demo scope, and a spoiler-light first-night read."
         startHere={startHere}
-        answerTitle="Pre-release answer center"
+        answerTitle="Launch-eve answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
         guideSectionDescription="Editorial-style pages with screenshots, direct-answer tables, visible verification labels, and FAQ blocks that match the visible content."
@@ -1859,7 +1860,7 @@ export default async function GamePage({ params }: GamePageProps) {
           description: guide.description,
           image: guide.image,
           imageAlt: guide.imageAlt,
-          badges: [{ label: 'Pre-release', tone: 'accent' }, { label: guide.status }],
+          badges: [{ label: 'Launch-eve', tone: 'accent' }, { label: guide.status }],
         }))}
         routeMapTitle="Route map"
         tips={content.tips}

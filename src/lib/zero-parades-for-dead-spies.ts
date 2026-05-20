@@ -2,6 +2,7 @@ export type ZeroParadesVerificationStatus =
   | 'Official'
   | 'Steam-listed'
   | 'Press-listed'
+  | 'Review-reported'
   | 'Preview-reported'
   | 'Needs hands-on verification';
 
@@ -35,7 +36,7 @@ export interface ZeroParadesGuide {
   videos: ZeroParadesVideo[];
 }
 
-const lastUpdated = '2026-05-19';
+const lastUpdated = '2026-05-20';
 const base = '/games/zero-parades-for-dead-spies';
 const hero = `${base}/hero.webp`;
 const shot = (index: number) => `${base}/screenshots/zero-parades-screenshot-${index}.webp`;
@@ -68,10 +69,14 @@ export const zeroParadesFacts = {
   officialUrl: 'https://zeroparades.com/',
   pressUrl: 'https://zeroparades.com/press',
   genre: 'Espionage CRPG',
+  steamDeck: 'Steam Deck Verified',
+  price: '$39.99',
+  reviewSignal:
+    'Pre-release review coverage is available, but player reviews, route data, achievements, and final launch performance still need post-release verification.',
 };
 
 const prereleaseNote =
-  'This is a pre-release guide checked on May 19, 2026. It uses the official ZERO PARADES press page, live Steam listing, storefront pages, and public preview coverage. Final walkthrough routes, achievements, choices, endings, and performance need hands-on verification after the PC release.';
+  'This is a launch-eve guide checked on May 20, 2026. It uses the official ZERO PARADES press page, live Steam listing, storefront pages, and public review or preview coverage. Final walkthrough routes, achievements, choices, endings, player-review sentiment, and launch performance still need hands-on verification after the PC release.';
 
 export const zeroParadesGuideContent: Record<string, ZeroParadesGuide> = {
   'release-date-platforms-language-guide': {
@@ -127,7 +132,9 @@ ${prereleaseNote}
 | Developer and publisher | ZA/UM | Official |
 | Steam app ID | 2863680 | Steam-listed |
 | Genre signal | Espionage RPG / CRPG / story-rich RPG | Official / Steam-listed |
-| User reviews | No Steam user-review score before release | Steam-listed |
+| Steam Deck | Steam Deck Verified | Steam-listed |
+| Launch price | $39.99 | Store-listed |
+| User reviews | No broad player-review consensus before release | Needs launch verification |
 
 ## Platform And Storefront Status
 
@@ -142,7 +149,7 @@ The current platform answer is PC first. Steam, Epic Games Store, and GOG all ha
 
 ## Steam Features And Languages
 
-Steam currently lists ZERO PARADES as a single-player game with Steam achievements, Steam Cloud, and Family Sharing. Storefront labels are useful because players ask whether it is multiplayer, whether saves sync, and whether achievements exist. They should not be stretched into claims about trophy difficulty, save-scumming, chapter select, or route structure before the live build is available.
+Steam currently lists ZERO PARADES as a single-player game with Steam achievements, Steam Cloud, Family Sharing, and Steam Deck Verified status. Storefront labels are useful because players ask whether it is multiplayer, whether saves sync, whether achievements exist, and whether it can be played handheld. They should not be stretched into claims about trophy difficulty, save-scumming, chapter select, or route structure before the live build is available.
 
 For language support, use the live storefront as the source of truth at the time of purchase. Language grids can change close to release, and translation quality can only be judged after players test the final text-heavy build.
 
@@ -152,7 +159,7 @@ Steam currently lists a 16 GB RAM minimum, DirectX 11, Windows 10 minimum, and a
 
 | Launch-week check | Why it matters |
 | --- | --- |
-| Steam Deck status | A text-heavy isometric RPG may be playable on handhelds, but font size and battery life matter |
+| Steam Deck status | Steam Deck Verified is listed, but font size, battery life, and long-session comfort still need player checks |
 | Ultra-wide and controller comfort | Tactical View and dialogue menus need UI testing |
 | Save and cloud behavior | Story-rich RPGs need reliable rollback and sync behavior |
 | Accessibility options | Subtitles, input remapping, and readable UI are essential for long dialogue sessions |
@@ -167,6 +174,10 @@ Sources checked: the official ZERO PARADES press page, Steam store page, Epic Ga
       {
         question: 'Is ZERO PARADES coming to PS5?',
         answer: 'Yes. The official press page lists PlayStation 5 for 2026, separate from the May 21 PC launch.',
+      },
+      {
+        question: 'Is ZERO PARADES Steam Deck Verified?',
+        answer: 'Steam currently lists ZERO PARADES as Steam Deck Verified, but text readability and battery life still need launch-player checks.',
       },
       {
         question: 'Is ZERO PARADES multiplayer?',
@@ -349,17 +360,18 @@ After release, this page should become a practical guide: when to exert, which p
   'should-you-buy-guide': {
     title: 'Should You Buy ZERO PARADES at Launch?',
     description:
-      'A buyer-focused ZERO PARADES guide for launch-week players deciding whether to buy day one, wait for reviews, or hold for PS5 and performance reports.',
+      'A buyer-focused ZERO PARADES guide for launch-week players deciding whether to buy day one, use pre-release reviews, trust Steam Deck Verified, or wait for PS5 and player reports.',
     lastUpdated,
     timeToRead: '12 min',
     primaryKeyword: 'should you buy ZERO PARADES',
     spoilerLevel: 'safe',
-    verificationStatus: 'Needs hands-on verification',
+    verificationStatus: 'Review-reported',
     heroImage: `${base}/homepage/should-you-buy-guide.webp`,
     heroImageAlt: 'ZERO PARADES: For Dead Spies buyer guide image',
     sections: [
       { title: 'Fast Buyer Verdict', id: 'fast-buyer-verdict' },
       { title: 'Buy Now If These Are Your Priorities', id: 'buy-now-if-these-are-your-priorities' },
+      { title: 'Use Reviews Without Overreading Them', id: 'use-reviews-without-overreading-them' },
       { title: 'Wait If These Questions Matter', id: 'wait-if-these-questions-matter' },
       { title: 'Launch Week Update Plan', id: 'launch-week-update-plan' },
     ],
@@ -379,6 +391,11 @@ After release, this page should become a practical guide: when to exert, which p
         alt: 'ZERO PARADES - RPG game wait for reviews screenshot',
         caption: 'Performance, accessibility, and route clarity need evidence from the live build.',
       },
+      'use-reviews-without-overreading-them': {
+        image: shot(8),
+        alt: 'ZERO PARADES - RPG game review signal screenshot',
+        caption: 'Pre-release reviews can help with quality signals, but they do not replace player checks for route and platform details.',
+      },
       'launch-week-update-plan': {
         image: shot(16),
         alt: 'ZERO PARADES - RPG game launch week update plan screenshot',
@@ -389,7 +406,7 @@ After release, this page should become a practical guide: when to exert, which p
     content: `
 ## Fast Buyer Verdict
 
-Buy ZERO PARADES at launch only if you are comfortable with a text-heavy espionage CRPG and want to experience its writing, skills, choices, and failure systems before guides solve the game. Wait if your decision depends on Steam Deck comfort, PS5 timing, user reviews, achievement routes, or exact performance.
+Buy ZERO PARADES at launch if you are comfortable with a text-heavy espionage CRPG and want to experience its writing, skills, choices, and failure systems before guides solve the game. Pre-release review coverage is already useful for broad quality signals, and Steam currently lists the game as Steam Deck Verified. Still wait if your decision depends on PS5 timing, achievement routes, exact route consequences, or player-tested performance across your own hardware.
 
 ${prereleaseNote}
 
@@ -397,8 +414,14 @@ ${prereleaseNote}
 | --- | --- | --- |
 | Disco Elysium-style RPG fan | Strong watchlist / possible day-one buy | The public systems match narrative RPG intent |
 | Achievement hunter | Wait | Trophy and achievement routes need live verification |
-| Steam Deck player | Wait for launch reports | Readability and battery life matter as much as compatibility |
+| Steam Deck player | Possible buy, but check readability reports | Steam Deck Verified is listed, but text comfort still matters |
 | PS5 player | Wait | PS5 is listed for 2026, not the PC launch date |
+
+## Use Reviews Without Overreading Them
+
+Pre-release reviews can help answer whether the writing, tone, and RPG structure are landing for critics. They cannot fully answer every player task this site will need after launch. Achievement missables, route consequences, Steam Deck battery life, cloud-save edge cases, and late-game build advice still require broader player evidence and hands-on checks.
+
+The user-friendly framing is therefore not "wait for reviews" in general. It is more specific: use reviews for quality confidence, then use launch-player reports for platform comfort and route certainty.
 
 ## Buy Now If These Are Your Priorities
 
@@ -408,25 +431,25 @@ It is also a stronger fit for players who do not need an optimized route immedia
 
 ## Wait If These Questions Matter
 
-Wait for reviews or first-player reports if you need hard answers on performance, accessibility, Steam Deck, save behavior, achievement difficulty, route structure, or how often Dramatic Encounters appear. Those are not good pre-release promises. They are launch-week tests.
+Wait for first-player reports if you need hard answers on performance across weaker PCs, accessibility, Steam Deck text comfort, save behavior, achievement difficulty, route structure, or how often Dramatic Encounters appear. Those are not good launch-eve promises. They are launch-week tests.
 
 | Question | Why waiting helps |
 | --- | --- |
 | Is the writing consistently strong? | Only the full game can answer pacing and payoff |
 | Does Tactical View matter? | Public descriptions do not prove frequency or depth |
-| Is performance stable? | Store requirements are not benchmarks |
+| Is performance stable on your hardware? | Store requirements and review PCs are not universal benchmarks |
 | Are choices meaningful? | Route consequences need complete-play evidence |
 
 ## Launch Week Update Plan
 
-After the May 21 PC release, this guide should be updated with hands-on notes: first-hour stability, text readability, controller and mouse comfort, Steam Deck status if visible, achievement list behavior, save slots, early build recommendations, and whether the game deserves dedicated walkthrough, endings, choices, and build pages.
+After the May 21 PC release, this guide should be updated with hands-on notes: first-hour stability, text readability, controller and mouse comfort, Steam Deck battery and font comfort, achievement list behavior, save slots, early build recommendations, and whether the game deserves dedicated walkthrough, endings, choices, and build pages.
 
 That update path is important for search quality. A useful pre-release buying guide should become a real buyer guide as soon as evidence exists.
 `,
     faqs: [
       {
         question: 'Should I buy ZERO PARADES on day one?',
-        answer: 'Buy day one if you want a blind narrative CRPG run; wait if you need performance, Steam Deck, PS5, or achievement-route certainty.',
+        answer: 'Buy day one if you want a blind narrative CRPG run; wait if you need PS5 timing, achievement-route certainty, or player-tested performance on your exact setup.',
       },
       {
         question: 'Should achievement hunters wait?',
@@ -461,6 +484,8 @@ This hub is intentionally narrow before launch. It answers the questions players
     'PC release date currently listed for May 21, 2026',
     'Steam, Epic Games Store, and GOG storefronts are public',
     'PlayStation 5 version is listed for 2026, separate from the PC launch',
+    'Steam currently lists the game as Steam Deck Verified',
+    'Current launch price signal is $39.99',
     'Official materials describe an espionage RPG from ZA/UM',
     'Steam lists single-player, achievements, Steam Cloud, and Family Sharing',
     'Public feature list names 15 unique operant skills',
@@ -471,7 +496,7 @@ This hub is intentionally narrow before launch. It answers the questions players
     'Start with the release guide if you need platform, storefront, and PC requirement facts.',
     'Use the Disco Elysium comparison before assuming this is a direct sequel or the same kind of story.',
     'Open the gameplay guide if you want the cleanest explanation of skills, Tactical View, Pressures, and failure.',
-    'Use the buying guide if you are deciding between day-one PC, waiting for Steam Deck reports, or waiting for PS5.',
+    'Use the buying guide if you are deciding between day-one PC, Steam Deck Verified confidence, or waiting for PS5.',
   ],
   faq: [
     {
