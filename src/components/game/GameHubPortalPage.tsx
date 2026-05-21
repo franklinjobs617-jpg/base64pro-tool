@@ -93,7 +93,6 @@ function badgeClass(tone: Tone = 'muted') {
   if (tone === 'success') {
     return 'border border-emerald-400/30 bg-emerald-400/15 text-emerald-100 hover:bg-emerald-400/15';
   }
-
   return 'border border-white/10 bg-black/30 text-zinc-100 hover:bg-black/30';
 }
 
