@@ -32,20 +32,20 @@ export interface ParalivesGuide {
   }[];
 }
 
-const lastUpdated = '2026-05-18';
+const lastUpdated = '2026-05-21';
 const hero = '/games/paralives/hero.webp';
 const shot = (index: number) =>
   `/games/paralives/screenshots/paralives-screenshot-${index}.webp`;
 
 const prereleaseNote =
-  'This is a pre-release guide set. It uses the current Steam store page, the official Paralives FAQ, and live official messaging checked on May 18, 2026. Exact performance, final save behavior, bug level, full feature depth, and first-week balance need hands-on verification after Early Access starts.';
+  'This is a pre-release guide set. It uses the current Steam store page, the official Paralives FAQ, and live official messaging checked on May 21, 2026. Exact performance, final save behavior, bug level, full feature depth, and first-week balance need hands-on verification after Early Access starts.';
 
 export const paralivesFacts = {
   releaseDate: '2026-05-25',
   displayReleaseDate: 'May 25, 2026',
   platforms: 'PC and Mac via Steam',
   developer: 'Alex Masse and the Paralives Team',
-  publisher: 'Alex Masse and the Paralives Team',
+  publisher: 'Paralives Studio',
   steamId: '1118520',
   steamUrl: 'https://store.steampowered.com/app/1118520/Paralives/',
   faqUrl: 'https://www.paralives.com/faq',
@@ -56,18 +56,32 @@ export const paralivesFacts = {
   noPaidDlc:
     'Official FAQ and Steam wording both say there will be no paid DLCs, only free updates and expansions.',
   consolePlan: 'The official FAQ currently says there are no plans for console versions.',
+  mobilePlan: 'The official FAQ says Paralives will not have a phone or tablet version.',
+  preorderStatus: 'The official FAQ says Paralives is not available for pre-order; players can wishlist it on Steam.',
+  betaStatus: 'The official FAQ says there is no open beta phase planned.',
+  playMode: 'Single-player and playable offline',
+  languages:
+    'English, French, Simplified Chinese, Spanish (Latin America), Portuguese (Brazil), German, Italian, and Polish',
+  earlyAccessLength:
+    'Steam says the team currently expects Early Access to last about two years, but the estimate may change.',
   modSupport:
     'Steam and the official FAQ say players can share creations, custom content, and mods through Steam Workshop.',
   scriptMods: 'The official FAQ says script mods are not planned at the moment.',
   launchLaterFeatures:
     'Steam says pets, cars, houseboats, town creation tools, weather, seasons, pools, gardening, fishing, and more are planned during Early Access rather than guaranteed on day one.',
+  windowsMinimum:
+    'Windows 10, Intel Core i5 or AMD Ryzen 5 @ 2.5 GHz, 12 GB RAM, GTX 1060 or RX 6600 XT, DirectX 11, and 8 GB storage',
+  windowsRecommended:
+    'Windows 11, Intel Core i5 or AMD Ryzen 5 @ 3.0 GHz, 16 GB RAM, RTX 2060 or RX 7600 XT, DirectX 11, and 8 GB storage',
+  macMinimum: 'macOS Big Sur 11 or newer, Apple M2 processor and graphics, and 12 GB RAM',
+  macRecommended: 'macOS Big Sur 11 or newer, Apple M3 processor and graphics, and 16 GB RAM',
 };
 
 export const paralivesGuideContent: Record<string, ParalivesGuide> = {
   'release-date-early-access-guide': {
     title: 'Paralives Release Date and Early Access Guide',
     description:
-      'A factual Paralives release date guide covering the May 25, 2026 Early Access launch, Steam status, PC and Mac availability, and what readers should verify after release.',
+      'A factual Paralives release date guide covering the May 25, 2026 Early Access launch, Steam PC and Mac status, price, no preorder, no beta, languages, and what readers should verify after release.',
     lastUpdated,
     timeToRead: '11 min',
     primaryKeyword: 'paralives release date',
@@ -78,7 +92,7 @@ export const paralivesGuideContent: Record<string, ParalivesGuide> = {
     sections: [
       { title: 'Direct Answer', id: 'direct-answer' },
       { title: 'Early Access Scope', id: 'early-access-scope' },
-      { title: 'Platform and Storefront Facts', id: 'platform-and-storefront-facts' },
+      { title: 'Platform, Preorder, and Language Facts', id: 'platform-preorder-and-language-facts' },
       { title: 'What Still Needs Verification', id: 'what-still-needs-verification' },
     ],
     sectionMedia: {
@@ -92,10 +106,10 @@ export const paralivesGuideContent: Record<string, ParalivesGuide> = {
         alt: 'Paralives house building screenshot for Early Access scope',
         caption: 'The useful buyer question is not only when Paralives launches, but what the Early Access label actually means.',
       },
-      'platform-and-storefront-facts': {
+      'platform-preorder-and-language-facts': {
         image: shot(3),
-        alt: 'Paralives Paramaker screenshot for platform facts',
-        caption: 'Official platform wording is currently PC and Mac through Steam.',
+        alt: 'Paralives Paramaker screenshot for platform preorder and language facts',
+        caption: 'Official platform wording is currently PC and Mac through Steam, with no preorder and no open beta.',
       },
       'what-still-needs-verification': {
         image: shot(4),
@@ -117,7 +131,12 @@ ${prereleaseNote}
 | Launch model | Early Access | Steam-listed |
 | Platform | PC and Mac via Steam | Official |
 | Console version | No current console plans | FAQ-listed |
+| Mobile version | No phone or tablet version | FAQ-listed |
 | Launch price | $39.99 USD during Early Access | FAQ-listed |
+| Pre-order | Not available; wishlist on Steam instead | FAQ-listed |
+| Open beta | No open beta phase planned | FAQ-listed |
+| Play mode | Single-player and playable offline | FAQ-listed |
+| Languages | English, French, Simplified Chinese, Spanish (Latin America), Portuguese (Brazil), German, Italian, and Polish | FAQ-listed |
 
 The reason this page has real value is that many readers are not asking a generic hype question. They are asking whether Paralives is actually about to be playable, whether it is launching as a full 1.0 release, and whether they should expect missing systems at the start. A strong release-date page should answer all three immediately.
 
@@ -125,11 +144,15 @@ The reason this page has real value is that many readers are not asking a generi
 
 Steam's Early Access section matters because it explains why Paralives is launching this way and what players should expect. The store page says Early Access is being used so players can give feedback on the systems already developed, while the team keeps expanding the game over time. That means buyers should not read the launch as final feature completion. They should read it as the first public version of a game that still has major roadmap items ahead.
 
+Steam currently says the team expects Early Access to last about two years, while also warning that the estimate may change. That is important buyer context. Someone who wants a finished Sims-like game on day one should wait. Someone who wants to participate in a long public development period may be a better fit for launch week.
+
 This distinction matters for trust. A bad pre-release guide says "Paralives launches May 25" and stops there. A good guide says "Paralives enters Early Access on May 25, and some major features are planned for later updates." That is a cleaner answer for users and for search.
 
-## Platform and Storefront Facts
+## Platform, Preorder, and Language Facts
 
-The official FAQ currently says the game will be available on Steam for PC and Mac. It also says there are no console plans right now. That should be stated plainly because console speculation is one of the easiest ways for a life-sim page to become low-trust. If a storefront or roadmap changes later, the page can be updated. For now, the public answer is simple: Steam, PC, and Mac.
+The official FAQ currently says the game will be available on Steam for PC and Mac. It also says there are no console plans right now, no phone or tablet version, no open beta, and no pre-order. Players can wishlist Paralives on Steam instead. That should be stated plainly because platform and preorder speculation are easy ways for a life-sim page to become low-trust. If a storefront or roadmap changes later, the page can be updated. For now, the public answer is simple: Steam, PC, Mac, wishlist only.
+
+Language support is also a real buyer question. The official FAQ lists English, French, Simplified Chinese, Spanish (Latin America), Portuguese (Brazil), German, Italian, and Polish. This does not prove every community translation or future localization plan, but it gives readers a reliable launch-window answer.
 
 ## What Still Needs Verification
 
@@ -149,6 +172,14 @@ Do not overstate what a date page can prove before launch. A release page cannot
         answer: 'The official FAQ currently says Paralives will be available on Steam for PC and Mac.',
       },
       {
+        question: 'Can I pre-order Paralives?',
+        answer: 'No. The official FAQ says Paralives is not available for pre-order, but you can wishlist it on Steam.',
+      },
+      {
+        question: 'Does Paralives have an open beta?',
+        answer: 'No. The official FAQ says there is no open beta phase planned.',
+      },
+      {
         question: 'Is Paralives coming to consoles?',
         answer: 'The official FAQ currently says there are no plans for console versions at the moment.',
       },
@@ -157,7 +188,7 @@ Do not overstate what a date page can prove before launch. A release page cannot
   'price-platforms-mac-guide': {
     title: 'Paralives Price, Platforms, and Mac Guide',
     description:
-      'A buyer-focused Paralives guide covering the official $39.99 Early Access price, PC and Mac support, no-console status, and the unanswered launch-week performance questions.',
+      'A buyer-focused Paralives guide covering the official $39.99 Early Access price, Steam PC and Mac support, current Windows and Mac requirements, no-console status, and launch-week performance checks.',
     lastUpdated,
     timeToRead: '11 min',
     primaryKeyword: 'paralives price',
@@ -168,7 +199,7 @@ Do not overstate what a date page can prove before launch. A release page cannot
     sections: [
       { title: 'Direct Buyer Answer', id: 'direct-buyer-answer' },
       { title: 'Platform Breakdown', id: 'platform-breakdown' },
-      { title: 'Mac and Low-End PC Expectations', id: 'mac-and-low-end-pc-expectations' },
+      { title: 'PC and Mac Requirements', id: 'pc-and-mac-requirements' },
       { title: 'What To Check At Launch', id: 'what-to-check-at-launch' },
     ],
     sectionMedia: {
@@ -182,10 +213,10 @@ Do not overstate what a date page can prove before launch. A release page cannot
         alt: 'Paralives town overview screenshot for platform breakdown',
         caption: 'Use the official FAQ first instead of guessing console or non-Steam plans.',
       },
-      'mac-and-low-end-pc-expectations': {
+      'pc-and-mac-requirements': {
         image: shot(4),
-        alt: 'Paralives neighborhood screenshot for Mac and laptop expectations',
-        caption: 'Official wording says the team is working on optimization, but exact specs are not public yet.',
+        alt: 'Paralives neighborhood screenshot for PC and Mac requirements',
+        caption: 'Steam now lists Windows and macOS requirements, but real laptop comfort still needs player reports.',
       },
       'what-to-check-at-launch': {
         image: shot(5),
@@ -206,16 +237,24 @@ The official Paralives FAQ currently says the game will cost ${paralivesFacts.pr
 | PC support | Yes | Official |
 | Mac support | Yes | Official |
 | Console version | No current plans | FAQ-listed |
+| Mobile version | No phone or tablet version | FAQ-listed |
+| Pre-order | No; wishlist on Steam instead | FAQ-listed |
+| Open beta | No open beta phase planned | FAQ-listed |
 
 ## Platform Breakdown
 
 The current public platform answer is narrower than many players assume. Paralives is being positioned for Steam on PC and Mac, not for every platform at once. The official FAQ also says there are no console plans right now. That should not be softened into "maybe later" on the page unless the official messaging changes.
 
-For SEO and user trust, this matters a lot. One of the fastest ways to weaken a pre-release guide is to pad it with platform speculation. If the official answer is Steam on PC and Mac, say that directly. If console readers ask later, that question should stay in the FAQ with the current "no plans" answer.
+For SEO and user trust, this matters a lot. One of the fastest ways to weaken a pre-release guide is to pad it with platform speculation. If the official answer is Steam on PC and Mac, say that directly. If console, mobile, or non-Steam readers ask later, those questions should stay in the FAQ with the current official answers.
 
-## Mac and Low-End PC Expectations
+## PC and Mac Requirements
 
-The official FAQ says the team is working on optimizing the game so it can run on laptops and lower-end computers as much as possible, but also says specific requirements will come closer to release. That gives you one useful sentence and one important limit. It is fair to say the team is thinking about optimization. It is not fair to publish fake minimum specs before the developers do.
+Steam now lists Windows and Mac requirements, which means this page should not keep saying that specs are unavailable. The useful answer is to show the requirements and then explain their limits: a requirement table does not prove long-save performance, heat, battery drain, or how comfortable build mode feels after hours of play.
+
+| System | Minimum | Recommended |
+| --- | --- | --- |
+| Windows | ${paralivesFacts.windowsMinimum} | ${paralivesFacts.windowsRecommended} |
+| Mac | ${paralivesFacts.macMinimum} | ${paralivesFacts.macRecommended} |
 
 That means this page should help readers ask the right launch-day questions:
 
@@ -228,7 +267,7 @@ That means this page should help readers ask the right launch-day questions:
 
 ## What To Check At Launch
 
-Price and platform are confirmed. Real buying comfort is not. Check the live system requirements, the first round of player reports, and whether Mac performance looks stable enough for long play sessions. That is the honest split between pre-release information and release-week evidence.
+Price, platform, and listed requirements are confirmed. Real buying comfort is not. Check the first round of player reports, whether Mac performance looks stable enough for long play sessions, and whether the minimum 12 GB RAM target feels practical on normal laptops. That is the honest split between store data and release-week evidence.
 `,
     faqs: [
       {
@@ -245,7 +284,11 @@ Price and platform are confirmed. Real buying comfort is not. Check the live sys
       },
       {
         question: 'Does Paralives have confirmed system requirements yet?',
-        answer: 'Not yet. The official FAQ says specific requirements will be shared closer to release.',
+        answer: 'Yes. Steam currently lists Windows and Mac minimum and recommended requirements, but real performance still needs launch-week player reports.',
+      },
+      {
+        question: 'Can I play Paralives offline?',
+        answer: 'Yes. The official FAQ says Paralives is a single-player game and can be played offline.',
       },
     ],
   },
@@ -632,15 +675,21 @@ export const paralivesGuides = paralivesGuideOrder.map((slug) => ({
 }));
 
 export const paralivesHubContent = {
-  overview: `Paralives is an upcoming life simulation game currently scheduled for ${paralivesFacts.displayReleaseDate} in Early Access. The current official messaging is already unusually useful: the FAQ confirms a $39.99 USD Early Access price, PC and Mac support through Steam, no console plans right now, and no paid DLCs. The Steam page also clearly lists several major features that are planned later in Early Access rather than guaranteed on day one.
+  overview: `Paralives is an upcoming life simulation game currently scheduled for ${paralivesFacts.displayReleaseDate} in Early Access. The current official messaging is already unusually useful: the FAQ confirms a $39.99 USD Early Access price, PC and Mac support through Steam, no pre-order, no open beta, single-player offline play, no console or mobile plans right now, and no paid DLCs. The Steam page also clearly lists several major features that are planned later in Early Access rather than guaranteed on day one.
 
-This hub is built around that split. It is not trying to fake a complete life-sim wiki before launch. It is designed to answer the real user questions that exist right now: release timing, price, Mac support, build mode depth, mod support, roadmap features like pets and cars, and when it makes more sense to wait.`,
+This hub is built around that split. It is not trying to fake a complete life-sim wiki before launch. It is designed to answer the real user questions that exist right now: release timing, price, Mac and Windows requirements, languages, build mode depth, mod support, roadmap features like pets and cars, and when it makes more sense to wait.`,
   features: [
     'Official release date: May 25, 2026',
     'Early Access launch on Steam',
     'Official FAQ says PC and Mac support through Steam',
     'Official FAQ says the Early Access price is $39.99 USD',
+    'Official FAQ says there is no pre-order and no open beta phase',
+    'Official FAQ says Paralives is single-player and playable offline',
     'Official FAQ says there are no current console plans',
+    'Official FAQ says there is no phone or tablet version',
+    'Official FAQ lists 8 launch-window languages',
+    'Steam currently lists Windows and Mac system requirements',
+    'Steam says Early Access is currently expected to last about two years',
     'Steam and FAQ both confirm Steam Workshop support',
     'Script mods are not planned at the moment',
     'Pets, cars, weather, seasons, and town tools are roadmap items, not automatic launch-day assumptions',
@@ -665,6 +714,14 @@ This hub is built around that split. It is not trying to fake a complete life-si
     {
       question: 'Is Paralives coming to Mac?',
       answer: 'Yes. The official FAQ currently says Paralives will be available on Steam for PC and Mac.',
+    },
+    {
+      question: 'Can I pre-order Paralives?',
+      answer: 'No. The official FAQ says Paralives is not available for pre-order, but you can wishlist it on Steam.',
+    },
+    {
+      question: 'Can I play Paralives offline?',
+      answer: 'Yes. The official FAQ says Paralives is single-player and can be played offline.',
     },
     {
       question: 'Does Paralives support mods?',

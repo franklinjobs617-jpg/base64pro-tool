@@ -69,14 +69,15 @@ export const gameHubSeo: Record<string, PageSeo> = {
     ],
   },
   paralives: {
-    title: 'Paralives Guide Hub - Early Access, Mods & Build Mode',
+    title: 'Paralives Guide Hub - Release Date, Price & Mac',
     description:
-      'Paralives guide hub with release date, price, Mac support, build mode, Paramaker, Steam Workshop, roadmap features, pets, cars, and Early Access answers.',
+      'Paralives guide hub with May 25 Early Access release date, $39.99 price, PC and Mac requirements, no preorder, offline play, Steam Workshop, pets, cars, and roadmap answers.',
     keywords: [
       'Paralives guide',
       'Paralives release date',
       'Paralives price',
       'Paralives Mac',
+      'Paralives system requirements',
       'Paralives mods',
       'Paralives build mode',
       'Paralives pets',
@@ -140,9 +141,9 @@ export const gameHubSeo: Record<string, PageSeo> = {
     ],
   },
   'zero-parades-for-dead-spies': {
-    title: 'ZERO PARADES Guide Hub - Release Date, Skills & Buying Advice',
+    title: 'ZERO PARADES Guide Hub - Launch, Skills & Buying Advice',
     description:
-      'ZERO PARADES guide hub with May 21, 2026 PC release facts, Steam/Epic/GOG links, PS5 timing, Disco Elysium comparison, skills, Tactical View, and buying advice.',
+      'ZERO PARADES launch-day guide hub with May 21, 2026 PC timing, Steam/Epic/GOG links, PS5 timing, Steam Deck, languages, Disco Elysium comparison, skills, and buying advice.',
     keywords: [
       'ZERO PARADES guide',
       'ZERO PARADES release date',

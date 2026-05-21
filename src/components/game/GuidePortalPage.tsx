@@ -57,6 +57,7 @@ interface GuidePortalPageProps {
   lastUpdated: string;
   sections: GuideSection[];
   sectionMedia?: Record<string, GuideMedia>;
+  sectionVideos?: Record<string, GuideVideo[]>;
   videos: GuideVideo[];
   content: string;
   faqs: GuideFaq[];
@@ -103,6 +104,7 @@ export function GuidePortalPage({
   lastUpdated,
   sections,
   sectionMedia,
+  sectionVideos,
   videos,
   content,
   faqs,
@@ -330,6 +332,7 @@ export function GuidePortalPage({
                     h2: ({ children }) => {
                       const id = findSectionId(sections, children);
                       const media = id ? sectionMedia?.[id] : undefined;
+                      const videoItems = id ? sectionVideos?.[id] : undefined;
 
                       return (
                         <>
@@ -349,6 +352,40 @@ export function GuidePortalPage({
                                 {media.caption}
                               </figcaption>
                             </figure>
+                          ) : null}
+                          {videoItems?.length ? (
+                            <div className="not-prose my-5 grid gap-3 md:grid-cols-2">
+                              {videoItems.map((video) => {
+                                const youtubeId = getYouTubeId(video.url);
+
+                                return (
+                                  <article
+                                    key={`${id}-${video.url}`}
+                                    className="overflow-hidden rounded-[22px] border border-white/10 bg-black/20"
+                                  >
+                                    <div className="relative aspect-video bg-zinc-950">
+                                      {youtubeId ? (
+                                        <iframe
+                                          src={`https://www.youtube.com/embed/${youtubeId}`}
+                                          title={video.title}
+                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                          allowFullScreen
+                                          className="absolute inset-0 h-full w-full"
+                                        />
+                                      ) : null}
+                                    </div>
+                                    <div className="p-4">
+                                      <h3 className="line-clamp-2 text-sm font-medium leading-6 text-white">
+                                        {video.title}
+                                      </h3>
+                                      <p className="mt-2 text-xs text-zinc-500">
+                                        {video.channel} - {video.duration}
+                                      </p>
+                                    </div>
+                                  </article>
+                                );
+                              })}
+                            </div>
                           ) : null}
                         </>
                       );

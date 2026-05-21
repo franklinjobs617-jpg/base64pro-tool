@@ -1007,6 +1007,158 @@ function ProjectMistCommunityResearch() {
   );
 }
 
+function ZeroParadesCommunityResearch() {
+  const sections = [
+    {
+      id: 'release-date-storefronts',
+      title: 'Release searches need exact PC timing, not vague launch wording',
+      image: '/games/zero-parades-for-dead-spies/screenshots/zero-parades-screenshot-1.webp',
+      imageAlt: 'ZERO PARADES - RPG game release timing screenshot',
+      body:
+        'ZA/UM announced May 21 for PC through Steam, Epic Games Store, and GOG, with the Steam unlock window pointing to 11:00 UTC / 19:00 China Standard Time. The hub should answer the launch-day question directly while keeping PS5 2026 separate from the PC date.',
+    },
+    {
+      id: 'steam-deck-languages',
+      title: 'Steam Deck and language support are real buyer blockers',
+      image: '/games/zero-parades-for-dead-spies/screenshots/zero-parades-screenshot-3.webp',
+      imageAlt: 'ZERO PARADES - RPG game Steam Deck and language support screenshot',
+      body:
+        'The official Reddit release thread confirms Steam Deck Verified status for the full release, a $39.99 price, full English voice-over, four launch text localizations, and eight later language updates. Those details belong in the release page because players need them before buying.',
+    },
+    {
+      id: 'disco-elysium-comparison',
+      title: 'Disco Elysium comparison demand should stay careful',
+      image: '/games/zero-parades-for-dead-spies/screenshots/zero-parades-screenshot-6.webp',
+      imageAlt: 'ZERO PARADES - RPG game Disco Elysium comparison screenshot',
+      body:
+        'Reddit discussion shows both excitement and skepticism around the ZA/UM and Disco Elysium connection. The comparison page should focus on verifiable design overlap: dialogue-heavy play, skill voices, dice rolls, failure-forward outcomes, and a different espionage premise.',
+    },
+    {
+      id: 'gameplay-videos',
+      title: 'Official YouTube videos support systems pages better than route pages',
+      image: '/games/zero-parades-for-dead-spies/screenshots/zero-parades-screenshot-11.webp',
+      imageAlt: 'ZERO PARADES - RPG game Tactical View gameplay screenshot',
+      body:
+        'The Features & Gameplay Trailer, Developer Showcase, and Gameplay Deep Dive are useful for explaining operant skills, Conditioning, Dramatic Encounters, Tactical View, Pressures, and Exertion. They do not prove ending routes, best builds, or achievement paths.',
+    },
+    {
+      id: 'buy-wait-sentiment',
+      title: 'Buying advice should separate enthusiasm from proof',
+      image: '/games/zero-parades-for-dead-spies/screenshots/zero-parades-screenshot-14.webp',
+      imageAlt: 'ZERO PARADES - RPG game launch buying advice screenshot',
+      body:
+        'Community comments include day-one excitement, demo praise, art-direction praise, blind-run intent, console timing questions, and skepticism about tone. That supports a buy-or-wait page, but not a claim that player consensus is already settled.',
+    },
+  ];
+
+  const questionRows = [
+    {
+      question: 'Is ZERO PARADES out today?',
+      answer: 'Yes for PC on May 21, 2026, with the unlock window listed as 11:00 UTC / 19:00 China Standard Time. PS5 remains a later 2026 platform.',
+      source: 'Steam, SteamDB, ZA/UM Reddit release thread',
+    },
+    {
+      question: 'Is it Steam Deck Verified?',
+      answer: 'Steam and the ZA/UM Reddit release thread list the full release as Steam Deck Verified, but font comfort and battery life need player checks.',
+      source: 'Steam listing and ZA/UM Reddit replies',
+    },
+    {
+      question: 'Is it like Disco Elysium?',
+      answer: 'It shares narrative CRPG signals, skill voices, dice rolls, and failure-forward design, but public sources describe a new espionage RPG rather than Disco Elysium 2.',
+      source: 'Steam, official videos, Reddit discussion',
+    },
+    {
+      question: 'Should we publish walkthroughs today?',
+      answer: 'Not yet. Systems explainers and buyer pages are defensible now; endings, choices, achievements, and route pages need hands-on evidence after unlock.',
+      source: 'GEO content-quality review',
+    },
+  ];
+
+  return (
+    <section className="rounded-[30px] border border-white/8 bg-[#070910] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
+      <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-300">Reddit and YouTube research</p>
+      <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+        ZERO PARADES Launch-Day Content Map
+      </h2>
+      <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-400">
+        This research brief turns official Reddit posts, player questions, Steam/store facts, and ZA/UM YouTube videos into pages that can be verified today. The content plan intentionally avoids fake full-route pages until the live PC build can be tested.
+      </p>
+
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        {sections.map((section) => (
+          <article key={section.id} className="overflow-hidden rounded-[24px] border border-white/8 bg-white/[0.03]">
+            <div className="relative aspect-[16/9] bg-zinc-950">
+              <Image
+                src={section.image}
+                alt={section.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-lg font-semibold tracking-tight text-white">{section.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">{section.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-6 overflow-x-auto rounded-[24px] border border-white/10">
+        <table className="w-full min-w-[760px] border-collapse bg-black/20 text-sm">
+          <thead>
+            <tr>
+              <th className="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left font-semibold text-white">Search question</th>
+              <th className="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left font-semibold text-white">Current answer</th>
+              <th className="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left font-semibold text-white">Source cluster</th>
+            </tr>
+          </thead>
+          <tbody>
+            {questionRows.map((row) => (
+              <tr key={row.question}>
+                <td className="border-b border-white/10 px-4 py-3 align-top text-zinc-200">{row.question}</td>
+                <td className="border-b border-white/10 px-4 py-3 align-top text-zinc-400">{row.answer}</td>
+                <td className="border-b border-white/10 px-4 py-3 align-top text-zinc-400">{row.source}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-base font-semibold text-white">Sources used for this hub update</h3>
+        <ul className="mt-3 space-y-2 text-sm leading-7 text-zinc-400">
+          <li>
+            <a href={zeroParadesFacts.steamUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white">
+              Steam page for ZERO PARADES: For Dead Spies
+            </a>
+          </li>
+          <li>
+            <a href={zeroParadesFacts.redditReleaseThread} target="_blank" rel="noopener noreferrer" className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white">
+              ZA/UM Reddit release-date thread
+            </a>
+          </li>
+          <li>
+            <a href={zeroParadesFacts.redditFeaturesThread} target="_blank" rel="noopener noreferrer" className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white">
+              Reddit Features & Gameplay Trailer discussion
+            </a>
+          </li>
+          <li>
+            <a href={zeroParadesFacts.redditShowcaseThread} target="_blank" rel="noopener noreferrer" className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white">
+              Reddit Developer Showcase discussion
+            </a>
+          </li>
+          <li>
+            <a href={zeroParadesFacts.redditDeepDiveThread} target="_blank" rel="noopener noreferrer" className="text-zinc-100 underline decoration-white/20 underline-offset-4 hover:text-white">
+              Reddit Gameplay Deep Dive post
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
   const game = getGameBySlug(slug);
@@ -1447,6 +1599,7 @@ export default async function GamePage({ params }: GamePageProps) {
         answerTitle="Launch-eve answer center"
         answerCards={answerCards}
         overviewParagraphs={content.overview.split('\n\n')}
+        communityResearch={<ZeroParadesCommunityResearch />}
         guideSectionDescription="Four source-backed pages with real tables, direct FAQs, unique official images, and visible verification labels. Full walkthrough-style coverage waits until the May 21 PC build can be tested."
         guideCountLabel={`${guideCards.length} pages`}
         guideCards={guideCards.map((guide) => ({
@@ -1492,7 +1645,7 @@ export default async function GamePage({ params }: GamePageProps) {
       {
         title: 'Price and Mac support',
         href: `/game/${game.slug}/price-platforms-mac-guide`,
-        body: 'Check the $39.99 Early Access price, Mac support, no-console status, and what still lacks hard specs.',
+        body: 'Check the $39.99 Early Access price, PC and Mac support, Steam requirements, no-console status, and offline single-player answer.',
       },
       {
         title: 'Roadmap split',
@@ -1510,7 +1663,10 @@ export default async function GamePage({ params }: GamePageProps) {
       { label: 'Release date', value: paralivesFacts.displayReleaseDate, status: 'Official' },
       { label: 'Platform', value: paralivesFacts.platforms, status: 'Official' },
       { label: 'Price', value: paralivesFacts.price, status: 'FAQ-listed' },
+      { label: 'Pre-order', value: 'No pre-order; wishlist on Steam', status: 'FAQ-listed' },
+      { label: 'Play mode', value: paralivesFacts.playMode, status: 'FAQ-listed' },
       { label: 'Console', value: 'No current console plans', status: 'FAQ-listed' },
+      { label: 'Requirements', value: 'Windows and Mac specs now listed on Steam', status: 'Steam-listed' },
       { label: 'Mods', value: 'Steam Workshop plus an in-game modding interface', status: 'Official' },
       { label: 'Roadmap split', value: 'Pets, cars, weather, and town tools are later Early Access items', status: 'Steam-listed' },
     ];
@@ -1527,15 +1683,16 @@ export default async function GamePage({ params }: GamePageProps) {
           { label: paralivesFacts.displayReleaseDate },
         ]}
         title="Paralives Guide Hub"
-        description="Pre-release Paralives guides for the questions that actually matter before launch: release date, price, Mac support, build mode, Steam Workshop, and whether roadmap features like pets or cars are in the first Early Access build."
+        description="Pre-release Paralives guides for the questions that actually matter before launch: release date, $39.99 price, PC and Mac requirements, no preorder, offline play, Steam Workshop, and whether pets or cars are in the first Early Access build."
         ctas={[
           { label: 'Start Release Guide', href: `/game/${game.slug}/release-date-early-access-guide` },
           { label: 'Roadmap Guide', href: `/game/${game.slug}/early-access-roadmap-guide`, variant: 'outline' },
           { label: 'Steam', href: paralivesFacts.steamUrl, external: true, variant: 'outline' },
         ]}
         spotlightCards={[
-          { label: 'Launch model', value: 'Early Access', note: 'The right question is what is playable on day one, not what might exist later' },
+          { label: 'Launch model', value: 'Early Access', note: 'Steam says the team currently expects about two years of Early Access' },
           { label: 'Current price', value: paralivesFacts.price, note: 'The official FAQ says the price will rise after Early Access' },
+          { label: 'Store access', value: 'Wishlist only', note: 'The official FAQ says there is no pre-order and no open beta phase' },
           { label: 'Best hook', value: 'Build mode + Paramaker', note: 'Gridless construction and flexible character creation are the clearest present-tense strengths' },
         ]}
         sideNotes={[
@@ -1549,7 +1706,7 @@ export default async function GamePage({ params }: GamePageProps) {
           },
         ]}
         startHereTitle="Start here"
-        startHereIntro="The cleanest reading order for launch timing, platform and price, roadmap expectations, and build or mod interest."
+        startHereIntro="The cleanest reading order for launch timing, platform and price, requirements, roadmap expectations, and build or mod interest."
         startHere={startHere}
         answerTitle="Pre-release answer center"
         answerCards={answerCards}

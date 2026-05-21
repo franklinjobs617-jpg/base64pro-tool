@@ -37,6 +37,15 @@ interface GuideContentItem {
     string,
     { image: string; alt: string; caption: string }
   >;
+  sectionVideos?: Record<
+    string,
+    {
+      title: string;
+      url: string;
+      channel: string;
+      duration: string;
+    }[]
+  >;
   videos?: {
     title: string;
     url: string;
@@ -1392,6 +1401,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
       lastUpdated={content.lastUpdated}
       sections={content.sections}
       sectionMedia={content.sectionMedia}
+      sectionVideos={content.sectionVideos}
       videos={videoItems}
       content={content.content}
       faqs={content.faqs || []}
